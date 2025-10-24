@@ -55,3 +55,24 @@ const navLinks = document.querySelectorAll("#main-nav a");
   link.addEventListener("click", () => {
     document.getElementById("main-nav").classList.remove("show");
   });
+
+  // dark mode
+  const toggleSwitch = document.querySelector('.switch .input');
+
+  // Check saved theme
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+  }
+
+  // Listen for toggle
+  toggleSwitch.addEventListener('change', () => {
+    if (toggleSwitch.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
