@@ -21,28 +21,51 @@
     }
 
     if (postContent && slug) {
-      const post = data.posts.find(p => p.slug === slug);
-      if (post) {
-        const renderedContent = post.content.map(block => {
-          if (block.type === "paragraph") {
-            return `<p>${block.text}</p>`;
-          } else if (block.type === "heading") {
-            return `<h2>${block.text}</h2>`;
-          } else if (block.type === "list") {
-            return `<ul>${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
-          }
-          return '';
-        }).join('');
-
-        postContent.innerHTML = `
-          <h1>${post.title}</h1>
-          <img src="${post.image}" alt="${post.alt}" style="width:100%;max-height:300px;object-fit:cover;">
-          <p>${post.description}</p>
-          <div>${renderedContent}</div>
-        `;
+  const post = data.posts.find(p => p.slug === slug);
+  if (post) {
+    const renderedContent = post.content.map(block => {
+      if (block.type === "paragraph") {
+        return `<p>${block.text}</p>`;
+      } else if (block.type === "heading") {
+        return `<h2>${block.text}</h2>`;
+      } else if (block.type === "list") {
+        return `<ul>${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
       }
+      return '';
+    }).join('');
+
+    // Insert post content
+    postContent.innerHTML = `
+      <h1>${post.title}</h1>
+      <img src="${post.image}" alt="${post.alt}" style="width:100%;max-height:300px;object-fit:cover;">
+      <p>${post.description}</p>
+      <div>${renderedContent}</div>
+      <div class="share-container">
+        <h4>Share this post:</h4>
+        <div class="share-buttons">
+          <a class="facebook" href="#" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a class="twitter" href="#" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+          <a class="whatsapp" href="#" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a class="linkedin" href="#" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="telegram" href="#" target="_blank" title="Share on Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+      </div>
+    `;
+
+    // Set the dynamic share links
+    const postUrl = encodeURIComponent(window.location.href);
+    const postTitle = encodeURIComponent(post.title);
+
+    document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${postUrl}`;
+    document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?url=${postUrl}&text=${postTitle}`;
+    document.querySelector('.whatsapp').href = `https://wa.me/?text=${postTitle}%20${postUrl}`;
+    document.querySelector('.linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`;
+    document.querySelector('.telegram').href = `https://t.me/share/url?url=${postUrl}&text=${postTitle}`;
+  }
+}
+
     }
-  } catch (err) {
+   catch (err) {
     console.error("Failed to load posts", err);
   }
 });

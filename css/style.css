@@ -173,3 +173,43 @@ body {
 .contact-form button:hover {
   background: #27ae60;
 }
+.share-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.share-container h4 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.share-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.share-buttons a:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+.facebook { background-color: #1877f2; }
+.twitter { background-color: #1da1f2; }
+.whatsapp { background-color: #25d366; }
+.linkedin { background-color: #0077b5; }
+.telegram { background-color: #0088cc; }
