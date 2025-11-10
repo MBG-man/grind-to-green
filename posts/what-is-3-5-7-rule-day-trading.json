@@ -1,0 +1,106 @@
+{
+  "title": "What Is the 3-5-7 Rule in Day Trading? A Simple Guide for Smart Risk Management",
+  "slug": "what-is-3-5-7-rule-day-trading",
+  "date": "2025-11-06",
+  "description": "Learn how the 3-5-7 rule in day trading can help you control risk, protect your trading capital, and improve your profit-to-loss setup with clear, actionable steps.",
+  "image": "images/3-5-7-rule-day-trading.jpg",
+  "alt": "Trader using 3-5-7 rule for risk management on screen",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "In the fast-moving world of day trading, you might hear the term “3-5-7 Rule” (sometimes called the “5-3-7 rule”) floated around. But what does it really mean? And how can you apply it effectively whether you’re trading stocks in the U.S. or forex/commodities in Nigeria? This guide breaks it down in plain English."
+    },
+    {
+      "type": "heading",
+      "text": "What is the 3-5-7 Rule?"
+    },
+    {
+      "type": "paragraph",
+      "text": "The 3-5-7 rule is a risk-management framework designed to help traders avoid catastrophic losses while staying positioned to make profitable trades. Simply put: • 3 = Never risk more than **3%** of your total trading capital on a single trade. • 5 = Cap your **total exposure** (all open trades combined) to **5%** of your trading capital. • 7 = Ensure that your average winning trade is at least **7%** more profitable than your average losing trade (or target a 7:1 reward-to-loss ratio).  :contentReference[oaicite:1]{index=1}"
+    },
+    {
+      "type": "heading",
+      "text": "Why the Numbers Matter"
+    },
+    {
+      "type": "paragraph",
+      "text": "• **3% per trade** protects your account from being ruined by one bad move. • **5% total exposure** prevents you from over-leveraging multiple trades at once. • **7% reward relative to loss** ensures that when you win, you win big enough to make your account grow even if you lose more often than you win.  This structure is cited in multiple trading resources. :contentReference[oaicite:2]{index=2}"
+    },
+    {
+      "type": "heading",
+      "text": "How to Use the 3-5-7 Rule – Step by Step"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Step 1: Calculate 3% of your trading capital. For example, if you have $10 000 in the U.S. or ₦5 000 000 in Nigeria, your max loss per trade is $300 or ₦150 000 respectively.",
+        "Step 2: Determine your 5% limit: All open trades together shouldn’t expose more than $500 (for $10k capital) or ₦250 000 (for ₦5m capital).",
+        "Step 3: Set a trade target with at least a 7:1 profit-to-loss ratio. If you risk $300, aim to make at least $2 100. If you risk ₦150 000, aim for ₦1 050 000 or more.",
+        "Step 4: Use proper stop-loss and take-profit orders so that you never exceed the 3% risk per trade or the 5% total exposure.",
+        "Step 5: Keep a trading journal, review trades, check whether your winners meet the 7:1 ratio, and adjust your strategy accordingly."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Example – U.S. Stock Day Trade"
+    },
+    {
+      "type": "paragraph",
+      "text": "Suppose you have a $20 000 account in the U.S. 3% risk per trade = $600. You place a stock trade risking $600. Your total open trades exposure must stay below $1 000 (5% of $20k). You set a take-profit target of $4 200 ($600 x 7) to maintain the 7:1 reward ratio."
+    },
+    {
+      "type": "heading",
+      "text": "Example – Nigerian Forex/Commodity Trade"
+    },
+    {
+      "type": "paragraph",
+      "text": "Suppose you’re trading in Nigeria with ₦3 000 000 capital. 3% = ₦90 000. Your total exposure should stay within ₦150 000 (5% of ₦3m). For each trade you risk ₦90 000, you aim to earn at least ₦630 000 (₦90 000 x 7) to comply with the 7 ratio."
+    },
+    {
+      "type": "heading",
+      "text": "Benefits of the 3-5-7 Rule"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Protects your capital so you stay in the game instead of blowing your account.",
+        "Creates consistent structures instead of random guess-work trades.",
+        "Encourages high-quality setups (because you need 7:1 reward, you won’t take low-potential trades).",
+        "Applies across markets – stocks, forex, commodities – and across regions."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Common Mistakes and How to Avoid Them"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mistake: Guessing stop-loss levels after entry instead of before. Fix: Plan your stop-loss and risk per trade beforehand.",
+        "Mistake: Exceeding total exposure because you opened too many trades. Fix: Tally your full open trade risk so you never go above 5%.",
+        "Mistake: Accepting low reward trades (less than 7:1) which means you need too many wins to be profitable. Fix: Only take trades where the reward justifies the risk.",
+        "Mistake: Ignoring commissions, spreads or slippage which eat into your profit-to-loss ratio. Fix: Factor all costs into your 7:1 target."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Adapting the 3-5-7 Rule for Day Trading"
+    },
+    {
+      "type": "paragraph",
+      "text": "Day trading is faster and often more volatile than longer-term trading, so you may need to tighten the numbers depending on your style. For example, you might risk only 2% per trade and aim for a 4:1 ratio instead of 7:1 if volatility is very high. But the core principle stays: limit risk, limit exposure, and aim for enough reward."
+    },
+    {
+      "type": "heading",
+      "text": "Final Words – Discipline Wins"
+    },
+    {
+      "type": "paragraph",
+      "text": "The 3-5-7 rule isn’t a magic bullet but a powerful guideline. It trains you to think like a pro-trader: you protect your capital first, you limit your exposure, and you only take trades that make sense. Over time, that discipline will separate you from the many traders who fail."
+    },
+    {
+      "type": "paragraph",
+      "text": "Whether you’re trading from Lagos or New York, applying this rule could help you trade smarter, not just harder. Always practice in demo first, manage your emotions, and review your trades post-session."
+    }
+  ]
+}

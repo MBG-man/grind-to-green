@@ -1,0 +1,85 @@
+{
+  "title": "What Is the 3-5-7 Rule in Day Trading? A Risk-Management Strategy for Traders",
+  "slug": "3-5-7-rule-day-trading.json",
+  "date": "2025-11-06",
+  "description": "Discover how the 3-5-7 rule helps U.S. day traders limit losses, maintain discipline, and boost returns in volatile stock and options markets.",
+  "image": "images/3-5-7-rule-usa.jpg",
+  "alt": "U.S. trader using risk management on stock chart",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Every professional trader understands that controlling losses is more important than chasing profits. The 3-5-7 rule in day trading offers a simple, numbers-based approach to managing risk in the fast-moving U.S. stock and options markets."
+    },
+    {
+      "type": "heading",
+      "text": "Breaking Down the 3-5-7 Rule"
+    },
+    {
+      "type": "list",
+      "items": [" 3 = Never risk more than 3% of your total capital on a single trade.",
+      " 5 = Keep your total exposure across open trades under 5%.",
+       " 7 = Target at least a 7:1 profit-to-loss ratio on every trade. For instance, if you risk $500, your potential gain should be around $3 500."]
+    },
+    {
+      "type": "heading",
+      "text": "Why It’s Popular Among U.S. Day Traders"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Fits perfectly with FINRA’s Pattern Day Trader (PDT) rule by encouraging small, controlled trades.",
+        "Improves account longevity losing trades don’t destroy capital.",
+        "Allows consistent compounding growth even with modest win rates.",
+        "Works well in volatile markets like tech stocks or index futures."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Example: U.S. Stock Trader Using the 3-5-7 Rule"
+    },
+    {
+      "type": "paragraph",
+      "text": "Imagine you have a $20 000 trading account. You risk 3% per trade ($600). You can have multiple trades open, but their combined exposure should not exceed $1 000 (5% of your account). Each trade should aim for at least $4 200 profit ($600 x 7)."
+    },
+    {
+      "type": "heading",
+      "text": "Practical Tools for U.S. Traders"
+    },
+    {
+      "type": "list",
+      "items": [
+        "ThinkorSwim or TradeStation for precise order control.",
+        "TradingView for multi-chart analysis.",
+        "Interactive Brokers or Webull for low-commission trading.",
+        "Excel or Notion for maintaining a trading journal."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Mistakes to Avoid"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Overtrading during high volatility sessions.",
+        "Ignoring commissions, which affect profit-to-loss ratios.",
+        "Moving stop-losses instead of accepting small losses.",
+        "Chasing trades without a clear 7:1 setup."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Final Thoughts"
+    },
+    {
+      "type": "paragraph",
+      "text": "The 3-5-7 rule is not a trading system it’s a discipline framework. It forces you to think about your risk before placing any trade. Master that discipline, and you’ll already be ahead of 90% of traders who lose because they ignore risk."
+    },
+    {
+      "type": "paragraph",
+      "text": "Whether you’re trading NASDAQ stocks or futures contracts, applying this principle can make your strategy more consistent and your mindset more professional."
+    }
+  ]
+}
+
+
