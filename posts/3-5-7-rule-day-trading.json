@@ -3,7 +3,7 @@
   "slug": "3-5-7-rule-day-trading.json",
   "date": "2025-11-06",
   "description": "Discover how the 3-5-7 rule helps U.S. day traders limit losses, maintain discipline, and boost returns in volatile stock and options markets.",
-  "image": "images/3-5-7-rule-usa.jpg",
+  "image": "images/5-3-7trading.jpg",
   "alt": "U.S. trader using risk management on stock chart",
   "content": [
     {
@@ -78,7 +78,17 @@
     {
       "type": "paragraph",
       "text": "Whether you’re trading NASDAQ stocks or futures contracts, applying this principle can make your strategy more consistent and your mindset more professional."
-    }
+    },
+    
+        { "type": "heading",
+          "text": " explore "
+
+        },
+        { "type":"list",
+          "items": [ "<a href='post.html?slug=online-hustles-no-skills-no-investment'> 15 Online Side Hustles You Can Start With Zero Skills or Investment </a> ",
+                      "<a href='post.html?slug=smart-budgeting-hacks-2025'> 10 free ways to start earning passive income with zero dollar investment </a> ",
+                      "<a href='post.html?slug=passive-income-no-money'> 10 Free Ways to Start Earning Passive Income in 2025 (Even With $0) </a>"]}
+ 
   ]
 }
 

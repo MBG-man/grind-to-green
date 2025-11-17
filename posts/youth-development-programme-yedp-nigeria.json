@@ -3,7 +3,7 @@
   "slug": "youth-development-programme-yedp-nigeria",
   "date": "2025-10-28",
   "description": "How the Youth Entrepreneurship Development Programme (YEDP) from the Central Bank of Nigeria supports young entrepreneurs with loans, training and business growth opportunities.",
-  "image": "images/yedp-youth-entrepreneurship-development-programme.jpg",
+  "image": "images/pryedpogramme.jpg",
   "alt": "Young Nigerian entrepreneurs under YEDP training and support",
   "content": [
     {
@@ -24,7 +24,7 @@
     },
     {
       "type": "paragraph",
-      "text": "When youth have viable businesses, the entire economy benefits. YEDP ties into broader goals of economic diversification, reducing youth unemployment, strengthening the non-oil sector and supporting small and medium enterprises (SMEs). For example, one bank participation noted that through YEDP it intends to empower youth entrepreneurs in Abia State with loans and training. :contentReference[oaicite:3]{index=3}"
+      "text": "When youth have viable businesses, the entire economy benefits. YEDP ties into broader goals of economic diversification, reducing youth unemployment, strengthening the non-oil sector and supporting small and medium enterprises (SMEs). For example, one bank participation noted that through YEDP it intends to empower youth entrepreneurs in Abia State with loans and training."
     },
     {
       "type": "heading",
@@ -90,7 +90,7 @@
         "Prepare a clear business plan showing viability, income prospects and job creation potential.",
         "Choose sectors aligned with YEDP priority areas (agriculture, ICT, creative industries) rather than purely trading.",
         "Ensure your documents are complete, correct and verifiable (NYSC, certificate, ID, etc).",
-        "Consider applying as a group (3-5 youth) if you have a strong shared business idea — this may unlock higher funding limits.",
+        "Consider applying as a group (3-5 youth) if you have a strong shared business idea this may unlock higher funding limits.",
         "Use the training/mentorship provided as part of the programme this shows commitment and may improve your proposal's strength."
       ]
     },
@@ -122,5 +122,16 @@
     {
       "type": "paragraph",
       "text": "And if you’re juggling side hustles while building your business, our article <a href='post.html?slug=online-hustles-no-skills-no-investment'>Best Weekend Side Hustles for Busy 9-5 Workers</a> may give you extra income ideas to support your venture."
-     } 
+     },
+     {
+    "type":"heading",
+    "text": "you may like:"
+},
+    { "type":"list",
+          "items": [ "<a href='post.html?slug=crypto-investing-for-beginners-2025'> Crypto Investing for Beginners: What You Need to Know in 2025 </a> ",
+                      "<a href='post.html?slug=crypto-scams-and-mistakes'> Avoid These 7 Common Crypto Scams and Mistakes </a> ",
+            "<a href='post.html?slug=nfts-defi-real-talk'>Cutting Through the Crypto Hype (A Real Talk Guide) </a>",
+            "<a href='post.html?slug=crypto-investment-plan-risk'>How to Build a Smarter Crypto Portfolio (Without Losing Sleep)</a>",
+             "<a href='post.html?slug=passive-income-no-money'>10 Free Ways to Start Earning Passive Income in 2025 (Even With $0)</a>"
+                          ]} 
   ]}
