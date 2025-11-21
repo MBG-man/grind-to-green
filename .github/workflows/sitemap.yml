@@ -1,0 +1,29 @@
+name: Generate sitemap
+
+on:
+  push:
+    branches:
+      - main   # or your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://grindtogreen.com/
+          include-html: true
+          include-xml: false
+          include-markdown: false
+
+      - name: Upload generated sitemap
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-generate sitemap"
