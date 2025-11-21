@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const slug = new URLSearchParams(window.location.search).get("slug");
 
   // ============================
+ // 
   // 🟩 FUNCTION: Load all posts
   // ============================
   async function loadPosts() {
@@ -125,25 +126,3 @@ document.querySelectorAll("#main-nav a").forEach(link => {
     document.getElementById("main-nav")?.classList.remove("show");
   });
 });
-
-// ============================
-// 🌙 DARK MODE TOGGLE
-// ============================
-const toggleSwitch = document.querySelector('.switch input');
-
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-  if (toggleSwitch) toggleSwitch.checked = true;
-}
-
-if (toggleSwitch) {
-  toggleSwitch.addEventListener('change', () => {
-    if (toggleSwitch.checked) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-}
