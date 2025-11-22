@@ -21,13 +21,13 @@ jobs:
           echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > sitemap.xml
           echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" >> sitemap.xml
 
-          # Add homepage
+          # Homepage
           echo "<url><loc>https://grindtogreen.com/</loc></url>" >> sitemap.xml
 
-          # Loop all JSON posts inside /post/
-          for file in post/*.json; do
+          # Loop all JSON posts inside /posts/
+          for file in posts/*.json; do
             filename=$(basename "$file" .json)
-            echo "<url><loc>https://grindtogreen.com/post/${filename}</loc></url>" >> sitemap.xml
+            echo "<url><loc>https://grindtogreen.com/posts/${filename}</loc></url>" >> sitemap.xml
           done
 
           echo "</urlset>" >> sitemap.xml
