@@ -2,28 +2,40 @@ name: Generate sitemap
 
 on:
   push:
-    branches:
-      - main   # or your default branch
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Generate sitemap
-        uses: cicirello/generate-sitemap@v1
-        with:
-          base-url-path: https://grindtogreen.com/
-          include-html: true
-          include-xml: false
-          include-markdown: false
+      - name: Generate sitemap.xml
+        run: |
+          echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > sitemap.xml
+          echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" >> sitemap.xml
 
-      - name: Upload generated sitemap
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Auto-generate sitemap"
+          # Add homepage
+          echo "<url><loc>https://grindtogreen.com/</loc></url>" >> sitemap.xml
+
+          # Loop all JSON posts inside /post/
+          for file in post/*.json; do
+            filename=$(basename "$file" .json)
+            echo "<url><loc>https://grindtogreen.com/post/${filename}</loc></url>" >> sitemap.xml
+          done
+
+          echo "</urlset>" >> sitemap.xml
+
+      - name: Commit sitemap.xml
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add sitemap.xml
+          git commit -m "Update sitemap.xml" || echo "No changes to commit"
+          git push
