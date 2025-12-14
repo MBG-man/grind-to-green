@@ -24,10 +24,17 @@ jobs:
           # Homepage
           echo "<url><loc>https://grindtogreen.com/</loc></url>" >> sitemap.xml
 
-          # Loop all JSON posts inside /posts/
+          # Loop all JSON blog posts in /posts/
           for file in posts/*.json; do
             filename=$(basename "$file" .json)
             echo "<url><loc>https://grindtogreen.com/posts/${filename}</loc></url>" >> sitemap.xml
+          done
+
+          # Loop all pages in /pages/
+          for file in pages/*; do
+            basename=$(basename "$file")
+            name="${basename%.*}"   # remove extension
+            echo "<url><loc>https://grindtogreen.com/pages/${name}</loc></url>" >> sitemap.xml
           done
 
           echo "</urlset>" >> sitemap.xml
