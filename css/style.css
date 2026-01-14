@@ -57,6 +57,17 @@ body {
 }
 
 /* Responsive Behavior */
+/* DESKTOP DEFAULT */
+#main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: static;
+  background: transparent;
+}
+
 @media (max-width: 768px) {
   #main-nav {
     display: none;
@@ -68,7 +79,7 @@ body {
     background-color: white;
     border-top: 1px solid #ddd;
   }
-
+  
   #main-nav a {
     margin: 0;
     padding: 12px 20px;
