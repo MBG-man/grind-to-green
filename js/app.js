@@ -126,3 +126,24 @@ document.querySelectorAll("#main-nav a").forEach(link => {
     document.getElementById("main-nav")?.classList.remove("show");
   });
 });
+// GOOGLE FAQ
+if (post.faq && post.faq.length > 0) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.faq.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(script);
+}
+   
