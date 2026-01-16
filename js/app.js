@@ -93,6 +93,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector(".whatsapp").href = `https://wa.me/?text=${postTitle}%20${postUrl}`;
     document.querySelector(".linkedin").href = `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`;
     document.querySelector(".telegram").href = `https://t.me/share/url?url=${postUrl}&text=${postTitle}`;
+    // ============================
+// GOOGLE FAQ SCHEMA (FIXED)
+// ============================
+if (post.faq && post.faq.length > 0) {
+
+  // Remove old schema (important for SPA navigation)
+  document
+    .querySelectorAll('script[type="application/ld+json"]')
+    .forEach(s => s.remove());
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.faq.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(script);
+}
+
   }
 
   // ============================
@@ -126,24 +155,3 @@ document.querySelectorAll("#main-nav a").forEach(link => {
     document.getElementById("main-nav")?.classList.remove("show");
   });
 });
-// GOOGLE FAQ
-if (post.faq && post.faq.length > 0) {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": post.faq.map(item => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer
-      }
-    }))
-  };
-
-  const script = document.createElement("script");
-  script.type = "application/ld+json";
-  script.textContent = JSON.stringify(faqSchema);
-  document.head.appendChild(script);
-}
-   
