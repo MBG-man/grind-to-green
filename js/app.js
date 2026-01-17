@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </a>
       </div>
     `).join('');
+    
   }
 
   // ============================
@@ -58,6 +59,36 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ============================
   function displaySinglePost(post) {
     if (!postContent) return;
+    // ============================
+// 🟦 AUTO META TAGS (SEO + CTR)
+// ============================
+
+// Update page title
+document.title = post.title;
+
+// Create or update meta description
+let metaDesc = document.querySelector("meta[name='description']");
+if (!metaDesc) {
+  metaDesc = document.createElement("meta");
+  metaDesc.name = "description";
+  document.head.appendChild(metaDesc);
+}
+metaDesc.setAttribute("content", post.description);
+
+// ============================
+
+// 🟦 CANONICAL TAG (SEO)
+// ============================
+let canonical = document.querySelector("link[rel='canonical']");
+if (!canonical) {
+  canonical = document.createElement("link");
+  canonical.rel = "canonical";
+  document.head.appendChild(canonical);
+}
+canonical.href = window.location.origin + "/post.html?slug=" + post.slug;
+
+
+
 
     const renderedContent = post.content.map(block => {
       if (block.type === "paragraph") return `<p>${block.text}</p>`;
