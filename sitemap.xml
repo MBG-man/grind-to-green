@@ -1,29 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://grindtogreen.com/</loc></url>
-<url><loc>https://grindtogreen.com/posts/3-5-7-rule-day-trading</loc></url>
-<url><loc>https://grindtogreen.com/posts/75-15-10-budget-rule</loc></url>
-<url><loc>https://grindtogreen.com/posts/best-trading-strategies-2025</loc></url>
-<url><loc>https://grindtogreen.com/posts/crypto-investment-plan-risk</loc></url>
-<url><loc>https://grindtogreen.com/posts/crypto-scams-and-mistakes</loc></url>
-<url><loc>https://grindtogreen.com/posts/fastest-way-to-save-10000</loc></url>
-<url><loc>https://grindtogreen.com/posts/index</loc></url>
-<url><loc>https://grindtogreen.com/posts/is-50-30-20-rule-good</loc></url>
-<url><loc>https://grindtogreen.com/posts/is-trading-a-form-of-gambling</loc></url>
-<url><loc>https://grindtogreen.com/posts/is-trading-halal-or-haram-islamic-guide</loc></url>
-<url><loc>https://grindtogreen.com/posts/nelfund-application-mistakes-to-avoid</loc></url>
-<url><loc>https://grindtogreen.com/posts/nelfund-govt</loc></url>
-<url><loc>https://grindtogreen.com/posts/nfts-defi-real-talk</loc></url>
-<url><loc>https://grindtogreen.com/posts/online-hustles-no-skills-no-investment</loc></url>
-<url><loc>https://grindtogreen.com/posts/passive-income-no-money</loc></url>
-<url><loc>https://grindtogreen.com/posts/smart-budgeting-hacks-2025</loc></url>
-<url><loc>https://grindtogreen.com/posts/understanding-50-30-20-rule-budgeting</loc></url>
-<url><loc>https://grindtogreen.com/posts/what-is-3-5-7-rule-day-trading</loc></url>
-<url><loc>https://grindtogreen.com/posts/what-is-the-four-walls-budget</loc></url>
-<url><loc>https://grindtogreen.com/posts/youth-development-programme-yedp-nigeria</loc></url>
-<url><loc>https://grindtogreen.com/posts/zero-based-budgeting-explained</loc></url>
-<url><loc>https://grindtogreen.com/pages/about</loc></url>
-<url><loc>https://grindtogreen.com/pages/contact</loc></url>
-<url><loc>https://grindtogreen.com/pages/privacy</loc></url>
-<url><loc>https://grindtogreen.com/pages/terms</loc></url>
+
+  <!-- HOME -->
+  <url>
+    <loc>https://grindtogreen.com/</loc>
+  </url>
+
+  <!-- BLOG POSTS -->
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=3-5-7-rule-day-trading</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=75-15-10-budget-rule</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=best-trading-strategies-2025</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=crypto-investment-plan-risk</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=crypto-scams-and-mistakes</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=fastest-way-to-save-10000</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=is-50-30-20-rule-good</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=is-trading-a-form-of-gambling</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=is-trading-halal-or-haram-islamic-guide</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=nelfund-application-mistakes-to-avoid</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=nelfund-govt</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=nfts-defi-real-talk</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=online-hustles-no-skills-no-investment</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=passive-income-no-money</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=smart-budgeting-hacks-2025</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=understanding-50-30-20-rule-budgeting</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=what-is-3-5-7-rule-day-trading</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=what-is-the-four-walls-budget</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=youth-development-programme-yedp-nigeria</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/post.html?slug=zero-based-budgeting-explained</loc>
+  </url>
+
+  <!-- STATIC PAGES -->
+  <url>
+    <loc>https://grindtogreen.com/pages/about.html</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/pages/contact.html</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/pages/privacy.html</loc>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/pages/terms.html</loc>
+  </url>
+
 </urlset>
