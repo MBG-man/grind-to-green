@@ -82,7 +82,7 @@ metaDesc.setAttribute("content", post.description);
 let canonical = document.querySelector("link[rel='canonical']");
 if (!canonical) {
   canonical = document.createElement("link");
-  canonical.rel = "canonical";
+  canonical.rel = "canonical";   
   document.head.appendChild(canonical);
 }
 canonical.href = window.location.origin + "/post.html?slug=" + post.slug;

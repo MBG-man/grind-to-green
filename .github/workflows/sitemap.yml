@@ -14,35 +14,35 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate sitemap.xml
         run: |
-          echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > sitemap.xml
-          echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" >> sitemap.xml
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
           # Homepage
-          echo "<url><loc>https://grindtogreen.com/</loc></url>" >> sitemap.xml
+          echo '<url><loc>https://grindtogreen.com/</loc></url>' >> sitemap.xml
 
-          # Loop all JSON blog posts in /posts/
+          # Blog posts (JSON → slug → post.html?slug=)
           for file in posts/*.json; do
-            filename=$(basename "$file" .json)
-            echo "<url><loc>https://grindtogreen.com/posts/${filename}</loc></url>" >> sitemap.xml
+            slug=$(jq -r '.slug' "$file")
+            echo "<url><loc>https://grindtogreen.com/post.html?slug=$slug</loc></url>" >> sitemap.xml
           done
 
-          # Loop all pages in /pages/
-          for file in pages/*; do
-            basename=$(basename "$file")
-            name="${basename%.*}"   # remove extension
-            echo "<url><loc>https://grindtogreen.com/pages/${name}</loc></url>" >> sitemap.xml
+          # Static pages
+          for file in pages/*.html; do
+            page=$(basename "$file")
+            name="${page%.html}"
+            echo "<url><loc>https://grindtogreen.com/pages/$name</loc></url>" >> sitemap.xml
           done
 
-          echo "</urlset>" >> sitemap.xml
+          echo '</urlset>' >> sitemap.xml
 
       - name: Commit sitemap.xml
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
           git add sitemap.xml
-          git commit -m "Update sitemap.xml" || echo "No changes to commit"
+          git commit -m "Auto update sitemap.xml" || echo "No changes"
           git push
