@@ -34,13 +34,13 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: #c9fce0;
+  background-color: #0F3D2E;
 }
 
 
 #main-nav a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: 500;
   margin-left: 20px;
   transition: color 0.3s;
@@ -107,8 +107,8 @@ body {
 .footer {
   text-align: center;
   padding: 1rem;
-  background: #18d341;
-  color: white;
+  background: #0F3D2E;
+  color: #ffffff;
 }
 .text-section {
   max-width: 900px;      /* nice wide text on large screens */
