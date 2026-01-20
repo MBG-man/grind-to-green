@@ -54,6 +54,8 @@ body {
   display: none;
   font-size: 28px;
   cursor: pointer;
+  color: #ffffff;
+  background-color: #0F3D2E;
 }
 
 /* Responsive Behavior */
@@ -76,7 +78,7 @@ body {
     top: 60px;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: #0F3D2E;
     border-top: 1px solid #ddd;
   }
   

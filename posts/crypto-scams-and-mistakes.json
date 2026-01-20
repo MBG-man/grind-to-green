@@ -1,7 +1,7 @@
 {"title": "Avoid These 7 Common Crypto Scams and Mistakes",
   "slug": "crypto-scams-and-mistakes",
   "date": "2025-05-15",
-  "description":"Avoid costly crypto mistakes. Learn how to spot common cryptocurrency scams and beginner errors before they wipe out your entire investment.🚨",
+  "description": "Avoid costly crypto mistakes. Learn how to spot common cryptocurrency scams and beginner errors before they wipe out your entire investment.🚨",
   "image": "images/cryptoscam.jpg",
   "alt": "Person looking concerned while checking crypto wallet on a phone",
   "content": [
@@ -63,4 +63,26 @@
             "<a href='post.html?slug=nfts-defi-real-talk'>Cutting Through the Crypto Hype (A Real Talk Guide) </a>",
             "<a href='post.html?slug=crypto-investment-plan-risk'>How to Build a Smarter Crypto Portfolio (Without Losing Sleep)</a>",
              "<a href='post.html?slug=passive-income-no-money'>10 Free Ways to Start Earning Passive Income in 2025 (Even With $0)</a>"]}
-  ]}
+  ],  
+"faq": [
+  {
+    "question": "What are common cryptocurrency scams?",
+    "answer": "Common scams include fake giveaways, phishing attacks, rug pulls, and impersonation scams."
+  },
+  {
+    "question": "Why do beginners lose money in crypto?",
+    "answer": "Beginners often lose money due to lack of research, emotional decisions, and falling for scams."
+  },
+  {
+    "question": "How can I identify a crypto scam?",
+    "answer": "Scams often promise guaranteed returns, pressure quick action, and lack transparency."
+  },
+  {
+    "question": "Are all new crypto projects scams?",
+    "answer": "No, but beginners should research thoroughly before investing in new projects."
+  },
+  {
+    "question": "How can I protect my crypto investments?",
+    "answer": "Use secure wallets, verify sources, avoid unrealistic promises, and never share private keys."
+  }
+]}

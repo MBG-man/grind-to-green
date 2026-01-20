@@ -33,4 +33,27 @@
         "items": ["<a href='post.html?slug=online-hustles-no-skills-no-investment'> 15 Online Side Hustles You Can Start With Zero Skills or Investment </a> ",
                       "<a href='post.html?slug=smart-budgeting-hacks-2025'> 10 free ways to start earning passive income with zero dollar investment </a> ",
                       "<a href='post.html?slug=passive-income-no-money'> 10 Free Ways to Start Earning Passive Income in 2025 (Even With $0) </a>"]}
-      ]}
+      ],
+    "faq": [
+  {
+    "question": "Can I really earn money online with no experience?",
+    "answer": "Yes, many online hustles are designed for beginners and do not require prior experience to get started."
+  },
+  {
+    "question": "Do these online hustles require startup capital?",
+    "answer": "No, these online hustles can be started with little to no money, often using just a smartphone or computer."
+  },
+  {
+    "question": "Are online hustles legit or scams?",
+    "answer": "Many online hustles are legitimate, but beginners should research platforms carefully to avoid scams."
+  },
+  {
+    "question": "How long does it take to start earning online?",
+    "answer": "Some hustles can generate income within days or weeks, while others take longer to grow depending on effort and consistency."
+  },
+  {
+    "question": "Are online hustles suitable for students and beginners?",
+    "answer": "Yes, these hustles are beginner-friendly and suitable for students, stay-at-home parents, and anyone looking to earn extra income."
+  }
+]
+}

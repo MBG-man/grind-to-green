@@ -113,5 +113,28 @@
             "<a href='post.html?slug=crypto-investment-plan-risk'>How to Build a Smarter Crypto Portfolio (Without Losing Sleep)</a>",
              "<a href='post.html?slug=passive-income-no-money'>10 Free Ways to Start Earning Passive Income in 2025 (Even With $0)</a>"
                           ]}
-  ]
+  ],
+  "faq": [
+  {
+    "question": "What is the 3-5-7 rule in trading?",
+    "answer": "The 3-5-7 rule is a risk management strategy that limits losses and sets profit targets to protect trading capital."
+  },
+  {
+    "question": "Does the 3-5-7 rule reduce trading losses?",
+    "answer": "Yes, it helps traders control risk, avoid emotional decisions, and prevent large drawdowns."
+  },
+  {
+    "question": "Is the 3-5-7 rule suitable for beginners?",
+    "answer": "Yes, beginners benefit from the rule because it enforces discipline and prevents overtrading."
+  },
+  {
+    "question": "Can the 3-5-7 rule improve profitability?",
+    "answer": "While it does not guarantee profits, it improves consistency by controlling losses and protecting capital."
+  },
+  {
+    "question": "Can the 3-5-7 rule be used in crypto and forex?",
+    "answer": "Yes, the rule can be applied to stocks, forex, and crypto markets with proper adjustments."
+  }
+]
+
 }
