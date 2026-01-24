@@ -90,17 +90,31 @@ canonical.href = window.location.origin + "/post.html?slug=" + post.slug;
 
 
 
-    const renderedContent = post.content.map(block => {
-      if (block.type === "paragraph") return `<p>${block.text}</p>`;
-      if (block.type === "heading") return `<h2>${block.text}</h2>`;
-      if (block.type === "list")
-        return `<ul>${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
-      return "";
-    }).join("");
+   const renderedContent = post.content.map(block => {
+  if (block.type === "paragraph") return `<p>${block.text}</p>`;
+
+  if (block.type === "heading") return `<h2>${block.text}</h2>`;
+
+  if (block.type === "list") {
+    return `<ul>${block.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+  }
+
+ if (block.type === "image") {
+  return `
+    <figure class="post-image">
+      <img class="responsive-img" src="${block.src}" alt="${block.alt}" loading="lazy">
+      ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
+    </figure>
+  `;
+}
+
+
+  return "";
+}).join("");
 
     postContent.innerHTML = `
       <h1>${post.title}</h1>
-      <img src="${post.image}" alt="${post.alt}" style="width:100%;max-height:300px;object-fit:cover;">
+      <img src="${post.image}" alt="${post.alt}" style="width:100%;max-height:auto;object-fit:cover;">
       <p>${post.description}</p>
       <div>${renderedContent}</div>
       <div class="share-container">

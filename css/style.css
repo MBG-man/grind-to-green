@@ -226,3 +226,31 @@ body {
 .whatsapp { background-color: #25d366; }
 .linkedin { background-color: #0077b5; }
 .telegram { background-color: #0088cc; }
+/* Responsive images inside blog posts */
+#post-content img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 16px auto;
+  border-radius: 12px;
+}
+
+/* Optional: nice spacing for figure + caption */
+.post-image {
+  margin: 18px 0;
+}
+
+.post-image figcaption {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-top: 8px;
+  text-align: center;
+}
+.responsive-img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
