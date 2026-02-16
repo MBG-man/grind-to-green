@@ -32,6 +32,38 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ============================
+  function renderTable(block) {
+  const headers = Array.isArray(block.headers) ? block.headers : [];
+  const rows = Array.isArray(block.rows) ? block.rows : [];
+
+  const thead = `
+    <thead>
+      <tr>
+        ${headers.map(h => `<th>${h}</th>`).join("")}
+      </tr>
+    </thead>
+  `;
+
+  const tbody = `
+    <tbody>
+      ${rows.map(row => `
+        <tr>
+          ${(Array.isArray(row) ? row : []).map(cell => `<td>${cell}</td>`).join("")}
+        </tr>
+      `).join("")}
+    </tbody>
+  `;
+
+  return `
+    <div class="table-wrapper">
+      <table class="post-table">
+        ${thead}
+        ${tbody}
+      </table>
+    </div>
+  `;
+}
+
   // 🟦 FUNCTION: Display posts on homepage
   // ============================
   function displayPosts(posts) {
@@ -59,9 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ============================
   function displaySinglePost(post) {
     if (!postContent) return;
-    // ============================
-// 🟦 AUTO META TAGS (SEO + CTR)
-// ============================
 
 // Update page title
 document.title = post.title;
@@ -106,6 +135,9 @@ canonical.href = window.location.origin + "/post.html?slug=" + post.slug;
       ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
     </figure>
   `;
+}
+if (block.type === "table") {
+  return renderTable(block);
 }
 
 
