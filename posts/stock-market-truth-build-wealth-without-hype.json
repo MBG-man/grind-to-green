@@ -1,13 +1,14 @@
 {
   "title": "The Stock Market Truth: How Real People Quietly Build Wealth (While Most Lose Money Chasing Hype)",
   "slug": "stock-market-truth-build-wealth-without-hype",
-  "meta_description": "Tired of losing money in stocks? Discover the real-life, experience-based strategy ordinary people use to build wealth safely in the stock market — without gambling, hype, or unrealistic promises.",
-  "author": "Mubarak Isa",
-  "author_title": "Personal Finance & Market Education Writer",
+   "date": "2026-02-22",
+  "meta_description": "Tired of losing money in stocks? Discover the real-life, experience-based strategy ordinary people use to build wealth safely in the stock market without gambling, hype, or unrealistic promises.",
+  "image": "/images/stockmkt.jpeg",
+  "alt": "Trader focusing on disciplined risk management and probability-based trading",
   "content": [
     {
       "type": "heading",
-      "text": "Before We Begin — Let Me Be Honest"
+      "text": "Before We Begin Let Me Be Honest"
     },
     {
       "type": "paragraph",
@@ -69,11 +70,11 @@
     },
     {
       "type": "paragraph",
-      "text": "If the company grows, earns profits, and expands — your piece becomes more valuable."
+      "text": "If the company grows, earns profits, and expands your piece becomes more valuable."
     },
     {
       "type": "paragraph",
-      "text": "If it struggles — your piece loses value."
+      "text": "If it struggles your piece loses value."
     },
     {
       "type": "paragraph",
@@ -126,6 +127,12 @@
         ["The Strategic Path", "“I follow a plan.”", "Buys based on research and patience", "Slow, steady compounding"]
       ]
     },
+     {
+    "type": "image",
+    "src": "images/two-types-stock-market.jpeg",
+    "alt": "Comparison graphic showing an emotional investor versus a strategic investor in the stock market, highlighting mindset, behavior, and results.",
+    "caption": "Two paths: emotional reactions vs strategic investing."
+  },
     {
       "type": "paragraph",
       "text": "Most people think they’re investing. Many are actually speculating emotionally."
@@ -133,7 +140,7 @@
 
     {
       "type": "heading",
-      "text": "Trading vs Investing — Know What You’re Doing"
+      "text": "Trading vs Investing Know What You’re Doing"
     },
     {
       "type": "table",
@@ -413,10 +420,10 @@
     {
       "type": "paragraph",
       "text": "You can pick a good company and still lose money if you panic sell. Behavior matters more than brilliance."
-    }
+    },
     {
-      "type": "faq",
-      "items": [
+      "faq":
+       [
         {
           "question": "Is the stock market safe for beginners?",
           "answer": "It can be relatively safe when you invest long-term in diversified funds and avoid speculative behavior. However, all investing involves risk."
