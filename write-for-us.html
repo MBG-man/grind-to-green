@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write For Us – Finance, Crypto & Investing</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: #e5e7eb;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #22c55e;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* CARDS */
+.card {
+  background: #1e293b;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* LIST */
+ul {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* PRICING */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.price-box {
+  background: #020617;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.price-box h3 {
+  color: #22c55e;
+}
+
+.price {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+/* BUTTON */
+.btn {
+  background: #22c55e;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #16a34a;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  margin-top: 40px;
+}
+
+/* ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">GrindToGreen</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/write-for-us.html">Write For Us</a>
+    <a href="pages/contact.html">Contact</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Write For Us</h1>
+  <p>Finance, Crypto & Investing Guest Posts</p>
+</div>
+
+<div class="container">
+
+  <div class="card fade">
+    <h2>About</h2>
+    <p>We accept high-quality guest posts and sponsored articles in finance, cryptocurrency, investing, and online income niches.</p>
+  </div>
+
+  <div class="card fade">
+    <h2>Topics We Accept</h2>
+    <ul>
+      <li>Personal Finance</li>
+      <li>Cryptocurrency</li>
+      <li>Investing</li>
+      <li>Fintech</li>
+      <li>Trading</li>
+      <li>Side Hustles</li>
+    </ul>
+  </div>
+
+  <div class="card fade">
+    <h2>Guidelines</h2>
+    <ul>
+      <li>Minimum 1000 words</li>
+      <li>Original content only</li>
+      <li>1-2 backlinks allowed</li>
+      <li>No spam or illegal content</li>
+    </ul>
+  </div>
+
+  <!-- PRICING -->
+  <div class="card fade">
+    <h2>Pricing</h2>
+    <div class="pricing">
+      <div class="price-box">
+        <h3>Guest Post</h3>
+        <p class="price">$65</p>
+        <p>Permanent post with dofollow link</p>
+      </div>
+
+      <div class="price-box">
+        <h3>Link Insert</h3>
+        <p class="price">$35</p>
+        <p>Add link to existing article</p>
+      </div>
+
+      <div class="price-box">
+        <h3>Homepage Feature</h3>
+        <p class="price">$20</p>
+        <p>Extra visibility</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="card fade" style="text-align:center;">
+    <h2>Submit Your Article</h2>
+    <p>Email us at:</p>
+    <p style="color:#22c55e; font-weight:bold;">contact@grindtogreen.com</p>
+    <br>
+    <button class="btn" onclick="copyEmail()">Copy Email</button>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Guest posts and sponsored collaborations welcome | GrindToGreen
+</div>
+
+<script>
+function copyEmail() {
+  navigator.clipboard.writeText("contact@grindtogreen.com");
+  alert("Email copied!");
+}
+
+/* Fade animation */
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  fades.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
