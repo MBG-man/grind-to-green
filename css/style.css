@@ -298,3 +298,355 @@ body {
   font-weight: 600;
   color: #374151;
 }
+/* About Page UI Upgrade */
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.about-card {
+  max-width: 900px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  line-height: 1.7;
+}
+
+.about-card h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #10b981;
+}
+
+.about-card h2 {
+  margin-top: 25px;
+  color: #065f46;
+}
+
+.about-card h3 {
+  margin-bottom: 5px;
+}
+
+.lead {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.highlight {
+  background: #d1fae5;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.box {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  background: #ecfdf5;
+}
+
+.clean-list {
+  list-style: none;
+  padding: 0;
+}
+
+.clean-list li {
+  margin: 8px 0;
+}
+
+.note {
+  background: #fef3c7;
+  padding: 10px;
+  border-radius: 8px;
+}
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(135deg, #10b981, #065f46);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: white;
+  color: #065f46;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+/* AUTHOR SECTION */
+.author {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.author-card {
+  max-width: 800px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.trust-note {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #065f46;
+}
+
+/* NEWSLETTER */
+.newsletter {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.newsletter-box {
+  background: #065f46;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.newsletter input {
+  padding: 10px;
+  width: 60%;
+  border: none;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.newsletter button {
+  padding: 10px 15px;
+  background: #10b981;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+} 
+/* PRIVACY PAGE UI UPGRADE */
+
+#privacy-policy {
+  padding: 40px 15px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.privacy-container {
+  max-width: 900px;
+  margin: auto;
+  color: #e5e7eb;
+}
+
+#privacy-policy h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.effective-date {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #94a3b8;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+/* Card style */
+.policy-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease;
+}
+
+.policy-card:hover {
+  transform: translateY(-5px);
+  border-color: #22c55e;
+}
+
+.policy-card h2 {
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.policy-card p,
+.policy-card li {
+  line-height: 1.6;
+  color: #cbd5f5;
+}
+
+.policy-card ul {
+  padding-left: 20px;
+}
+
+/* Links */
+.policy-card a {
+  color: #22c55e;
+  text-decoration: none;
+}
+
+.policy-card a:hover {
+  text-decoration: underline;
+}
+
+/* Contact highlight */
+.policy-card.contact {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid #22c55e;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  #privacy-policy h1 {
+    font-size: 2rem;
+  }
+
+  .policy-card {
+    padding: 15px;
+  }
+}
+/* TERMS PAGE - MATCH GRIND TO GREEN */
+
+#terms {
+  padding: 40px 15px;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+.terms-wrapper {
+  max-width: 850px;
+  margin: auto;
+  color: #e5e7eb;
+  line-height: 1.7;
+}
+
+/* Title */
+.terms-title {
+  font-size: 2.2rem;
+  text-align: center;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+/* Date */
+.terms-date {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 25px;
+}
+
+/* Intro */
+.terms-intro {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d1d5db;
+}
+
+/* Sections */
+.terms-block {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.terms-block h2 {
+  color: #22c55e;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.terms-block p,
+.terms-block li {
+  color: #cbd5f5;
+}
+
+.terms-block ul {
+  padding-left: 20px;
+}
+
+/* Links */
+.terms-block a {
+  color: #22c55e;
+  text-decoration: none;
+}
+
+.terms-block a:hover {
+  text-decoration: underline;
+}
+
+/* Contact highlight */
+.terms-block.contact {
+  background: rgba(34, 197, 94, 0.08);
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #22c55e33;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .terms-title {
+    font-size: 1.8rem;
+  }
+}
