@@ -331,11 +331,11 @@
     },
     {
       "type": "paragraph",
-      "text": "<strong>Hi, I'm Mubarak</strong> – the creator of Grind to Green. I'm not a certified financial planner. I'm a regular person who started with very little and built a system that works. Everything I share comes from research, trial and error, and real application. I'm still learning, and I'm honest about that. My goal is to give you practical, no‑hype strategies that you can actually use."
+      "text": "<strong>Hi, I'm Mubarak</strong> the creator of Grind to Green. I'm not a certified financial planner. I'm a regular person who started with very little and built a system that works. Everything I share comes from research, trial and error, and real application. I'm still learning, and I'm honest about that. My goal is to give you practical, no‑hype strategies that you can actually use."
     },
     {
       "type": "paragraph",
-      "text": "📧 Have questions? <a href='./contact'>Contact me here</a>."
+      "text": "📧 Have questions? <a href='./pages/contact.html'>Contact me here</a>."
     }
   ],
   "faq": [
@@ -366,6 +366,6 @@
   },
   "newsletter_cta": {
     "type": "paragraph",
-    "text": "📩 <strong>Want more actionable money tips?</strong> Join the free Grind to Green newsletter – no spam, just practical strategies. <a href='/subscribe'>Subscribe here</a>."
+    "text": "📩 <strong>Want more actionable money tips?</strong> Join the free Grind to Green newsletter no spam, just practical strategies. <a href='/subscribe'>Subscribe here</a>."
   }
 }

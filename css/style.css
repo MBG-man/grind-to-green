@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
+  c
   background-image: url("images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover; /* Ensures the image covers the entire viewport */
