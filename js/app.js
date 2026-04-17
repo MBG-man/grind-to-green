@@ -26,7 +26,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       const cleanPosts = posts.filter(Boolean);
 
       // Sort newest first
-      cleanPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+     cleanPosts.sort((a, b) => {
+  // 🥇 Featured posts first
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+
+  // 🥈 Then sort by date
+  return new Date(b.date) - new Date(a.date);
+});
 
       return cleanPosts;
     } catch (error) {
