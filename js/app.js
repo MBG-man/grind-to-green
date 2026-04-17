@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const postContent = document.getElementById("post-content");
   const slug = new URLSearchParams(window.location.search).get("slug");
 
+  // Global store for sorted posts (homepage only)
+  let sortedAllPosts = [];
+  let currentCategory = "all";
+
   // ============================
   // 🟩 LOAD ALL POSTS (HOMEPAGE ONLY)
   // ============================
@@ -25,21 +29,80 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Remove failed ones
       const cleanPosts = posts.filter(Boolean);
 
-      // Sort newest first
-     cleanPosts.sort((a, b) => {
-  // 🥇 Featured posts first
-  if (a.featured && !b.featured) return -1;
-  if (!a.featured && b.featured) return 1;
-
-  // 🥈 Then sort by date
-  return new Date(b.date) - new Date(a.date);
-});
+      // Sort: featured first, then newest date
+      cleanPosts.sort((a, b) => {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        return new Date(b.date) - new Date(a.date);
+      });
 
       return cleanPosts;
     } catch (error) {
       console.error("Error loading posts:", error);
       return [];
     }
+  }
+
+  // ============================
+  // 🟪 GET CATEGORY FROM POST
+  // ============================
+  function getPostCategory(post) {
+    if (post.category && typeof post.category === "string") return post.category;
+    if (post.categories && Array.isArray(post.categories) && post.categories.length) {
+      return post.categories[0]; // Use first category
+    }
+    return "Uncategorized";
+  }
+
+  // ============================
+  // 🎛️ BUILD CATEGORY FILTER UI
+  // ============================
+  function setupCategoryFilter(posts, onFilterChange) {
+    // Collect unique categories
+    const categorySet = new Set();
+    posts.forEach(post => {
+      const cat = getPostCategory(post);
+      categorySet.add(cat);
+    });
+    const categories = Array.from(categorySet).sort();
+
+    // Create filter container if it doesn't exist
+    let filterContainer = document.getElementById("category-filter");
+    if (!filterContainer) {
+      filterContainer = document.createElement("div");
+      filterContainer.id = "category-filter";
+      filterContainer.className = "category-filter-container";
+      filterContainer.style.marginBottom = "20px";
+      filterContainer.style.textAlign = "center";
+
+      // Insert before posts container
+      postContainer.parentNode.insertBefore(filterContainer, postContainer);
+    }
+
+    // Build HTML
+    filterContainer.innerHTML = `
+      <label for="category-select" style="margin-right: 10px; font-weight: bold;">Filter by category:</label>
+      <select id="category-select" class="category-select">
+        <option value="all">📂 All categories</option>
+        ${categories.map(cat => `<option value="${cat.replace(/"/g, '&quot;')}">📁 ${cat}</option>`).join('')}
+      </select>
+    `;
+
+    // Add event listener
+    const selectEl = document.getElementById("category-select");
+    selectEl.addEventListener("change", (e) => {
+      currentCategory = e.target.value;
+      const filtered = filterPostsByCategory(posts, currentCategory);
+      onFilterChange(filtered);
+    });
+  }
+
+  // ============================
+  // 🔍 FILTER POSTS BY CATEGORY
+  // ============================
+  function filterPostsByCategory(posts, category) {
+    if (category === "all") return [...posts];
+    return posts.filter(post => getPostCategory(post) === category);
   }
 
   // ============================
@@ -86,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!postContainer) return;
 
     if (posts.length === 0) {
-      postContainer.innerHTML = `<p style="text-align:center;color:red;">⚠️ No posts found.</p>`;
+      postContainer.innerHTML = `<p style="text-align:center;color:red;">⚠️ No posts found in this category.</p>`;
       return;
     }
 
@@ -97,6 +160,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <img src="${post.image}" alt="${post.alt}" loading="lazy" style="width:100%;max-height:200px;object-fit:cover;">
           <p>${post.description}</p>
           <small>${new Date(post.date).toLocaleDateString()}</small>
+          <div class="post-category" style="margin-top: 8px; font-size: 0.85rem; color: #666;">📁 ${getPostCategory(post)}</div>
         </a>
       </div>
     `).join('');
@@ -159,22 +223,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       <div class="share-container">
         <h4>Share this post:</h4>
         <div class="share-buttons">
-  <a class="facebook" href="#" target="_blank" title="Share on Facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a class="twitter" href="#" target="_blank" title="Share on Twitter">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a class="whatsapp" href="#" target="_blank" title="Share on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a class="linkedin" href="#" target="_blank" title="Share on LinkedIn">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-  <a class="telegram" href="#" target="_blank" title="Share on Telegram">
-    <i class="fab fa-telegram-plane"></i>
-  </a>
-</div>
+          <a class="facebook" href="#" target="_blank" title="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="twitter" href="#" target="_blank" title="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="whatsapp" href="#" target="_blank" title="Share on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a class="linkedin" href="#" target="_blank" title="Share on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="telegram" href="#" target="_blank" title="Share on Telegram">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+        </div>
       </div>
     `;
 
@@ -213,13 +277,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ============================
-  // 🚀 PAGE DETECTION (KEY FIX)
+  // 🚀 PAGE DETECTION
   // ============================
 
   // 🟩 HOMEPAGE
   if (postContainer) {
-    const posts = await loadPosts();
-    displayPosts(posts);
+    sortedAllPosts = await loadPosts();
+    // Setup filter UI (pass the sorted array)
+    setupCategoryFilter(sortedAllPosts, (filteredPosts) => {
+      displayPosts(filteredPosts);
+    });
+    // Initial display (all categories)
+    displayPosts(sortedAllPosts);
   }
 
   // 🟥 SINGLE POST PAGE

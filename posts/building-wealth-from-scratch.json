@@ -1,11 +1,13 @@
 {
   "title": "Building Wealth From Scratch: The Proven System Anyone Can Use in 2026",
   "description": "Start with nothing and build real wealth using a simple, proven system. Learn how to earn, save, invest, and grow your money step by step – even if you're broke.",
+   "categories": ["investing", "savings", "trading"],
   "slug": "building-wealth-from-scratch",
   "date": "2026-04-10",
   "image": "images/wealth-building.jpeg",
    "featured": true,
   "alt": "Person building wealth from scratch with a system",
+
   "content": [
     {
       "type": "paragraph",
