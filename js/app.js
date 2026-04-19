@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const postFiles = await indexRes.json();
 
-      // 🚀 PARALLEL FETCH (FAST)
+      // PARALLEL FETCH (FAST)
       const posts = await Promise.all(
         postFiles.map(async (file) => {
           const res = await fetch(`posts/${file}`);

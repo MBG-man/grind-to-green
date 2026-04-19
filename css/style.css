@@ -153,6 +153,28 @@ a {
   }
 }
 
+/* Desktop: Always show nav as horizontal row */
+@media (min-width: 769px) {
+  #main-nav {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    gap: 28px;
+  }
+  
+  #main-menu-toggle {
+    display: none !important;
+  }
+  
+  #main-nav a {
+    margin-left: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+}
+
+
 /* ---------- HOMEPAGE POSTS GRID ---------- */
 #posts-container {
   display: grid;
