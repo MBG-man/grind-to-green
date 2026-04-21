@@ -306,7 +306,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**To get it:** Drop a comment on this post saying \"Send template\" and I'll email it to you. Or use the form below if you want it immediately."
+      "text": "To get it: Drop a comment on this post saying \"Send template\" and I'll email it to you. Or use the form below if you want it immediately."
     },
     {
       "type": "html",
@@ -416,6 +416,18 @@
     {
       "type": "paragraph",
       "text": "And if you found this useful, share it with one friend who earns around ₦100k. They'll thank you later."
-    }
-  ]
+    },
+    {
+      "type": "heading",
+      "text": "More budgeting type:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='post.html?slug=is-50-30-20-rule-good'>Is the 50-30-20 Rule Good for Nigerians?</a>",
+        "<a href='post.html?slug=smart-budgeting-hacks-2026'>10 smart budgeting hacks</a>",
+        "<a href='post.html?slug=zero-based-budgeting-explained'> zero based budgeting</a>"
+      ]
+    }  ]
+
 }
