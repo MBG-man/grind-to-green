@@ -4,103 +4,160 @@
   <!-- HOME -->
   <url>
     <loc>https://grindtogreen.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
 
-  <!-- BLOG POSTS -->
+  <!-- BLOG POSTS — CLEAN URLS -->
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=3-5-7-rule-day-trading</loc>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/post.html?slug=75-15-10-budget-rule</loc>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/post.html?slug=best-trading-strategies-2025</loc>
+    <loc>https://grindtogreen.com/3-5-7-rule-day-trading</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=crypto-investment-plan-risk</loc>
+    <loc>https://grindtogreen.com/75-15-10-budget-rule</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=crypto-scams-and-mistakes</loc>
+    <loc>https://grindtogreen.com/best-trading-strategies-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=fastest-way-to-save-10000</loc>
-  </url>
-  <url>
-    <loc>https://grindtogreen.com/post.html?slug=how-regular-people-get-rich-stock-market</loc>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/post.html?slug=is-50-30-20-rule-good</loc>
+    <loc>https://grindtogreen.com/crypto-investment-plan-risk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=is-trading-a-form-of-gambling</loc>
+    <loc>https://grindtogreen.com/crypto-scams-and-mistakes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=is-trading-halal-or-haram-islamic-guide</loc>
+    <loc>https://grindtogreen.com/fastest-way-to-save-10000</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=nfts-defi-real-talk</loc>
+    <loc>https://grindtogreen.com/how-regular-people-get-rich-stock-market</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=online-hustles-no-skills-no-investment</loc>
+    <loc>https://grindtogreen.com/is-50-30-20-rule-good</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=passive-income-no-money</loc>
+    <loc>https://grindtogreen.com/is-trading-a-form-of-gambling</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=smart-budgeting-hacks-2025</loc>
+    <loc>https://grindtogreen.com/is-trading-halal-or-haram-islamic-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=understanding-50-30-20-rule-budgeting</loc>
+    <loc>https://grindtogreen.com/nfts-defi-real-talk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=what-is-3-5-7-rule-day-trading</loc>
+    <loc>https://grindtogreen.com/online-hustles-no-skills-no-investment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=what-is-the-four-walls-budget</loc>
-  </url>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           m.  
-  <url>
-    <loc>https://grindtogreen.com/post.html?slug=zero-based-budgeting-explained</loc>
+    <loc>https://grindtogreen.com/passive-income-no-money</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=why-90-percent-of-traders-fail</loc>
+    <loc>https://grindtogreen.com/smart-budgeting-hacks-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-   <url>
-    <loc>https://grindtogreen.com/post.html?slug=is-it-worth-buying-10-dollars-stock</loc>
-  </url>
+
   <url>
-    <loc>https://grindtogreen.com/post.html?slug=building-wealth-from-scratch</loc>
+    <loc>https://grindtogreen.com/understanding-50-30-20-rule-budgeting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/what-is-3-5-7-rule-day-trading</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/what-is-the-four-walls-budget</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/zero-based-budgeting-explained</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/why-90-percent-of-traders-fail</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/is-it-worth-buying-10-dollars-stock</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/building-wealth-from-scratch</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- STATIC PAGES -->
   <url>
     <loc>https://grindtogreen.com/pages/about.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://grindtogreen.com/pages/contact.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://grindtogreen.com/pages/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://grindtogreen.com/pages/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
