@@ -1,57 +1,51 @@
-# Netlify Redirects — grindtogreen.com
-# 301 = permanent redirect (preserves SEO ranking)
-# All old ?slug= URLs redirect to new clean URLs
+# ============================================================
+# grindtogreen.com — Netlify _redirects
+# Place in ROOT folder (same level as index.html)
+# ============================================================
 
-# ================================
-# 301 REDIRECTS — OLD TO NEW URLS
-# ================================
+# ── OLD ?slug= URLs → clean URLs (301 permanent) ────────────
 
-/post.html?slug=3-5-7-rule-day-trading           /3-5-7-rule-day-trading           301
-/post.html?slug=75-15-10-budget-rule             /75-15-10-budget-rule             301
-/post.html?slug=best-trading-strategies-2025     /best-trading-strategies-2025     301
-/post.html?slug=crypto-investment-plan-risk      /crypto-investment-plan-risk      301
-/post.html?slug=crypto-scams-and-mistakes        /crypto-scams-and-mistakes        301
-/post.html?slug=fastest-way-to-save-10000        /fastest-way-to-save-10000        301
-/post.html?slug=how-regular-people-get-rich-stock-market  /how-regular-people-get-rich-stock-market  301
-/post.html?slug=is-50-30-20-rule-good            /is-50-30-20-rule-good            301
-/post.html?slug=is-trading-a-form-of-gambling    /is-trading-a-form-of-gambling    301
-/post.html?slug=is-trading-halal-or-haram-islamic-guide  /is-trading-halal-or-haram-islamic-guide  301
-/post.html?slug=nfts-defi-real-talk              /nfts-defi-real-talk              301
-/post.html?slug=online-hustles-no-skills-no-investment   /online-hustles-no-skills-no-investment   301
-/post.html?slug=passive-income-no-money          /passive-income-no-money          301
-/post.html?slug=smart-budgeting-hacks-2025       /smart-budgeting-hacks-2025       301
-/post.html?slug=understanding-50-30-20-rule-budgeting    /understanding-50-30-20-rule-budgeting    301
-/post.html?slug=what-is-3-5-7-rule-day-trading   /what-is-3-5-7-rule-day-trading   301
-/post.html?slug=what-is-the-four-walls-budget    /what-is-the-four-walls-budget    301
-/post.html?slug=zero-based-budgeting-explained   /zero-based-budgeting-explained   301
-/post.html?slug=why-90-percent-of-traders-fail   /why-90-percent-of-traders-fail   301
-/post.html?slug=is-it-worth-buying-10-dollars-stock      /is-it-worth-buying-10-dollars-stock      301
-/post.html?slug=building-wealth-from-scratch     /building-wealth-from-scratch     301
+/post.html?slug=3-5-7-rule-day-trading                               /3-5-7-rule-day-trading                               301!
+/post.html?slug=75-15-10-budget-rule                                 /75-15-10-budget-rule                                 301!
+/post.html?slug=best-trading-strategies-2025                         /best-trading-strategies-2025                         301!
+/post.html?slug=building-wealth-from-scratch                         /building-wealth-from-scratch                         301!
+/post.html?slug=crypto-investment-plan-risk                          /crypto-investment-plan-risk                          301!
+/post.html?slug=crypto-scams-and-mistakes                            /crypto-scams-and-mistakes                            301!
+/post.html?slug=fastest-way-to-save-10000                            /fastest-way-to-save-10000                            301!
+/post.html?slug=how-crypto-is-changing-africa-nigeria                /how-crypto-is-changing-africa-nigeria                301!
+/post.html?slug=how-regular-people-get-rich-stock-market             /how-regular-people-get-rich-stock-market             301!
+/post.html?slug=is-50-30-20-rule-good                                /is-50-30-20-rule-good                                301!
+/post.html?slug=is-it-worth-buying-10-dollars-stock                  /is-it-worth-buying-10-dollars-stock                  301!
+/post.html?slug=is-trading-a-form-of-gambling                        /is-trading-a-form-of-gambling                        301!
+/post.html?slug=is-trading-halal-or-haram-islamic-guide              /is-trading-halal-or-haram-islamic-guide              301!
+/post.html?slug=nfts-defi-real-talk                                  /nfts-defi-real-talk                                  301!
+/post.html?slug=online-hustles-no-skills-no-investment               /online-hustles-no-skills-no-investment               301!
+/post.html?slug=passive-income-no-money                              /passive-income-no-money                              301!
+/post.html?slug=smart-budgeting-hacks-2025                           /smart-budgeting-hacks-2025                           301!
+/post.html?slug=understanding-50-30-20-rule-budgeting                /understanding-50-30-20-rule-budgeting                301!
+/post.html?slug=what-is-3-5-7-rule-day-trading                       /what-is-3-5-7-rule-day-trading                       301!
+/post.html?slug=what-is-the-four-walls-budget                        /what-is-the-four-walls-budget                        301!
+/post.html?slug=why-90-percent-of-traders-fail                       /why-90-percent-of-traders-fail                       301!
+/post.html?slug=zero-based-budgeting-explained                       /zero-based-budgeting-explained                       301!
+/post.html?slug=the-trading-strategy-that-finally-made-me-profitable /the-trading-strategy-that-finally-made-me-profitable 301!
+/post.html?slug=stock-market-truth-build-wealth-without-hype         /stock-market-truth-build-wealth-without-hype         301!
+/post.html?slug=real-world-asset-tokenization-16-trillion-opportunity /real-world-asset-tokenization-16-trillion-opportunity 301!
+/post.html?slug=forecasting-vs-budgeting-differences-2026            /forecasting-vs-budgeting-differences-2026            301!
+/post.html?slug=best-trading-for-beginners-small-account             /best-trading-for-beginners-small-account             301!
+/post.html?slug=are-savings-bonds-good-investment                    /are-savings-bonds-good-investment                    301!
+/post.html?slug=budget-100k-lagos-nigeria                            /budget-100k-lagos-nigeria                            301!
+/post.html?slug=online-hustles-nigeria-no-skills-no-money            /online-hustles-nigeria-no-skills-no-money            301!
+/post.html?slug=is-your-forex-broker-a-scam-nigerians                /is-your-forex-broker-a-scam-nigerians                301!
+/post.html?slug=make-money-online-nigeria-no-capital                 /make-money-online-nigeria-no-capital                 301!
 
-# ================================
-# CLEAN URL ROUTING
-# All clean URLs serve post.html
-# but the browser shows the clean URL
-# ================================
+# ── STATIC PAGES — remove .html extension ───────────────────
+/pages/about.html    /pages/about    301!
+/pages/contact.html  /pages/contact  301!
+/pages/privacy.html  /pages/privacy  301!
+/pages/terms.html    /pages/terms    301!
 
-/3-5-7-rule-day-trading                /post.html?slug=3-5-7-rule-day-trading           200
-/75-15-10-budget-rule                  /post.html?slug=75-15-10-budget-rule             200
-/best-trading-strategies-2025          /post.html?slug=best-trading-strategies-2025     200
-/crypto-investment-plan-risk           /post.html?slug=crypto-investment-plan-risk      200
-/crypto-scams-and-mistakes             /post.html?slug=crypto-scams-and-mistakes        200
-/fastest-way-to-save-10000             /post.html?slug=fastest-way-to-save-10000        200
-/how-regular-people-get-rich-stock-market  /post.html?slug=how-regular-people-get-rich-stock-market  200
-/is-50-30-20-rule-good                 /post.html?slug=is-50-30-20-rule-good            200
-/is-trading-a-form-of-gambling         /post.html?slug=is-trading-a-form-of-gambling    200
-/is-trading-halal-or-haram-islamic-guide  /post.html?slug=is-trading-halal-or-haram-islamic-guide  200
-/nfts-defi-real-talk                   /post.html?slug=nfts-defi-real-talk              200
-/online-hustles-no-skills-no-investment   /post.html?slug=online-hustles-no-skills-no-investment   200
-/passive-income-no-money               /post.html?slug=passive-income-no-money          200
-/smart-budgeting-hacks-2025            /post.html?slug=smart-budgeting-hacks-2025       200
-/understanding-50-30-20-rule-budgeting /post.html?slug=understanding-50-30-20-rule-budgeting    200
-/what-is-3-5-7-rule-day-trading        /post.html?slug=what-is-3-5-7-rule-day-trading   200
-/what-is-the-four-walls-budget         /post.html?slug=what-is-the-four-walls-budget    200
-/zero-based-budgeting-explained        /post.html?slug=zero-based-budgeting-explained   200
-/why-90-percent-of-traders-fail        /post.html?slug=why-90-percent-of-traders-fail   200
-/is-it-worth-buying-10-dollars-stock   /post.html?slug=is-it-worth-buying-10-dollars-stock      200
-/building-wealth-from-scratch          /post.html?slug=building-wealth-from-scratch     200
+# ── CATCH-ALL ────────────────────────────────────────────────
+# Serves post.html for every clean URL like /my-post-slug
+# app.js reads the slug from window.location.pathname
+# MUST BE THE VERY LAST LINE
+/*    /post.html    200
