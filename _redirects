@@ -1,6 +1,7 @@
 # ============================================================
-# grindtogreen.com — Netlify _redirects
-# Place in ROOT folder (same level as index.html)
+
+# grindtogreen.com — Netlify _redirects (FIXED)
+
 # ============================================================
 
 # ── OLD ?slug= URLs → clean URLs (301 permanent) ────────────
@@ -39,13 +40,24 @@
 /post.html?slug=make-money-online-nigeria-no-capital                 /make-money-online-nigeria-no-capital                 301!
 
 # ── STATIC PAGES — remove .html extension ───────────────────
+
 /pages/about.html    /pages/about    301!
 /pages/contact.html  /pages/contact  301!
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
 
-# ── CATCH-ALL ────────────────────────────────────────────────
-# Serves post.html for every clean URL like /my-post-slug
-# app.js reads the slug from window.location.pathname
-# MUST BE THE VERY LAST LINE
-/*    /post.json    200
+# ── VERY IMPORTANT: ALLOW JSON + FILES ──────────────────────
+
+/posts/*    /posts/:splat    200
+/*.json     /:splat          200
+/images/*   /images/:splat   200
+/css/*      /css/:splat      200
+/js/*       /js/:splat       200
+
+# ── HOMEPAGE ───────────────────────────────────────────────
+
+/    /index.html    200
+
+# ── CATCH-ALL (MUST BE LAST) ───────────────────────────────
+
+/*    /post.html    200
