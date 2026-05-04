@@ -48,4 +48,4 @@
 # Serves post.html for every clean URL like /my-post-slug
 # app.js reads the slug from window.location.pathname
 # MUST BE THE VERY LAST LINE
-/*    /post.html    200
+/*    /post.json    200
