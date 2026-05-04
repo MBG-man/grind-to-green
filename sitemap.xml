@@ -9,6 +9,13 @@
   </url>
 
   <!-- BLOG POSTS — CLEAN URLS -->
+
+  <url>
+    <loc>https://grindtogreen.com/10-trading-strategies-that-work-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://grindtogreen.com/3-5-7-rule-day-trading</loc>
     <changefreq>monthly</changefreq>
@@ -22,7 +29,31 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/are-savings-bonds-good-investment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/best-trading-for-beginners-small-account</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/best-trading-strategies-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/budget-100k-lagos-nigeria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/building-wealth-from-scratch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -46,6 +77,18 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/forecasting-vs-budgeting-differences-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/how-crypto-is-changing-africa-nigeria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/how-regular-people-get-rich-stock-market</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -53,6 +96,12 @@
 
   <url>
     <loc>https://grindtogreen.com/is-50-30-20-rule-good</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/is-it-worth-buying-10-dollars-stock</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -70,7 +119,25 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/is-your-forex-broker-a-scam-nigerians</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/make-money-online-nigeria-no-capital</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/nfts-defi-real-talk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/online-hustles-nigeria-no-skills-no-money</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -88,7 +155,25 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/real-world-asset-tokenization-16-trillion-opportunity</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/smart-budgeting-hacks-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/stock-market-truth-build-wealth-without-hype</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/the-trading-strategy-that-finally-made-me-profitable</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -112,50 +197,39 @@
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/zero-based-budgeting-explained</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://grindtogreen.com/why-90-percent-of-traders-fail</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/is-it-worth-buying-10-dollars-stock</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/building-wealth-from-scratch</loc>
+    <loc>https://grindtogreen.com/zero-based-budgeting-explained</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- STATIC PAGES -->
+
   <url>
-    <loc>https://grindtogreen.com/pages/about.html</loc>
+    <loc>https://grindtogreen.com/pages/about</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/pages/contact.html</loc>
+    <loc>https://grindtogreen.com/pages/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/pages/privacy.html</loc>
+    <loc>https://grindtogreen.com/pages/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/pages/terms.html</loc>
+    <loc>https://grindtogreen.com/pages/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
