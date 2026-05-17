@@ -168,7 +168,16 @@
 {
   "type": "paragraph",
   "text": "Small money habits often create big results. Simple, modern budgeting ideas that actually work are shared in <a href='post.html?slug=smart-budgeting-hacks-2025'>this article</a>."
-}
+},
+
+{
+    "type":"heading",
+    "text": "more budgeting type you may like:"
+},
+    { "type":"list",
+          "items": [ "<a href='smart-budgeting-hacks-2026'> smar budgeting hack</a>",
+                      "<a href='zero-based-budgeting-explained'>Zero-Based Budgeting (ZBB): </a>The Complete International Guide to Mastering Your Money" ,
+                      "<a href='what-is-the-four-walls-budget'>four walls budget</a>"]}
 
 ],
   "faq":[

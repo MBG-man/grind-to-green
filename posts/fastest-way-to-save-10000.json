@@ -205,14 +205,15 @@
       "type": "paragraph",
       "text": "The most efficient way to save $10,000 is to increase your income, automate your savings, and make better use of your budget. If you have the right plan, you can achieve this goal much sooner than you anticipate. Be consistent, monitor your progress, and keep in mind that daily habits, not miracles, are what build wealth." },
     
-        { "type": "heading",
-          "text": " lern more "
-
-        },
-        { "type":"list",
-          "items": [ "<a href='post.html?slug=online-hustles-no-skills-no-investment'> 15 Online Side Hustles You Can Start With Zero Skills or Investment </a> ",
-                      "<a href='post.html?slug=smart-budgeting-hacks-2025'> 10 free ways to start earning passive income with zero dollar investment </a> ",
-                        "<a href='post.html?slug=passive-income-no-money'> 10 Free Ways to Start Earning Passive Income in 2025 (Even With $0) </a>"]}
+        {
+      "type": "heading",
+      "text":"learn more"
+    },
+     { "type":"list",
+          "items": ["<a href='crypto-investment-plan-risk'>risk in crypto</a>, what you need to know",
+                     "<a href='forex-trading-real-talk-for-beginners'>forex trading tips for beginners</a>",
+                     "<a href='how-regular-people-get-rich-stock-market'>secretes of stock market</a>",
+                     "<a href='10-trading-strategies-that-work-2025'>best 10 trading strategies</a> you can try "]}
                 
   ]
 }

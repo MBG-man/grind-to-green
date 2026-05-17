@@ -214,7 +214,17 @@
     {
   "type": "paragraph",
   "text": "To build long-term financial stability alongside trading, read: <a href='/post.html?slug=forecasting-vs-budgeting-differences-2026'>Budgeting vs Forecasting: The Real Difference</a>."
-}
+},
+ {
+      "type": "heading",
+      "text":"learn more"
+    },
+     { "type":"list",
+          "items": ["<a href='crypto-investment-plan-risk'>risk in crypto</a>, what you need to know",
+                     "<a href='forex-trading-real-talk-for-beginners'>forex trading tips for beginners</a>",
+                     "<a href='how-regular-people-get-rich-stock-market'>secretes of stock market</a>",
+                     "<a href='10-trading-strategies-that-work-2025'>best 10 trading strategies</a> you can try "]}
+
   ], "faq": [
   {
     "question": "What is the best type of trading for a beginner with $500?",

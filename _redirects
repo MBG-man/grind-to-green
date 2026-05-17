@@ -45,7 +45,7 @@
 /pages/contact.html  /pages/contact  301!
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
-
+/write-for-us.html    /write-for-us  301!
 # ── VERY IMPORTANT: ALLOW JSON + FILES ──────────────────────
 
 /posts/*    /posts/:splat    200
@@ -61,3 +61,4 @@
 # ── CATCH-ALL (MUST BE LAST) ───────────────────────────────
 
 /*    /post.html    200
+/write-for-us    /write-for-us.html    200

@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const AUTHOR = {
     name:   "eemkay",
-    avatar: "/images/author-avatar.png",
     bio:    "Nigerian finance and crypto writer helping everyday Africans earn more, save smarter, and build real wealth. Writing at grindtogreen.com since 2025.",
     links:  { twitter: "https://x.com/Mubarakgman", blog: "https://grindtogreen.com" }
   };

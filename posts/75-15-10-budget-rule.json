@@ -189,14 +189,15 @@
       "text": "If you reside in an expensive area or struggle to stay to a limited budget, this strategy gives stability, flexibility, and balance. Whether you're a worker, student, family carer, or business owner, the 75-15-10 rule helps you create a sustainable financial lifestyle that grows with you wherever you live in the world."
     },
     
-        { "type": "heading",
-          "text": " lern more "
-
-        },
-        { "type":"list",
-          "items": [ "<a href='post.html?slug=online-hustles-no-skills-no-investment'> 15 Online Side Hustles You Can Start With Zero Skills or Investment </a> ",
-                      "<a href='post.html?slug=smart-budgeting-hacks-2025'> 10 free ways to start earning passive income with zero dollar investment </a> ",
-                        "<a href='post.html?slug=passive-income-no-money'> 10 Free Ways to Start Earning Passive Income in 2025 (Even With $0) </a>"]}
-                
+      
+{
+    "type":"heading",
+    "text": "more budgeting type you may like:"
+},
+    { "type":"list",
+          "items": [ "<a href='smart-budgeting-hacks-2026'> smar budgeting hack</a>",
+                      "<a href='zero-based-budgeting-explained'>Zero-Based Budgeting (ZBB): </a>The Complete International Guide to Mastering Your Money" ,
+                      "<a href='what-is-the-four-walls-budget'>four walls budget</a>"]}
+   
   ]
 }

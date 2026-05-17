@@ -225,28 +225,18 @@
     "type":"paragraph",
     "text":"If you're just starting out with little or no money, the most important step isn't picking the right bond or stock – it's having a clear, repeatable system. That's exactly why I wrote my complete <a href='post.html?slug=building-wealth-from-scratch'>building wealth from scratch guide</a>. It walks you through the four‑step framework (earn → save → invest → grow) that works even when you're broke. Once you have that foundation, then you can decide where tools like savings bonds fit into your bigger picture."    
     },
-    {
-      "type": "heading",
-      "text": "About the Author"
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Hi, I'm Mubarak</strong> the creator of Grind to Green. I'm not a certified financial planner. I'm a regular person who started with very little and learned by doing, making mistakes, and researching relentlessly. Everything I share comes from real experience and trusted sources. I'm still learning, and I'm honest about that. My goal is to give you practical, no-hype strategies you can actually use."
-    },
-    {
-      "type": "paragraph",
-      "text": "📧 Have questions? <a href='/contact'>Contact me here</a>."
-    }
-  ],
-  "final_advice": {
-    "type": "paragraph",
-    "text": "The best investment is the one you understand and can stick with. Savings bonds won't make you rich, but they can keep you safe. Use them as a tool, not a lottery ticket."
-  },
-  "newsletter_cta": {
-    "type": "paragraph",
-    "text": "📩 <strong>Want more smart money strategies?</strong> Join the free Grind to Green newsletter. No spam, just practical advice. <a href='/subscribe'>Subscribe here</a>."
-  },
     
+{
+    "type":"heading",
+    "text": "budgeting types you may like:"
+},
+    { "type":"list",
+          "items": [ "<a href='smart-budgeting-hacks-2026'> smar budgeting hack</a>",
+                      "<a href='zero-based-budgeting-explained'>Zero-Based Budgeting (ZBB): </a>The Complete International Guide to Mastering Your Money" ,
+                      "<a href='what-is-the-four-walls-budget'>four walls budget</a>"]}
+
+  ],
+  
       "faq":
        [
         {
@@ -273,7 +263,11 @@
           "q": "Can I buy savings bonds for my child?",
           "a": "Yes. You can purchase bonds as a gift or open a minor linked account through TreasuryDirect."
         }
-      ]
-    
+      ],
+ "final_advice": {
+    "type": "paragraph",
+    "text": "The best investment is the one you understand and can stick with. Savings bonds won't make you rich, but they can keep you safe. Use them as a tool, not a lottery ticket."
+  }
+   
    
 }
