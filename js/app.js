@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const AUTHOR = {
     name:   "eemkay",
-    bio:    "Nigerian finance and crypto writer helping everyday Africans earn more, save smarter, and build real wealth. Writing at grindtogreen.com since 2025.",
+    bio:    " Finance and crypto writer focused on helping people earn more, save smarter, and build long-term wealth. Writing practical money, investing, and digital finance content at grindtogreen.com since 2025",
     links:  { twitter: "https://x.com/Mubarakgman", blog: "https://grindtogreen.com" }
   };
 
