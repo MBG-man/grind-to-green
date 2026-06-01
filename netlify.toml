@@ -1,0 +1,10 @@
+# netlify.toml — GrindToGreen
+# Tells Netlify to run build.js before deploying,
+# and to serve from the /dist/ folder.
+
+[build]
+  command       = "node build.js"
+  publish       = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"

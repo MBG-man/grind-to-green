@@ -1,0 +1,12 @@
+{
+  "name": "grindtogreen",
+  "version": "1.0.0",
+  "description": "GrindToGreen static site builder",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && echo '\nOpen dist/index.html in your browser'"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
