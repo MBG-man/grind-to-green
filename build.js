@@ -57,6 +57,15 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+// Ensure image paths always start with / so they resolve correctly
+// from any nested URL like /slug/index.html
+function fixImgPath(src) {
+  if (!src) return "";
+  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+  // Remove any accidental double slashes then ensure leading slash
+  return "/" + src.replace(/^\/+/, "").replace(/\/\//g, "/");
+}
+
 // ─── CONTENT RENDERER ──────────────────────────────────────────────────────
 function renderBlocks(blocks) {
   return (blocks || []).map(b => {
@@ -87,7 +96,7 @@ function renderBlocks(blocks) {
       case "image":
         return `
           <figure class="post-image">
-            <img src="${b.src}" alt="${escHtml(b.alt)}" loading="lazy">
+            <img src="${fixImgPath(b.src)}" alt="${escHtml(b.alt)}" loading="lazy">
             ${b.caption ? `<figcaption>${escHtml(b.caption)}</figcaption>` : ""}
           </figure>`;
 
@@ -309,7 +318,7 @@ function htmlFooter() {
 function buildPostPage(post) {
   const url      = `${SITE_URL}/${post.slug}`;
   const imgRaw   = post.image || "";
-  const img      = imgRaw.startsWith("http") ? imgRaw : `${SITE_URL}/${imgRaw.replace(/^\//, "")}`;
+  const img      = imgRaw.startsWith("http") ? imgRaw : `${SITE_URL}${fixImgPath(imgRaw)}`;
   const category = getCategory(post);
   const readTime = getReadingTime(post);
   const schemas  = buildSchema(post, url, img);
@@ -323,7 +332,7 @@ function buildPostPage(post) {
   const shareHtml  = buildShareButtons(post);
   const authorHtml = buildAuthor();
 
-  const heroImg = `<img src="${post.image || ""}" alt="${escHtml(post.alt || post.title)}"
+  const heroImg = `<img src="${fixImgPath(post.image)}" alt="${escHtml(post.alt || post.title)}"
        loading="eager" itemprop="image" width="880" height="440"
        style="width:100%;height:auto;border-radius:14px;margin:1rem 0;">`;
 
@@ -382,7 +391,7 @@ function buildHomepage(posts) {
       <article class="post-card">
         <a href="/${post.slug}">
           <h2>${escHtml(post.title)}</h2>
-          <img src="${post.image || ""}" alt="${escHtml(post.alt || post.title)}"
+          <img src="${fixImgPath(post.image)}" alt="${escHtml(post.alt || post.title)}"
                loading="lazy" width="400" height="200">
           <p>${escHtml(post.description || "")}</p>
           <div class="post-card-meta">
