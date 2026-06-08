@@ -29,11 +29,11 @@
     },
     {
       "type": "paragraph",
-      "text": "<strong>Series EE Bonds The Fixed-Rate Option:</strong> Current rate is 2.50% for bonds issued November 2025 through April 2026. The rate is fixed for the first 20 years. The key feature is a doubling guarantee at 20 years, the bond will be worth at least double its purchase price regardless of the interest rate."
+      "text": "<strong>Series EE Bonds The Fixed-Rate Option:</strong> Current rate is 2.50% for bonds issued November 2025 through April 2026. The rate is fixed for the first 20 years. The key feature is a doubling guarantee — at 20 years, the bond will be worth at least double its purchase price regardless of the interest rate."
     },
     {
       "type": "paragraph",
-      "text": "<strong>Series I Bonds The Inflation-Protected Option:</strong> Current composite rate is 4.03% for bonds issued November 2025 through April 2026. This is made up of a fixed rate (currently 0.90%) plus a variable rate that adjusts every six months based on inflation. When inflation rises, so does your return which is why I bonds paid over 9% in 2022 when inflation spiked."
+      "text": "<strong>Series I Bonds The Inflation-Protected Option:</strong> Current composite rate is 4.03% for bonds issued November 2025 through April 2026. This is made up of a fixed rate (currently 0.90%) plus a variable rate that adjusts every six months based on inflation. When inflation rises, so does your return — which is why I bonds paid over 9% in 2022 when inflation spiked."
     },
     {
       "type": "heading",
@@ -152,6 +152,6 @@
     }
   ],
   "final_advice": {
-    "text": "The best investment is the one you understand and can stick with. Savings bonds will not make you rich, but they can keep your money safe and growing steadily. Use them as a tool — not a lottery ticket, and not a substitute for a proper investment plan."
+    "text": "The best investment is the one you understand and can stick with. Savings bonds will not make you rich, but they can keep your money safe and growing steadily. Use them as a tool not a lottery ticket, and not a substitute for a proper investment plan."
   }
 }

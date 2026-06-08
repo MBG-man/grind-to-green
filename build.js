@@ -412,8 +412,8 @@ function buildHomepage(posts) {
   ).join("\n");
 
   return `${htmlHead(
-    `${SITE_NAME} | Finance & Crypto Education for Everyone`,
-    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for everyone.",
+    `${SITE_NAME} | Finance & Crypto Education for Africans`,
+    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for Africans.",
     `${SITE_URL}/`,
     `${SITE_URL}/images/og-default.jpg`
   )}
@@ -422,7 +422,7 @@ ${htmlHeader()}
 
 <section class="hero">
   <h1>Turn Your Grind Into Real Wealth</h1>
-  <p>Budgeting, crypto, investing and side hustle built for everyone.</p>
+  <p>Budgeting, crypto, investing and side hustles — built for Africans.</p>
   <div>
     <a href="#posts" class="btn-primary">Read Articles</a>
     <a href="/pages/about" class="btn-secondary">About Us</a>
