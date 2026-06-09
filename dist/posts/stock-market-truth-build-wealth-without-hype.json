@@ -426,68 +426,16 @@
       "type": "paragraph",
       "text":"To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
  
-    },
-    {
-      "faq":
-       [
-        {
-          "question": "Is the stock market safe for beginners?",
-          "answer": "It can be relatively safe when you invest long-term in diversified funds and avoid speculative behavior. However, all investing involves risk."
-        },
-        {
-          "question": "How much money do I need to start investing?",
-          "answer": "You can start with small amounts depending on your brokerage, but emergency savings should come first."
-        },
-        {
-          "question": "Can I lose all my money?",
-          "answer": "Yes, especially in single high-risk stocks. Diversification reduces this risk but does not eliminate it."
-        },
-        {
-          "question": "Is investing better than trading?",
-          "answer": "For most beginners, long-term investing is more sustainable and less stressful than active trading."
-        },
-        {
-          "question": "How long should I hold investments?",
-          "answer": "Generally, years rather than weeks — unless you have a defined short-term strategy and understand the risks."
-        },
-        {
-          "question": "What happens during a market crash?",
-          "answer": "Portfolio values may decline significantly. Long-term investors historically recovered over time, but future performance is never guaranteed."
-        }
-      ]
-    },
-
-    {
-      "type": "heading",
-      "text": "Final Honest Advice"
-    },
-    {
-      "type": "paragraph",
-      "text": "The stock market rewards: Patience, Discipline, Emotional stability, Long-term thinking."
-    },
-    {
-      "type": "paragraph",
-      "text": "It punishes: Greed, Fear, Impulsiveness, Ego."
-    },
-    {
-      "type": "paragraph",
-      "text": "It is not magic. It is not guaranteed."
-    },
-    {
-      "type": "paragraph",
-      "text": "But when approached correctly, it has historically been one of the most powerful wealth-building tools available to ordinary people."
-    },
-    {
-      "type": "paragraph",
-      "text": "If you’re willing to think long-term and control emotion, it can work for you."
-    },
-    {
-      "type": "paragraph",
-      "text": "If you’re looking for instant results, it will teach you expensive lessons."
-    },
-    {
-      "type": "paragraph",
-      "text": "And I learned that the hard way. You don’t have to."
     }
-  ]
-}
+  ],
+    "faq": [
+{"question": "Is the stock market safe for beginners?", "answer": "It can be relatively safe when you invest long-term in diversified funds and avoid speculative behavior. However, all investing involves risk."},
+{"question": "How much money do I need to start investing?", "answer": "You can start with small amounts depending on your brokerage, but emergency savings should come first."},
+{"question": "Can I lose all my money?", "answer": "Yes, especially in single high-risk stocks. Diversification reduces this risk but does not eliminate it."},
+{"question": "Is investing better than trading?", "answer": "For most beginners, long-term investing is more sustainable and less stressful than active trading."},
+{"question": "How long should I hold investments?", "answer": "Generally years rather than weeks — unless you have a defined short-term strategy and understand the risks."},
+{"question": "What happens during a market crash?", "answer": "Portfolio values may decline significantly. Long-term investors historically recovered over time, but future performance is never guaranteed."}
+],
+"final_advice": {
+"text": "The stock market rewards patience, discipline, and emotional stability. It punishes greed, fear, and impulsiveness. It is not magic and it is not guaranteed — but when approached correctly, it has historically been one of the most powerful wealth-building tools available to ordinary people."
+}}

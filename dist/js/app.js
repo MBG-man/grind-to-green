@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const CACHE_KEY        = "gtg_posts_v1";
 
   const AUTHOR = {
-    name:   "eemkay",
-    bio:    " Finance and crypto writer focused on helping people earn more, save smarter, and build long-term wealth. Writing practical money, investing, and digital finance content at grindtogreen.com since 2025",
+    name:   "Mubarak",
+    bio:    "Personal finance and crypto writer focused on practical budgeting, investing, and digital income education for beginners.",
     links:  { twitter: "https://x.com/Mubarakgman", blog: "https://grindtogreen.com" }
   };
 
@@ -205,9 +205,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     wrapper.className = "search-wrapper";
     wrapper.innerHTML = `
       <div class="search-inner">
-        <span class="search-icon">🔍</span>
+        <span class="search-icon">Search</span>
         <input id="post-search" type="search"
-               placeholder="Search articles…"
+               placeholder="Search articles..."
                autocomplete="on"
                aria-label="Search articles">
       </div>`;

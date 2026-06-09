@@ -22,11 +22,12 @@ const DEFAULT_IMG = `${SITE_URL}/images/og-default.jpg`;
 const POSTS_DIR   = path.join(__dirname, "posts");
 const DIST_DIR    = path.join(__dirname, "dist");
 const AUTHOR = {
-  name:    "eemkay",
-  bio:     "Finance and crypto writer focused on helping people earn more, save smarter, and build long-term wealth. Writing practical money, investing, and digital finance content at grindtogreen.com since 2025.",
+  name:    "Mubarak",
+  bio:     "Personal finance and crypto writer focused on practical budgeting, investing, and digital income education for beginners.",
   twitter: "https://x.com/Mubarakgman",
   blog:    "https://grindtogreen.com"
 };
+const ADSENSE_ENABLED = process.env.ENABLE_ADSENSE === "true";
 
 // ─── HELPERS ───────────────────────────────────────────────────────────────
 function fmtDate(d) {
@@ -184,8 +185,8 @@ function buildAuthor() {
         <span class="author-name" itemprop="name">${AUTHOR.name}</span>
         <p class="author-desc" itemprop="description">${AUTHOR.bio}</p>
         <div class="author-links">
-          <a href="${AUTHOR.blog}" target="_blank" rel="noopener noreferrer">🌐 Blog</a>
-          <a href="${AUTHOR.twitter}" target="_blank" rel="noopener noreferrer">🐦 Twitter / X</a>
+          <a href="${AUTHOR.blog}" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="${AUTHOR.twitter}" target="_blank" rel="noopener noreferrer">Twitter / X</a>
         </div>
       </div>
     </div>`;
@@ -225,6 +226,10 @@ function buildSchema(post, url, img) {
 
 // ─── SHARED HTML PARTS ─────────────────────────────────────────────────────
 function htmlHead(title, desc, url, img, extraSchemas = "") {
+  const adsenseScript = ADSENSE_ENABLED
+    ? `\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1666678165948804" crossorigin="anonymous"></script>`
+    : "";
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -261,8 +266,7 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <link rel="stylesheet" href="/css/style.css">
   <style>.share-svg{width:18px;height:18px;fill:currentColor;display:block;}</style>
 
-  ${extraSchemas}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1666678165948804" crossorigin="anonymous"></script>
+  ${extraSchemas}${adsenseScript}
 </head>`;
 }
 
@@ -290,7 +294,7 @@ function htmlHeader() {
       <a href="/pages/privacy">Privacy</a>
       <a href="/pages/terms">Terms</a>
     </nav>
-    <button id="main-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <button id="main-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   </div>
 </header>`;
 }
@@ -298,7 +302,7 @@ function htmlHeader() {
 function htmlFooter() {
   return `
 <footer class="footer">
-  <p>© <span id="footer-year"></span> Grind To Green. All rights reserved.</p>
+  <p>&copy; <span id="footer-year"></span> Grind To Green. All rights reserved.</p>
 </footer>
 <script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
 <script>
@@ -352,9 +356,9 @@ ${htmlHeader()}
     <h1 itemprop="headline">${post.title}</h1>
 
     <div class="post-meta-bar">
-      <span>📅 ${fmtDate(post.date)}</span>
-      <span>⏱ ${readTime}</span>
-      <span>📁 ${escHtml(category)}</span>
+      <span>${fmtDate(post.date)}</span>
+      <span>${readTime}</span>
+      <span>${escHtml(category)}</span>
     </div>
 
     ${heroImg}
@@ -396,10 +400,10 @@ function buildHomepage(posts) {
           <p>${escHtml(post.description || "")}</p>
           <div class="post-card-meta">
             <small>${fmtDate(post.date)}</small>
-            <small class="reading-time">⏱ ${readTime}</small>
+            <small class="reading-time">${readTime}</small>
           </div>
           <div class="post-categories">
-            <span class="post-category-badge">📁 ${escHtml(category)}</span>
+            <span class="post-category-badge">${escHtml(category)}</span>
           </div>
         </a>
       </article>`;
@@ -422,7 +426,7 @@ ${htmlHeader()}
 
 <section class="hero">
   <h1>Turn Your Grind Into Real Wealth</h1>
-  <p>Budgeting, crypto, investing and side hustles — built for Africans.</p>
+  <p>Budgeting, crypto, investing and side hustles built for Africans.</p>
   <div>
     <a href="#posts" class="btn-primary">Read Articles</a>
     <a href="/pages/about" class="btn-secondary">About Us</a>
@@ -431,8 +435,8 @@ ${htmlHeader()}
 
 <div class="search-wrapper">
   <div class="search-inner">
-    <span class="search-icon">🔍</span>
-    <input id="post-search" type="search" placeholder="Search articles…" autocomplete="on" aria-label="Search articles">
+    <span class="search-icon">Search</span>
+    <input id="post-search" type="search" placeholder="Search articles..." autocomplete="on" aria-label="Search articles">
   </div>
 </div>
 
@@ -441,6 +445,8 @@ ${htmlHeader()}
   <button class="category-pill active" data-category="all">All</button>
   ${pills}
 </div>
+
+
 
 <main id="posts-container" aria-label="Blog posts" id="posts">
 ${postCards}
@@ -529,7 +535,7 @@ function build() {
   copyDir(path.join(__dirname, "pages"),  path.join(DIST_DIR, "pages"));
 
   // Copy root-level files that Netlify needs
-  for (const f of ["robots.txt", "sitemap.xml", "write-for-us.html"]) {
+  for (const f of ["robots.txt", "write-for-us.html"]) {
     const src = path.join(__dirname, f);
     if (fs.existsSync(src)) {
       fs.copyFileSync(src, path.join(DIST_DIR, f));
@@ -557,6 +563,11 @@ function build() {
   const redirectsContent = buildRedirects(posts);
   fs.writeFileSync(path.join(DIST_DIR, "_redirects"), redirectsContent, "utf8");
   console.log(`✅  _redirects`);
+
+  const sitemapContent = buildSitemap(posts);
+  fs.writeFileSync(path.join(DIST_DIR, "sitemap.xml"), sitemapContent, "utf8");
+  fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemapContent, "utf8");
+  console.log(`✅  sitemap.xml`);
 
   console.log(`\n🎉  Build complete — ${built} posts + homepage written to /dist/`);
   console.log(`    Deploy the /dist/ folder to Netlify as your publish directory.`);
@@ -601,6 +612,36 @@ function buildRedirects(posts) {
 /    /index.html    200`;
 
   return `# GrindToGreen _redirects — auto-generated by build.js\n${staticRedirects}\n${oldSlugRedirects}\n${staticFiles}`;
+}
+
+function buildSitemap(posts) {
+  const staticUrls = [
+    { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "daily" },
+    { loc: `${SITE_URL}/pages/about`, priority: "0.6", changefreq: "monthly" },
+    { loc: `${SITE_URL}/pages/contact`, priority: "0.6", changefreq: "monthly" },
+    { loc: `${SITE_URL}/pages/privacy`, priority: "0.5", changefreq: "yearly" },
+    { loc: `${SITE_URL}/pages/terms`, priority: "0.5", changefreq: "yearly" },
+    { loc: `${SITE_URL}/write-for-us`, priority: "0.4", changefreq: "monthly" }
+  ];
+
+  const postUrls = posts.map(post => ({
+    loc: `${SITE_URL}/${post.slug}`,
+    priority: "0.8",
+    changefreq: "monthly",
+    lastmod: post.date
+  }));
+
+  const urls = [...staticUrls, ...postUrls].map(item => `  <url>
+    <loc>${item.loc}</loc>${item.lastmod ? `\n    <lastmod>${item.lastmod}</lastmod>` : ""}
+    <changefreq>${item.changefreq}</changefreq>
+    <priority>${item.priority}</priority>
+  </url>`).join("\n\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
 }
 
 // ─── COPY DIRECTORY HELPER ──────────────────────────────────────────────────

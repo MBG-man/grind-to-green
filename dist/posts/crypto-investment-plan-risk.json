@@ -145,31 +145,17 @@
         "<strong>Never share your seed phrase</strong> – not with \"support,\" not with anyone. No legitimate person will ever ask for it.",
         "<strong>Enable 2FA</strong> with an authenticator app (Google Authenticator or Authy), not SMS."
       ]
-    },
-
-    {
-      "type": "faq",
-      "questions": [
-        {
-          "q": "Is crypto a good investment for beginners?",
-          "a": "Only after you have an emergency fund, no high-interest debt, and a basic stock portfolio. Crypto should be a small, speculative part of your overall plan not your main strategy."
-        },
-        {
-          "q": "How do I choose which altcoins to buy?",
-          "a": "Stick to the top 10-20 coins by market cap with active development teams and clear use cases. Avoid new meme coins and tokens promoted only on TikTok or Telegram."
-        },
-        {
-          "q": "What's the safest crypto investment?",
-          "a": "Bitcoin and Ethereum are the safest among cryptocurrencies they have the longest track records and largest networks. Stablecoins like USDC are safe from price volatility but still carry counterparty risk (the issuer could fail)."
-        },
-        {
-          "q": "Should I trade crypto or just hold?",
-          "a": "For beginners: just hold (HODL). Trading requires skill, time, and emotional control. Most active traders lose money. Buy and hold for years."
-        },
-        {
-          "q": "Can crypto go to zero?",
-          "a": "Yes. Entirely possible. That's why you never invest money you can't afford to lose. Treat crypto as high-risk speculation, not a sure thing."
-        }
-      ]
     }
-  ]}
+    ]
+  ,
+  "faq": [
+{"question": "Is crypto a good investment for beginners?", "answer": "Only after you have an emergency fund, no high-interest debt, and a basic stock portfolio. Crypto should be a small, speculative part of your overall plan."},
+{"question": "How do I choose which altcoins to buy?", "answer": "Stick to the top 10–20 coins by market cap with active development teams and clear use cases. Avoid new meme coins promoted only on TikTok or Telegram."},
+{"question": "What is the safest crypto investment?", "answer": "Bitcoin and Ethereum have the longest track records and largest networks. Stablecoins like USDC are safe from price volatility but carry counterparty risk."},
+{"question": "Should I trade crypto or just hold?", "answer": "For beginners: just hold. Trading requires skill, time, and emotional control. Most active traders lose money. Buy and hold for years."},
+{"question": "Can crypto go to zero?", "answer": "Yes, entirely possible for individual coins. That is why you never invest money you cannot afford to lose. Treat crypto as high-risk speculation, not a certainty."}
+],
+"final_advice": {
+"text": "Smart crypto investing is boring. You buy quality assets, you set rules before you invest, and you do not check prices every hour. The people who build real wealth in crypto are not the ones chasing the fastest gains — they are the ones who stayed disciplined when everyone else was panicking or euphoric."
+}
+}
