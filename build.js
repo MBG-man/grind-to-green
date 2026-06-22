@@ -201,9 +201,10 @@ function buildSchema(post, url, img) {
     "url": url,
     "image": img,
     "datePublished": post.date,
-    "dateModified": post.date,
-    "author": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
-    "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL }
+    "dateModified": post.dateModified || post.date,
+    "author": { "@type": "Person", "name": AUTHOR.name, "url": AUTHOR.blog, "sameAs": [AUTHOR.twitter] },
+    "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url }
   };
 
   let schemas = `<script type="application/ld+json">${JSON.stringify(article)}</script>`;
@@ -661,4 +662,4 @@ function copyDir(src, dest) {
 }
 
 // ─── RUN ────────────────────────────────────────────────────────────────────
-build();
+build(); 
