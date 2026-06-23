@@ -1,2 +1,4 @@
 copy.json
 .vscode
+# Local Netlify folder
+.netlify
