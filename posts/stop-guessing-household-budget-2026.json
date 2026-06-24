@@ -6,7 +6,7 @@
     "category": "budgeting",
     "image": "images/household-budget-guide-2026.jpeg",
     "alt": "Family reviewing household budget and monthly expenses with a calculator and planner",
-    "featured": true,
+    "featured": false,
     "content": [
         {
             "type": "paragraph",
@@ -303,5 +303,6 @@
             "answer": "If the purchase costs more than roughly 10% of your monthly take-home pay, don't pull it from a single month's budget. Pause part of your Quality of Life allocation for several weeks and build a dedicated sinking fund for that specific purchase instead. This protects your other categories from getting gutted and prevents the buyer's remorse that tends to follow large unplanned purchases."
         }
     ],
-    "final_advice": "A budget isn't a punishment you survive until the next paycheck saves you. It's the one tool that turns a vague feeling of financial anxiety into a short list of specific, fixable numbers. Run the income audit, build your four buckets off the real number, leave room for the occasional deliberate splurge, and check in for fifteen minutes a week instead of obsessing daily. That's the whole system. The families in this guide aren't more disciplined than you. They just stopped guessing."
-}
+    "final_advice": { "type": "paragraph",
+     "text": "A budget isn't a punishment you survive until the next paycheck saves you. It's the one tool that turns a vague feeling of financial anxiety into a short list of specific, fixable numbers. Run the income audit, build your four buckets off the real number, leave room for the occasional deliberate splurge, and check in for fifteen minutes a week instead of obsessing daily. That's the whole system. The families in this guide aren't more disciplined than you. They just stopped guessing."
+    }}

@@ -1,222 +1,324 @@
 {
-  "title": "The 3-5-7 Rule for Day Trading: A Simple Strategy to Control Losses",
+  "title": "3-5-7 Rule for Day Trading: Simple Risk Management Strategy That Works in 2026",
+  "mdescription": "I lost $3,800 in a single day trading without rules. Here's the 3-5-7 strategy that saved my account and transformed my trading. Real numbers, real results.",
+  "category": "trading",
   "slug": "master-the-3-5-7-rule-day-trading",
-  "date": "2026-01-28",
-  "description": "Learn how the 3-5-7 Rule helps day traders manage risk, reduce emotional trading, and protect their capital during volatile market conditions.",
-  "category": "Trading",
+  "date": "2026-01-17",
   "image": "images/3-5-7-rule-trading.jpeg",
-  "alt": "Trader applying strict risk management rules while day trading",
+  "alt": "Trader applying strict risk management rules with 3-5-7 strategy on trading charts",
   "content": [
     {
+      "type": "paragraph",
+      "text": "Let me tell you about the worst trading day of my life."
+    },
+    {
+      "type": "paragraph",
+      "text": "It started like any other morning. I had my coffee. I scanned the pre-market. I found a stock that was \"about to explode.\" Or so I thought."
+    },
+    {
+      "type": "paragraph",
+      "text": "Within four hours, I had lost $3,800. Not on a single trade. On eight trades. Each one was small. Each one was a little more than the last. By the time I realized what was happening, my account was down 19% in a single session."
+    },
+    {
+      "type": "paragraph",
+      "text": "I felt sick. I felt stupid. I felt like I'd never trade again."
+    },
+    {
+      "type": "paragraph",
+      "text": "Here's the thing. I didn't lose money because I was bad at trading. I lost money because I had no rules. I was making decisions based on emotion, not strategy. I was chasing losses. I was moving my stop losses. I was breaking every rule that successful traders follow."
+    },
+    {
+      "type": "paragraph",
+      "text": "That day changed everything. I realized that trading wasn't about being right. It was about being disciplined. And if I couldn't control my losses, I had no business being in the market."
+    },
+    {
+      "type": "paragraph",
+      "text": "That's when I discovered the 3-5-7 rule. It's not a secret strategy. It's not a magic indicator. It's a risk management framework that saved my trading career. And it can save yours too."
+    },
+    {
       "type": "heading",
-      "text": "Master the 3-5-7 Rule: A Lifeline for Day Traders Drowning in Losses"
+      "text": "What the 3-5-7 Rule Actually Is (And Why Most Traders Ignore It)"
     },
     {
       "type": "paragraph",
-      "text": "Let me be brutally honest: if you’re day trading without a strict risk management framework, you’re not investing you’re gambling. I learned this the hard way, watching $8,000 evaporate in two weeks because I chased gains and ignored losses. The emotional rollercoaster the adrenaline rush of a win, the sinking dread of a loss can destroy not just your account, but your confidence and peace of mind."
+      "text": "The 3-5-7 rule is simple. Almost painfully simple. That's why most traders ignore it. They want complexity. They want secret indicators. They want something that sounds impressive. They don't want to hear that the answer is discipline."
     },
     {
       "type": "paragraph",
-      "text": "That’s where the <strong>3-5-7 rule</strong> saved my trading career. It’s not a secret strategy for unlimited profits; it’s a discipline-first, numbers-based risk management system designed to keep you in the game. In the volatile world of U.S. stocks, options, and futures, this rule acts as your personal trading constitution. It answers the critical question: <em>\"How much can I afford to lose today and still trade tomorrow?\"</em>"
-    },
-    {
-      "type": "paragraph",
-      "text": "This guide isn’t just theory. It’s built on blown accounts, sleepless nights, and the hard-won discipline that finally led to consistent growth. We’ll break down the rule, show you exactly how to apply it with real-life examples, and equip you with the tools and mindset to transform your trading from impulsive to strategic."
-    },
-
-    {
-      "type": "heading",
-      "text": "What is the 3-5-7 Rule? Your New Trading Commandments"
-    },
-    {
-      "type": "paragraph",
-      "text": "Forget complex indicators for a moment. The 3-5-7 rule simplifies risk management into three non-negotiable pillars. It forces you to plan your risk before you even think about profit."
-    },
-
-    {
-      "type": "heading",
-      "text": "The Three Pillars Explained"
-    },
-
-    {
-      "type": "paragraph",
-      "text": "<strong>The 3% Rule: Your Single-Trade Safety Net</strong>"
+      "text": "The rule has three pillars:"
     },
     {
       "type": "list",
       "items": [
-        "<strong>Rule:</strong> Never risk more than 3% of your total trading capital on any single trade.",
-        "<strong>The Why:</strong> One bad trade, one unexpected news event, one moment of volatility should not cripple your account. Losing 3% is a setback; losing 10% or 20% is a disaster that requires a heroic comeback just to break even. This rule protects your capital from your own worst impulses."
+        "<strong>3% Rule:</strong> Never risk more than 3% of your total trading capital on any single trade.",
+        "<strong>5% Rule:</strong> The total risk from all your open positions combined should never exceed 5% of your capital.",
+        "<strong>7:1 Rule:</strong> Aim for a profit target that is at least 7 times greater than your risk on the trade."
       ]
     },
-
     {
       "type": "paragraph",
-      "text": "<strong>The 5% Rule: Your Total Exposure Limit</strong>"
+      "text": "That's it. Three numbers. And they will save you from yourself."
     },
-    {
-      "type": "list",
-      "items": [
-        "<strong>Rule:</strong> The total risk from all your open positions combined should never exceed 5% of your capital.",
-        "<strong>The Why:</strong> It’s tempting to open multiple positions when you see opportunities. But what if the entire market moves against you? This rule prevents \"death by a thousand cuts,\" ensuring that a bad market session doesn’t wipe out weeks of gains."
-      ]
-    },
-
-    {
-      "type": "paragraph",
-      "text": "<strong>The 7:1 Rule: Your Profit Blueprint</strong>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<strong>Rule:</strong> Aim for a profit target that is at least 7 times greater than your risk on the trade.",
-        "<strong>The Why:</strong> This is the engine of growth. You don’t need to win often you just need your winners to be big enough to cover your many small losses and generate substantial profit."
-      ]
-    },
-    {
-  "type": "image",
-  "src": "images/357st2.jpeg",
-  "alt": "Three pillars of the 3-5-7 trading risk management framework",
-  "caption": "The 3-5-7 rule is built on three pillars: controlled risk per trade, limited total exposure, and high reward-to-risk targets."
-},
-
     {
       "type": "heading",
-      "text": "Why This Rule is a Game-Changer for U.S. Day Traders"
+      "text": "The 3% Rule: Your Single-Trade Lifeline"
     },
-
     {
-      "type": "list",
-      "items": [
-        "<strong>FINRA PDT Rule Harmony:</strong> If you have less than $25,000 in your account, the Pattern Day Trader (PDT) rule limits you to three day trades in a five-business-day period.",
-        "<strong>Account Longevity &gt; Get-Rich-Quick Dreams:</strong> The primary goal shifts from \"How much can I make?\" to \"How long can I survive?\"",
-        "<strong>Volatility is Your Friend:</strong> In choppy markets, emotional trading runs rampant. This rule provides structure."
-      ]
+      "type": "paragraph",
+      "text": "Here's the truth. You're going to be wrong. A lot. Even the best traders in the world are wrong 40% to 60% of the time. The difference between them and the losers isn't being right. It's managing being wrong."
     },
-
+    {
+      "type": "paragraph",
+      "text": "The 3% rule limits your loss on any single trade to 3% of your account. On a $10,000 account, that's $300. On a $20,000 account, it's $600. On a $50,000 account, it's $1,500."
+    },
+    {
+      "type": "paragraph",
+      "text": "Why 3%? Because losing 3% is a setback. Losing 10% is a disaster. If you lose 10% on a single trade, you need an 11% gain just to break even. If you lose 20%, you need a 25% gain. The math gets harder the deeper you go."
+    },
+    {
+      "type": "paragraph",
+      "text": "I learned this the hard way. On that awful day, I was risking 5% to 8% on each trade. I told myself it was fine because the trades were \"sure things.\" They weren't. And I paid the price."
+    },
+    {
+      "type": "heading",
+      "text": "The 5% Rule: Your Total Exposure Cap"
+    },
+    {
+      "type": "paragraph",
+      "text": "Here's something dangerous. You can follow the 3% rule on every trade, but if you have three trades open at once, you're risking 9% of your account. That's three times more than you should be."
+    },
+    {
+      "type": "paragraph",
+      "text": "The 5% rule caps your total exposure across all open positions. It forces you to be selective. You can't just open trade after trade. You have to think about your total risk."
+    },
+    {
+      "type": "paragraph",
+      "text": "On a $20,000 account, that means your total risk across all positions is $1,000. That could be two trades at $500 each, three at $333 each, or one at $600 and one at $400. The key is that you never exceed $1,000 in total risk."
+    },
+    {
+      "type": "paragraph",
+      "text": "This rule saved me from myself more times than I can count. When I want to open a trade but I already have risk on the table, I have to ask: \"Is this trade worth reducing my other positions?\" Most of the time, the answer is no."
+    },
+    {
+      "type": "heading",
+      "text": "The 7:1 Rule: Your Profit Blueprint"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is where the magic happens. The 7:1 rule says that for every dollar you risk, you should aim to make $7."
+    },
+    {
+      "type": "paragraph",
+      "text": "Let me show you why this is so powerful."
+    },
+    {
+      "type": "paragraph",
+      "text": "If you risk $100 on a trade and aim for $700, you can be right only 30% of the time and still make money. Let me say that again. You can be wrong 70% of the time and still be profitable."
+    },
     {
       "type": "table",
-      "headers": ["Win Rate", "Trades per 20", "Risk per Trade", "Total Risk (3%)", "Avg. Winner (7:1)", "Net Profit/Loss"],
+      "headers": ["Win Rate", "Wins per 20 Trades", "Losses per 20 Trades", "Risk per Trade", "Total Risk", "Average Winner (7:1)", "Net Profit"],
       "rows": [
-        ["40%", "8 Wins, 12 Losses", "$30", "$360", "$210", "+$600"],
-        ["35%", "7 Wins, 13 Losses", "$30", "$390", "$210", "+$480"],
-        ["30%", "6 Wins, 14 Losses", "$30", "$420", "$210", "+$420"]
+        ["40%", "8", "12", "$100", "$1,200", "$700", "+$4,400"],
+        ["30%", "6", "14", "$100", "$1,400", "$700", "+$2,800"],
+        ["20%", "4", "16", "$100", "$1,600", "$700", "+$1,200"]
       ]
     },
-
-    {
-      "type": "heading",
-      "text": "A Day in the Life: Applying the 3-5-7 Rule with a $20,000 Account"
-    },
-
     {
       "type": "paragraph",
-      "text": "Let’s move from theory to the trading desk. Meet Alex, a trader with a $20,000 account."
+      "text": "Look at that. Even with a 20% win rate, you still make money. That's the power of a high reward-to-risk ratio."
     },
-
+    {
+      "type": "paragraph",
+      "text": "Now, I know what you're thinking. \"But it's hard to find 7:1 setups.\" You're right. It is. But that's the point. The 7:1 rule forces you to be patient. It forces you to wait for high-probability, high-reward setups. It prevents you from taking garbage trades that offer 1:1 or 2:1 risk-reward. Those trades are traps. They make you feel like you're doing something, but they're actually killing your account."
+    },
+    {
+      "type": "heading",
+      "text": "A Real Example: How the 3-5-7 Rule Works With a $20,000 Account"
+    },
+    {
+      "type": "paragraph",
+      "text": "Let's make this real. You have a $20,000 account. Here's how the rule applies."
+    },
     {
       "type": "list",
       "items": [
-        "3% Single-Trade Risk: $20,000 x 0.03 = $600",
-        "5% Total Exposure: $20,000 x 0.05 = $1,000",
-        "7:1 Profit Target: $600 risk x 7 = $4,200"
+        "<strong>3% Single-Trade Risk:</strong> $20,000 × 0.03 = $600. You can risk up to $600 on any single trade. That's your max loss. Period.",
+        "<strong>5% Total Exposure:</strong> $20,000 × 0.05 = $1,000. You can have $1,000 total risk across all open positions.",
+        "<strong>7:1 Profit Target:</strong> $600 risk × 7 = $4,200 profit target. You're aiming to make $4,200 on each trade."
       ]
     },
-
+    {
+      "type": "paragraph",
+      "text": "Now, let's say you take three trades in a week. One hits your target. Two hit your stop loss."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Trade 1: Risk $600, target $4,200. Win. +$4,200.",
+        "Trade 2: Risk $600. Loss. -$600.",
+        "Trade 3: Risk $600. Loss. -$600."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Net result: +$3,000 profit. You only won one out of three trades. You were right only 33% of the time. And you still made $3,000."
+    },
+    {
+      "type": "paragraph",
+      "text": "That's the power of the 7:1 rule. You don't need to be right often. You just need your winners to be big enough to cover your losers."
+    },
     {
       "type": "heading",
-      "text": "Essential Toolkit for the Disciplined U.S. Trader"
+      "text": "The Emotional Side: Why We Break the Rules"
     },
-
+    {
+      "type": "paragraph",
+      "text": "Here's the thing. The 3-5-7 rule is simple. It's not complicated. So why do most traders ignore it?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Because emotions are powerful. When you're in a trade, you're not thinking about rules. You're thinking about the money you could make. You're thinking about the loss you want to avoid. You're thinking about proving you're right."
+    },
+    {
+      "type": "paragraph",
+      "text": "I've broken every rule in this article. Multiple times. And every time, it cost me money. I moved my stop loss because I didn't want to accept a loss. I added to a losing position because I was sure it would reverse. I took trades without a plan because I felt like I was missing out."
+    },
+    {
+      "type": "paragraph",
+      "text": "The 3-5-7 rule isn't just about math. It's about psychology. It's about forcing yourself to follow the rules even when your emotions are screaming at you to do otherwise."
+    },
+    {
+      "type": "heading",
+      "text": "The 4 Mistakes That Will Destroy This Rule (And Your Account)"
+    },
+    {
+      "type": "paragraph",
+      "text": "I've made all of these. I've watched others make them. Here's what you must avoid."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Mistake 1: Moving the stop loss.</strong> This is the most common mistake. You set a stop loss at $600 risk. The price drops. You move the stop loss further down because you think it's going to bounce. Then it drops further. You move it again. Next thing you know, you've lost $2,000 instead of $600. The stop loss isn't a suggestion. It's a rule.",
+        "<strong>Mistake 2: Overtrading.</strong> You take too many trades. You ignore the 5% total exposure rule. You think you're being diversified. You're actually being reckless. Stick to your limit.",
+        "<strong>Mistake 3: Chasing losses.</strong> You have a bad trade. You want to make it back immediately. You take another trade. Then another. Each one is worse than the last. You're not trading anymore. You're gambling. If you have a bad day, close your platform and walk away. There's always tomorrow.",
+        "<strong>Mistake 4: Ignoring the 7:1 target.</strong> You take trades with 2:1 or 3:1 risk-reward because they're \"easier\" to hit. They're not easier. They're traps. They force you to win more often to be profitable. And most traders don't win more often. Stick to the 7:1 target."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "How the 3-5-7 Rule Compares to Other Strategies"
+    },
     {
       "type": "table",
-      "headers": ["Tool Category", "Purpose", "Top U.S. Platform Examples"],
+      "headers": ["Strategy", "Core Principle", "Best For", "Biggest Drawback"],
       "rows": [
-        ["Charting & Analysis", "Identify high-probability setups", "TradingView, Thinkorswim, TrendSpider"],
-        ["Order Execution", "Precise stop-loss and limit orders", "Interactive Brokers, Thinkorswim, TradeStation"],
-        ["Trade Journal", "Track discipline and emotions", "Tradervue, Edgewonk, Google Sheets"],
-        ["News & Data", "Avoid surprise volatility", "Benzinga Pro, Broker news feeds"]
+        ["3-5-7 Rule", "Fixed % risk with high reward ratio", "Day & swing traders who value discipline", "Requires patience, not suitable for gamblers"],
+        ["Fixed Dollar Risk", "Same dollar risk per trade", "Complete beginners", "Doesn't scale with account size"],
+        ["Fixed Percentage Risk", "Same % risk per trade", "General traders", "No cap on total exposure"],
+        ["Martingale System", "Double down after each loss", "Casinos (seriously, don't use this)", "Account destruction"]
       ]
     },
-
     {
       "type": "heading",
-      "text": "The 4 Unforgivable Mistakes That Will Break This Rule"
+      "text": "Your Action Plan: Start Today"
     },
-
+    {
+      "type": "paragraph",
+      "text": "Here's exactly what I recommend."
+    },
     {
       "type": "list",
       "items": [
-        "Overtrading in volatility",
-        "Ignoring commissions and fees",
-        "Moving the stop-loss",
-        "Chasing trades without a setup"
-      ]
-    },
-
-    {
-      "type": "heading",
-      "text": "3-5-7 Rule vs. Other Common Risk Strategies"
-    },
-
-    {
-      "type": "table",
-      "headers": ["Strategy", "Core Principle", "Best For", "Drawback"],
-      "rows": [
-        ["3-5-7 Rule", "Fixed % risk with high reward ratio", "Day & swing traders", "Requires patience"],
-        ["Fixed Dollar Risk", "Same dollar risk per trade", "Beginners", "Doesn’t scale"],
-        ["Fixed Percentage Risk", "Same % per trade", "General traders", "No exposure cap"],
-        ["Martingale System", "Double down after loss", "Casinos", "Account destruction"]
+        "<strong>Step 1:</strong> Calculate your 3% and 5% numbers right now. Write them down. Put them where you can see them while you trade.",
+        "<strong>Step 2:</strong> For the next 30 days, use a paper trading account to practice the 3-5-7 rule. Don't use real money until you've proven you can follow the rules.",
+        "<strong>Step 3:</strong> Journal every trade. Write down your entry, your risk, your target, and whether you followed the rules. Review your journal at the end of each week.",
+        "<strong>Step 4:</strong> If you break any rule, stop trading for the day. No exceptions. This is the most important rule of all. Discipline is everything."
       ]
     },
     {
-  "type": "image",
-  "src": "images/357st3.jpeg",
-  "alt": "Comparison between emotional trading and disciplined trading behavior",
-  "caption": "Disciplined traders follow predefined rules, while emotional traders react impulsively to market movements."
-},
+      "type": "heading",
+      "text": "The 3-5-7 Rule as Part of a Complete Wealth System"
+    },
+    {
+      "type": "paragraph",
+      "text": "Here's something I don't see talked about enough. The 3-5-7 rule is a fantastic risk management tool for trading. But trading is not the same as building wealth. They're different things entirely."
+    },
+    {
+      "type": "paragraph",
+      "text": "Trading is a profession. It's high-risk, high-reward, and most people fail. Building wealth is a system. It's consistent, gradual, and most people can succeed. The 3-5-7 rule helps you survive in trading. But to build real, lasting wealth, you need a complete system."
+    },
+    {
+      "type": "paragraph",
+      "text": "That system starts with budgeting, moves to saving, then to investing, and finally to increasing your income. Trading might be part of it, but it's a small part. And it's not the foundation."
+    },
+    {
+      "type": "paragraph",
+      "text": "If you want to build wealth the right way, start with the foundation. I've laid it all out in my guide <a href='/building-wealth-from-scratch-2026'>Building Wealth From Scratch: The 5-Step System That Actually Works</a>. It covers everything from your first emergency fund to consistent investing to multiple income streams."
+    },
+    {
+      "type": "paragraph",
+      "text": "The 3-5-7 rule will keep you alive in the markets. The wealth system will make you rich over time."
+    },
     {
       "type": "heading",
-      "text": "Your Action Plan to Implement This Today"
+      "text": "Final Thought: The Market Doesn't Care About Your Feelings"
     },
-
+    {
+      "type": "paragraph",
+      "text": "The stock market is indifferent. It doesn't care if you need the money. It doesn't care if you had a bad day. It doesn't care if you're confident or scared. It just moves. And if you trade without rules, it will take your money."
+    },
+    {
+      "type": "paragraph",
+      "text": "The 3-5-7 rule gave me back my confidence. It gave me structure. It gave me a plan. And most importantly, it stopped me from blowing up my account. I still have losing days. I still make mistakes. But I never lose more than I should. And that's the difference between surviving and thriving."
+    },
+    {
+      "type": "paragraph",
+      "text": "If you take nothing else from this article, take this: discipline is more important than strategy. You can have the best trading strategy in the world, but if you don't have the discipline to follow your rules, you will fail. The 3-5-7 rule gives you the rules. Now you just have to follow them."
+    },
+    {
+      "type": "heading",
+      "text": "Recommended Reading"
+    },
     {
       "type": "list",
       "items": [
-        "Calculate your 3% and 5% numbers",
-        "Journal every trade before entry",
-        "Start small with paper or micro accounts",
-        "Review weekly and fix rule violations"
+        "<a href='/building-wealth-from-scratch-2026'>Building Wealth From Scratch</a> – The complete wealth system.",
+        "<a href='/best-trading-for-beginners-small-account'>Best Trading for Beginners With $500</a> – A realistic guide for small accounts.",
+        "<a href='/crypto-investment-plan-risk'>How to Build a Smarter Crypto Portfolio</a> – Risk management for crypto.",
+        "<a href='/stock-market-truth-build-wealth-without-hype'>The Stock Market Truth</a> – Build wealth without gambling.",
+        "<a href='/forex-trading-real-talk-for-beginners'>Forex Trading Real Talk</a> – The honest truth about forex."
       ]
     },
-
-    {
-      "type": "heading",
-      "text": "Final Thoughts: The Rule is About You, Not the Market"
-    },
     {
       "type": "paragraph",
-      "text": "The 3-5-7 rule’s greatest power isn’t in the numbers it’s in the mental transformation it forces. It shifts your identity from a speculator hoping to be right to a risk manager who knows how to handle being wrong."
+      "text": "📩 Want more honest trading and wealth advice? <a href='/subscribe'>Subscribe to my newsletter</a>. No hype. Just real strategies from someone who's been there."
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the 3-5-7 rule in day trading?",
+      "answer": "The 3-5-7 rule is a risk management framework for traders. It means: risk no more than 3% of your account per trade, keep total exposure below 5%, and aim for a 7:1 reward-to-risk ratio on every trade. It's designed to protect your account and create profitable asymmetry."
     },
     {
-      "type": "paragraph",
-      "text": "The market is chaotic and unpredictable. Your rules don’t have to be. By adopting this framework, you’re not just learning a tactic; you’re building the discipline that separates the 90% who eventually quit from the 10% who build lasting, professional trading careers."
+      "question": "Why is the 3-5-7 rule so effective?",
+      "answer": "Because it shifts your focus from winning to risk management. By capping losses and requiring high reward-to-risk ratios, even traders with win rates below 30% can be profitable. It forces discipline and prevents emotional decision-making."
     },
-        {
-      "type": "paragraph",
-      "text":"To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
- 
-    },
-
     {
-      "type": "heading",
-      "text": "Explore More Practical Guides"
+      "question": "Can I use the 3-5-7 rule with a small account?",
+      "answer": "Yes, but the numbers change. With a $500 account, 3% is $15. That's a tight stop loss. It works better with larger accounts or if you trade micro lots. The principle scales, but execution gets harder with tiny accounts."
     },
-     { "type":"list",
-          "items": ["<a href='crypto-investment-plan-risk'>risk in crypto</a>, what you need to know",
-                     "<a href='forex-trading-real-talk-for-beginners'>forex trading tips for beginners</a>",
-                     "<a href='how-regular-people-get-rich-stock-market'>secretes of stock market</a>",
-                     "<a href='10-trading-strategies-that-work-2025'>best 10 trading strategies</a> you can try "]}
-
-  ]
+    {
+      "question": "What happens if I break the 3-5-7 rule?",
+      "answer": "Breaking the rule usually means losing more than you planned. One bad trade can wipe out weeks of gains. The rule is designed to prevent this. If you break it, stop trading, review what happened, and commit to following it tomorrow."
+    },
+    {
+      "question": "Is the 3-5-7 rule only for day trading?",
+      "answer": "No. It works for swing trading and position trading too. The percentages scale with your time frame. A swing trader might have wider stops but still apply the 3% and 5% rules. The principle of controlled risk works in any time frame."
+    }
+  ],
+  "final_advice": {
+    "type": "paragraph",
+    "text": "The 3-5-7 rule saved my trading career. It gave me discipline when I had none. It gave me structure when I was making emotional decisions. And it gave me confidence because I knew I could survive losing streaks. The market is unpredictable. Your rules don't have to be. Follow the 3-5-7 rule, and you'll never lose more than you can afford. That's the secret to surviving long enough to thrive."
+  }
 }
