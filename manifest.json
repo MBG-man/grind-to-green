@@ -3,7 +3,7 @@
   "short_name": "GTG Budget",
   "description": "Free budgeting tool - Track income, expenses, and savings goals.",
   "start_url": "/tools/budget-tool.html",
-  "scope": "/tools/",
+  "scope": "/budget-tool.html",
   "display": "standalone",
   "background_color": "#f8faf9",
   "theme_color": "#0f7b3e",
