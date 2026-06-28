@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>GrindToGreen · Free Budget Tool</title>
+    <meta name="description" content="Free budgeting tool for grindtogreen.com - Track income, expenses, and savings goals with cloud sync." />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0f7b3e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <style>
+        /* ---------- RESET & VARIABLES ---------- */
+        :root { --primary: #0f7b3e; --primary-dark: #0a5f2e; --primary-light: #e8f5ed; --secondary: #1a8a4a; --accent: #f5b342; --danger: #e74c3c; --success: #27ae60; --gray-100: #f8faf9; --gray-200: #e9eeec; --gray-300: #cbd5d1; --gray-400: #94a3a8; --gray-600: #475569; --gray-800: #1e293b; --white: #ffffff; --shadow: 0 8px 30px rgba(15, 123, 62, 0.12); --radius: 16px; --radius-sm: 10px; --transition: 0.25s ease; --font: 'Segoe UI', system-ui, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font); background: var(--gray-100); color: var(--gray-800); padding: 16px; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; }
+        .budget-container { max-width: 1300px; width: 100%; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 28px 36px; }
+        .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--gray-200); }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area i { font-size: 28px; color: var(--primary); background: var(--primary-light); padding: 8px; border-radius: 12px; }
+        .logo-area h1 { font-size: 24px; font-weight: 700; background: linear-gradient(135deg, var(--primary-dark), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .logo-area small { font-size: 14px; -webkit-text-fill-color: var(--gray-400); background: none; }
+        .header-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+        .header-actions button { background: var(--gray-200); border: none; padding: 8px 14px; border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--gray-600); cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+        .header-actions button:hover { background: var(--primary-light); color: var(--primary); }
+        .header-actions .btn-primary { background: var(--primary); color: white; }
+        .header-actions .btn-primary:hover { background: var(--primary-dark); }
+        .header-actions .btn-install { background: #1a1a2e; color: white; display: none; }
+        .header-actions .btn-install:hover { background: #16213e; }
+        .header-actions .currency-select { padding: 6px 12px; border-radius: 30px; border: 1.5px solid var(--gray-200); background: var(--gray-100); font-weight: 600; font-size: 13px; color: var(--gray-600); cursor: pointer; outline: none; }
+        .header-actions .currency-select:focus { border-color: var(--primary); background: white; }
+        .user-badge { display: flex; align-items: center; gap: 8px; background: var(--primary-light); padding: 4px 12px 4px 16px; border-radius: 30px; font-weight: 600; font-size: 13px; color: var(--primary-dark); }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 28px; }
+        .summary-card { background: var(--gray-100); border-radius: var(--radius-sm); padding: 16px 18px; border: 1px solid transparent; }
+        .summary-card:hover { border-color: var(--gray-300); background: var(--white); }
+        .summary-card .label { font-size: 12px; font-weight: 500; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 6px; }
+        .summary-card .value { font-size: 26px; font-weight: 700; margin-top: 2px; }
+        .summary-card .value.income { color: var(--success); }
+        .summary-card .value.expense { color: var(--danger); }
+        .summary-card .value.balance { color: var(--primary); }
+        .summary-card .value.savings { color: var(--accent); }
+        .two-col { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; margin-bottom: 28px; }
+        @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } .budget-container { padding: 16px; } .summary-grid { grid-template-columns: 1fr 1fr; } }
+        .card { background: var(--white); border-radius: var(--radius-sm); border: 1px solid var(--gray-200); padding: 18px 20px 22px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+        .card-header h3 { font-size: 17px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .card-header h3 i { color: var(--primary); }
+        .card-header .badge { background: var(--primary-light); color: var(--primary-dark); font-size: 11px; font-weight: 600; padding: 2px 12px; border-radius: 30px; }
+        .add-form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .add-form input, .add-form select { flex: 1 1 120px; padding: 9px 12px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); font-size: 13px; background: var(--gray-100); outline: none; }
+        .add-form input:focus, .add-form select:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(15,123,62,0.12); }
+        .add-form button { padding: 9px 18px; background: var(--primary); color: white; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 13px; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+        .add-form button:hover { background: var(--primary-dark); }
+        .tx-list { max-height: 260px; overflow-y: auto; padding-right: 4px; }
+        .tx-list::-webkit-scrollbar { width: 4px; } .tx-list::-webkit-scrollbar-track { background: var(--gray-200); border-radius: 10px; } .tx-list::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--gray-200); animation: slideIn 0.25s ease; }
+        .tx-item:last-child { border-bottom: none; }
+        .tx-item .left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .tx-item .left .icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+        .tx-item .left .icon.income-icon { background: #d4edda; color: var(--success); }
+        .tx-item .left .icon.expense-icon { background: #f8d7da; color: var(--danger); }
+        .tx-item .info .name { font-weight: 600; font-size: 14px; }
+        .tx-item .info .meta { font-size: 11px; color: var(--gray-400); display: flex; gap: 10px; flex-wrap: wrap; }
+        .tx-item .right { display: flex; align-items: center; gap: 12px; }
+        .tx-item .right .amount { font-weight: 700; font-size: 15px; }
+        .tx-item .right .amount.income-amt { color: var(--success); }
+        .tx-item .right .amount.expense-amt { color: var(--danger); }
+        .tx-item .right .del-btn { background: none; border: none; color: var(--gray-400); cursor: pointer; font-size: 15px; padding: 4px; }
+        .tx-item .right .del-btn:hover { color: var(--danger); transform: scale(1.15); }
+        .empty-state { text-align: center; padding: 24px 10px; color: var(--gray-400); }
+        .empty-state i { font-size: 28px; margin-bottom: 6px; opacity: 0.5; }
+        .budget-list { display: flex; flex-direction: column; gap: 12px; max-height: 260px; overflow-y: auto; padding-right: 4px; }
+        .budget-list::-webkit-scrollbar { width: 4px; } .budget-list::-webkit-scrollbar-track { background: var(--gray-200); border-radius: 10px; } .budget-list::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        .budget-item { background: var(--gray-100); border-radius: var(--radius-sm); padding: 10px 14px; }
+        .budget-item:hover { background: var(--primary-light); }
+        .budget-item .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+        .budget-item .top .cat-name { font-weight: 600; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+        .budget-item .top .cat-numbers { font-size: 12px; font-weight: 500; }
+        .budget-item .top .cat-numbers .spent { color: var(--danger); }
+        .budget-bar { width: 100%; height: 5px; background: var(--gray-300); border-radius: 10px; overflow: hidden; margin-top: 4px; }
+        .budget-bar .fill { height: 100%; border-radius: 10px; transition: width 0.6s ease; background: var(--success); }
+        .budget-bar .fill.warning { background: var(--accent); }
+        .budget-bar .fill.danger { background: var(--danger); }
+        .savings-section { margin-top: 24px; border-top: 2px solid var(--gray-200); padding-top: 20px; }
+        .savings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+        @media (max-width: 600px) { .savings-grid { grid-template-columns: 1fr; } }
+        .savings-card { background: var(--gray-100); border-radius: var(--radius-sm); padding: 14px 18px; }
+        .savings-card .goal-label { font-size: 13px; font-weight: 500; color: var(--gray-600); display: flex; justify-content: space-between; }
+        .savings-card .goal-bar { margin: 6px 0 2px; height: 7px; background: var(--gray-300); border-radius: 10px; overflow: hidden; }
+        .savings-card .goal-bar .fill { height: 100%; border-radius: 10px; background: var(--accent); transition: width 0.6s ease; }
+        .savings-card .goal-status { font-size: 12px; color: var(--gray-400); }
+        .chart-wrapper { margin-top: 14px; background: var(--gray-100); border-radius: var(--radius-sm); padding: 10px; text-align: center; }
+        
+        /* ---------- AUTH MODAL ---------- */
+        .auth-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px; }
+        .auth-modal { background: white; max-width: 420px; width: 100%; padding: 32px 28px; border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; animation: slideIn 0.3s ease; }
+        .auth-modal h2 { font-size: 24px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .auth-modal p { color: var(--gray-400); margin-bottom: 16px; font-size: 14px; }
+        .auth-modal .close-auth { position: absolute; top: 12px; right: 18px; font-size: 24px; cursor: pointer; color: var(--gray-400); background: none; border: none; }
+        .auth-modal input, .auth-modal select { width: 100%; padding: 12px 16px; margin-bottom: 12px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); font-size: 14px; background: var(--gray-100); font-family: var(--font); }
+        .auth-modal input:focus, .auth-modal select:focus { border-color: var(--primary); outline: none; background: white; }
+        .auth-modal .auth-btn { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: var(--radius-sm); font-weight: 700; font-size: 16px; cursor: pointer; transition: var(--transition); margin-bottom: 8px; }
+        .auth-modal .auth-btn:hover { background: var(--primary-dark); }
+        .auth-modal .btn-google { background: white; color: #444; border: 1.5px solid #dadce0; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .auth-modal .btn-google:hover { background: #f8f9fa; border-color: #ccc; }
+        .auth-modal .btn-google i { color: #4285f4; font-size: 18px; }
+        .auth-modal .auth-divider { display: flex; align-items: center; text-align: center; margin: 16px 0; color: var(--gray-400); font-size: 13px; }
+        .auth-modal .auth-divider::before, .auth-modal .auth-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--gray-200); }
+        .auth-modal .auth-divider::before { margin-right: 12px; }
+        .auth-modal .auth-divider::after { margin-left: 12px; }
+        .auth-modal .consent-wrapper { display: flex; align-items: flex-start; gap: 10px; margin: 6px 0 12px 0; font-size: 14px; color: var(--gray-600); }
+        .auth-modal .consent-wrapper input { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
+        .auth-modal .consent-wrapper label { cursor: pointer; line-height: 1.4; }
+        .auth-modal .consent-wrapper label small { display: block; font-size: 12px; color: var(--gray-400); font-weight: normal; margin-top: 2px; }
+        .auth-modal .forgot-link { display: block; text-align: right; margin-top: -6px; margin-bottom: 12px; font-size: 13px; }
+        .auth-modal .forgot-link a { color: var(--primary); text-decoration: none; cursor: pointer; }
+        .auth-modal .forgot-link a:hover { text-decoration: underline; }
+        .auth-modal .toggle-auth { margin-top: 12px; text-align: center; font-size: 14px; color: var(--gray-600); }
+        .auth-modal .toggle-auth span { color: var(--primary); font-weight: 600; cursor: pointer; }
+        .auth-error { color: var(--danger); font-size: 13px; margin-top: -8px; margin-bottom: 10px; display: none; }
+        .auth-success { color: var(--success); font-size: 13px; margin-top: -8px; margin-bottom: 10px; display: none; }
+        .extra-fields { display: none; }
+
+        /* ---------- VERIFICATION WALL ---------- */
+        #verificationWall { display: none; text-align: center; padding: 60px 20px; background: var(--gray-100); border-radius: var(--radius); margin-top: 20px; }
+        #verificationWall i { font-size: 56px; color: var(--primary); }
+        #verificationWall h2 { margin-top: 16px; font-size: 24px; }
+        #verificationWall p { color: var(--gray-600); max-width: 450px; margin: 8px auto 20px; }
+        #verificationWall .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        #verificationWall .btn-group button { padding: 10px 24px; border-radius: 30px; font-weight: 600; border: none; cursor: pointer; font-size: 14px; transition: var(--transition); }
+
+        .footer-note { margin-top: 24px; text-align: center; font-size: 12px; color: var(--gray-400); border-top: 1px solid var(--gray-200); padding-top: 16px; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .footer-note .tag { background: var(--primary-light); color: var(--primary-dark); padding: 2px 14px; border-radius: 30px; font-weight: 600; font-size: 11px; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .hidden { display: none !important; }
+        .loading-spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+<div class="budget-container" id="app">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo-area">
+            <i class="fas fa-seedling"></i>
+            <div><h1>grindtogreen <small>· free tool</small></h1></div>
+        </div>
+        <div class="header-actions">
+            <!-- Currency Selector -->
+            <select id="currencySelect" class="currency-select" onchange="changeCurrency(this.value)">
+                <option value="USD">🇺🇸 USD</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="GBP">🇬🇧 GBP</option>
+                <option value="NGN">🇳🇬 NGN</option>
+                <option value="CAD">🇨🇦 CAD</option>
+                <option value="AUD">🇦🇺 AUD</option>
+            </select>
+
+            <button id="installBtn" class="btn-install"><i class="fas fa-download"></i> Install App</button>
+            <div id="authSection">
+                <button onclick="openAuthModal()" class="btn-primary"><i class="fas fa-user-plus"></i> Sign Up / Log In</button>
+            </div>
+            <div id="userSection" class="hidden">
+                <span class="user-badge"><i class="fas fa-user-circle"></i> <span id="userEmailDisplay">user</span></span>
+                <button onclick="logoutUser()" style="background:transparent;color:var(--danger);"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🔥 VERIFICATION WALL -->
+    <div id="verificationWall">
+        <i class="fas fa-envelope"></i>
+        <h2>Verify Your Email</h2>
+        <p>We sent a verification link to <strong id="verifyEmailDisplay"></strong>. Please check your inbox and click the link to activate your account.</p>
+        <div class="btn-group">
+            <button onclick="resendVerification()" style="background:var(--primary);color:white;">Resend Email</button>
+            <button onclick="auth.signOut(); location.reload();" style="background:var(--gray-200);color:var(--gray-600);">Sign Out</button>
+        </div>
+        <p style="margin-top:16px;font-size:13px;color:var(--gray-400);">Didn't receive it? Check your spam folder.</p>
+    </div>
+
+    <!-- BUDGET UI (hidden if unverified) -->
+    <div id="budgetUI">
+        <!-- SUMMARY -->
+        <section class="summary-grid" id="summaryGrid">
+            <div class="summary-card"><div class="label"><i class="fas fa-arrow-down"></i> Income</div><div class="value income" id="totalIncome">$0</div></div>
+            <div class="summary-card"><div class="label"><i class="fas fa-arrow-up"></i> Expenses</div><div class="value expense" id="totalExpense">$0</div></div>
+            <div class="summary-card"><div class="label"><i class="fas fa-wallet"></i> Balance</div><div class="value balance" id="totalBalance">$0</div></div>
+            <div class="summary-card"><div class="label"><i class="fas fa-piggy-bank"></i> Savings Rate</div><div class="value savings" id="savingsRate">0%</div></div>
+        </section>
+
+        <!-- TWO COL -->
+        <div class="two-col">
+            <div class="card">
+                <div class="card-header"><h3><i class="fas fa-list-ul"></i> Transactions</h3><span class="badge" id="txCount">0</span></div>
+                <form class="add-form" id="addForm" onsubmit="addTransaction(event)">
+                    <input type="text" id="txName" placeholder="Description" required />
+                    <input type="number" id="txAmount" placeholder="Amount" step="0.01" min="0.01" required />
+                    <select id="txType"><option value="income">Income</option><option value="expense">Expense</option></select>
+                    <select id="txCategory">
+                        <option value="General">General</option><option value="Food">Food</option><option value="Transport">Transport</option>
+                        <option value="Housing">Housing</option><option value="Utilities">Utilities</option><option value="Health">Health</option>
+                        <option value="Education">Education</option><option value="Entertainment">Entertainment</option><option value="Shopping">Shopping</option>
+                        <option value="Salary">Salary</option><option value="Freelance">Freelance</option><option value="Investment">Investment</option><option value="Other">Other</option>
+                    </select>
+                    <button type="submit"><i class="fas fa-plus"></i> Add</button>
+                </form>
+                <div class="tx-list" id="txList"><div class="empty-state"><i class="fas fa-inbox"></i><p>No transactions yet.</p></div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3><i class="fas fa-chart-pie"></i> Spending</h3></div>
+                <div class="budget-list" id="budgetList"><div class="empty-state"><i class="fas fa-chart-simple"></i><p>Add expenses to see breakdown.</p></div></div>
+                <div class="chart-wrapper"><canvas id="categoryChart" width="300" height="150"></canvas></div>
+            </div>
+        </div>
+
+        <!-- SAVINGS -->
+        <section class="savings-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <h3 style="font-size:17px; font-weight:600; display:flex; align-items:center; gap:8px;"><i class="fas fa-bullseye" style="color:var(--accent);"></i> Savings Goals</h3>
+                <button onclick="addSavingsGoal()" style="background:var(--primary);color:white;border:none;padding:5px 18px;border-radius:30px;font-weight:600;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px;"><i class="fas fa-plus"></i> New Goal</button>
+            </div>
+            <div class="savings-grid" id="savingsGrid"><div class="savings-card" style="background:var(--gray-200);color:var(--gray-400);text-align:center;padding:28px 20px;grid-column:1/-1;"><i class="fas fa-plus-circle" style="font-size:24px;opacity:0.4;"></i><p style="margin-top:6px;font-size:14px;">Click "New Goal" to start saving!</p></div></div>
+        </section>
+    </div>
+
+    <div class="footer-note"><span><i class="fas fa-leaf" style="color:var(--primary);"></i> grindtogreen.com</span><span class="tag">Cloud Sync</span><span id="syncStatus">💾 Offline (local)</span></div>
+</div>
+
+<!-- ========================================================== -->
+<!-- AUTH MODAL -->
+<!-- ========================================================== -->
+<div class="auth-overlay" id="authModal">
+    <div class="auth-modal">
+        <button class="close-auth" onclick="closeAuthModal()">&times;</button>
+        <h2 id="authTitle"><i class="fas fa-leaf" style="color:var(--primary);"></i> Sign Up</h2>
+        <p id="authSubtitle">Create your free account to save your budget in the cloud.</p>
+        <div class="auth-error" id="authError">Error</div>
+        <div class="auth-success" id="authSuccess">Success</div>
+        
+        <input type="email" id="authEmail" placeholder="Email address" />
+        <input type="password" id="authPassword" placeholder="Password (min 6 chars)" />
+        <div class="forgot-link" id="forgotLink"><a onclick="forgotPassword()">Forgot password?</a></div>
+
+        <div id="extraFields" class="extra-fields">
+            <input type="text" id="authName" placeholder="Your full name" />
+            <select id="authCountry">
+                <option value="">Select your country</option>
+                <option value="US">United States</option><option value="UK">United Kingdom</option><option value="CA">Canada</option>
+                <option value="AU">Australia</option><option value="DE">Germany</option><option value="FR">France</option>
+                <option value="IN">India</option><option value="NG">Nigeria</option><option value="ZA">South Africa</option>
+                <option value="BR">Brazil</option><option value="MX">Mexico</option><option value="JP">Japan</option>
+                <option value="CN">China</option><option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="consent-wrapper" id="consentWrapper">
+            <input type="checkbox" id="newsletterConsent" checked />
+            <label for="newsletterConsent">
+                📧 I want to receive the GrindToGreen newsletter (weekly finance tips).
+                <small>No spam, unsubscribe anytime.</small>
+            </label>
+        </div>
+
+        <button class="auth-btn" id="authActionBtn" onclick="handleAuth()"><i class="fas fa-user-plus"></i> Sign Up</button>
+        <div class="auth-divider">or continue with</div>
+        <button class="auth-btn btn-google" onclick="signInWithGoogle()">
+            <i class="fab fa-google"></i> Sign in with Google
+        </button>
+        <div class="toggle-auth" id="authToggle">Already have an account? <span onclick="switchAuthMode()">Log In</span></div>
+    </div>
+</div>
+
+<script>
+    // ================================================================
+    // 🔥 FIREBASE CONFIG
+    // ================================================================
+    const firebaseConfig = {
+        apiKey: "AIzaSyB1yL3hdBbIX-U1N5K9t8Wv0vZdI5OmtN8",
+        authDomain: "budget-tool-53f48.firebaseapp.com",
+        projectId: "budget-tool-53f48",
+        storageBucket: "budget-tool-53f48.firebasestorage.app",
+        messagingSenderId: "400543766622",
+        appId: "1:400543766622:web:c2b97651aa5c0479d37ccf",
+        measurementId: "G-HJ5B3FP2W1"
+    };
+    // ================================================================
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // ================================================================
+    //  STATE & CONSTANTS
+    // ================================================================
+    let state = { transactions: [], savingsGoals: [] };
+    let currentUser = null;
+    let isAuthMode = true;
+    const LOCAL_KEY = 'grindtogreen_local';
+    const CURRENCY_KEY = 'gtg_currency';
+    let currentCurrency = localStorage.getItem(CURRENCY_KEY) || 'USD';
+    const CURRENCY_SYMBOLS = { USD: '$', EUR: '€', GBP: '£', NGN: '₦', CAD: 'C$', AUD: 'A$' };
+    const CAT_ICONS = { 'General':'fa-tag','Food':'fa-utensils','Transport':'fa-car','Housing':'fa-home','Utilities':'fa-bolt','Health':'fa-heartbeat','Education':'fa-graduation-cap','Entertainment':'fa-film','Shopping':'fa-shopping-bag','Salary':'fa-money-bill-wave','Freelance':'fa-laptop-code','Investment':'fa-chart-line','Other':'fa-ellipsis-h' };
+    
+    function escHtml(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+    function formatCurrency(amount) {
+        try {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: currentCurrency }).format(amount);
+        } catch (_) {
+            return (CURRENCY_SYMBOLS[currentCurrency] || '$') + amount.toFixed(2);
+        }
+    }
+
+    // ================================================================
+    //  CURRENCY
+    // ================================================================
+    function changeCurrency(code) {
+        if (!code) return;
+        currentCurrency = code;
+        localStorage.setItem(CURRENCY_KEY, code);
+        document.getElementById('currencySelect').value = code;
+        renderAll();
+        if (currentUser) {
+            saveCurrencyToCloud(currentUser.uid, code);
+        }
+    }
+
+    async function saveCurrencyToCloud(uid, code) {
+        try {
+            await db.collection('users').doc(uid).collection('profile').doc('settings').set({
+                currency: code,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+        } catch (_) {}
+    }
+
+    async function loadCurrencyFromCloud(uid) {
+        try {
+            const doc = await db.collection('users').doc(uid).collection('profile').doc('settings').get();
+            if (doc.exists && doc.data().currency) {
+                const cur = doc.data().currency;
+                currentCurrency = cur;
+                localStorage.setItem(CURRENCY_KEY, cur);
+                document.getElementById('currencySelect').value = cur;
+                renderAll();
+            }
+        } catch (_) {}
+    }
+
+    // ================================================================
+    //  AUTH UI HELPERS
+    // ================================================================
+    function openAuthModal() { document.getElementById('authModal').style.display = 'flex'; }
+    function closeAuthModal() { document.getElementById('authModal').style.display = 'none'; }
+    
+    function switchAuthMode() {
+        isAuthMode = !isAuthMode;
+        const title = document.getElementById('authTitle');
+        const subtitle = document.getElementById('authSubtitle');
+        const btn = document.getElementById('authActionBtn');
+        const toggle = document.getElementById('authToggle');
+        const extra = document.getElementById('extraFields');
+        const consent = document.getElementById('consentWrapper');
+        const forgot = document.getElementById('forgotLink');
+        const error = document.getElementById('authError');
+        const success = document.getElementById('authSuccess');
+        error.style.display = 'none';
+        success.style.display = 'none';
+
+        if (isAuthMode) {
+            title.innerHTML = `<i class="fas fa-leaf" style="color:var(--primary);"></i> Sign Up`;
+            subtitle.textContent = 'Create your free account to save your budget in the cloud.';
+            btn.innerHTML = `<i class="fas fa-user-plus"></i> Sign Up`;
+            toggle.innerHTML = 'Already have an account? <span onclick="switchAuthMode()">Log In</span>';
+            extra.style.display = 'block';
+            consent.style.display = 'flex';
+            forgot.style.display = 'none';
+        } else {
+            title.innerHTML = `<i class="fas fa-leaf" style="color:var(--primary);"></i> Log In`;
+            subtitle.textContent = 'Welcome back! Log in to access your budget.';
+            btn.innerHTML = `<i class="fas fa-sign-in-alt"></i> Log In`;
+            toggle.innerHTML = 'New here? <span onclick="switchAuthMode()">Create an Account</span>';
+            extra.style.display = 'none';
+            consent.style.display = 'none';
+            forgot.style.display = 'block';
+        }
+    }
+
+    function forgotPassword() {
+        const email = document.getElementById('authEmail').value;
+        if (!email) {
+            showAuthError('Please enter your email address first.');
+            return;
+        }
+        const errorEl = document.getElementById('authError');
+        const successEl = document.getElementById('authSuccess');
+        errorEl.style.display = 'none';
+        successEl.style.display = 'none';
+        auth.sendPasswordResetEmail(email)
+            .then(() => {
+                successEl.textContent = '✅ Password reset email sent! Check your inbox.';
+                successEl.style.display = 'block';
+            })
+            .catch((err) => {
+                errorEl.textContent = err.message;
+                errorEl.style.display = 'block';
+            });
+    }
+
+    function showAuthError(msg) {
+        const el = document.getElementById('authError');
+        el.textContent = msg;
+        el.style.display = 'block';
+    }
+
+    // ================================================================
+    //  SAVE SUBSCRIBER (with emailVerified flag)
+    // ================================================================
+    async function saveSubscriber(user, name, country, consent) {
+        if (!user) return;
+        try {
+            await db.collection('subscribers').doc(user.uid).set({
+                email: user.email,
+                displayName: name || user.displayName || null,
+                country: country || null,
+                consent: consent === true,
+                emailVerified: user.emailVerified || false,
+                source: 'budget_tool',
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+            console.log('📧 Subscriber saved:', user.email);
+        } catch (e) {
+            console.warn('Could not save subscriber:', e);
+        }
+    }
+
+    // ================================================================
+    //  HANDLE AUTH (Email/Password)
+    // ================================================================
+    async function handleAuth() {
+        const email = document.getElementById('authEmail').value.trim();
+        const password = document.getElementById('authPassword').value;
+        const errorEl = document.getElementById('authError');
+        const successEl = document.getElementById('authSuccess');
+        const btn = document.getElementById('authActionBtn');
+        errorEl.style.display = 'none';
+        successEl.style.display = 'none';
+        
+        if (!email || !password) {
+            errorEl.textContent = 'Please fill in all fields.';
+            errorEl.style.display = 'block';
+            return;
+        }
+        if (password.length < 6) {
+            errorEl.textContent = 'Password must be at least 6 characters.';
+            errorEl.style.display = 'block';
+            return;
+        }
+        
+        btn.disabled = true;
+        btn.innerHTML = '<div class="loading-spinner"></div>';
+        
+        try {
+            if (isAuthMode) {
+                // ---------- SIGN UP ----------
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+                // Send verification email
+                await user.sendEmailVerification();
+                const name = document.getElementById('authName').value.trim() || null;
+                const country = document.getElementById('authCountry').value || null;
+                const consent = document.getElementById('newsletterConsent').checked;
+                await saveSubscriber(user, name, country, consent);
+                if (name) await user.updateProfile({ displayName: name });
+                closeAuthModal();
+                alert('📧 Verification email sent! Please check your inbox and click the link to activate your account.');
+            } else {
+                // ---------- LOG IN ----------
+                await auth.signInWithEmailAndPassword(email, password);
+                closeAuthModal();
+            }
+        } catch (err) {
+            errorEl.textContent = err.message;
+            errorEl.style.display = 'block';
+        }
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fas ${isAuthMode ? 'fa-user-plus' : 'fa-sign-in-alt'}"></i> ${isAuthMode ? 'Sign Up' : 'Log In'}`;
+    }
+
+    // ================================================================
+    //  GOOGLE SIGN IN (Redirect)
+    // ================================================================
+    function signInWithGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+        auth.signInWithRedirect(provider);
+    }
+
+    // Handle redirect result (for Google sign-in)
+    auth.getRedirectResult()
+        .then(async (result) => {
+            if (!result.user) return;
+            const user = result.user;
+            const isNewUser = user.metadata.creationTime === user.metadata.lastSignInTime;
+            if (isNewUser) {
+                const consent = document.getElementById('newsletterConsent').checked;
+                const name = document.getElementById('authName').value.trim() || user.displayName || null;
+                const country = document.getElementById('authCountry').value || null;
+                await saveSubscriber(user, name, country, consent);
+            }
+            // The onAuthStateChanged will handle loading data and verification status
+        })
+        .catch((err) => {
+            showAuthError(err.message);
+        });
+
+    // ================================================================
+    //  RESEND VERIFICATION
+    // ================================================================
+    async function resendVerification() {
+        if (!currentUser) return;
+        try {
+            await currentUser.sendEmailVerification();
+            alert('📧 Verification email resent! Please check your inbox.');
+        } catch (err) {
+            alert('Error: ' + err.message);
+        }
+    }
+
+    // ================================================================
+    //  LOGOUT
+    // ================================================================
+    async function logoutUser() {
+        if (confirm('Log out?')) await auth.signOut();
+    }
+
+    // ================================================================
+    //  FIRESTORE BUDGET CRUD
+    // ================================================================
+    async function saveToCloud(uid) {
+        if (!uid) return;
+        try {
+            await db.collection('users').doc(uid).collection('data').doc('budget').set({
+                transactions: state.transactions,
+                savingsGoals: state.savingsGoals,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            document.getElementById('syncStatus').textContent = '☁️ Saved to cloud';
+        } catch (e) {
+            document.getElementById('syncStatus').textContent = '⚠️ Offline (local)';
+        }
+    }
+
+    async function loadFromCloud(uid) {
+        if (!uid) return;
+        try {
+            const doc = await db.collection('users').doc(uid).collection('data').doc('budget').get();
+            if (doc.exists) {
+                const data = doc.data();
+                state.transactions = data.transactions || [];
+                state.savingsGoals = data.savingsGoals || [];
+            } else {
+                state.transactions = [];
+                state.savingsGoals = [];
+            }
+            renderAll();
+            document.getElementById('syncStatus').textContent = '☁️ Loaded from cloud';
+        } catch (e) {
+            loadLocalBackup();
+            renderAll();
+            document.getElementById('syncStatus').textContent = '⚠️ Offline mode';
+        }
+    }
+
+    function loadLocalBackup() {
+        try { const raw = localStorage.getItem(LOCAL_KEY); if (raw) { const p=JSON.parse(raw); state.transactions=p.transactions||[]; state.savingsGoals=p.savingsGoals||[]; } } catch(_) {}
+    }
+    function saveLocalBackup() { localStorage.setItem(LOCAL_KEY, JSON.stringify({ transactions: state.transactions, savingsGoals: state.savingsGoals })); }
+
+    // ================================================================
+    //  RENDER (with currency formatting)
+    // ================================================================
+    function renderAll() {
+        renderSummary(); renderTransactions(); renderBudget(); renderSavings(); renderChart();
+        saveLocalBackup();
+        if (currentUser && currentUser.emailVerified) saveToCloud(currentUser.uid);
+    }
+
+    function renderSummary() {
+        const ti = state.transactions.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
+        const te = state.transactions.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+        const bal = ti - te;
+        const rate = ti > 0 ? Math.round((bal/ti)*100) : 0;
+        document.getElementById('totalIncome').textContent = formatCurrency(ti);
+        document.getElementById('totalExpense').textContent = formatCurrency(te);
+        document.getElementById('totalBalance').textContent = formatCurrency(bal);
+        document.getElementById('savingsRate').textContent = rate+'%';
+    }
+
+    function renderTransactions() {
+        const c = document.getElementById('txList');
+        document.getElementById('txCount').textContent = state.transactions.length;
+        if (!state.transactions.length) { c.innerHTML='<div class="empty-state"><i class="fas fa-inbox"></i><p>No transactions yet.</p></div>'; return; }
+        const sorted = [...state.transactions].reverse();
+        c.innerHTML = sorted.map((t, idx) => {
+            const realIdx = state.transactions.length - 1 - idx;
+            const iconClass = t.type === 'income' ? 'income-icon' : 'expense-icon';
+            const iconFa = t.type === 'income' ? 'fa-arrow-down' : 'fa-arrow-up';
+            const amtClass = t.type === 'income' ? 'income-amt' : 'expense-amt';
+            const sign = t.type === 'income' ? '+' : '-';
+            const catIcon = CAT_ICONS[t.category] || 'fa-tag';
+            return `<div class="tx-item"><div class="left"><div class="icon ${iconClass}"><i class="fas ${iconFa}"></i></div><div class="info"><div class="name">${escHtml(t.name)}</div><div class="meta"><span><i class="fas ${catIcon}"></i> ${escHtml(t.category)}</span><span>${new Date(t.date).toLocaleDateString()}</span></div></div></div><div class="right"><span class="amount ${amtClass}">${sign}${formatCurrency(t.amount)}</span><button class="del-btn" onclick="deleteTransaction(${realIdx})"><i class="fas fa-times"></i></button></div></div>`;
+        }).join('');
+    }
+
+    function renderBudget() {
+        const c = document.getElementById('budgetList');
+        const expenses = state.transactions.filter(t=>t.type==='expense');
+        if (!expenses.length) { c.innerHTML='<div class="empty-state"><i class="fas fa-chart-simple"></i><p>Add expenses.</p></div>'; return; }
+        const map = {}; expenses.forEach(t=>{ if(!map[t.category]) map[t.category]=0; map[t.category]+=t.amount; });
+        const total = Object.values(map).reduce((a,b)=>a+b,0);
+        const sorted = Object.entries(map).sort((a,b)=>b[1]-a[1]);
+        c.innerHTML = sorted.map(([cat, spent]) => {
+            const pct = total > 0 ? (spent/total)*100 : 0;
+            const barColor = pct > 60 ? 'danger' : pct > 35 ? 'warning' : '';
+            const icon = CAT_ICONS[cat] || 'fa-tag';
+            return `<div class="budget-item"><div class="top"><span class="cat-name"><i class="fas ${icon}"></i> ${escHtml(cat)}</span><span class="cat-numbers"><span class="spent">${formatCurrency(spent)}</span> <span class="budgeted">· ${pct.toFixed(1)}%</span></span></div><div class="budget-bar"><div class="fill ${barColor}" style="width:${Math.min(pct,100)}%;"></div></div></div>`;
+        }).join('');
+    }
+
+    function renderSavings() {
+        const c = document.getElementById('savingsGrid');
+        const goals = state.savingsGoals;
+        if (!goals.length) { c.innerHTML=`<div class="savings-card" style="background:var(--gray-200);color:var(--gray-400);text-align:center;padding:28px 20px;grid-column:1/-1;"><i class="fas fa-plus-circle" style="font-size:24px;opacity:0.4;"></i><p style="margin-top:6px;font-size:14px;">Click "New Goal" to start saving!</p></div>`; return; }
+        c.innerHTML = goals.map((g, idx) => {
+            const pct = g.target > 0 ? Math.min((g.current/g.target)*100, 100) : 0;
+            const rem = g.target - g.current;
+            const status = rem <= 0 ? '🎉 Achieved!' : `${formatCurrency(rem)} to go`;
+            return `<div class="savings-card"><div class="goal-label"><span><i class="fas fa-flag-checkered" style="color:var(--accent);"></i> ${escHtml(g.name)}</span><span>${formatCurrency(g.current)} / ${formatCurrency(g.target)}</span></div><div class="goal-bar"><div class="fill" style="width:${pct}%;"></div></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;"><span class="goal-status">${status}</span><div><button onclick="addToGoal(${idx})" style="background:var(--primary-light);border:none;padding:2px 12px;border-radius:30px;font-size:11px;font-weight:600;color:var(--primary-dark);cursor:pointer;"><i class="fas fa-plus"></i> Add</button> <button onclick="removeGoal(${idx})" style="background:transparent;border:none;color:var(--gray-400);cursor:pointer;font-size:14px;"><i class="fas fa-trash-alt"></i></button></div></div></div>`;
+        }).join('');
+    }
+
+    function renderChart() {
+        const canvas = document.getElementById('categoryChart');
+        const ctx = canvas.getContext('2d');
+        const expenses = state.transactions.filter(t=>t.type==='expense');
+        const map = {}; expenses.forEach(t=>{ if(!map[t.category]) map[t.category]=0; map[t.category]+=t.amount; });
+        const labels = Object.keys(map), values = Object.values(map);
+        const total = values.reduce((a,b)=>a+b,0);
+        const colors = ['#0f7b3e','#27ae60','#f5b342','#e74c3c','#3498db','#9b59b6','#1abc9c','#e67e22'];
+        const w=canvas.width, h=canvas.height, cx=w/2, cy=h/2, radius=Math.min(w,h)/2-12;
+        ctx.clearRect(0,0,w,h);
+        if (total===0) { ctx.font='13px Segoe UI'; ctx.fillStyle='#94a3a8'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText('No expense data', cx, cy); return; }
+        let start = -Math.PI/2;
+        let slicedLabels=labels, slicedValues=values;
+        if(labels.length>6){ const sorted=labels.map((l,i)=>({label:l,value:values[i]})).sort((a,b)=>b.value-a.value); const top=sorted.slice(0,5); const other=sorted.slice(5).reduce((s,it)=>s+it.value,0); slicedLabels=[...top.map(it=>it.label),'Other']; slicedValues=[...top.map(it=>it.value),other]; }
+        slicedLabels.forEach((label, i) => {
+            const val = slicedValues[i];
+            const angle = (val/total)*2*Math.PI;
+            const color = colors[i % colors.length];
+            ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, radius, start, start+angle); ctx.closePath(); ctx.fillStyle=color; ctx.fill();
+            if (angle > 0.2) { const mid=start+angle/2; const lx=cx+Math.cos(mid)*radius*0.7; const ly=cy+Math.sin(mid)*radius*0.7; ctx.font='9px Segoe UI'; ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(((val/total)*100).toFixed(0)+'%', lx, ly); }
+            start += angle;
+        });
+        ctx.font='bold 14px Segoe UI'; ctx.fillStyle='#1e293b'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText('Spending', cx, cy-6);
+        ctx.font='11px Segoe UI'; ctx.fillStyle='#475569'; ctx.fillText('by category', cx, cy+14);
+    }
+
+    // ================================================================
+    //  ACTIONS
+    // ================================================================
+    function addTransaction(e) {
+        e.preventDefault();
+        const name = document.getElementById('txName').value.trim();
+        const amount = parseFloat(document.getElementById('txAmount').value);
+        const type = document.getElementById('txType').value;
+        const category = document.getElementById('txCategory').value;
+        if (!name || isNaN(amount) || amount <= 0) return;
+        state.transactions.push({ name, amount, type, category, date: Date.now() });
+        document.getElementById('txName').value = ''; document.getElementById('txAmount').value = '';
+        renderAll();
+    }
+
+    function deleteTransaction(index) { if (confirm('Delete?')) { state.transactions.splice(index, 1); renderAll(); } }
+    function addSavingsGoal() {
+        const name = prompt('Goal name:'); if (!name) return;
+        const target = parseFloat(prompt('Target amount:')); if (isNaN(target) || target <=0) return;
+        const current = parseFloat(prompt('Current saved amount:')) || 0;
+        state.savingsGoals.push({ name: name.trim(), target, current: Math.max(0,current) });
+        renderAll();
+    }
+    function addToGoal(index) { const g=state.savingsGoals[index]; if(!g) return; const a=parseFloat(prompt(`Add to ${g.name}:`)); if(isNaN(a)||a<=0) return; g.current=Math.min(g.current+a, g.target); renderAll(); }
+    function removeGoal(index) { if (!confirm('Remove goal?')) return; state.savingsGoals.splice(index,1); renderAll(); }
+
+    // ================================================================
+    //  AUTH STATE LISTENER (handles verification wall)
+    // ================================================================
+    auth.onAuthStateChanged(async (user) => {
+        const wall = document.getElementById('verificationWall');
+        const budgetUI = document.getElementById('budgetUI');
+
+        if (user) {
+            currentUser = user;
+            document.getElementById('authSection').classList.add('hidden');
+            document.getElementById('userSection').classList.remove('hidden');
+            document.getElementById('userEmailDisplay').textContent = user.email || user.displayName || 'User';
+
+            // Load currency preference
+            await loadCurrencyFromCloud(user.uid);
+
+            // Check verification (Google users are automatically verified)
+            const isVerified = user.emailVerified || user.providerData.some(p => p.providerId === 'google.com');
+            if (!isVerified) {
+                // Show wall
+                wall.style.display = 'block';
+                budgetUI.style.display = 'none';
+                document.getElementById('verifyEmailDisplay').textContent = user.email || 'your email';
+                // Also update sync status
+                document.getElementById('syncStatus').textContent = '⏳ Please verify your email';
+            } else {
+                // Hide wall, show budget UI
+                wall.style.display = 'none';
+                budgetUI.style.display = 'block';
+                // Update subscriber's emailVerified status
+                if (user.email) {
+                    try {
+                        await db.collection('subscribers').doc(user.uid).set({
+                            emailVerified: true
+                        }, { merge: true });
+                    } catch (_) {}
+                }
+                await loadFromCloud(user.uid);
+                document.getElementById('syncStatus').textContent = '☁️ Synced';
+            }
+        } else {
+            currentUser = null;
+            document.getElementById('authSection').classList.remove('hidden');
+            document.getElementById('userSection').classList.add('hidden');
+            wall.style.display = 'none';
+            budgetUI.style.display = 'block';
+            loadLocalBackup();
+            renderAll();
+            document.getElementById('syncStatus').textContent = '💾 Offline (local)';
+        }
+    });
+
+    // ================================================================
+    //  PWA INSTALLATION
+    // ================================================================
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('installBtn').style.display = 'flex';
+    });
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const result = await deferredPrompt.userChoice;
+            if (result.outcome === 'accepted') {
+                document.getElementById('installBtn').style.display = 'none';
+            }
+            deferredPrompt = null;
+        }
+    });
+
+    // ================================================================
+    //  BOOT
+    // ================================================================
+    document.getElementById('currencySelect').value = currentCurrency;
+    switchAuthMode();
+    loadLocalBackup();
+    renderAll();
+    console.log('🌱 GrindToGreen Budget Tool (Currency + Verification) loaded!');
+</script>
+</body>
+</html>
