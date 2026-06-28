@@ -1,3 +1,4 @@
 {
-    "mobile-preview.url": "http://127.0.0.1:5500/post.html"
+    "mobile-preview.url": "http://127.0.0.1:5500/post.html",
+    "liveServer.settings.port": 5501
 }
