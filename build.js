@@ -534,7 +534,7 @@ function build() {
   copyDir(path.join(__dirname, "images"), path.join(DIST_DIR, "images"));
   copyDir(path.join(__dirname, "posts"),  path.join(DIST_DIR, "posts"));
   copyDir(path.join(__dirname, "pages"),  path.join(DIST_DIR, "pages"));
-
+copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
   // Copy root-level files that Netlify needs
   for (const f of ["robots.txt", "write-for-us.html"]) {
     const src = path.join(__dirname, f);
@@ -583,6 +583,7 @@ function buildRedirects(posts) {
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
 /write-for-us.html   /write-for-us   301!
+/building-wealth-from-scratch-2026  /building-wealth-from-scratch    301!
 
 # ── SLUG FIXES ──────────────────────────────────────────────
 /smart-budgeting-hacks-2025    /smart-budgeting-hacks-2026    301!
@@ -608,7 +609,7 @@ function buildRedirects(posts) {
 /pages/privacy   /pages/privacy.html  200
 /pages/terms     /pages/terms.html    200
 /write-for-us    /write-for-us.html   200
-
+/tools/budget-tools      /budget-tool.html    200
 # ── HOMEPAGE ────────────────────────────────────────────────
 /    /index.html    200`;
 
