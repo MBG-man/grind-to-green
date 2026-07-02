@@ -1,6 +1,7 @@
-const CACHE_NAME = 'gtg-budget-v3';
+const CACHE_NAME = 'gtg-budget-v4';
 const urlsToCache = [
-  '/tools/budget.html',
+  '/tools/budget-tool.html',
+  '/tools/manifest.json',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
   'https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js',
   'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js',
@@ -30,6 +31,6 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request).catch(() => caches.match('/tools/budget.html')))
+      .then(response => response || fetch(event.request).catch(() => caches.match('/tools/budget-tool.html')))
   );
 });

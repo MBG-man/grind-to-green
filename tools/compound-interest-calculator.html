@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compound Interest Calculator (2026) | Free Investment Growth Tool - GrindToGreen</title>
+<meta name="description" content="Free compound interest calculator with monthly contributions, multiple currencies, and a year-by-year growth chart. See how your investments grow over time." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://grindtogreen.com/tools/compound-interest-calculator" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Compound Interest Calculator (2026) | GrindToGreen" />
+<meta property="og:description" content="Calculate how your money grows with compound interest. Free tool with charts, currency support, and CSV/PDF export." />
+<meta property="og:url" content="https://grindtogreen.com/tools/compound-interest-calculator" />
+<meta property="og:image" content="https://grindtogreen.com/assets/compound-interest-og.png" />
+<meta property="og:site_name" content="GrindToGreen" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Compound Interest Calculator (2026) | GrindToGreen" />
+<meta name="twitter:description" content="Free compound interest calculator with charts, multiple currencies, and CSV/PDF export." />
+<meta name="twitter:image" content="https://grindtogreen.com/assets/compound-interest-og.png" />
+<meta name="twitter:site" content="@Mubarakgman" />
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0f7b3e" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="apple-touch-icon" href="/assets/icon-192.png" />
+
+<!-- Structured Data: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Compound Interest Calculator",
+  "url": "https://grindtogreen.com/tools/compound-interest-calculator",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (Web-based)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free compound interest calculator with monthly contributions, multiple currency support, year-by-year growth table, and interactive chart.",
+  "publisher": { "@type": "Organization", "name": "GrindToGreen", "url": "https://grindtogreen.com" }
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grindtogreen.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://grindtogreen.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Compound Interest Calculator", "item": "https://grindtogreen.com/tools/compound-interest-calculator" }
+  ]
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is compound interest?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Compound interest is interest calculated on both your original investment and the interest that investment has already earned. Over time this creates a snowball effect, because each period's interest is added to the balance that earns the next period's interest." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is compound interest calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The standard formula is A = P(1 + r/n)^(nt), where P is the principal, r is the annual interest rate, n is the number of compounding periods per year, and t is the number of years. When you add regular monthly contributions, each contribution is compounded for the remaining time it stays invested." }
+    },
+    {
+      "@type": "Question",
+      "name": "What compounding frequency should I choose?",
+      "acceptedAnswer": { "@type": "Answer", "text": "More frequent compounding produces slightly higher returns because interest is credited and starts earning its own interest sooner. Daily compounding will always outperform monthly, quarterly, or annual compounding at the same stated rate, though the practical difference is usually small." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much difference do monthly contributions make?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Consistent monthly contributions are usually the single biggest driver of long-term growth, often outweighing the interest rate itself over shorter time horizons. Regularly adding money means more capital is compounding for longer, which accelerates the snowball effect." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for real investments?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This tool models compound growth mathematically using a fixed annual rate, which is useful for planning and comparison. Real investments such as stocks or crypto fluctuate, so actual returns will vary and are not guaranteed to match a fixed projection." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --primary: #0f7b3e; --primary-dark: #0a5f2e; --primary-light: #e8f5ed;
+  --secondary: #1a8a4a; --accent: #f5b342; --danger: #e74c3c; --success: #27ae60;
+  --gray-100: #f8faf9; --gray-200: #e9eeec; --gray-300: #cbd5d1; --gray-400: #94a3a8;
+  --gray-600: #475569; --gray-800: #1e293b; --white: #ffffff;
+  --shadow: 0 8px 30px rgba(15, 123, 62, 0.12); --radius: 16px; --radius-sm: 10px;
+  --transition: 0.25s ease; --font: 'Segoe UI', system-ui, sans-serif;
+}
+[data-theme="dark"] {
+  --primary: #24a35a; --primary-dark: #1a8a4a; --primary-light: #163524;
+  --gray-100: #12161a; --gray-200: #1e2530; --gray-300: #2c3541; --gray-400: #8896a3;
+  --gray-600: #c3cdd6; --gray-800: #edf1f4; --white: #171c22;
+  --shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--gray-100); color: var(--gray-800); transition: background var(--transition), color var(--transition); }
+a { color: inherit; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* NAV */
+.site-nav { background: var(--white); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+.site-nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; gap: 12px; flex-wrap: wrap; }
+.logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-area h1 { font-size: 20px; font-weight: 700; }
+.logo-area .g1 { color: #0F3D2E; } .logo-area .g2 { color: #3e9b62; }
+[data-theme="dark"] .logo-area .g1 { color: #6fcf97; }
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.nav-actions button, .nav-actions select { background: var(--gray-200); border: none; padding: 8px 14px; border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--gray-600); cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+.nav-actions button:hover { background: var(--primary-light); color: var(--primary); }
+.nav-actions .btn-primary { background: var(--primary); color: white; }
+.nav-actions .btn-primary:hover { background: var(--primary-dark); }
+.back-home-btn { text-decoration: none; }
+
+/* HERO */
+.hero { padding: 48px 0 32px; text-align: center; }
+.hero h1 { font-size: 34px; font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+.hero .highlight { background: linear-gradient(135deg, var(--primary-dark), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero p { max-width: 640px; margin: 0 auto; color: var(--gray-600); font-size: 16px; line-height: 1.6; }
+.breadcrumb-nav { font-size: 13px; color: var(--gray-400); margin-bottom: 18px; }
+.breadcrumb-nav a { text-decoration: none; color: var(--gray-400); }
+.breadcrumb-nav a:hover { color: var(--primary); }
+
+/* CALCULATOR LAYOUT */
+.calc-section { padding: 8px 0 40px; }
+.calc-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px; align-items: start; }
+@media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
+
+.card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-200); box-shadow: var(--shadow); padding: 24px; }
+.card h2 { font-size: 18px; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+.card h2 i { color: var(--primary); }
+
+.field { margin-bottom: 16px; }
+.field label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+.field label span.val { color: var(--primary); font-weight: 700; }
+.field input[type="number"], .field select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); font-size: 14px; background: var(--gray-100); color: var(--gray-800); outline: none; font-family: var(--font); }
+.field input[type="number"]:focus, .field select:focus { border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 3px rgba(15,123,62,0.12); }
+.field input[type="range"] { width: 100%; accent-color: var(--primary); margin-top: 6px; }
+.two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.calc-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.calc-actions button { flex: 1 1 auto; padding: 10px 14px; border-radius: var(--radius-sm); border: none; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: var(--transition); }
+.btn-export { background: var(--gray-200); color: var(--gray-600); }
+.btn-export:hover { background: var(--primary-light); color: var(--primary); }
+.btn-save { background: var(--primary); color: white; }
+.btn-save:hover { background: var(--primary-dark); }
+
+/* RESULTS */
+.results-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.result-card { background: var(--gray-100); border-radius: var(--radius-sm); padding: 16px 18px; }
+.result-card .label { font-size: 12px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.4px; }
+.result-card .value { font-size: 24px; font-weight: 800; margin-top: 4px; }
+.result-card.future .value { color: var(--primary); }
+.result-card.contrib .value { color: var(--gray-800); }
+.result-card.interest .value { color: var(--accent); }
+.result-card.growth .value { color: var(--success); }
+
+.chart-wrapper { background: var(--gray-100); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 20px; }
+.chart-wrapper canvas { max-height: 320px; }
+
+.table-wrapper { max-height: 340px; overflow-y: auto; border: 1px solid var(--gray-200); border-radius: var(--radius-sm); }
+table.growth-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.growth-table thead th { position: sticky; top: 0; background: var(--gray-200); color: var(--gray-600); text-align: right; padding: 10px 12px; font-weight: 700; z-index: 1; }
+table.growth-table thead th:first-child { text-align: left; }
+table.growth-table td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--gray-200); }
+table.growth-table td:first-child { text-align: left; font-weight: 600; }
+table.growth-table tbody tr:hover { background: var(--primary-light); }
+
+/* EDUCATIONAL SECTIONS */
+.content-section { padding: 40px 0; border-top: 1px solid var(--gray-200); }
+.content-section h2 { font-size: 26px; font-weight: 800; margin-bottom: 16px; }
+.content-section p { color: var(--gray-600); line-height: 1.7; margin-bottom: 14px; max-width: 800px; }
+.formula-box { background: var(--gray-100); border-left: 4px solid var(--primary); padding: 16px 20px; border-radius: var(--radius-sm); font-family: 'Courier New', monospace; font-size: 15px; margin: 16px 0; max-width: 640px; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--gray-200); }
+.faq-question { width: 100%; text-align: left; background: none; border: none; padding: 16px 0; font-size: 15px; font-weight: 700; color: var(--gray-800); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.faq-question i { color: var(--primary); transition: transform var(--transition); flex-shrink: 0; }
+.faq-item.open .faq-question i { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--transition); color: var(--gray-600); line-height: 1.6; font-size: 14px; }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 16px; }
+
+/* RELATED ARTICLES */
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+.related-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 18px; text-decoration: none; color: inherit; transition: var(--transition); display: block; }
+.related-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
+.related-card .tag { font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.4px; }
+.related-card h3 { font-size: 15px; margin-top: 6px; font-weight: 700; }
+.related-card p { font-size: 13px; color: var(--gray-400); margin-top: 6px; }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg, var(--primary-dark), var(--secondary)); border-radius: var(--radius); padding: 40px 30px; text-align: center; color: white; margin: 40px 0; }
+.cta-section h2 { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+.cta-section p { opacity: 0.9; margin-bottom: 20px; }
+.cta-section a.cta-btn { display: inline-block; background: white; color: var(--primary-dark); padding: 12px 28px; border-radius: 30px; font-weight: 700; text-decoration: none; transition: var(--transition); }
+.cta-section a.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+/* FOOTER */
+.site-footer { text-align: center; padding: 24px 0 40px; font-size: 12px; color: var(--gray-400); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--gray-800); color: white; padding: 12px 22px; border-radius: 30px; font-size: 13px; font-weight: 600; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 10000; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* PDF export styles */
+.pdf-export-container { background: white !important; color: black !important; padding: 20px !important; font-family: 'Segoe UI', Arial, sans-serif !important; width: 100%; }
+.pdf-export-container .card { border: 1px solid #ccc !important; box-shadow: none !important; background: white !important; padding: 20px !important; }
+.pdf-export-container .result-card { background: #f5f5f5 !important; }
+.pdf-export-container .chart-wrapper { background: white !important; padding: 10px !important; }
+.pdf-export-container .table-wrapper { border: 1px solid #ddd !important; max-height: none !important; overflow: visible !important; }
+.pdf-export-container table.growth-table thead th { background: #e0e0e0 !important; color: black !important; }
+.pdf-export-container table.growth-table td { border-bottom: 1px solid #ddd !important; }
+.pdf-export-container .growth-table tbody tr:hover { background: transparent !important; }
+.pdf-export-container .results-summary { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+.pdf-export-container .result-card .value { font-size: 22px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="/" class="logo-area" aria-label="Back to GrindToGreen">
+      <svg width="30" height="30" viewBox="0 0 70 65" aria-hidden="true">
+        <g transform="translate(0,7)">
+          <rect x="0" y="30" width="10" height="20" fill="#0F3D2E" rx="2"/>
+          <rect x="15" y="20" width="10" height="30" fill="#0F3D2E" rx="2"/>
+          <rect x="30" y="10" width="10" height="40" fill="#2c7a4d" rx="2"/>
+          <rect x="45" y="0" width="10" height="50" fill="#3e9b62" rx="2"/>
+        </g>
+      </svg>
+      <h1><span class="g1">Grind</span><span class="g2">ToGreen</span></h1>
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="back-home-btn" style="background:var(--gray-200);color:var(--gray-600);text-decoration:none;padding:8px 14px;border-radius:30px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;"><i class="fas fa-arrow-left"></i> Back Home</a>
+      <select id="currencySelect" onchange="changeCurrency(this.value)" aria-label="Select currency">
+        <option value="USD">🇺🇸 USD</option>
+        <option value="EUR">🇪🇺 EUR</option>
+        <option value="GBP">🇬🇧 GBP</option>
+        <option value="NGN">🇳🇬 NGN</option>
+        <option value="CAD">🇨🇦 CAD</option>
+        <option value="AUD">🇦🇺 AUD</option>
+      </select>
+      <button id="themeToggle" onclick="toggleTheme()"><i class="fas fa-moon"></i> <span id="themeLabel">Dark</span></button>
+      <button id="installBtn" class="btn-primary hidden"><i class="fas fa-download"></i> Install</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero wrap">
+  <div class="breadcrumb-nav"><a href="/">Home</a> / <a href="/tools/">Tools</a> / <span>Compound Interest Calculator</span></div>
+  <h1><span class="highlight">Compound Interest Calculator</span> (2026)</h1>
+  <p>See exactly how your money grows over time. Enter your starting amount, monthly contributions, and interest rate to get an instant projection with a year-by-year breakdown.</p>
+</header>
+
+<!-- CALCULATOR -->
+<section class="calc-section wrap" id="calculator">
+  <div class="calc-grid">
+
+    <!-- INPUT CARD -->
+    <div class="card">
+      <h2><i class="fas fa-sliders-h"></i> Your Numbers</h2>
+
+      <div class="field">
+        <label for="initialInvestment">Initial Investment</label>
+        <input type="number" id="initialInvestment" value="1000" min="0" step="100" oninput="calculate()" />
+      </div>
+
+      <div class="field">
+        <label for="monthlyContribution">Monthly Contribution</label>
+        <input type="number" id="monthlyContribution" value="100" min="0" step="10" oninput="calculate()" />
+      </div>
+
+      <div class="field">
+        <label for="interestRate">Annual Interest Rate <span class="val" id="rateVal">8%</span></label>
+        <input type="range" id="interestRate" value="8" min="0" max="30" step="0.1" oninput="document.getElementById('rateVal').textContent=this.value+'%'; calculate();" />
+      </div>
+
+      <div class="field">
+        <label for="years">Investment Period <span class="val" id="yearsVal">20 years</span></label>
+        <input type="range" id="years" value="20" min="1" max="50" step="1" oninput="document.getElementById('yearsVal').textContent=this.value+' years'; calculate();" />
+      </div>
+
+      <div class="field">
+        <label for="compoundFrequency">Compound Frequency</label>
+        <select id="compoundFrequency" onchange="calculate()">
+          <option value="365">Daily</option>
+          <option value="12" selected>Monthly</option>
+          <option value="4">Quarterly</option>
+          <option value="1">Annually</option>
+        </select>
+      </div>
+
+      <div class="calc-actions">
+        <button class="btn-export" onclick="exportPDF()"><i class="fas fa-file-pdf"></i> Export PDF</button>
+        <button class="btn-export" onclick="downloadCSV()"><i class="fas fa-file-csv"></i> Download CSV</button>
+        <button class="btn-export" onclick="shareCalculation()"><i class="fas fa-share-alt"></i> Share</button>
+        <button class="btn-save" onclick="saveLocal()"><i class="fas fa-save"></i> Save</button>
+      </div>
+    </div>
+
+    <!-- RESULTS CARD -->
+    <div class="card" id="resultCard">
+      <h2><i class="fas fa-chart-line"></i> Your Results</h2>
+
+      <div class="results-summary">
+        <div class="result-card future"><div class="label">Future Value</div><div class="value" id="futureValue">$0</div></div>
+        <div class="result-card contrib"><div class="label">Total Contributions</div><div class="value" id="totalContributions">$0</div></div>
+        <div class="result-card interest"><div class="label">Interest Earned</div><div class="value" id="interestEarned">$0</div></div>
+        <div class="result-card growth"><div class="label">Growth</div><div class="value" id="growthPct">0%</div></div>
+      </div>
+
+      <div class="chart-wrapper">
+        <canvas id="growthChart" height="140" aria-label="Investment growth chart" role="img"></canvas>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="growth-table" id="growthTable">
+          <thead>
+            <tr><th>Year</th><th>Contributions</th><th>Interest</th><th>Balance</th></tr>
+          </thead>
+          <tbody id="growthTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="content-section wrap">
+  <h2>How Compound Interest Works</h2>
+  <p>Compound interest is interest earned not just on your original investment, but on the interest that investment has already accumulated. Each time interest is calculated, it gets added to your balance, and the next round of interest is calculated on that larger amount. This creates a snowball effect: growth accelerates the longer your money stays invested.</p>
+  <p>The standard formula for compound interest, extended to include regular monthly contributions, is:</p>
+  <div class="formula-box">A = P(1 + r/n)<sup>nt</sup> + PMT × [(1 + r/n)<sup>nt</sup> − 1] / (r/n)</div>
+  <p>Where <strong>A</strong> is the future value, <strong>P</strong> is your initial investment, <strong>r</strong> is the annual interest rate, <strong>n</strong> is the number of compounding periods per year, <strong>t</strong> is time in years, and <strong>PMT</strong> is your monthly contribution.</p>
+  <p>Two factors matter more than most people expect: starting early, and contributing consistently. A smaller amount invested for longer will often outgrow a larger amount invested for less time, because compounding needs time to do its work.</p>
+</section>
+
+<!-- FAQ -->
+<section class="content-section wrap">
+  <h2>Frequently Asked Questions</h2>
+  <div id="faqList">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What is compound interest? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer"><p>Compound interest is interest calculated on both your original investment and the interest that investment has already earned. Over time this creates a snowball effect, because each period's interest is added to the balance that earns the next period's interest.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">How is compound interest calculated? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer"><p>The standard formula is A = P(1 + r/n)^(nt), where P is the principal, r is the annual rate, n is compounding periods per year, and t is years. Monthly contributions are added using an annuity formula that accounts for each contribution compounding for the time it remains invested.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What compounding frequency should I choose? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer"><p>More frequent compounding produces slightly higher returns because interest starts earning its own interest sooner. Daily compounding will always outperform monthly, quarterly, or annual compounding at the same stated rate, though the practical difference is usually small.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">How much difference do monthly contributions make? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer"><p>Consistent monthly contributions are usually the single biggest driver of long-term growth, often outweighing the interest rate itself over shorter time horizons. Regularly adding money means more capital compounds for longer.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Is this calculator accurate for real investments? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer"><p>This tool models compound growth mathematically using a fixed annual rate, which is useful for planning and comparison. Real investments such as stocks or crypto fluctuate, so actual returns will vary and are not guaranteed to match a fixed projection.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED ARTICLES -->
+<section class="content-section wrap">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/building-wealth-from-scratch" class="related-card">
+      <div class="tag">Wealth Building</div>
+      <h3>Building Wealth From Scratch</h3>
+      <p>A step-by-step framework for growing your net worth from zero.</p>
+    </a>
+    <a href="/smart-budgeting-hacks-2026" class="related-card">
+      <div class="tag">Budgeting</div>
+      <h3>Smart Budgeting Hacks (2026)</h3>
+      <p>Practical tactics to free up more money to invest every month.</p>
+    </a>
+    <a href="/best-trading-for-beginners-small-account" class="related-card">
+      <div class="tag">Investing</div>
+      <h3>Best Trading for Beginners With a Small Account</h3>
+      <p>How to start investing even with limited starting capital.</p>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wrap">
+  <div class="cta-section">
+    <h2>Explore More Free GrindToGreen Tools</h2>
+    <p>From budgeting to investing, we've got the tools to help you grow your money.</p>
+    <a href="/tools/" class="cta-btn">View All Tools</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span><i class="fas fa-leaf" style="color:var(--primary);"></i> grindtogreen.com — free finance tools</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- ============================================================ -->
+<!-- SCRIPTS: Chart.js + html2pdf + Font Awesome -->
+<!-- ============================================================ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+// ================================================================
+// STATE & HELPERS
+// ================================================================
+const CURRENCY_KEY = 'gtg_currency';
+const THEME_KEY = 'gtg_theme';
+const SAVE_KEY = 'gtg_calculator_inputs';
+let currentCurrency = localStorage.getItem(CURRENCY_KEY) || 'USD';
+let chartInstance = null;
+let lastResult = null;
+
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function formatCurrency(amount) {
+  try {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: currentCurrency, maximumFractionDigits: 0 }).format(amount);
+  } catch (_) {
+    return '$' + amount.toFixed(0);
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ================================================================
+// THEME
+// ================================================================
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('themeLabel').textContent = theme === 'dark' ? 'Light' : 'Dark';
+  document.getElementById('themeToggle').querySelector('i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  if (chartInstance) renderChart(lastResult);
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+}
+window.toggleTheme = toggleTheme;
+
+// ================================================================
+// CURRENCY
+// ================================================================
+function changeCurrency(code) {
+  currentCurrency = code;
+  localStorage.setItem(CURRENCY_KEY, code);
+  calculate();
+}
+window.changeCurrency = changeCurrency;
+
+// ================================================================
+// COMPOUND INTEREST ENGINE
+// ================================================================
+function computeGrowth(principal, monthlyContribution, annualRate, years, compoundsPerYear) {
+  const r = annualRate / 100;
+  const n = compoundsPerYear;
+  const periodsPerYear = n;
+  const ratePerPeriod = r / n;
+  const contributionPerPeriod = (monthlyContribution * 12) / periodsPerYear;
+
+  let balance = principal;
+  let totalContributions = principal;
+  const yearlyRows = [];
+
+  for (let year = 1; year <= years; year++) {
+    let yearInterest = 0;
+    let yearContributions = 0;
+    for (let p = 0; p < periodsPerYear; p++) {
+      const interestThisPeriod = balance * ratePerPeriod;
+      balance += interestThisPeriod;
+      yearInterest += interestThisPeriod;
+      balance += contributionPerPeriod;
+      yearContributions += contributionPerPeriod;
+    }
+    totalContributions += yearContributions;
+    yearlyRows.push({
+      year,
+      contributions: totalContributions,
+      interest: balance - totalContributions,
+      balance: balance
+    });
+  }
+
+  const futureValue = balance;
+  const interestEarned = futureValue - totalContributions;
+  const growthPct = totalContributions > 0 ? (interestEarned / totalContributions) * 100 : 0;
+
+  return { futureValue, totalContributions, interestEarned, growthPct, yearlyRows };
+}
+
+// ================================================================
+// CALCULATE + RENDER
+// ================================================================
+function calculate() {
+  const principal = parseFloat(document.getElementById('initialInvestment').value) || 0;
+  const monthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+  const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+  const years = parseInt(document.getElementById('years').value) || 1;
+  const freq = parseInt(document.getElementById('compoundFrequency').value) || 12;
+
+  const result = computeGrowth(principal, monthly, rate, years, freq);
+  lastResult = result;
+
+  document.getElementById('futureValue').textContent = formatCurrency(result.futureValue);
+  document.getElementById('totalContributions').textContent = formatCurrency(result.totalContributions);
+  document.getElementById('interestEarned').textContent = formatCurrency(result.interestEarned);
+  document.getElementById('growthPct').textContent = result.growthPct.toFixed(1) + '%';
+
+  renderTable(result);
+  renderChart(result);
+}
+window.calculate = calculate;
+
+function renderTable(result) {
+  const body = document.getElementById('growthTableBody');
+  body.innerHTML = result.yearlyRows.map(row => `
+    <tr>
+      <td>Year ${row.year}</td>
+      <td>${formatCurrency(row.contributions)}</td>
+      <td>${formatCurrency(row.interest)}</td>
+      <td>${formatCurrency(row.balance)}</td>
+    </tr>
+  `).join('');
+}
+
+function renderChart(result) {
+  const ctx = document.getElementById('growthChart').getContext('2d');
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+  const textColor = isDark ? '#c3cdd6' : '#475569';
+
+  const labels = result.yearlyRows.map(r => 'Yr ' + r.year);
+  const balanceData = result.yearlyRows.map(r => Math.round(r.balance));
+  const contribData = result.yearlyRows.map(r => Math.round(r.contributions));
+
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Total Balance',
+          data: balanceData,
+          borderColor: '#0f7b3e',
+          backgroundColor: 'rgba(15,123,62,0.15)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 0
+        },
+        {
+          label: 'Contributions',
+          data: contribData,
+          borderColor: '#f5b342',
+          backgroundColor: 'transparent',
+          borderDash: [6, 4],
+          fill: false,
+          tension: 0.3,
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: textColor, font: { size: 12 } } },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.label}: ${formatCurrency(ctx.parsed.y)}`
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: textColor, maxTicksLimit: 10 }, grid: { color: gridColor } },
+        y: { ticks: { color: textColor, callback: (v) => formatCurrency(v) }, grid: { color: gridColor } }
+      }
+    }
+  });
+}
+
+// ================================================================
+// PDF EXPORT
+// ================================================================
+function exportPDF() {
+  if (!lastResult) {
+    showToast('Please calculate first.');
+    return;
+  }
+
+  const card = document.getElementById('resultCard');
+  const clone = card.cloneNode(true);
+
+  if (chartInstance) {
+    const imgData = chartInstance.toBase64Image();
+    const canvas = clone.querySelector('#growthChart');
+    if (canvas) {
+      const img = document.createElement('img');
+      img.src = imgData;
+      img.style.width = '100%';
+      img.style.maxHeight = '300px';
+      img.style.display = 'block';
+      img.alt = 'Growth chart';
+      canvas.parentNode.replaceChild(img, canvas);
+    }
+  }
+
+  const tableWrapper = clone.querySelector('.table-wrapper');
+  if (tableWrapper) {
+    tableWrapper.style.maxHeight = 'none';
+    tableWrapper.style.overflow = 'visible';
+  }
+
+  const container = document.createElement('div');
+  container.className = 'pdf-export-container';
+  container.style.cssText = 'background:white;padding:20px;font-family:Segoe UI,Arial,sans-serif;';
+  const header = document.createElement('div');
+  header.style.textAlign = 'center';
+  header.style.marginBottom = '20px';
+  header.innerHTML = `
+    <h2 style="font-size:24px;font-weight:800;color:#0f7b3e;margin:0;">Compound Interest Projection</h2>
+    <p style="font-size:14px;color:#555;margin:4px 0 0;">Generated on ${new Date().toLocaleDateString()} • GrindToGreen.com</p>
+    <hr style="border:0;border-top:2px solid #0f7b3e;margin:12px 0;" />
+  `;
+  container.appendChild(header);
+  container.appendChild(clone);
+
+  container.style.position = 'fixed';
+  container.style.top = '0';
+  container.style.left = '0';
+  container.style.width = '800px';
+  container.style.background = 'white';
+  container.style.zIndex = '9999';
+  container.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
+  document.body.appendChild(container);
+
+  const opt = {
+    margin: [10, 10, 10, 10],
+    filename: 'compound-interest-projection.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false, letterRendering: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(container).save()
+    .then(() => {
+      document.body.removeChild(container);
+      showToast('PDF downloaded!');
+    })
+    .catch((err) => {
+      document.body.removeChild(container);
+      console.error(err);
+      showToast('PDF generation failed.');
+    });
+}
+window.exportPDF = exportPDF;
+
+// ================================================================
+// CSV EXPORT
+// ================================================================
+function downloadCSV() {
+  if (!lastResult) { showToast('Calculate first.'); return; }
+  let csv = 'Year,Contributions,Interest,Balance\n';
+  lastResult.yearlyRows.forEach(r => {
+    csv += `${r.year},${r.contributions.toFixed(2)},${r.interest.toFixed(2)},${r.balance.toFixed(2)}\n`;
+  });
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'compound-interest-projection.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('CSV downloaded');
+}
+window.downloadCSV = downloadCSV;
+
+// ================================================================
+// SHARE
+// ================================================================
+function buildShareUrl() {
+  const params = new URLSearchParams({
+    pi: document.getElementById('initialInvestment').value,
+    pm: document.getElementById('monthlyContribution').value,
+    r: document.getElementById('interestRate').value,
+    y: document.getElementById('years').value,
+    f: document.getElementById('compoundFrequency').value,
+    c: currentCurrency
+  });
+  return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+}
+function shareCalculation() {
+  const url = buildShareUrl();
+  if (navigator.share) {
+    navigator.share({ title: 'Compound Interest Projection', text: 'Check out my compound interest calculation!', url: url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => showToast('Share link copied!'));
+  }
+}
+window.shareCalculation = shareCalculation;
+
+function loadFromUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has('pi')) return;
+  if (params.has('pi')) document.getElementById('initialInvestment').value = params.get('pi');
+  if (params.has('pm')) document.getElementById('monthlyContribution').value = params.get('pm');
+  if (params.has('r')) { document.getElementById('interestRate').value = params.get('r'); document.getElementById('rateVal').textContent = params.get('r') + '%'; }
+  if (params.has('y')) { document.getElementById('years').value = params.get('y'); document.getElementById('yearsVal').textContent = params.get('y') + ' years'; }
+  if (params.has('f')) document.getElementById('compoundFrequency').value = params.get('f');
+  if (params.has('c')) { currentCurrency = params.get('c'); document.getElementById('currencySelect').value = params.get('c'); }
+}
+
+// ================================================================
+// SAVE TO LOCAL STORAGE (replaces Firebase save)
+// ================================================================
+function saveLocal() {
+  const inputs = {
+    initialInvestment: document.getElementById('initialInvestment').value,
+    monthlyContribution: document.getElementById('monthlyContribution').value,
+    interestRate: document.getElementById('interestRate').value,
+    years: document.getElementById('years').value,
+    compoundFrequency: document.getElementById('compoundFrequency').value,
+    currency: currentCurrency
+  };
+  localStorage.setItem(SAVE_KEY, JSON.stringify(inputs));
+  showToast('Calculation saved locally ✅');
+}
+window.saveLocal = saveLocal;
+
+function loadLocal() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    const inputs = JSON.parse(raw);
+    if (inputs.initialInvestment) document.getElementById('initialInvestment').value = inputs.initialInvestment;
+    if (inputs.monthlyContribution) document.getElementById('monthlyContribution').value = inputs.monthlyContribution;
+    if (inputs.interestRate) { document.getElementById('interestRate').value = inputs.interestRate; document.getElementById('rateVal').textContent = inputs.interestRate + '%'; }
+    if (inputs.years) { document.getElementById('years').value = inputs.years; document.getElementById('yearsVal').textContent = inputs.years + ' years'; }
+    if (inputs.compoundFrequency) document.getElementById('compoundFrequency').value = inputs.compoundFrequency;
+    if (inputs.currency) { currentCurrency = inputs.currency; document.getElementById('currencySelect').value = inputs.currency; }
+  } catch (_) {}
+}
+
+// ================================================================
+// FAQ ACCORDION
+// ================================================================
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+window.toggleFaq = toggleFaq;
+
+// ================================================================
+// PWA INSTALL
+// ================================================================
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBtn').classList.remove('hidden');
+});
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    document.getElementById('installBtn').classList.add('hidden');
+  }
+});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/tools/sw-compound-interest.js').catch(() => {});
+  });
+}
+
+// ================================================================
+// BOOT
+// ================================================================
+document.getElementById('currencySelect').value = currentCurrency;
+applyTheme(localStorage.getItem(THEME_KEY) || 'light');
+loadLocal(); // restore saved inputs
+loadFromUrlParams(); // override with URL params if present
+calculate();
+
+console.log('🌱 Compound Interest Calculator loaded (no sign-in required).');
+</script>
+</body>
+</html>

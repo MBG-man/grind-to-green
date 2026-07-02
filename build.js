@@ -609,7 +609,10 @@ function buildRedirects(posts) {
 /pages/privacy   /pages/privacy.html  200
 /pages/terms     /pages/terms.html    200
 /write-for-us    /write-for-us.html   200
-/tools/budget-tools      /budget-tool.html    200
+tools/index.html   /tools         200
+/tools/budget-tool       /tools/budget-tool.html    200 
+/tools/compound-interest-calculator    tools/compound-interest-calculator.html    200
+
 # ── HOMEPAGE ────────────────────────────────────────────────
 /    /index.html    200`;
 

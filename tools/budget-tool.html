@@ -146,13 +146,80 @@
         .hidden { display: none !important; }
         .loading-spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ---------- NEW: INSTALL BANNER ---------- */
+        #installBanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-dark);
+            color: white;
+            padding: 16px 20px;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            z-index: 9998;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+            border-top: 3px solid var(--accent);
+        }
+        #installBanner .banner-text {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        #installBanner .banner-text i {
+            font-size: 28px;
+            color: var(--accent);
+        }
+        #installBanner .banner-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        #installBanner .banner-buttons button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        #installBanner .btn-install-banner {
+            background: var(--accent);
+            color: var(--gray-800);
+        }
+        #installBanner .btn-install-banner:hover {
+            background: #e6a03b;
+            transform: scale(1.02);
+        }
+        #installBanner .btn-dismiss {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+        #installBanner .btn-dismiss:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 600px) {
+            #installBanner {
+                flex-direction: column;
+                text-align: center;
+                padding: 12px 16px;
+            }
+            #installBanner .banner-text {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="budget-container" id="app">
 
- 
     <!-- HEADER -->
     <header class="header">
         <div class="logo-area">
@@ -194,7 +261,20 @@
             </div>
         </div>
     </header>
-    <!-- 🔥 VERIFICATION WALL -->
+
+    <!-- INSTALL BANNER (appears on page load if not installed) -->
+    <div id="installBanner">
+        <div class="banner-text">
+            <i class="fas fa-download"></i>
+            <span>Get the GrindToGreen Budget App – install it on your device for offline access!</span>
+        </div>
+        <div class="banner-buttons">
+            <button class="btn-install-banner" id="bannerInstallBtn"><i class="fas fa-plus-circle"></i> Install App</button>
+            <button class="btn-dismiss" id="bannerDismissBtn">Not now</button>
+        </div>
+    </div>
+
+    <!-- VERIFICATION WALL -->
     <div id="verificationWall">
         <i class="fas fa-envelope"></i>
         <h2>Verify Your Email</h2>
@@ -254,9 +334,7 @@
     <div class="footer-note"><span><i class="fas fa-leaf" style="color:var(--primary);"></i> grindtogreen.com</span><span class="tag">Cloud Sync</span><span id="syncStatus">💾 Offline (local)</span></div>
 </div>
 
-<!-- ========================================================== -->
 <!-- AUTH MODAL -->
-<!-- ========================================================== -->
 <div class="auth-overlay" id="authModal">
     <div class="auth-modal">
         <button class="close-auth" onclick="closeAuthModal()">&times;</button>
@@ -311,7 +389,6 @@
         appId: "1:400543766622:web:c2b97651aa5c0479d37ccf",
         measurementId: "G-HJ5B3FP2W1"
     };
-    // ================================================================
 
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
@@ -441,7 +518,7 @@
     }
 
     // ================================================================
-    //  SAVE SUBSCRIBER (with emailVerified flag)
+    //  SAVE SUBSCRIBER
     // ================================================================
     async function saveSubscriber(user, name, country, consent) {
         if (!user) return;
@@ -492,7 +569,6 @@
                 // ---------- SIGN UP ----------
                 const userCredential = await auth.createUserWithEmailAndPassword(email, password);
                 const user = userCredential.user;
-                // Send verification email
                 await user.sendEmailVerification();
                 const name = document.getElementById('authName').value.trim() || null;
                 const country = document.getElementById('authCountry').value || null;
@@ -515,18 +591,42 @@
     }
 
     // ================================================================
-    //  GOOGLE SIGN IN (Redirect)
+    //  GOOGLE SIGN IN (Popup + Redirect fallback)
     // ================================================================
-   // ================================================================
-//  GOOGLE SIGN IN (Popup + Redirect fallback)
-// ================================================================
-function signInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-    
-    auth.signInWithPopup(provider)
+    function signInWithGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+        
+        auth.signInWithPopup(provider)
+            .then(async (result) => {
+                const user = result.user;
+                const isNewUser = user.metadata.creationTime === user.metadata.lastSignInTime;
+                if (isNewUser) {
+                    const consent = document.getElementById('newsletterConsent').checked;
+                    const name = document.getElementById('authName').value.trim() || user.displayName || null;
+                    const country = document.getElementById('authCountry').value || null;
+                    await saveSubscriber(user, name, country, consent);
+                }
+                console.log('✅ Google sign-in successful:', user.email);
+                closeAuthModal();
+            })
+            .catch((err) => {
+                if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
+                    console.warn('⚠️ Popup blocked, using redirect fallback...');
+                    auth.signInWithRedirect(provider);
+                } else {
+                    console.error('❌ Google sign-in error:', err);
+                    showAuthError(err.message);
+                }
+            });
+    }
+
+    // Handle redirect result (for fallback)
+    auth.getRedirectResult()
         .then(async (result) => {
+            if (!result || !result.user) return;
             const user = result.user;
+            console.log('✅ Redirect sign-in successful:', user.email);
             const isNewUser = user.metadata.creationTime === user.metadata.lastSignInTime;
             if (isNewUser) {
                 const consent = document.getElementById('newsletterConsent').checked;
@@ -534,40 +634,13 @@ function signInWithGoogle() {
                 const country = document.getElementById('authCountry').value || null;
                 await saveSubscriber(user, name, country, consent);
             }
-            console.log('✅ Google sign-in successful:', user.email);
-            closeAuthModal();
         })
         .catch((err) => {
-            if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
-                console.warn('⚠️ Popup blocked, using redirect fallback...');
-                auth.signInWithRedirect(provider);
-            } else {
-                console.error('❌ Google sign-in error:', err);
-                showAuthError(err.message);
+            if (err.code !== 'auth/no-auth-event') {
+                console.error('❌ Redirect error:', err);
+                showAuthError('Google sign-in failed: ' + err.message);
             }
         });
-}
-
-// Handle redirect result (for fallback)
-auth.getRedirectResult()
-    .then(async (result) => {
-        if (!result || !result.user) return;
-        const user = result.user;
-        console.log('✅ Redirect sign-in successful:', user.email);
-        const isNewUser = user.metadata.creationTime === user.metadata.lastSignInTime;
-        if (isNewUser) {
-            const consent = document.getElementById('newsletterConsent').checked;
-            const name = document.getElementById('authName').value.trim() || user.displayName || null;
-            const country = document.getElementById('authCountry').value || null;
-            await saveSubscriber(user, name, country, consent);
-        }
-    })
-    .catch((err) => {
-        if (err.code !== 'auth/no-auth-event') {
-            console.error('❌ Redirect error:', err);
-            showAuthError('Google sign-in failed: ' + err.message);
-        }
-    });
 
     // ================================================================
     //  RESEND VERIFICATION
@@ -633,7 +706,7 @@ auth.getRedirectResult()
     function saveLocalBackup() { localStorage.setItem(LOCAL_KEY, JSON.stringify({ transactions: state.transactions, savingsGoals: state.savingsGoals })); }
 
     // ================================================================
-    //  RENDER (with currency formatting)
+    //  RENDER
     // ================================================================
     function renderAll() {
         renderSummary(); renderTransactions(); renderBudget(); renderSavings(); renderChart();
@@ -748,7 +821,7 @@ auth.getRedirectResult()
     function removeGoal(index) { if (!confirm('Remove goal?')) return; state.savingsGoals.splice(index,1); renderAll(); }
 
     // ================================================================
-    //  AUTH STATE LISTENER (handles verification wall)
+    //  AUTH STATE LISTENER (FIXED for Google verification)
     // ================================================================
     auth.onAuthStateChanged(async (user) => {
         const wall = document.getElementById('verificationWall');
@@ -760,23 +833,21 @@ auth.getRedirectResult()
             document.getElementById('userSection').classList.remove('hidden');
             document.getElementById('userEmailDisplay').textContent = user.email || user.displayName || 'User';
 
-            // Load currency preference
             await loadCurrencyFromCloud(user.uid);
 
-            // Check verification (Google users are automatically verified)
-            const isVerified = user.emailVerified || user.providerData.some(p => p.providerId === 'google.com');
+            // ---------- FIX: Better verification check ----------
+            // Google users are always verified; for email/password, check emailVerified.
+            const isGoogle = user.providerData && user.providerData.some(p => p.providerId === 'google.com');
+            const isVerified = isGoogle || user.emailVerified;
+
             if (!isVerified) {
-                // Show wall
                 wall.style.display = 'block';
                 budgetUI.style.display = 'none';
                 document.getElementById('verifyEmailDisplay').textContent = user.email || 'your email';
-                // Also update sync status
                 document.getElementById('syncStatus').textContent = '⏳ Please verify your email';
             } else {
-                // Hide wall, show budget UI
                 wall.style.display = 'none';
                 budgetUI.style.display = 'block';
-                // Update subscriber's emailVerified status
                 if (user.email) {
                     try {
                         await db.collection('subscribers').doc(user.uid).set({
@@ -800,13 +871,39 @@ auth.getRedirectResult()
     });
 
     // ================================================================
-    //  PWA INSTALLATION
+    //  PWA INSTALLATION (with custom banner)
     // ================================================================
     let deferredPrompt;
+    let installBannerShown = false;
+
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
         document.getElementById('installBtn').style.display = 'flex';
+        if (!localStorage.getItem('gtg_install_banner_dismissed') && !installBannerShown) {
+            document.getElementById('installBanner').style.display = 'flex';
+            installBannerShown = true;
+        }
+    });
+
+    document.getElementById('bannerInstallBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const result = await deferredPrompt.userChoice;
+            if (result.outcome === 'accepted') {
+                document.getElementById('installBanner').style.display = 'none';
+                document.getElementById('installBtn').style.display = 'none';
+                localStorage.setItem('gtg_install_banner_dismissed', 'true');
+            }
+            deferredPrompt = null;
+        } else {
+            alert('To install, use your browser\'s "Add to Home Screen" option.');
+        }
+    });
+
+    document.getElementById('bannerDismissBtn').addEventListener('click', () => {
+        document.getElementById('installBanner').style.display = 'none';
+        localStorage.setItem('gtg_install_banner_dismissed', 'true');
     });
 
     document.getElementById('installBtn').addEventListener('click', async () => {
@@ -815,6 +912,8 @@ auth.getRedirectResult()
             const result = await deferredPrompt.userChoice;
             if (result.outcome === 'accepted') {
                 document.getElementById('installBtn').style.display = 'none';
+                document.getElementById('installBanner').style.display = 'none';
+                localStorage.setItem('gtg_install_banner_dismissed', 'true');
             }
             deferredPrompt = null;
         }
@@ -827,7 +926,7 @@ auth.getRedirectResult()
     switchAuthMode();
     loadLocalBackup();
     renderAll();
-    console.log('🌱 GrindToGreen Budget Tool (Currency + Verification) loaded!');
+    console.log('🌱 GrindToGreen Budget Tool (Currency + Verification + Install Banner) loaded!');
 </script>
 </body>
 </html>
