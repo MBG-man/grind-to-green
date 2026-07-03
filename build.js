@@ -294,6 +294,7 @@ function htmlHeader() {
       <a href="/pages/contact">Contact</a>
       <a href="/pages/privacy">Privacy</a>
       <a href="/pages/terms">Terms</a>
+      <a href="/tools">free tools</a>
     </nav>
     <button id="main-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   </div>
@@ -418,7 +419,7 @@ function buildHomepage(posts) {
 
   return `${htmlHead(
     `${SITE_NAME} | Finance & Crypto Education for Africans`,
-    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for Africans.",
+    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for everyone.",
     `${SITE_URL}/`,
     `${SITE_URL}/images/og-default.jpg`
   )}
