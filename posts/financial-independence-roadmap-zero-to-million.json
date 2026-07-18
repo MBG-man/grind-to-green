@@ -33,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "To claw your way out of this zone, you must establish defensive armor. This means building a baseline liquid buffer while ruthlessly optimizing your fixed costs. To anchor your day-to-day habits during this grueling initial push, it helps to master the core mechanics of cash tracking. For a granular, highly tactical breakdown of how to segment your income without losing your mind, see our comprehensive guide on <a href='/blog/unbreakable-budgeting-system'>How to Build an Unbreakable Budgeting System That Actually Fits Your Life</a>, which outlines the exact percentages needed to survive this phase."
+      "text": "To claw your way out of this zone, you must establish defensive armor. This means building a baseline liquid buffer while ruthlessly optimizing your fixed costs. To anchor your day-to-day habits during this grueling initial push, it helps to master the core mechanics of cash tracking. For a granular, highly tactical breakdown of how to segment your income without losing your mind, see our comprehensive guide on <a href='/building-wealth-from-scratch'>How to Build an Unbreakable Budgeting System That Actually Fits Your Life</a>, which outlines the exact percentages needed to survive this phase."
     },
     {
       "type": "image",
@@ -57,32 +57,57 @@
       "type": "paragraph",
       "text": "The trap here is thinking you can get to $100,000 purely by cutting expenses. There is a hard structural floor to how low your expenses can go—you always have to pay for shelter, basic nutrition, and basic health insurance. However, there is absolutely no ceiling on your income. To cross the $100,000 mark quickly, you have to engineer an income jump. This typically happens through three specific avenues: the lateral company leap (changing employers every 2 to 3 years yields an average salary increase of 10% to 20%, compared to the standard 3% internal annual raise), skill stacking, or a minimum viable side hustle."
     },
-   {
-  "type": "table",
-  "headers": ["Asset Milestone", "Primary Driver", "Secondary Driver", "Psychological Threat"],
-  "rows": [
-    ["$0 - $10k", "Income Offense", "Frugality / Defense", "Despair & Volatility"],
-    ["$10k - $100k", "Aggressive Savings Rate", "Basic Market Exposure", "Lifestyle Creep / Burnout"],
-    ["$100k - $500k", "Consistency & Systems", "Compounding Core", "Mid-Game Ennui"],
-    ["$500k - $1M", "Compounding Autopilot", "Portfolio Optimization", "Fear of Market Crashes"]
-  ]
-},
-{
-  "type": "heading",
-  "text": "Income Hacking vs. Cheap Living"
-},
-{
-  "type": "paragraph",
-  "text": "To cross the $100,000 mark quickly, you have to engineer an income jump. This typically happens through three avenues:"
-},
-{
-  "type": "list",
-  "items": [
-    "<strong>The Lateral Leap:</strong> Changing employers every 2 to 3 years yields an average salary increase of 10% to 20%, compared to the standard 3% internal annual raise.",
-    "<strong>Skill Stacking:</strong> Acquiring rare, complementary skill combinations (e.g., combining deep data analysis with high-end public speaking).",
-    "<strong>The Minimum Viable Side Hustle:</strong> Not a multi-million dollar startup, but a high-margin service business (consulting, freelancing) that utilizes your primary job skills after hours."
-  ]
-},
+    {
+      "type": "table",
+      "headers": [
+        "Asset Milestone",
+        "Primary Driver",
+        "Secondary Driver",
+        "Psychological Threat"
+      ],
+      "rows": [
+        [
+          "$0 - $10k",
+          "Income Offense",
+          "Frugality / Defense",
+          "Despair & Volatility"
+        ],
+        [
+          "$10k - $100k",
+          "Aggressive Savings Rate",
+          "Basic Market Exposure",
+          "Lifestyle Creep / Burnout"
+        ],
+        [
+          "$100k - $500k",
+          "Consistency & Systems",
+          "Compounding Core",
+          "Mid-Game Ennui"
+        ],
+        [
+          "$500k - $1M",
+          "Compounding Autopilot",
+          "Portfolio Optimization",
+          "Fear of Market Crashes"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Income Hacking vs. Cheap Living"
+    },
+    {
+      "type": "paragraph",
+      "text": "To cross the $100,000 mark quickly, you have to engineer an income jump. This typically happens through three avenues:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>The Lateral Leap:</strong> Changing employers every 2 to 3 years yields an average salary increase of 10% to 20%, compared to the standard 3% internal annual raise.",
+        "<strong>Skill Stacking:</strong> Acquiring rare, complementary skill combinations (e.g., combining deep data analysis with high-end public speaking).",
+        "<strong>The Minimum Viable Side Hustle:</strong> Not a multi-million dollar startup, but a high-margin service business (consulting, freelancing) that utilizes your primary job skills after hours."
+      ]
+    },
     {
       "type": "paragraph",
       "text": "As your income scales during this phase, the temptation to upgrade your lifestyle will be intense. If your salary jumps by $20,000 and your rent, car payment, and restaurant budget jump by $20,000 alongside it, you have effectively reset your wealth-building clock back to zero. You must maintain a wide, intentional gap between what you bring in and what you output. Securing this specific surplus cash flow requires an aggressive, highly strategic approach to asset preservation. To discover how to systematically ring-fence your earnings before lifestyle inflation devours them, explore our deep-dive analysis on <a href='/are-savings-bonds-good-investment'>are savings bonds good investment</a>."
@@ -102,20 +127,20 @@
       "caption": "Portfolio Dynamics Shift: Visualizing how money takes the wheel and matches or exceeds human labor as your base scales."
     },
     {
-  "type": "heading",
-  "text": "The Systematization of Wealth"
-},
-{
-  "type": "paragraph",
-  "text": "In this phase, manual intervention is your enemy. You want to remove human emotion from the equation entirely. If you have to think about investing every time you get paid, you are introducing a failure point."
-},
-{
-  "type": "list",
-  "items": [
-    "<strong>Automated Dollar-Cost Averaging (DCA):</strong> Your investment contributions should be swept from your payroll or primary bank account before your eyes ever see it.",
-    "<strong>The Core Portfolio Architecture:</strong> Stop chasing thematic tech ETFs, meme tokens, or individual stock tips from social media. Stick to ultra-low-cost, broad-market index funds or total market exchange-traded funds (ETFs) with an expense ratio below 0.05%."
-  ]
-},
+      "type": "heading",
+      "text": "The Systematization of Wealth"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this phase, manual intervention is your enemy. You want to remove human emotion from the equation entirely. If you have to think about investing every time you get paid, you are introducing a failure point."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Automated Dollar-Cost Averaging (DCA):</strong> Your investment contributions should be swept from your payroll or primary bank account before your eyes ever see it.",
+        "<strong>The Core Portfolio Architecture:</strong> Stop chasing thematic tech ETFs, meme tokens, or individual stock tips from social media. Stick to ultra-low-cost, broad-market index funds or total market exchange-traded funds (ETFs) with an expense ratio below 0.05%."
+      ]
+    },
     {
       "type": "paragraph",
       "text": "In this phase, manual intervention and financial over-analysis are your greatest enemies. You want to remove human emotion and daily decision-making from the equation entirely. If you have to manually think about investing every time you get paid, you are introducing a psychological failure point. You need automated systems."
@@ -149,9 +174,9 @@
       "text": "The climb from $0 to $100,000 might take five to seven years of intense grinding, manual side hustles, and lifestyle sacrifices. Conversely, the climb from $500,000 to $1,000,000 often takes a fraction of that time, purely because of the sheer mass of the principal balance. If you maintain a steady contribution profile, an 8% compounding return on a $600,000 balance adds nearly $50,000 in passive generation inside of twelve months. You aren't working harder; your money is simply operating with immense, compounding scale."
     },
     {
-  "type": "paragraph",
-  "text": "During this critical window, your operational framework shifts from raw asset accumulation to optimizing the tax drag and structural efficiency of your portfolio. To ensure you aren't leaking critical percentages to the government right before the seven-figure finish line, check out <a href='/25-money-habits-keeping-you-broke-2026'>25 Money Habits Keeping You Broke</a>, which covers many of the behavioral and structural pitfalls that sabotage wealth at every stage of the journey."
-},
+      "type": "paragraph",
+      "text": "During this critical window, your operational framework shifts from raw asset accumulation to optimizing the tax drag and structural efficiency of your portfolio. To ensure you aren't leaking critical percentages to the government right before the seven-figure finish line, check out <a href='/25-money-habits-keeping-you-broke-2026'>25 Money Habits Keeping You Broke</a>, which covers many of the behavioral and structural pitfalls that sabotage wealth at every stage of the journey."
+    },
     {
       "type": "heading",
       "text": "The Wealth Progression Roadmap Summarized"
