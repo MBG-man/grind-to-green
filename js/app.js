@@ -1,5 +1,5 @@
 /* ==========================================================
-   GrindToGreen — app.js
+   GrindToGreen — app.js (Updated for new templates)
    ========================================================== */
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -30,16 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ============================
   // 🔗 SLUG DETECTION
-  // Works for both:
-  //   /post.html?slug=my-slug   (query param — most reliable)
-  //   /my-slug                  (clean URL via Netlify rewrite)
   // ============================
   function getSlug() {
-    // 1. Query param — always works, most reliable
     const paramSlug = new URLSearchParams(window.location.search).get("slug");
     if (paramSlug) return paramSlug;
 
-    // 2. Clean path — works when Netlify rewrites /slug → /post.html
     const path = window.location.pathname;
     const ignored = ["/", "/index.html", "/post.html"];
     if (ignored.includes(path) || path.startsWith("/pages/")) return null;
@@ -112,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     displaySinglePost(post);
 
-    // Load related posts in background — doesn't delay main content
+    // Load related posts in background
     loadAllPosts().then(allPosts => {
       const related = allPosts
         .filter(p => p.slug !== post.slug && getCategory(p) === getCategory(post))
@@ -131,7 +126,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (cached) return cached;
 
     try {
-      // Use absolute paths — safe for all URL structures
       const indexRes = await fetch("/posts/index.json");
       if (!indexRes.ok) throw new Error("index.json not found");
       const files = await indexRes.json();
@@ -156,7 +150,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function loadOnePost(slug) {
     try {
-      // Absolute path — critical when post.html is served via Netlify rewrite
       const res = await fetch(`/posts/${slug}.json`);
       if (!res.ok) throw new Error(`Post not found: ${slug}`);
       return await res.json();
@@ -270,8 +263,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       postContainer.innerHTML = `<p style="text-align:center;color:#e53e3e;grid-column:1/-1">⚠️ No posts found.</p>`;
       return;
     }
-    // IMPORTANT: links use ?slug= so they work on both GitHub Pages and Netlify
-    // The _redirects file handles the 301 to clean URL on Netlify
     postContainer.innerHTML = posts.map(post => `
       <article class="post-card">
         <a href="/${post.slug}">
@@ -430,9 +421,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   function buildAuthor() {
     return `
       <div class="author-bio" itemscope itemtype="https://schema.org/Person">
-        <img src="${AUTHOR.avatar}" alt="${AUTHOR.name}"
-             class="author-avatar" loading="lazy" width="72" height="72"
-             onerror="this.style.display='none'">
         <div class="author-info">
           <span class="author-label">Written by</span>
           <span class="author-name" itemprop="name">${AUTHOR.name}</span>
@@ -518,7 +506,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       "@context": "https://schema.org", "@type": "Article",
       headline: post.title, description: post.description,
       url, image: img, datePublished: post.date, dateModified: post.date,
-      author:    { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      author:    { "@type": "Person", name: AUTHOR.name, url: AUTHOR.links.blog },
       publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL }
     }];
     if (post.faq?.length) schemas.push({

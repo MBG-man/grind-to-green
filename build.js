@@ -58,12 +58,9 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-// Ensure image paths always start with / so they resolve correctly
-// from any nested URL like /slug/index.html
 function fixImgPath(src) {
   if (!src) return "";
   if (src.startsWith("http://") || src.startsWith("https://")) return src;
-  // Remove any accidental double slashes then ensure leading slash
   return "/" + src.replace(/^\/+/, "").replace(/\/\//g, "/");
 }
 
@@ -73,13 +70,16 @@ function renderBlocks(blocks) {
     switch (b.type) {
       case "paragraph":
         return `<p>${b.text || ""}</p>`;
-
       case "heading":
         return `<h2>${escHtml(b.text)}</h2>`;
-
       case "list":
         return `<ul>${(b.items || []).map(i => `<li>${i}</li>`).join("")}</ul>`;
-
+      case "image":
+        return `
+          <figure class="post-image">
+            <img src="${fixImgPath(b.src)}" alt="${escHtml(b.alt)}" loading="lazy">
+            ${b.caption ? `<figcaption>${escHtml(b.caption)}</figcaption>` : ""}
+          </figure>`;
       case "table": {
         const headers = (b.headers || []).map(h => `<th>${escHtml(h)}</th>`).join("");
         const rows    = (b.rows || []).map(row =>
@@ -93,14 +93,6 @@ function renderBlocks(blocks) {
             </table>
           </div>`;
       }
-
-      case "image":
-        return `
-          <figure class="post-image">
-            <img src="${fixImgPath(b.src)}" alt="${escHtml(b.alt)}" loading="lazy">
-            ${b.caption ? `<figcaption>${escHtml(b.caption)}</figcaption>` : ""}
-          </figure>`;
-
       default:
         return "";
     }
@@ -238,6 +230,7 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escHtml(title)}</title>
   <meta name="description" content="${escHtml(desc)}">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="${url}">
 
   <meta property="og:type"        content="article">
@@ -271,6 +264,10 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
 </head>`;
 }
 
+function htmlSkipLink(target) {
+  return `<a href="${target}" class="skip-link">Skip to content</a>`;
+}
+
 function htmlHeader() {
   return `
 <header id="main-header">
@@ -290,22 +287,88 @@ function htmlHeader() {
     </a>
     <nav id="main-nav" aria-label="Main navigation">
       <a href="/">Home</a>
+      <a href="/">Articles</a>
+      <a href="/tools/">Tools</a>
       <a href="/pages/about">About</a>
       <a href="/pages/contact">Contact</a>
-      <a href="/pages/privacy">Privacy</a>
-      <a href="/pages/terms">Terms</a>
-      <a href="/tools">free tools</a>
     </nav>
     <button id="main-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   </div>
 </header>`;
 }
 
+function htmlNewsletter(variant) {
+  const heading = variant === "post" ? "Enjoyed This Article?" : "Get Weekly Finance Tips";
+  const subtext = variant === "post"
+    ? "Get weekly finance tips, investing guides, and side hustle ideas delivered to your inbox. No spam. Unsubscribe anytime."
+    : "Join our newsletter for practical budgeting, investing, and side hustle advice. No spam. Unsubscribe anytime.";
+  return `
+<section class="newsletter" aria-label="Newsletter signup">
+  <div class="newsletter-box">
+    <h2>${heading}</h2>
+    <p>${subtext}</p>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-disclaimer">By subscribing, you agree to our <a href="/pages/privacy">Privacy Policy</a>.</p>
+  </div>
+</section>`;
+}
+
 function htmlFooter() {
   return `
-<footer class="footer">
-  <p>&copy; <span id="footer-year"></span> Grind To Green. All rights reserved.</p>
-</footer>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" aria-label="Grind To Green Home" style="display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 300 80" aria-hidden="true">
+            <g transform="translate(10,15)">
+              <rect x="0"  y="30" width="10" height="20" fill="#0F3D2E" rx="2"/>
+              <rect x="15" y="20" width="10" height="30" fill="#0F3D2E" rx="2"/>
+              <rect x="30" y="10" width="10" height="40" fill="#2c7a4d" rx="2"/>
+              <rect x="45" y="0"  width="10" height="50" fill="#3e9b62" rx="2"/>
+            </g>
+          </svg>
+          <span style="font-weight:700;font-size:18px;color:#0F3D2E;">Grind<span style="color:#3e9b62;">ToGreen</span></span>
+        </a>
+        <p>Free finance education and tools for beginners. Learn to budget, invest, and build wealth without the hype.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/pages/about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/compound-interest-calculator">Compound Interest</a></li>
+          <li><a href="/tools/budget-tool">Budget Tracker</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/pages/privacy">Privacy Policy</a></li>
+          <li><a href="/pages/terms">Terms of Use</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> GrindToGreen. All rights reserved.</p>
+    </div>
+  </div>
+</footer>`;
+}
+
+function htmlScripts() {
+  return `
 <script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
 <script>
   document.getElementById("main-menu-toggle")?.addEventListener("click",function(){
@@ -316,6 +379,15 @@ function htmlFooter() {
     document.getElementById("main-nav")?.classList.remove("show");
     document.getElementById("main-menu-toggle")?.setAttribute("aria-expanded","false");
   }));
+  function handleSubscribe(e){
+    e.preventDefault();
+    const email=document.getElementById('newsletterEmail').value.trim();
+    if(!email)return;
+    const subs=JSON.parse(localStorage.getItem('gtg_subscribers')||'[]');
+    if(!subs.includes(email)){subs.push(email);localStorage.setItem('gtg_subscribers',JSON.stringify(subs));}
+    alert('Thanks for subscribing! We will send finance tips to '+email);
+    document.getElementById('newsletterEmail').value='';
+  }
 </script>
 <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>`;
 }
@@ -350,9 +422,10 @@ function buildPostPage(post) {
     schemas
   )}
 <body>
+${htmlSkipLink("#post-content")}
 ${htmlHeader()}
 
-<main>
+<main id="post-content">
   <article class="post-content" itemscope itemtype="https://schema.org/Article">
 
     <h1 itemprop="headline">${post.title}</h1>
@@ -381,15 +454,15 @@ ${htmlHeader()}
   </article>
 </main>
 
+${htmlNewsletter("post")}
 ${htmlFooter()}
+${htmlScripts()}
 </body>
 </html>`;
 }
 
 // ─── BUILD HOMEPAGE ─────────────────────────────────────────────────────────
 function buildHomepage(posts) {
-  const year = new Date().getFullYear();
-
   const postCards = posts.map(post => {
     const category = getCategory(post);
     const readTime = getReadingTime(post);
@@ -411,19 +484,31 @@ function buildHomepage(posts) {
       </article>`;
   }).join("\n");
 
-  // Build category filter pills
   const cats = [...new Set(posts.map(getCategory))].sort();
   const pills = cats.map(c =>
     `<button class="category-pill" data-category="${escHtml(c)}">${escHtml(c)}</button>`
   ).join("\n");
 
+  const orgSchema = `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GrindToGreen",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/images/logo.png`,
+    "sameAs": ["https://twitter.com/Mubarakgman"],
+    "founder": { "@type": "Person", "name": "Mubarak" },
+    "description": "GrindToGreen helps beginners understand money through practical budgeting, investing, crypto, and side hustle guides."
+  })}</script>`;
+
   return `${htmlHead(
-    `${SITE_NAME} | Finance & Crypto Education for everyone`,
-    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for everyone.",
+    `${SITE_NAME} | Finance & Crypto Education for Everyone`,
+    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles. Free tools and practical guides for beginners.",
     `${SITE_URL}/`,
-    `${SITE_URL}/images/og-default.jpg`
+    `${SITE_URL}/images/og-default.jpg`,
+    orgSchema
   )}
 <body>
+${htmlSkipLink("#posts")}
 ${htmlHeader()}
 
 <section class="hero">
@@ -431,6 +516,7 @@ ${htmlHeader()}
   <p>Budgeting, crypto, investing and side hustles built for everyone.</p>
   <div>
     <a href="#posts" class="btn-primary">Read Articles</a>
+    <a href="/tools/" class="btn-secondary">Free Tools</a>
     <a href="/pages/about" class="btn-secondary">About Us</a>
   </div>
 </section>
@@ -448,13 +534,15 @@ ${htmlHeader()}
   ${pills}
 </div>
 
-
-
-<main id="posts-container" aria-label="Blog posts" id="posts">
+<main id="posts" aria-label="Blog posts">
+  <div id="posts-container">
 ${postCards}
+  </div>
 </main>
 
+${htmlNewsletter("home")}
 ${htmlFooter()}
+${htmlScripts()}
 
 <script>
 // Search
@@ -492,7 +580,6 @@ document.querySelectorAll(".category-pill").forEach(btn => {
 
 // ─── MAIN BUILD ─────────────────────────────────────────────────────────────
 function build() {
-  // Read posts index
   const indexPath = path.join(POSTS_DIR, "index.json");
   if (!fs.existsSync(indexPath)) {
     console.error("❌  posts/index.json not found. Run this script from your repo root.");
@@ -502,7 +589,6 @@ function build() {
   const fileList = JSON.parse(fs.readFileSync(indexPath, "utf8"));
   console.log(`📚  Found ${fileList.length} posts in index.json`);
 
-  // Load all posts
   const posts = [];
   for (const file of fileList) {
     const filePath = path.join(POSTS_DIR, file);
@@ -519,24 +605,21 @@ function build() {
     }
   }
 
-  // Sort: featured first, then by date desc
   posts.sort((a, b) => {
     if (a.featured === true && b.featured !== true) return -1;
     if (b.featured === true && a.featured !== true) return 1;
     return new Date(b.date) - new Date(a.date);
   });
 
-  // Create dist directory
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
 
-  // Copy static assets into dist
   copyDir(path.join(__dirname, "css"),    path.join(DIST_DIR, "css"));
   copyDir(path.join(__dirname, "js"),     path.join(DIST_DIR, "js"));
   copyDir(path.join(__dirname, "images"), path.join(DIST_DIR, "images"));
   copyDir(path.join(__dirname, "posts"),  path.join(DIST_DIR, "posts"));
   copyDir(path.join(__dirname, "pages"),  path.join(DIST_DIR, "pages"));
-copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
-  // Copy root-level files that Netlify needs
+  copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
+
   for (const f of ["robots.txt", "write-for-us.html"]) {
     const src = path.join(__dirname, f);
     if (fs.existsSync(src)) {
@@ -545,7 +628,6 @@ copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
     }
   }
 
-  // Build each post page
   let built = 0;
   for (const post of posts) {
     const postDir = path.join(DIST_DIR, post.slug);
@@ -556,12 +638,10 @@ copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
     built++;
   }
 
-  // Build homepage
   const homepageHtml = buildHomepage(posts);
   fs.writeFileSync(path.join(DIST_DIR, "index.html"), homepageHtml, "utf8");
   console.log(`✅  / (homepage with ${posts.length} posts)`);
 
-  // Write updated _redirects for dist
   const redirectsContent = buildRedirects(posts);
   fs.writeFileSync(path.join(DIST_DIR, "_redirects"), redirectsContent, "utf8");
   console.log(`✅  _redirects`);
@@ -576,7 +656,6 @@ copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
 }
 
 function buildRedirects(posts) {
-  // Static page redirects + catch-all
   const staticRedirects = `
 # ── STATIC PAGES ───────────────────────────────────────────
 /pages/about.html    /pages/about    301!
@@ -610,9 +689,9 @@ function buildRedirects(posts) {
 /pages/privacy   /pages/privacy.html  200
 /pages/terms     /pages/terms.html    200
 /write-for-us    /write-for-us.html   200
-/tools          /tools/index.html           200
-/tools/budget-tool       /tools/budget-tool.html    200 
-/tools/compound-interest-calculator    tools/compound-interest-calculator.html    200
+/tools           /tools/index.html    200
+/tools/budget-tool       /tools/budget-tool.html    200
+/tools/compound-interest-calculator    /tools/compound-interest-calculator.html    200
 
 # ── HOMEPAGE ────────────────────────────────────────────────
 /    /index.html    200`;
@@ -623,6 +702,7 @@ function buildRedirects(posts) {
 function buildSitemap(posts) {
   const staticUrls = [
     { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "daily" },
+    { loc: `${SITE_URL}/tools/`, priority: "0.8", changefreq: "weekly" },
     { loc: `${SITE_URL}/pages/about`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/contact`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/privacy`, priority: "0.5", changefreq: "yearly" },
@@ -650,9 +730,8 @@ ${urls}
 `;
 }
 
-// ─── COPY DIRECTORY HELPER ──────────────────────────────────────────────────
 function copyDir(src, dest) {
-  if (!fs.existsSync(src)) return; // silently skip missing folders
+  if (!fs.existsSync(src)) return;
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     const srcPath  = path.join(src,  entry.name);
@@ -666,5 +745,4 @@ function copyDir(src, dest) {
   console.log(`✅  Copied → ${path.relative(__dirname, dest)}/`);
 }
 
-// ─── RUN ────────────────────────────────────────────────────────────────────
-build(); 
+build();

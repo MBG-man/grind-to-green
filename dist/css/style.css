@@ -649,3 +649,205 @@ a { text-decoration: none; transition: all 0.2s ease; }
 .contact-form button:hover {
   opacity: 0.9;
 }
+
+/* ============================================ */
+/* ADSENSE & SEO FIXES — Append to style.css    */
+/* ============================================ */
+
+/* ---------- SKIP LINK (Accessibility) ---------- */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  z-index: 10000;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 0 0 8px 0;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ---------- NAV ACTIVE STATE ---------- */
+#main-nav a[href="/tools/"],
+#main-nav a[href="/"] {
+  position: relative;
+}
+
+/* ---------- NEWSLETTER (Improved) ---------- */
+.newsletter {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+.newsletter-box {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 40px 32px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+}
+.newsletter-box h2 {
+  color: white;
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+}
+.newsletter-box p {
+  color: #e2e8f0;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.newsletter-form input {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+.newsletter-form button {
+  padding: 12px 24px;
+  background: var(--accent);
+  border: none;
+  border-radius: 40px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.newsletter-form button:hover {
+  background: var(--accent-light);
+  transform: scale(1.02);
+}
+.newsletter-disclaimer {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 12px;
+  color: #e2e8f0;
+}
+.newsletter-disclaimer a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* ---------- FOOTER (Full Grid) ---------- */
+.site-footer {
+  background: white;
+  border-top: 1px solid var(--border-light);
+  padding: 48px 20px 32px;
+  margin-top: 3rem;
+}
+.footer-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.footer-brand p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col li {
+  margin-bottom: 10px;
+}
+.footer-col a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.footer-col a:hover {
+  color: var(--accent);
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+}
+.footer-bottom p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ---------- HERO BUTTONS (3 buttons) ---------- */
+.hero .btn-secondary {
+  border: 2px solid white;
+  padding: 10px 24px;
+  border-radius: 40px;
+  color: white;
+  display: inline-block;
+  margin-left: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.hero .btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ---------- RESPONSIVE FOOTER ---------- */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .newsletter-form input {
+    flex: 1 1 100%;
+  }
+  .newsletter-form button {
+    width: 100%;
+  }
+  .hero .btn-secondary {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .newsletter-box {
+    padding: 28px 20px;
+  }
+}

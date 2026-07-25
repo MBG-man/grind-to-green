@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grind To Green | Finance &amp; Crypto Education for everyone</title>
-  <meta name="description" content="Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for everyone.">
+  <title>Grind To Green | Finance &amp; Crypto Education for Everyone</title>
+  <meta name="description" content="Master your money with budgeting tips, crypto insights, passive income strategies and side hustles. Free tools and practical guides for beginners.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://grindtogreen.com/">
 
   <meta property="og:type"        content="article">
   <meta property="og:site_name"   content="Grind To Green">
-  <meta property="og:title"       content="Grind To Green | Finance &amp; Crypto Education for everyone">
-  <meta property="og:description" content="Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for everyone.">
+  <meta property="og:title"       content="Grind To Green | Finance &amp; Crypto Education for Everyone">
+  <meta property="og:description" content="Master your money with budgeting tips, crypto insights, passive income strategies and side hustles. Free tools and practical guides for beginners.">
   <meta property="og:url"         content="https://grindtogreen.com/">
   <meta property="og:image"       content="https://grindtogreen.com/images/og-default.jpg">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Grind To Green | Finance &amp; Crypto Education for everyone">
-  <meta name="twitter:description" content="Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for everyone.">
+  <meta name="twitter:title"       content="Grind To Green | Finance &amp; Crypto Education for Everyone">
+  <meta name="twitter:description" content="Master your money with budgeting tips, crypto insights, passive income strategies and side hustles. Free tools and practical guides for beginners.">
   <meta name="twitter:image"       content="https://grindtogreen.com/images/og-default.jpg">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -34,9 +35,10 @@
   <link rel="stylesheet" href="/css/style.css">
   <style>.share-svg{width:18px;height:18px;fill:currentColor;display:block;}</style>
 
-  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GrindToGreen","url":"https://grindtogreen.com","logo":"https://grindtogreen.com/images/logo.png","sameAs":["https://twitter.com/Mubarakgman"],"founder":{"@type":"Person","name":"Mubarak"},"description":"GrindToGreen helps beginners understand money through practical budgeting, investing, crypto, and side hustle guides."}</script>
 </head>
 <body>
+<a href="#posts" class="skip-link">Skip to content</a>
 
 <header id="main-header">
   <div id="main-header-container">
@@ -55,11 +57,10 @@
     </a>
     <nav id="main-nav" aria-label="Main navigation">
       <a href="/">Home</a>
+      <a href="/">Articles</a>
+      <a href="/tools/">Tools</a>
       <a href="/pages/about">About</a>
       <a href="/pages/contact">Contact</a>
-      <a href="/pages/privacy">Privacy</a>
-      <a href="/pages/terms">Terms</a>
-      <a href="/tools">free tools</a>
     </nav>
     <button id="main-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   </div>
@@ -70,6 +71,7 @@
   <p>Budgeting, crypto, investing and side hustles built for everyone.</p>
   <div>
     <a href="#posts" class="btn-primary">Read Articles</a>
+    <a href="/tools/" class="btn-secondary">Free Tools</a>
     <a href="/pages/about" class="btn-secondary">About Us</a>
   </div>
 </section>
@@ -97,9 +99,8 @@
 <button class="category-pill" data-category="wealth-building">wealth-building</button>
 </div>
 
-
-
-<main id="posts-container" aria-label="Blog posts" id="posts">
+<main id="posts" aria-label="Blog posts">
+  <div id="posts-container">
 
       <article class="post-card">
         <a href="/building-wealth-from-scratch">
@@ -118,9 +119,25 @@
       </article>
 
       <article class="post-card">
+        <a href="/how-to-recover-financially-after-losing-job-2026">
+          <h2>How to Recover Financially After Losing Your Job: A Complete Guide for 2026</h2>
+          <img src="/images/financial-recovery-after-job-loss-2026.jpeg" alt="Person recovering financially after job loss with emergency fund, budget, and new job opportunities"
+               loading="lazy" width="400" height="200">
+          <p>I lost my job with only $800 in savings. Here's exactly how I survived, found income, and rebuilt my finances. A complete step-by-step recovery guide for 2026.</p>
+          <div class="post-card-meta">
+            <small>20 July 2026</small>
+            <small class="reading-time">11 min read</small>
+          </div>
+          <div class="post-categories">
+            <span class="post-category-badge">investing</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="post-card">
         <a href="/how-to-use-chatgpt-to-save-money-2026">
           <h2>How to Use ChatGPT to Save Money Every Month: 5 Proven Strategies (2026)</h2>
-          <img src="/images/chatgpt-save-money-2026.jpeg" alt="Person using ChatGPT on laptop to save money with piggy bank and budget charts"
+          <img src="/images/chatgpt-save-money-2026.jpg" alt="Person using ChatGPT on laptop to save money with piggy bank and budget charts"
                loading="lazy" width="400" height="200">
           <p>Most people are bleeding money and don't even know it. Here are 5 proven ways to use ChatGPT to save money every month, with real numbers, real examples, and a system that works.</p>
           <div class="post-card-meta">
@@ -708,12 +725,70 @@
           </div>
         </a>
       </article>
+  </div>
 </main>
 
 
-<footer class="footer">
-  <p>&copy; <span id="footer-year"></span> Grind To Green. All rights reserved.</p>
+<section class="newsletter" aria-label="Newsletter signup">
+  <div class="newsletter-box">
+    <h2>Get Weekly Finance Tips</h2>
+    <p>Join our newsletter for practical budgeting, investing, and side hustle advice. No spam. Unsubscribe anytime.</p>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-disclaimer">By subscribing, you agree to our <a href="/pages/privacy">Privacy Policy</a>.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" aria-label="Grind To Green Home" style="display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 300 80" aria-hidden="true">
+            <g transform="translate(10,15)">
+              <rect x="0"  y="30" width="10" height="20" fill="#0F3D2E" rx="2"/>
+              <rect x="15" y="20" width="10" height="30" fill="#0F3D2E" rx="2"/>
+              <rect x="30" y="10" width="10" height="40" fill="#2c7a4d" rx="2"/>
+              <rect x="45" y="0"  width="10" height="50" fill="#3e9b62" rx="2"/>
+            </g>
+          </svg>
+          <span style="font-weight:700;font-size:18px;color:#0F3D2E;">Grind<span style="color:#3e9b62;">ToGreen</span></span>
+        </a>
+        <p>Free finance education and tools for beginners. Learn to budget, invest, and build wealth without the hype.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/pages/about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/compound-interest-calculator">Compound Interest</a></li>
+          <li><a href="/tools/budget-tool">Budget Tracker</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/pages/privacy">Privacy Policy</a></li>
+          <li><a href="/pages/terms">Terms of Use</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> GrindToGreen. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
+
 <script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
 <script>
   document.getElementById("main-menu-toggle")?.addEventListener("click",function(){
@@ -724,6 +799,15 @@
     document.getElementById("main-nav")?.classList.remove("show");
     document.getElementById("main-menu-toggle")?.setAttribute("aria-expanded","false");
   }));
+  function handleSubscribe(e){
+    e.preventDefault();
+    const email=document.getElementById('newsletterEmail').value.trim();
+    if(!email)return;
+    const subs=JSON.parse(localStorage.getItem('gtg_subscribers')||'[]');
+    if(!subs.includes(email)){subs.push(email);localStorage.setItem('gtg_subscribers',JSON.stringify(subs));}
+    alert('Thanks for subscribing! We will send finance tips to '+email);
+    document.getElementById('newsletterEmail').value='';
+  }
 </script>
 <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 

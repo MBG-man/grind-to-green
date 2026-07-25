@@ -7,6 +7,12 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/tools/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/pages/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -39,6 +45,13 @@
   <url>
     <loc>https://grindtogreen.com/building-wealth-from-scratch</loc>
     <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/how-to-recover-financially-after-losing-job-2026</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
