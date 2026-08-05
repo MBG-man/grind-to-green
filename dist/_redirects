@@ -12,8 +12,15 @@
 /smart-budgeting-hacks-2025    /smart-budgeting-hacks-2026    301!
 /why-most-traders-fail         /why-90-percent-of-traders-fail 301!
 
+# ── MERGED / RETIRED DUPLICATE-TOPIC POSTS (AdSense low-value cleanup) ──
+/zero-based-budgeting-explained     /how-zero-based-budgeting-can-benefit-you   301!
+/is-50-30-20-rule-good              /understanding-50-30-20-rule-budgeting     301!
+/what-is-3-5-7-rule-day-trading     /master-the-3-5-7-rule-day-trading         301!
+/fastest-way-to-save-10000          /how-to-save-10000-in-a-year-on-a-low-income 301!
+
 # ── OLD ?slug= FORMAT → CLEAN URLS ─────────────────────────
 /post.html?slug=building-wealth-from-scratch    /building-wealth-from-scratch/    301!
+/post.html?slug=how-to-save-10000-in-a-year-on-a-low-income    /how-to-save-10000-in-a-year-on-a-low-income/    301!
 /post.html?slug=how-to-recover-financially-after-losing-job-2026    /how-to-recover-financially-after-losing-job-2026/    301!
 /post.html?slug=how-to-use-chatgpt-to-save-money-2026    /how-to-use-chatgpt-to-save-money-2026/    301!
 /post.html?slug=financial-independence-roadmap-zero-to-million    /financial-independence-roadmap-zero-to-million/    301!
@@ -21,7 +28,6 @@
 /post.html?slug=stock-market-analysis-july-2026    /stock-market-analysis-july-2026/    301!
 /post.html?slug=things-millionaires-never-buy-2026    /things-millionaires-never-buy-2026/    301!
 /post.html?slug=25-money-habits-keeping-you-broke-2026    /25-money-habits-keeping-you-broke-2026/    301!
-/post.html?slug=is-50-30-20-rule-good    /is-50-30-20-rule-good/    301!
 /post.html?slug=is-it-worth-buying-10-dollars-stock    /is-it-worth-buying-10-dollars-stock/    301!
 /post.html?slug=master-the-3-5-7-rule-day-trading    /master-the-3-5-7-rule-day-trading/    301!
 /post.html?slug=the-trading-strategy-that-finally-made-me-profitable    /the-trading-strategy-that-finally-made-me-profitable/    301!
@@ -38,7 +44,6 @@
 /post.html?slug=how-zero-based-budgeting-can-benefit-you    /how-zero-based-budgeting-can-benefit-you/    301!
 /post.html?slug=is-your-forex-broker-a-scam-nigerians    /is-your-forex-broker-a-scam-nigerians/    301!
 /post.html?slug=are-savings-bonds-good-investment    /are-savings-bonds-good-investment/    301!
-/post.html?slug=fastest-way-to-save-10000    /fastest-way-to-save-10000/    301!
 /post.html?slug=forecasting-vs-budgeting-differences-2026    /forecasting-vs-budgeting-differences-2026/    301!
 /post.html?slug=stock-market-truth-build-wealth-without-hype    /stock-market-truth-build-wealth-without-hype/    301!
 /post.html?slug=best-trading-for-beginners-small-account    /best-trading-for-beginners-small-account/    301!
@@ -47,8 +52,6 @@
 /post.html?slug=forex-trading-real-talk-for-beginners    /forex-trading-real-talk-for-beginners/    301!
 /post.html?slug=how-regular-people-get-rich-stock-market    /how-regular-people-get-rich-stock-market/    301!
 /post.html?slug=nfts-defi-real-talk    /nfts-defi-real-talk/    301!
-/post.html?slug=zero-based-budgeting-explained    /zero-based-budgeting-explained/    301!
-/post.html?slug=what-is-3-5-7-rule-day-trading    /what-is-3-5-7-rule-day-trading/    301!
 /post.html?slug=75-15-10-budget-rule    /75-15-10-budget-rule/    301!
 /post.html?slug=how-crypto-is-changing-africa-nigeria    /how-crypto-is-changing-africa-nigeria/    301!
 /post.html?slug=crypto-scams-and-mistakes    /crypto-scams-and-mistakes/    301!

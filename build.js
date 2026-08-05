@@ -669,6 +669,12 @@ function buildRedirects(posts) {
 /smart-budgeting-hacks-2025    /smart-budgeting-hacks-2026    301!
 /why-most-traders-fail         /why-90-percent-of-traders-fail 301!
 
+# ── MERGED / RETIRED DUPLICATE-TOPIC POSTS (AdSense low-value cleanup) ──
+/zero-based-budgeting-explained     /how-zero-based-budgeting-can-benefit-you   301!
+/is-50-30-20-rule-good              /understanding-50-30-20-rule-budgeting     301!
+/what-is-3-5-7-rule-day-trading     /master-the-3-5-7-rule-day-trading         301!
+/fastest-way-to-save-10000          /how-to-save-10000-in-a-year-on-a-low-income 301!
+
 # ── OLD ?slug= FORMAT → CLEAN URLS ─────────────────────────`;
 
   const oldSlugRedirects = posts.map(post =>
