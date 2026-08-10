@@ -5,6 +5,7 @@
 /pages/contact.html  /pages/contact  301!
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
+/pages/editorial-policy.html /pages/editorial-policy 301!
 /write-for-us.html   /write-for-us   301!
 /building-wealth-from-scratch-2026  /building-wealth-from-scratch    301!
 
@@ -21,26 +22,26 @@
 # ── OLD ?slug= FORMAT → CLEAN URLS ─────────────────────────
 /post.html?slug=building-wealth-from-scratch    /building-wealth-from-scratch/    301!
 /post.html?slug=how-to-save-10000-in-a-year-on-a-low-income    /how-to-save-10000-in-a-year-on-a-low-income/    301!
+/post.html?slug=best-ai-side-hustles-beginners-2026    /best-ai-side-hustles-beginners-2026/    301!
 /post.html?slug=how-to-recover-financially-after-losing-job-2026    /how-to-recover-financially-after-losing-job-2026/    301!
+/post.html?slug=is-it-worth-buying-10-dollars-stock    /is-it-worth-buying-10-dollars-stock/    301!
+/post.html?slug=master-the-3-5-7-rule-day-trading    /master-the-3-5-7-rule-day-trading/    301!
 /post.html?slug=how-to-use-chatgpt-to-save-money-2026    /how-to-use-chatgpt-to-save-money-2026/    301!
 /post.html?slug=financial-independence-roadmap-zero-to-million    /financial-independence-roadmap-zero-to-million/    301!
 /post.html?slug=stock-market-vs-real-estate-returns-2026    /stock-market-vs-real-estate-returns-2026/    301!
 /post.html?slug=stock-market-analysis-july-2026    /stock-market-analysis-july-2026/    301!
+/post.html?slug=how-to-budget-irregular-income-2026    /how-to-budget-irregular-income-2026/    301!
 /post.html?slug=things-millionaires-never-buy-2026    /things-millionaires-never-buy-2026/    301!
 /post.html?slug=25-money-habits-keeping-you-broke-2026    /25-money-habits-keeping-you-broke-2026/    301!
-/post.html?slug=is-it-worth-buying-10-dollars-stock    /is-it-worth-buying-10-dollars-stock/    301!
-/post.html?slug=master-the-3-5-7-rule-day-trading    /master-the-3-5-7-rule-day-trading/    301!
 /post.html?slug=the-trading-strategy-that-finally-made-me-profitable    /the-trading-strategy-that-finally-made-me-profitable/    301!
-/post.html?slug=why-90-percent-of-traders-fail    /why-90-percent-of-traders-fail/    301!
-/post.html?slug=what-is-the-four-walls-budget    /what-is-the-four-walls-budget/    301!
-/post.html?slug=stop-guessing-household-budget-2026    /stop-guessing-household-budget-2026/    301!
-/post.html?slug=best-ai-side-hustles-beginners-2026    /best-ai-side-hustles-beginners-2026/    301!
-/post.html?slug=how-to-budget-irregular-income-2026    /how-to-budget-irregular-income-2026/    301!
 /post.html?slug=crypto-investment-plan-risk    /crypto-investment-plan-risk/    301!
 /post.html?slug=real-world-asset-tokenization-16-trillion-opportunity    /real-world-asset-tokenization-16-trillion-opportunity/    301!
+/post.html?slug=what-is-the-four-walls-budget    /what-is-the-four-walls-budget/    301!
 /post.html?slug=passive-income-no-money    /passive-income-no-money/    301!
 /post.html?slug=smart-budgeting-hacks-2026    /smart-budgeting-hacks-2026/    301!
+/post.html?slug=why-90-percent-of-traders-fail    /why-90-percent-of-traders-fail/    301!
 /post.html?slug=understanding-50-30-20-rule-budgeting    /understanding-50-30-20-rule-budgeting/    301!
+/post.html?slug=stop-guessing-household-budget-2026    /stop-guessing-household-budget-2026/    301!
 /post.html?slug=how-zero-based-budgeting-can-benefit-you    /how-zero-based-budgeting-can-benefit-you/    301!
 /post.html?slug=is-your-forex-broker-a-scam-nigerians    /is-your-forex-broker-a-scam-nigerians/    301!
 /post.html?slug=are-savings-bonds-good-investment    /are-savings-bonds-good-investment/    301!
@@ -68,6 +69,7 @@
 /pages/contact   /pages/contact.html  200
 /pages/privacy   /pages/privacy.html  200
 /pages/terms     /pages/terms.html    200
+/pages/editorial-policy /pages/editorial-policy.html 200
 /write-for-us    /write-for-us.html   200
 /tools           /tools/index.html    200
 /tools/budget-tool       /tools/budget-tool.html    200

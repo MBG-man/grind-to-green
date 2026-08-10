@@ -37,6 +37,12 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/pages/editorial-policy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/write-for-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
@@ -57,8 +63,29 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/best-ai-side-hustles-beginners-2026</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/how-to-recover-financially-after-losing-job-2026</loc>
     <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/is-it-worth-buying-10-dollars-stock</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/master-the-3-5-7-rule-day-trading</loc>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -92,6 +119,13 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/how-to-budget-irregular-income-2026</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/things-millionaires-never-buy-2026</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -106,57 +140,8 @@
   </url>
 
   <url>
-    <loc>https://grindtogreen.com/is-it-worth-buying-10-dollars-stock</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/master-the-3-5-7-rule-day-trading</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://grindtogreen.com/the-trading-strategy-that-finally-made-me-profitable</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/why-90-percent-of-traders-fail</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/what-is-the-four-walls-budget</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/stop-guessing-household-budget-2026</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/best-ai-side-hustles-beginners-2026</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://grindtogreen.com/how-to-budget-irregular-income-2026</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -170,6 +155,13 @@
 
   <url>
     <loc>https://grindtogreen.com/real-world-asset-tokenization-16-trillion-opportunity</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/what-is-the-four-walls-budget</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -190,8 +182,22 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/why-90-percent-of-traders-fail</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/understanding-50-30-20-rule-budgeting</loc>
     <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grindtogreen.com/stop-guessing-household-budget-2026</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

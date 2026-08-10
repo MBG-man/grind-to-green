@@ -1,9 +1,9 @@
 {
   "title": "Is It Worth Buying $10 of Stock? The Truth About Small Investing in 2026",
   "description": "I started investing with $10. Here's what I learned. The truth about fractional shares, small returns, and why the amount matters less than the habit.",
- "category": "investing",
+  "category": "investing",
   "slug": "is-it-worth-buying-10-dollars-stock",
-  "date": "2026-06-20",
+  "date": "2026-07-15",
   "image": "images/10-dollar-stock-investing.jpeg",
   "alt": "Person holding a $10 bill investing in stocks through fractional shares on a mobile app",
   "content": [
@@ -69,14 +69,42 @@
     },
     {
       "type": "table",
-      "headers": ["Stock/ETF", "Share Price (2026)", "What $10 Buys"],
+      "headers": [
+        "Stock/ETF",
+        "Share Price (2026)",
+        "What $10 Buys"
+      ],
       "rows": [
-        ["Apple (AAPL)", "$175", "0.057 shares"],
-        ["Microsoft (MSFT)", "$420", "0.024 shares"],
-        ["Amazon (AMZN)", "$185", "0.054 shares"],
-        ["S&P 500 ETF (VOO)", "$500", "0.02 shares"],
-        ["Global ETF (VT)", "$110", "0.09 shares"],
-        ["Bitcoin (BTC)", "$60,000", "0.00016 BTC"]
+        [
+          "Apple (AAPL)",
+          "$175",
+          "0.057 shares"
+        ],
+        [
+          "Microsoft (MSFT)",
+          "$420",
+          "0.024 shares"
+        ],
+        [
+          "Amazon (AMZN)",
+          "$185",
+          "0.054 shares"
+        ],
+        [
+          "S&P 500 ETF (VOO)",
+          "$500",
+          "0.02 shares"
+        ],
+        [
+          "Global ETF (VT)",
+          "$110",
+          "0.09 shares"
+        ],
+        [
+          "Bitcoin (BTC)",
+          "$60,000",
+          "0.00016 BTC"
+        ]
       ]
     },
     {
@@ -153,11 +181,31 @@
     },
     {
       "type": "table",
-      "headers": ["Annual Return", "After 10 Years", "After 20 Years", "After 30 Years"],
+      "headers": [
+        "Annual Return",
+        "After 10 Years",
+        "After 20 Years",
+        "After 30 Years"
+      ],
       "rows": [
-        ["5%", "$16.29", "$26.53", "$43.22"],
-        ["7%", "$19.67", "$38.70", "$76.12"],
-        ["10%", "$25.94", "$67.27", "$174.49"]
+        [
+          "5%",
+          "$16.29",
+          "$26.53",
+          "$43.22"
+        ],
+        [
+          "7%",
+          "$19.67",
+          "$38.70",
+          "$76.12"
+        ],
+        [
+          "10%",
+          "$25.94",
+          "$67.27",
+          "$174.49"
+        ]
       ]
     },
     {
@@ -178,13 +226,49 @@
     },
     {
       "type": "table",
-      "headers": ["Frequency", "Monthly Contribution", "Years", "Total Contributed", "7% Return Value"],
+      "headers": [
+        "Frequency",
+        "Monthly Contribution",
+        "Years",
+        "Total Contributed",
+        "7% Return Value"
+      ],
       "rows": [
-        ["One-time", "$10 once", "30", "$10", "$76"],
-        ["Monthly", "$10", "10", "$1,200", "$1,725"],
-        ["Monthly", "$10", "20", "$2,400", "$4,920"],
-        ["Monthly", "$10", "30", "$3,600", "$12,000"],
-        ["Weekly", "$10", "30", "$15,600", "$52,000"]
+        [
+          "One-time",
+          "$10 once",
+          "30",
+          "$10",
+          "$76"
+        ],
+        [
+          "Monthly",
+          "$10",
+          "10",
+          "$1,200",
+          "$1,725"
+        ],
+        [
+          "Monthly",
+          "$10",
+          "20",
+          "$2,400",
+          "$4,920"
+        ],
+        [
+          "Monthly",
+          "$10",
+          "30",
+          "$3,600",
+          "$12,000"
+        ],
+        [
+          "Weekly",
+          "$10",
+          "30",
+          "$15,600",
+          "$52,000"
+        ]
       ]
     },
     {

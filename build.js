@@ -187,7 +187,7 @@ function buildAuthor() {
 function buildSchema(post, url, img) {
   const article = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": post.title,
     "description": post.description,
     "url": url,
@@ -195,11 +195,27 @@ function buildSchema(post, url, img) {
     "datePublished": post.date,
     "dateModified": post.dateModified || post.date,
     "author": { "@type": "Person", "name": AUTHOR.name, "url": AUTHOR.blog, "sameAs": [AUTHOR.twitter] },
-    "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+    "publisher": {
+      "@type": "Organization",
+      "name": SITE_NAME,
+      "url": SITE_URL,
+      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/logo.png` }
+    },
     "mainEntityOfPage": { "@type": "WebPage", "@id": url }
   };
 
-  let schemas = `<script type="application/ld+json">${JSON.stringify(article)}</script>`;
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": getCategory(post), "item": `${SITE_URL}/#posts` },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": url }
+    ]
+  };
+
+  let schemas = `<script type="application/ld+json">${JSON.stringify(article)}</script>`
+    + `\n<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`;
 
   if (Array.isArray(post.faq) && post.faq.length) {
     const faqSchema = {
@@ -231,14 +247,18 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <title>${escHtml(title)}</title>
   <meta name="description" content="${escHtml(desc)}">
   <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0F3D2E">
   <link rel="canonical" href="${url}">
 
   <meta property="og:type"        content="article">
+  <meta property="og:locale"      content="en_US">
   <meta property="og:site_name"   content="${SITE_NAME}">
   <meta property="og:title"       content="${escHtml(title)}">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:url"         content="${url}">
   <meta property="og:image"       content="${img}">
+  <meta property="og:image:alt"   content="${escHtml(title)}">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="${escHtml(title)}">
   <meta name="twitter:description" content="${escHtml(desc)}">
@@ -342,6 +362,7 @@ function htmlFooter() {
           <li><a href="/">Articles</a></li>
           <li><a href="/tools/">Tools</a></li>
           <li><a href="/pages/about">About Us</a></li>
+          <li><a href="/pages/editorial-policy">Editorial Policy</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -400,6 +421,9 @@ function buildPostPage(post) {
   const category = getCategory(post);
   const readTime = getReadingTime(post);
   const schemas  = buildSchema(post, url, img);
+  const publishedDate = post.date ? `<meta property="article:published_time" content="${post.date}">` : "";
+  const modifiedDate = post.dateModified ? `<meta property="article:modified_time" content="${post.dateModified}">` : "";
+  const articleMeta = `${publishedDate}${modifiedDate}<meta property="article:section" content="${escHtml(category)}">`;
 
   let bodyContent = renderBlocks(post.content);
   const toc       = buildTOC(post);
@@ -419,7 +443,8 @@ function buildPostPage(post) {
     post.description || "",
     url,
     img,
-    schemas
+    `${schemas}
+${articleMeta}`
   )}
 <body>
 ${htmlSkipLink("#post-content")}
@@ -620,7 +645,7 @@ function build() {
   copyDir(path.join(__dirname, "pages"),  path.join(DIST_DIR, "pages"));
   copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
 
-  for (const f of ["robots.txt", "write-for-us.html"]) {
+  for (const f of ["robots.txt", "ads.txt", "write-for-us.html"]) {
     const src = path.join(__dirname, f);
     if (fs.existsSync(src)) {
       fs.copyFileSync(src, path.join(DIST_DIR, f));
@@ -662,6 +687,7 @@ function buildRedirects(posts) {
 /pages/contact.html  /pages/contact  301!
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
+/pages/editorial-policy.html /pages/editorial-policy 301!
 /write-for-us.html   /write-for-us   301!
 /building-wealth-from-scratch-2026  /building-wealth-from-scratch    301!
 
@@ -694,6 +720,7 @@ function buildRedirects(posts) {
 /pages/contact   /pages/contact.html  200
 /pages/privacy   /pages/privacy.html  200
 /pages/terms     /pages/terms.html    200
+/pages/editorial-policy /pages/editorial-policy.html 200
 /write-for-us    /write-for-us.html   200
 /tools           /tools/index.html    200
 /tools/budget-tool       /tools/budget-tool.html    200
@@ -713,6 +740,7 @@ function buildSitemap(posts) {
     { loc: `${SITE_URL}/pages/contact`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/privacy`, priority: "0.5", changefreq: "yearly" },
     { loc: `${SITE_URL}/pages/terms`, priority: "0.5", changefreq: "yearly" },
+    { loc: `${SITE_URL}/pages/editorial-policy`, priority: "0.5", changefreq: "yearly" },
     { loc: `${SITE_URL}/write-for-us`, priority: "0.4", changefreq: "monthly" }
   ];
 

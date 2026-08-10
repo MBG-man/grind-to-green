@@ -1,7 +1,7 @@
 {
   "title": "Household Budget 2026: Stop Guessing Where Your Money Goes",
   "slug": "stop-guessing-household-budget-2026",
-  "date": "2026-06-20",
+  "date": "2026-06-08",
   "description": "A no-BS 2026 household budget guide: real family budgets, exact dollar amounts, and the Four-Bucket System that replaces the outdated 50/30/20 rule.",
   "category": "budgeting",
   "image": "images/household-budget-guide-2026.jpeg",
@@ -81,7 +81,7 @@
     },
     {
       "type": "paragraph",
-      "text": "There is one exception to this whole framework, and it is worth naming now rather than discovering it mid-crisis. If your income ever drops sharply enough that even Bucket 1 cannot be fully funded, stop trying to keep all four buckets alive. Collapse down to \u003ca href='/what-is-the-four-walls-budget'\u003ethe Four Walls budget\u003c/a\u003e instead: shelter, utilities, food, and transportation, funded in that exact order, and nothing else, until your income stabilizes. The Four-Bucket System is built for a stable month. The Four Walls is built for a survival month. Knowing which mode you are actually in is half the battle."
+      "text": "There is one exception to this whole framework, and it is worth naming now rather than discovering it mid-crisis. If your income ever drops sharply enough that even Bucket 1 cannot be fully funded, stop trying to keep all four buckets alive. Collapse down to <a href='/what-is-the-four-walls-budget'>the Four Walls budget</a> instead: shelter, utilities, food, and transportation, funded in that exact order, and nothing else, until your income stabilizes. The Four-Bucket System is built for a stable month. The Four Walls is built for a survival month. Knowing which mode you are actually in is half the battle."
     },
     {
       "type": "heading",
@@ -105,7 +105,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Let us make this concrete, the same way we made the Johnsons concrete, because abstractions don't change behavior, examples do. The Martinez family lives in Houston, Texas. Their combined after-tax monthly income, confirmed through the income audit above rather than guessed, is $5,500. Here is exactly how their \u003ca href='/zero-based-budgeting-explained'\u003ezero-based budget\u003c/a\u003e looked after we applied the Four-Bucket System:"
+      "text": "Let us make this concrete, the same way we made the Johnsons concrete, because abstractions don't change behavior, examples do. The Martinez family lives in Houston, Texas. Their combined after-tax monthly income, confirmed through the income audit above rather than guessed, is $5,500. Here is exactly how their <a href='/zero-based-budgeting-explained'>zero-based budget</a> looked after we applied the Four-Bucket System:"
     },
     {
       "type": "list",
@@ -270,7 +270,7 @@
     },
     {
       "type": "paragraph",
-      "text": "For a deeper dive into zero-based budgeting, which powers the allocation method we used here, visit \u003ca href='/zero-based-budgeting-explained'\u003eour complete guide to ZBB\u003c/a\u003e. And if you want to accelerate your savings, check out \u003ca href='/fastest-way-to-save-10000'\u003ethe fastest way to save $10,000\u003c/a\u003e for aggressive timelines that actually work."
+      "text": "For a deeper dive into zero-based budgeting, which powers the allocation method we used here, visit <a href='/zero-based-budgeting-explained'>our complete guide to ZBB</a>. And if you want to accelerate your savings, check out <a href='/fastest-way-to-save-10000'>the fastest way to save $10,000</a> for aggressive timelines that actually work."
     }
   ],
   "faq": [

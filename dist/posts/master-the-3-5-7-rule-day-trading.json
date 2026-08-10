@@ -3,7 +3,7 @@
   "mdescription": "I lost $3,800 in a single day trading without rules. Here's the 3-5-7 strategy that saved my account and transformed my trading. Real numbers, real results.",
   "category": "trading",
   "slug": "master-the-3-5-7-rule-day-trading",
-  "date": "2026-06-20",
+  "date": "2026-07-08",
   "image": "images/3-5-7-rule-trading.jpeg",
   "alt": "Trader applying strict risk management rules with 3-5-7 strategy on trading charts",
   "content": [
@@ -117,11 +117,43 @@
     },
     {
       "type": "table",
-      "headers": ["Win Rate", "Wins per 20 Trades", "Losses per 20 Trades", "Risk per Trade", "Total Risk", "Average Winner (7:1)", "Net Profit"],
+      "headers": [
+        "Win Rate",
+        "Wins per 20 Trades",
+        "Losses per 20 Trades",
+        "Risk per Trade",
+        "Total Risk",
+        "Average Winner (7:1)",
+        "Net Profit"
+      ],
       "rows": [
-        ["40%", "8", "12", "$100", "$1,200", "$700", "+$4,400"],
-        ["30%", "6", "14", "$100", "$1,400", "$700", "+$2,800"],
-        ["20%", "4", "16", "$100", "$1,600", "$700", "+$1,200"]
+        [
+          "40%",
+          "8",
+          "12",
+          "$100",
+          "$1,200",
+          "$700",
+          "+$4,400"
+        ],
+        [
+          "30%",
+          "6",
+          "14",
+          "$100",
+          "$1,400",
+          "$700",
+          "+$2,800"
+        ],
+        [
+          "20%",
+          "4",
+          "16",
+          "$100",
+          "$1,600",
+          "$700",
+          "+$1,200"
+        ]
       ]
     },
     {
@@ -211,12 +243,37 @@
     },
     {
       "type": "table",
-      "headers": ["Strategy", "Core Principle", "Best For", "Biggest Drawback"],
+      "headers": [
+        "Strategy",
+        "Core Principle",
+        "Best For",
+        "Biggest Drawback"
+      ],
       "rows": [
-        ["3-5-7 Rule", "Fixed % risk with high reward ratio", "Day & swing traders who value discipline", "Requires patience, not suitable for gamblers"],
-        ["Fixed Dollar Risk", "Same dollar risk per trade", "Complete beginners", "Doesn't scale with account size"],
-        ["Fixed Percentage Risk", "Same % risk per trade", "General traders", "No cap on total exposure"],
-        ["Martingale System", "Double down after each loss", "Casinos (seriously, don't use this)", "Account destruction"]
+        [
+          "3-5-7 Rule",
+          "Fixed % risk with high reward ratio",
+          "Day & swing traders who value discipline",
+          "Requires patience, not suitable for gamblers"
+        ],
+        [
+          "Fixed Dollar Risk",
+          "Same dollar risk per trade",
+          "Complete beginners",
+          "Doesn't scale with account size"
+        ],
+        [
+          "Fixed Percentage Risk",
+          "Same % risk per trade",
+          "General traders",
+          "No cap on total exposure"
+        ],
+        [
+          "Martingale System",
+          "Double down after each loss",
+          "Casinos (seriously, don't use this)",
+          "Account destruction"
+        ]
       ]
     },
     {
