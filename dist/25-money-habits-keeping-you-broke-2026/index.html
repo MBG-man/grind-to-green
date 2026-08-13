@@ -250,9 +250,18 @@
   <div class="newsletter-box">
     <h2>Enjoyed This Article?</h2>
     <p>Get weekly finance tips, investing guides, and side hustle ideas delivered to your inbox. No spam. Unsubscribe anytime.</p>
-    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
-      <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address">
-      <button type="submit">Subscribe</button>
+    <form
+      action="https://grindtogreen.us16.list-manage.com/subscribe/post?u=8451fbdf4c3f422146a5524ff&amp;id=4bd5361e27&amp;f_id=00e2c2e1f0"
+      method="post"
+      id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form"
+      class="validate newsletter-form"
+    >
+      <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" placeholder="Enter your email address" required aria-label="Email address">
+      <div aria-hidden="true" style="position:absolute;left:-5000px;">
+        <input type="text" name="b_8451fbdf4c3f422146a5524ff_4bd5361e27" tabindex="-1" value="">
+      </div>
+      <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
     </form>
     <p class="newsletter-disclaimer">By subscribing, you agree to our <a href="/pages/privacy">Privacy Policy</a>.</p>
   </div>
@@ -317,15 +326,6 @@
     document.getElementById("main-nav")?.classList.remove("show");
     document.getElementById("main-menu-toggle")?.setAttribute("aria-expanded","false");
   }));
-  function handleSubscribe(e){
-    e.preventDefault();
-    const email=document.getElementById('newsletterEmail').value.trim();
-    if(!email)return;
-    const subs=JSON.parse(localStorage.getItem('gtg_subscribers')||'[]');
-    if(!subs.includes(email)){subs.push(email);localStorage.setItem('gtg_subscribers',JSON.stringify(subs));}
-    alert('Thanks for subscribing! We will send finance tips to '+email);
-    document.getElementById('newsletterEmail').value='';
-  }
 </script>
 <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
