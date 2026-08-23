@@ -18,7 +18,8 @@ const path = require("path");
 // ─── CONFIG ────────────────────────────────────────────────────────────────
 const SITE_URL    = "https://grindtogreen.com";
 const SITE_NAME   = "Grind To Green";
-const DEFAULT_IMG = `${SITE_URL}/images/og-default.jpg`;
+// Keep social and structured-data images crawlable: this file exists in /images.
+const DEFAULT_IMG = `${SITE_URL}/images/wealth-building.jpeg`;
 const POSTS_DIR   = path.join(__dirname, "posts");
 const DIST_DIR    = path.join(__dirname, "dist");
 const AUTHOR = {
@@ -199,7 +200,7 @@ function buildSchema(post, url, img) {
       "@type": "Organization",
       "name": SITE_NAME,
       "url": SITE_URL,
-      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/logo.png` }
+      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/wealth-building.jpeg` }
     },
     "mainEntityOfPage": { "@type": "WebPage", "@id": url }
   };
@@ -251,7 +252,7 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <meta name="theme-color" content="#0F3D2E">
   <link rel="canonical" href="${url}">
 
-  <meta property="og:type"        content="article">
+  <meta property="og:type"        content="website">
   <meta property="og:locale"      content="en_US">
   <meta property="og:site_name"   content="${SITE_NAME}">
   <meta property="og:title"       content="${escHtml(title)}">
@@ -264,9 +265,7 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <meta name="twitter:description" content="${escHtml(desc)}">
   <meta name="twitter:image"       content="${img}">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="apple-touch-icon"                    href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -519,7 +518,7 @@ function buildHomepage(posts) {
     "@type": "Organization",
     "name": "GrindToGreen",
     "url": SITE_URL,
-    "logo": `${SITE_URL}/images/logo.png`,
+    "logo": DEFAULT_IMG,
     "sameAs": ["https://twitter.com/Mubarakgman"],
     "founder": { "@type": "Person", "name": "Mubarak" },
     "description": "GrindToGreen helps beginners understand money through practical budgeting, investing, crypto, and side hustle guides."
@@ -529,7 +528,7 @@ function buildHomepage(posts) {
     `${SITE_NAME} | Finance & Crypto Education for Everyone`,
     "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles. Free tools and practical guides for beginners.",
     `${SITE_URL}/`,
-    `${SITE_URL}/images/og-default.jpg`,
+    DEFAULT_IMG,
     orgSchema
   )}
 <body>
@@ -700,6 +699,7 @@ function buildRedirects(posts) {
 /is-50-30-20-rule-good              /understanding-50-30-20-rule-budgeting     301!
 /what-is-3-5-7-rule-day-trading     /master-the-3-5-7-rule-day-trading         301!
 /fastest-way-to-save-10000          /how-to-save-10000-in-a-year-on-a-low-income 301!
+/online-hustles-nigeria-no-skills-no-money  /  410!
 
 # ── OLD ?slug= FORMAT → CLEAN URLS ─────────────────────────`;
 
@@ -736,6 +736,8 @@ function buildSitemap(posts) {
   const staticUrls = [
     { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "daily" },
     { loc: `${SITE_URL}/tools/`, priority: "0.8", changefreq: "weekly" },
+    { loc: `${SITE_URL}/tools/budget-tool`, priority: "0.7", changefreq: "monthly" },
+    { loc: `${SITE_URL}/tools/compound-interest-calculator`, priority: "0.7", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/about`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/contact`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/privacy`, priority: "0.5", changefreq: "yearly" },
@@ -748,7 +750,7 @@ function buildSitemap(posts) {
     loc: `${SITE_URL}/${post.slug}`,
     priority: "0.8",
     changefreq: "monthly",
-    lastmod: post.date
+    lastmod: post.dateModified || post.date
   }));
 
   const urls = [...staticUrls, ...postUrls].map(item => `  <url>
