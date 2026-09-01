@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const SITE_URL         = "https://grindtogreen.com";
   const SITE_NAME        = "Grind To Green";
   const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.jpg`;
-  const CACHE_KEY        = "gtg_posts_v1";
 
   const AUTHOR = {
     name:   "Mubarak",
@@ -122,16 +121,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ============================
 
   async function loadAllPosts() {
-    const cached = cacheGet(CACHE_KEY);
-    if (cached) return cached;
-
     try {
-      const indexRes = await fetch("/posts/index.json");
+      const indexRes = await fetch("/posts/index.json", { cache: "no-store" });
       if (!indexRes.ok) throw new Error("index.json not found");
       const files = await indexRes.json();
 
       const posts = (await Promise.all(
-        files.map(f => fetch(`/posts/${f}`).then(r => r.ok ? r.json() : null))
+        files.map(f => fetch(`/posts/${f}`, { cache: "no-store" }).then(r => r.ok ? r.json() : null))
       )).filter(Boolean);
 
       posts.sort((a, b) => {
@@ -140,7 +136,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         return new Date(b.date) - new Date(a.date);
       });
 
-      cacheSet(CACHE_KEY, posts);
       return posts;
     } catch (e) {
       console.error("loadAllPosts:", e);
