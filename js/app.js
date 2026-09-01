@@ -387,10 +387,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       <section class="faq-section" aria-label="Frequently asked questions">
         <h2>Frequently Asked Questions</h2>
         ${faq.map(f => `
-          <div class="faq-item">
-            <h3 class="faq-question">${f.question}</h3>
-            <p class="faq-answer">${f.answer}</p>
-          </div>`).join("")}
+          <details class="faq-item">
+            <summary class="faq-question">${f.question}</summary>
+            <div class="faq-answer"><p>${f.answer}</p></div>
+          </details>`).join("")}
       </section>`;
   }
 

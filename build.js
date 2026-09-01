@@ -124,10 +124,10 @@ function buildFAQ(faq) {
     const q = f.question || f.q || "";
     const a = f.answer   || f.a || "";
     return `
-      <div class="faq-item">
-        <h3 class="faq-question">${escHtml(q)}</h3>
-        <p class="faq-answer">${a}</p>
-      </div>`;
+      <details class="faq-item">
+        <summary class="faq-question">${escHtml(q)}</summary>
+        <div class="faq-answer"><p>${a}</p></div>
+      </details>`;
   }).join("");
   return `
     <section class="faq-section" aria-label="Frequently asked questions">
