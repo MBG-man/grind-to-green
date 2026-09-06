@@ -37,10 +37,27 @@ function fmtDate(d) {
   });
 }
 
+// Keep the site taxonomy intentionally small.  Consistent, reader-friendly
+// topics make filtering and related reading useful without manufacturing pages
+// or links solely for search engines.
+const CATEGORY_ORDER = [
+  "Budgeting", "Saving Money", "Investing", "Trading", "Crypto",
+  "Side Hustles", "Wealth Building"
+];
+
 function getCategory(post) {
-  if (typeof post.category === "string") return post.category;
-  if (Array.isArray(post.categories) && post.categories.length) return post.categories[0];
-  return "Finance";
+  const raw = [post.category, ...(Array.isArray(post.categories) ? post.categories : [])]
+    .filter(Boolean).join(" ").toLowerCase();
+  const title = `${post.title || ""} ${post.slug || ""}`.toLowerCase();
+
+  if (raw.includes("side hustle") || title.includes("make-money") || title.includes("earn-dollars")) return "Side Hustles";
+  if (raw.includes("wealth") || title.includes("financial-independence") || title.includes("millionaire")) return "Wealth Building";
+  if (raw.includes("budget")) return "Budgeting";
+  if (raw.includes("saving") || raw.includes("savings") || title.includes("losing-job")) return "Saving Money";
+  if (raw.includes("crypto") || title.includes("nft") || title.includes("defi")) return "Crypto";
+  if (raw.includes("trading") || raw.includes("forex")) return "Trading";
+  if (raw.includes("invest")) return "Investing";
+  return "Wealth Building";
 }
 
 function getReadingTime(post) {
@@ -413,7 +430,41 @@ function htmlScripts() {
 }
 
 // ─── BUILD ONE POST PAGE ────────────────────────────────────────────────────
-function buildPostPage(post) {
+function buildRelatedPosts(post, allPosts) {
+  const category = getCategory(post);
+  const keywords = new Set(`${post.title || ""} ${post.description || ""}`.toLowerCase()
+    .match(/[a-z]{4,}/g) || []);
+  const related = allPosts
+    .filter(candidate => candidate.slug !== post.slug && getCategory(candidate) === category)
+    .map(candidate => {
+      const text = `${candidate.title || ""} ${candidate.description || ""}`.toLowerCase();
+      const overlap = (text.match(/[a-z]{4,}/g) || []).filter(word => keywords.has(word)).length;
+      return { candidate, overlap };
+    })
+    .sort((a, b) => b.overlap - a.overlap || new Date(b.candidate.date) - new Date(a.candidate.date))
+    .slice(0, 3)
+    .map(({ candidate }) => candidate);
+
+  if (!related.length) return "";
+  return `
+    <section class="related-posts" aria-label="Related articles">
+      <h2 class="related-title">Continue learning</h2>
+      <p class="related-intro">More practical guides on ${escHtml(category.toLowerCase())}.</p>
+      <div class="related-grid">
+        ${related.map(item => `
+          <a href="/${item.slug}" class="related-card">
+            <img src="${fixImgPath(item.image)}" alt="${escHtml(item.alt || item.title)}" loading="lazy" width="320" height="180">
+            <div class="related-card-body">
+              <span class="related-category">${escHtml(getCategory(item))}</span>
+              <h3>${escHtml(item.title)}</h3>
+              <span class="related-time">${getReadingTime(item)}</span>
+            </div>
+          </a>`).join("")}
+      </div>
+    </section>`;
+}
+
+function buildPostPage(post, allPosts) {
   const url      = `${SITE_URL}/${post.slug}`;
   const imgRaw   = post.image || "";
   const img      = imgRaw.startsWith("http") ? imgRaw : `${SITE_URL}${fixImgPath(imgRaw)}`;
@@ -432,6 +483,7 @@ function buildPostPage(post) {
   const adviceHtml = buildFinalAdvice(post);
   const shareHtml  = buildShareButtons(post);
   const authorHtml = buildAuthor();
+  const relatedHtml = buildRelatedPosts(post, allPosts);
 
   const heroImg = `<img src="${fixImgPath(post.image)}" alt="${escHtml(post.alt || post.title)}"
        loading="eager" itemprop="image" width="880" height="440"
@@ -470,6 +522,7 @@ ${htmlHeader()}
       ${bodyContent}
     </div>
 
+    ${relatedHtml}
     ${faqHtml}
     ${adviceHtml}
     ${authorHtml}
@@ -508,7 +561,7 @@ function buildHomepage(posts) {
       </article>`;
   }).join("\n");
 
-  const cats = [...new Set(posts.map(getCategory))].sort();
+  const cats = CATEGORY_ORDER.filter(category => posts.some(post => getCategory(post) === category));
   const pills = cats.map(c =>
     `<button class="category-pill" data-category="${escHtml(c)}">${escHtml(c)}</button>`
   ).join("\n");
@@ -656,7 +709,7 @@ function build() {
   for (const post of posts) {
     const postDir = path.join(DIST_DIR, post.slug);
     fs.mkdirSync(postDir, { recursive: true });
-    const html = buildPostPage(post);
+    const html = buildPostPage(post, posts);
     fs.writeFileSync(path.join(postDir, "index.html"), html, "utf8");
     console.log(`✅  /${post.slug}/`);
     built++;
