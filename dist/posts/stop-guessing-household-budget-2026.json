@@ -1,8 +1,8 @@
 {
-  "title": "Household Budget 2026: Stop Guessing Where Your Money Goes",
+  "title": "Four-Bucket Budget System for Flexible Planning",
   "slug": "stop-guessing-household-budget-2026",
   "date": "2026-06-08",
-  "description": "A no-BS 2026 household budget guide: real family budgets, exact dollar amounts, and the Four-Bucket System that replaces the outdated 50/30/20 rule.",
+  "description": "Build a flexible household budget with the Four-Bucket System for essentials, future goals, quality of life, and irregular costs.",
   "category": "budgeting",
   "image": "images/household-budget-guide-2026.jpeg",
   "alt": "Family reviewing household budget and monthly expenses with a calculator and planner",
@@ -31,8 +31,8 @@
     {
       "type": "list",
       "items": [
-        "The 50/30/20 rule is outdated for 2026: many households now spend 55-65% of income on needs alone.",
-        "The Four-Bucket System replaces it: 50-60% Essentials, 15-20% Future Building, 15-20% Quality of Life, 5-10% Buffer.",
+        "Percentage budgets can feel rigid when essential costs change from month to month.",
+        "The Four-Bucket System uses 50-60% Essentials, 15-20% Future Building, 15-20% Quality of Life, and a 5-10% Buffer.",
         "Run an income audit first. Your real spendable number is usually 3-12% lower than your salary suggests.",
         "Subscription slippage, convenience creep, and BNPL stacking quietly drain $350-$400+ a month in most households.",
         "Pay off any debt above 20% APR before building a full emergency fund; a $500 mini-fund is enough in the meantime."
@@ -40,7 +40,7 @@
     },
     {
       "type": "heading",
-      "text": "The 2026 Household Budget Reality Check: Why Your Parents' Budget Won't Work"
+      "text": "The 2026 Household Budget Reality Check"
     },
     {
       "type": "paragraph",
@@ -52,7 +52,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The standard 50/30/20 budget rule, where you allocate 50% to needs, 30% to wants, and 20% to savings, was built for a different economic era. It assumed stable housing costs and predictable utility bills. Run the math yourself: on a $5,500 monthly take-home, that rule caps your needs at $2,750. Try finding rent, utilities, insurance, a car payment, and groceries for a family of three inside $2,750 in any city with decent job opportunities in 2026. I have not had a single client for whom that number was realistic. Not one. The rule isn't aspirational anymore; it is mathematically out of reach for most working households, and pretending otherwise is how people end up concluding they are failing at money when they are actually failing at a fictional standard nobody could hit."
+      "text": "A percentage budget can be a useful starting point, but it can feel too rigid when housing, utilities, or family costs change. On a $5,500 monthly take-home, a household may need more room for essentials in one season and a larger buffer in another. The Four-Bucket System is designed for that flexibility: it helps you name priorities without treating one fixed percentage as a pass-or-fail test."
     },
     {
       "type": "paragraph",
@@ -60,7 +60,7 @@
     },
     {
       "type": "heading",
-      "text": "The Four-Bucket System: A Realistic Alternative to Outdated Rules"
+      "text": "The Four-Bucket System: A Flexible Household Framework"
     },
     {
       "type": "paragraph",
