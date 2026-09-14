@@ -22,6 +22,16 @@ const SITE_NAME   = "Grind To Green";
 const DEFAULT_IMG = `${SITE_URL}/images/wealth-building.jpeg`;
 const POSTS_DIR   = path.join(__dirname, "posts");
 const DIST_DIR    = path.join(__dirname, "dist");
+// These URLs have been deliberately consolidated (or retired) below in
+// buildRedirects().  Never generate an HTML page or sitemap entry for them:
+// doing both sends Google conflicting canonical/indexing signals.
+const RETIRED_POST_SLUGS = new Set([
+  "zero-based-budgeting-explained",
+  "is-50-30-20-rule-good",
+  "what-is-3-5-7-rule-day-trading",
+  "fastest-way-to-save-10000",
+  "online-hustles-nigeria-no-skills-no-money"
+]);
 const AUTHOR = {
   name:    "Mubarak",
   bio:     "Personal finance and crypto writer focused on practical budgeting, investing, and digital income education for beginners.",
@@ -147,8 +157,8 @@ function buildFAQ(faq) {
       </details>`;
   }).join("");
   return `
-    <section class="faq-section" aria-label="Frequently asked questions">
-      <h2>Frequently Asked Questions</h2>
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Questions and answers</h2>
       ${items}
     </section>`;
 }
@@ -676,6 +686,10 @@ function build() {
     try {
       const post = JSON.parse(fs.readFileSync(filePath, "utf8"));
       if (!post.slug) { console.warn(`⚠️   No slug in ${file} — skipping`); continue; }
+      if (RETIRED_POST_SLUGS.has(post.slug)) {
+        console.log(`↪️  Excluding retired URL /${post.slug}/ from pages and sitemap`);
+        continue;
+      }
       posts.push(post);
     } catch (e) {
       console.error(`❌  JSON parse error in ${file}:`, e.message);
@@ -689,6 +703,16 @@ function build() {
   });
 
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
+
+  // A build can run over a previous /dist directory. Remove only the known
+  // retired route directories so an old HTML file cannot remain deployable.
+  for (const slug of RETIRED_POST_SLUGS) {
+    const retiredDir = path.join(DIST_DIR, slug);
+    if (fs.existsSync(retiredDir)) {
+      fs.rmSync(retiredDir, { recursive: true, force: true });
+      console.log(`🧹 Removed retired output /${slug}/`);
+    }
+  }
 
   copyDir(path.join(__dirname, "css"),    path.join(DIST_DIR, "css"));
   copyDir(path.join(__dirname, "js"),     path.join(DIST_DIR, "js"));
