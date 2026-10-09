@@ -18,9 +18,20 @@ const path = require("path");
 // ─── CONFIG ────────────────────────────────────────────────────────────────
 const SITE_URL    = "https://grindtogreen.com";
 const SITE_NAME   = "Grind To Green";
-const DEFAULT_IMG = `${SITE_URL}/images/og-default.jpg`;
+// Keep social and structured-data images crawlable: this file exists in /images.
+const DEFAULT_IMG = `${SITE_URL}/images/wealth-building.jpeg`;
 const POSTS_DIR   = path.join(__dirname, "posts");
 const DIST_DIR    = path.join(__dirname, "dist");
+// These URLs have been deliberately consolidated (or retired) below in
+// buildRedirects().  Never generate an HTML page or sitemap entry for them:
+// doing both sends Google conflicting canonical/indexing signals.
+const RETIRED_POST_SLUGS = new Set([
+  "zero-based-budgeting-explained",
+  "is-50-30-20-rule-good",
+  "what-is-3-5-7-rule-day-trading",
+  "fastest-way-to-save-10000",
+  "online-hustles-nigeria-no-skills-no-money"
+]);
 const AUTHOR = {
   name:    "Mubarak",
   bio:     "Personal finance and crypto writer focused on practical budgeting, investing, and digital income education for beginners.",
@@ -36,10 +47,27 @@ function fmtDate(d) {
   });
 }
 
+// Keep the site taxonomy intentionally small.  Consistent, reader-friendly
+// topics make filtering and related reading useful without manufacturing pages
+// or links solely for search engines.
+const CATEGORY_ORDER = [
+  "Budgeting", "Saving Money", "Investing", "Trading", "Crypto",
+  "Side Hustles", "Wealth Building"
+];
+
 function getCategory(post) {
-  if (typeof post.category === "string") return post.category;
-  if (Array.isArray(post.categories) && post.categories.length) return post.categories[0];
-  return "Finance";
+  const raw = [post.category, ...(Array.isArray(post.categories) ? post.categories : [])]
+    .filter(Boolean).join(" ").toLowerCase();
+  const title = `${post.title || ""} ${post.slug || ""}`.toLowerCase();
+
+  if (raw.includes("side hustle") || title.includes("make-money") || title.includes("earn-dollars")) return "Side Hustles";
+  if (raw.includes("wealth") || title.includes("financial-independence") || title.includes("millionaire")) return "Wealth Building";
+  if (raw.includes("budget")) return "Budgeting";
+  if (raw.includes("saving") || raw.includes("savings") || title.includes("losing-job")) return "Saving Money";
+  if (raw.includes("crypto") || title.includes("nft") || title.includes("defi")) return "Crypto";
+  if (raw.includes("trading") || raw.includes("forex")) return "Trading";
+  if (raw.includes("invest")) return "Investing";
+  return "Wealth Building";
 }
 
 function getReadingTime(post) {
@@ -58,12 +86,9 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-// Ensure image paths always start with / so they resolve correctly
-// from any nested URL like /slug/index.html
 function fixImgPath(src) {
   if (!src) return "";
   if (src.startsWith("http://") || src.startsWith("https://")) return src;
-  // Remove any accidental double slashes then ensure leading slash
   return "/" + src.replace(/^\/+/, "").replace(/\/\//g, "/");
 }
 
@@ -73,13 +98,16 @@ function renderBlocks(blocks) {
     switch (b.type) {
       case "paragraph":
         return `<p>${b.text || ""}</p>`;
-
       case "heading":
         return `<h2>${escHtml(b.text)}</h2>`;
-
       case "list":
         return `<ul>${(b.items || []).map(i => `<li>${i}</li>`).join("")}</ul>`;
-
+      case "image":
+        return `
+          <figure class="post-image">
+            <img src="${fixImgPath(b.src)}" alt="${escHtml(b.alt)}" loading="lazy">
+            ${b.caption ? `<figcaption>${escHtml(b.caption)}</figcaption>` : ""}
+          </figure>`;
       case "table": {
         const headers = (b.headers || []).map(h => `<th>${escHtml(h)}</th>`).join("");
         const rows    = (b.rows || []).map(row =>
@@ -93,14 +121,6 @@ function renderBlocks(blocks) {
             </table>
           </div>`;
       }
-
-      case "image":
-        return `
-          <figure class="post-image">
-            <img src="${fixImgPath(b.src)}" alt="${escHtml(b.alt)}" loading="lazy">
-            ${b.caption ? `<figcaption>${escHtml(b.caption)}</figcaption>` : ""}
-          </figure>`;
-
       default:
         return "";
     }
@@ -131,14 +151,14 @@ function buildFAQ(faq) {
     const q = f.question || f.q || "";
     const a = f.answer   || f.a || "";
     return `
-      <div class="faq-item">
-        <h3 class="faq-question">${escHtml(q)}</h3>
-        <p class="faq-answer">${a}</p>
-      </div>`;
+      <details class="faq-item">
+        <summary class="faq-question">${escHtml(q)}</summary>
+        <div class="faq-answer"><p>${a}</p></div>
+      </details>`;
   }).join("");
   return `
-    <section class="faq-section" aria-label="Frequently asked questions">
-      <h2>Frequently Asked Questions</h2>
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Questions and answers</h2>
       ${items}
     </section>`;
 }
@@ -195,18 +215,35 @@ function buildAuthor() {
 function buildSchema(post, url, img) {
   const article = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": post.title,
     "description": post.description,
     "url": url,
     "image": img,
     "datePublished": post.date,
-    "dateModified": post.date,
-    "author": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
-    "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL }
+    "dateModified": post.dateModified || post.date,
+    "author": { "@type": "Person", "name": AUTHOR.name, "url": AUTHOR.blog, "sameAs": [AUTHOR.twitter] },
+    "publisher": {
+      "@type": "Organization",
+      "name": SITE_NAME,
+      "url": SITE_URL,
+      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/wealth-building.jpeg` }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url }
   };
 
-  let schemas = `<script type="application/ld+json">${JSON.stringify(article)}</script>`;
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": getCategory(post), "item": `${SITE_URL}/#posts` },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": url }
+    ]
+  };
+
+  let schemas = `<script type="application/ld+json">${JSON.stringify(article)}</script>`
+    + `\n<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`;
 
   if (Array.isArray(post.faq) && post.faq.length) {
     const faqSchema = {
@@ -237,22 +274,25 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escHtml(title)}</title>
   <meta name="description" content="${escHtml(desc)}">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0F3D2E">
   <link rel="canonical" href="${url}">
 
-  <meta property="og:type"        content="article">
+  <meta property="og:type"        content="website">
+  <meta property="og:locale"      content="en_US">
   <meta property="og:site_name"   content="${SITE_NAME}">
   <meta property="og:title"       content="${escHtml(title)}">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:url"         content="${url}">
   <meta property="og:image"       content="${img}">
+  <meta property="og:image:alt"   content="${escHtml(title)}">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="${escHtml(title)}">
   <meta name="twitter:description" content="${escHtml(desc)}">
   <meta name="twitter:image"       content="${img}">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="apple-touch-icon"                    href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,6 +308,10 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
 
   ${extraSchemas}${adsenseScript}
 </head>`;
+}
+
+function htmlSkipLink(target) {
+  return `<a href="${target}" class="skip-link">Skip to content</a>`;
 }
 
 function htmlHeader() {
@@ -289,21 +333,98 @@ function htmlHeader() {
     </a>
     <nav id="main-nav" aria-label="Main navigation">
       <a href="/">Home</a>
+      <a href="/">Articles</a>
+      <a href="/tools/">Tools</a>
       <a href="/pages/about">About</a>
       <a href="/pages/contact">Contact</a>
-      <a href="/pages/privacy">Privacy</a>
-      <a href="/pages/terms">Terms</a>
     </nav>
     <button id="main-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   </div>
 </header>`;
 }
 
+function htmlNewsletter(variant) {
+  const heading = variant === "post" ? "Enjoyed This Article?" : "Get Weekly Finance Tips";
+  const subtext = variant === "post"
+    ? "Get weekly finance tips, investing guides, and side hustle ideas delivered to your inbox. No spam. Unsubscribe anytime."
+    : "Join our newsletter for practical budgeting, investing, and side hustle advice. No spam. Unsubscribe anytime.";
+  return `
+<section class="newsletter" aria-label="Newsletter signup">
+  <div class="newsletter-box">
+    <h2>${heading}</h2>
+    <p>${subtext}</p>
+    <form
+      action="https://grindtogreen.us16.list-manage.com/subscribe/post?u=8451fbdf4c3f422146a5524ff&amp;id=4bd5361e27&amp;f_id=00e2c2e1f0"
+      method="post"
+      id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form"
+      class="validate newsletter-form"
+    >
+      <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" placeholder="Enter your email address" required aria-label="Email address">
+      <div aria-hidden="true" style="position:absolute;left:-5000px;">
+        <input type="text" name="b_8451fbdf4c3f422146a5524ff_4bd5361e27" tabindex="-1" value="">
+      </div>
+      <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
+    </form>
+    <p class="newsletter-disclaimer">By subscribing, you agree to our <a href="/pages/privacy">Privacy Policy</a>.</p>
+  </div>
+</section>`;
+}
+
 function htmlFooter() {
   return `
-<footer class="footer">
-  <p>&copy; <span id="footer-year"></span> Grind To Green. All rights reserved.</p>
-</footer>
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" aria-label="Grind To Green Home" style="display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 300 80" aria-hidden="true">
+            <g transform="translate(10,15)">
+              <rect x="0"  y="30" width="10" height="20" fill="#0F3D2E" rx="2"/>
+              <rect x="15" y="20" width="10" height="30" fill="#0F3D2E" rx="2"/>
+              <rect x="30" y="10" width="10" height="40" fill="#2c7a4d" rx="2"/>
+              <rect x="45" y="0"  width="10" height="50" fill="#3e9b62" rx="2"/>
+            </g>
+          </svg>
+          <span style="font-weight:700;font-size:18px;color:#0F3D2E;">Grind<span style="color:#3e9b62;">ToGreen</span></span>
+        </a>
+        <p>Free finance education and tools for beginners. Learn to budget, invest, and build wealth without the hype.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/pages/about">About Us</a></li>
+          <li><a href="/pages/editorial-policy">Editorial Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/compound-interest-calculator">Compound Interest</a></li>
+          <li><a href="/tools/budget-tool">Budget Tracker</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/pages/privacy">Privacy Policy</a></li>
+          <li><a href="/pages/terms">Terms of Use</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> GrindToGreen. All rights reserved.</p>
+    </div>
+  </div>
+</footer>`;
+}
+
+function htmlScripts() {
+  return `
 <script>document.getElementById("footer-year").textContent=new Date().getFullYear();</script>
 <script>
   document.getElementById("main-menu-toggle")?.addEventListener("click",function(){
@@ -319,13 +440,50 @@ function htmlFooter() {
 }
 
 // ─── BUILD ONE POST PAGE ────────────────────────────────────────────────────
-function buildPostPage(post) {
+function buildRelatedPosts(post, allPosts) {
+  const category = getCategory(post);
+  const keywords = new Set(`${post.title || ""} ${post.description || ""}`.toLowerCase()
+    .match(/[a-z]{4,}/g) || []);
+  const related = allPosts
+    .filter(candidate => candidate.slug !== post.slug && getCategory(candidate) === category)
+    .map(candidate => {
+      const text = `${candidate.title || ""} ${candidate.description || ""}`.toLowerCase();
+      const overlap = (text.match(/[a-z]{4,}/g) || []).filter(word => keywords.has(word)).length;
+      return { candidate, overlap };
+    })
+    .sort((a, b) => b.overlap - a.overlap || new Date(b.candidate.date) - new Date(a.candidate.date))
+    .slice(0, 3)
+    .map(({ candidate }) => candidate);
+
+  if (!related.length) return "";
+  return `
+    <section class="related-posts" aria-label="Related articles">
+      <h2 class="related-title">Continue learning</h2>
+      <p class="related-intro">More practical guides on ${escHtml(category.toLowerCase())}.</p>
+      <div class="related-grid">
+        ${related.map(item => `
+          <a href="/${item.slug}" class="related-card">
+            <img src="${fixImgPath(item.image)}" alt="${escHtml(item.alt || item.title)}" loading="lazy" width="320" height="180">
+            <div class="related-card-body">
+              <span class="related-category">${escHtml(getCategory(item))}</span>
+              <h3>${escHtml(item.title)}</h3>
+              <span class="related-time">${getReadingTime(item)}</span>
+            </div>
+          </a>`).join("")}
+      </div>
+    </section>`;
+}
+
+function buildPostPage(post, allPosts) {
   const url      = `${SITE_URL}/${post.slug}`;
   const imgRaw   = post.image || "";
   const img      = imgRaw.startsWith("http") ? imgRaw : `${SITE_URL}${fixImgPath(imgRaw)}`;
   const category = getCategory(post);
   const readTime = getReadingTime(post);
   const schemas  = buildSchema(post, url, img);
+  const publishedDate = post.date ? `<meta property="article:published_time" content="${post.date}">` : "";
+  const modifiedDate = post.dateModified ? `<meta property="article:modified_time" content="${post.dateModified}">` : "";
+  const articleMeta = `${publishedDate}${modifiedDate}<meta property="article:section" content="${escHtml(category)}">`;
 
   let bodyContent = renderBlocks(post.content);
   const toc       = buildTOC(post);
@@ -335,6 +493,7 @@ function buildPostPage(post) {
   const adviceHtml = buildFinalAdvice(post);
   const shareHtml  = buildShareButtons(post);
   const authorHtml = buildAuthor();
+  const relatedHtml = buildRelatedPosts(post, allPosts);
 
   const heroImg = `<img src="${fixImgPath(post.image)}" alt="${escHtml(post.alt || post.title)}"
        loading="eager" itemprop="image" width="880" height="440"
@@ -345,12 +504,14 @@ function buildPostPage(post) {
     post.description || "",
     url,
     img,
-    schemas
+    `${schemas}
+${articleMeta}`
   )}
 <body>
+${htmlSkipLink("#post-content")}
 ${htmlHeader()}
 
-<main>
+<main id="post-content">
   <article class="post-content" itemscope itemtype="https://schema.org/Article">
 
     <h1 itemprop="headline">${post.title}</h1>
@@ -371,6 +532,7 @@ ${htmlHeader()}
       ${bodyContent}
     </div>
 
+    ${relatedHtml}
     ${faqHtml}
     ${adviceHtml}
     ${authorHtml}
@@ -379,15 +541,15 @@ ${htmlHeader()}
   </article>
 </main>
 
+${htmlNewsletter("post")}
 ${htmlFooter()}
+${htmlScripts()}
 </body>
 </html>`;
 }
 
 // ─── BUILD HOMEPAGE ─────────────────────────────────────────────────────────
 function buildHomepage(posts) {
-  const year = new Date().getFullYear();
-
   const postCards = posts.map(post => {
     const category = getCategory(post);
     const readTime = getReadingTime(post);
@@ -409,26 +571,39 @@ function buildHomepage(posts) {
       </article>`;
   }).join("\n");
 
-  // Build category filter pills
-  const cats = [...new Set(posts.map(getCategory))].sort();
+  const cats = CATEGORY_ORDER.filter(category => posts.some(post => getCategory(post) === category));
   const pills = cats.map(c =>
     `<button class="category-pill" data-category="${escHtml(c)}">${escHtml(c)}</button>`
   ).join("\n");
 
+  const orgSchema = `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GrindToGreen",
+    "url": SITE_URL,
+    "logo": DEFAULT_IMG,
+    "sameAs": ["https://twitter.com/Mubarakgman"],
+    "founder": { "@type": "Person", "name": "Mubarak" },
+    "description": "GrindToGreen helps beginners understand money through practical budgeting, investing, crypto, and side hustle guides."
+  })}</script>`;
+
   return `${htmlHead(
-    `${SITE_NAME} | Finance & Crypto Education for Africans`,
-    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles built for Africans.",
+    `${SITE_NAME} | Finance & Crypto Education for Everyone`,
+    "Master your money with budgeting tips, crypto insights, passive income strategies and side hustles. Free tools and practical guides for beginners.",
     `${SITE_URL}/`,
-    `${SITE_URL}/images/og-default.jpg`
+    DEFAULT_IMG,
+    orgSchema
   )}
 <body>
+${htmlSkipLink("#posts")}
 ${htmlHeader()}
 
 <section class="hero">
   <h1>Turn Your Grind Into Real Wealth</h1>
-  <p>Budgeting, crypto, investing and side hustles built for Africans.</p>
+  <p>Budgeting, crypto, investing and side hustles built for everyone.</p>
   <div>
     <a href="#posts" class="btn-primary">Read Articles</a>
+    <a href="/tools/" class="btn-secondary">Free Tools</a>
     <a href="/pages/about" class="btn-secondary">About Us</a>
   </div>
 </section>
@@ -446,14 +621,26 @@ ${htmlHeader()}
   ${pills}
 </div>
 
+<<<<<<< HEAD
 
 
 <main id="posts-container" aria-label="Blog posts">
+=======
+<main id="posts" aria-label="Blog posts">
+  <div id="posts-container">
+>>>>>>> 12f480cc800c66ad67b8030ad32afbdfccad287d
 ${postCards}
+  </div>
 </main>
 
+${htmlNewsletter("home")}
 ${htmlFooter()}
+<<<<<<< HEAD
  
+=======
+${htmlScripts()}
+
+>>>>>>> 12f480cc800c66ad67b8030ad32afbdfccad287d
 <script>
 // Search
 let currentCategory = "all";
@@ -490,7 +677,6 @@ document.querySelectorAll(".category-pill").forEach(btn => {
 
 // ─── MAIN BUILD ─────────────────────────────────────────────────────────────
 function build() {
-  // Read posts index
   const indexPath = path.join(POSTS_DIR, "index.json");
   if (!fs.existsSync(indexPath)) {
     console.error("❌  posts/index.json not found. Run this script from your repo root.");
@@ -500,7 +686,6 @@ function build() {
   const fileList = JSON.parse(fs.readFileSync(indexPath, "utf8"));
   console.log(`📚  Found ${fileList.length} posts in index.json`);
 
-  // Load all posts
   const posts = [];
   for (const file of fileList) {
     const filePath = path.join(POSTS_DIR, file);
@@ -511,31 +696,42 @@ function build() {
     try {
       const post = JSON.parse(fs.readFileSync(filePath, "utf8"));
       if (!post.slug) { console.warn(`⚠️   No slug in ${file} — skipping`); continue; }
+      if (RETIRED_POST_SLUGS.has(post.slug)) {
+        console.log(`↪️  Excluding retired URL /${post.slug}/ from pages and sitemap`);
+        continue;
+      }
       posts.push(post);
     } catch (e) {
       console.error(`❌  JSON parse error in ${file}:`, e.message);
     }
   }
 
-  // Sort: featured first, then by date desc
   posts.sort((a, b) => {
     if (a.featured === true && b.featured !== true) return -1;
     if (b.featured === true && a.featured !== true) return 1;
     return new Date(b.date) - new Date(a.date);
   });
 
-  // Create dist directory
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
 
-  // Copy static assets into dist
+  // A build can run over a previous /dist directory. Remove only the known
+  // retired route directories so an old HTML file cannot remain deployable.
+  for (const slug of RETIRED_POST_SLUGS) {
+    const retiredDir = path.join(DIST_DIR, slug);
+    if (fs.existsSync(retiredDir)) {
+      fs.rmSync(retiredDir, { recursive: true, force: true });
+      console.log(`🧹 Removed retired output /${slug}/`);
+    }
+  }
+
   copyDir(path.join(__dirname, "css"),    path.join(DIST_DIR, "css"));
   copyDir(path.join(__dirname, "js"),     path.join(DIST_DIR, "js"));
   copyDir(path.join(__dirname, "images"), path.join(DIST_DIR, "images"));
   copyDir(path.join(__dirname, "posts"),  path.join(DIST_DIR, "posts"));
   copyDir(path.join(__dirname, "pages"),  path.join(DIST_DIR, "pages"));
+  copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
 
-  // Copy root-level files that Netlify needs
-  for (const f of ["robots.txt", "write-for-us.html"]) {
+  for (const f of ["robots.txt", "ads.txt", "write-for-us.html"]) {
     const src = path.join(__dirname, f);
     if (fs.existsSync(src)) {
       fs.copyFileSync(src, path.join(DIST_DIR, f));
@@ -543,28 +739,29 @@ function build() {
     }
   }
 
-  // Build each post page
   let built = 0;
   for (const post of posts) {
     const postDir = path.join(DIST_DIR, post.slug);
     fs.mkdirSync(postDir, { recursive: true });
-    const html = buildPostPage(post);
+    const html = buildPostPage(post, posts);
     fs.writeFileSync(path.join(postDir, "index.html"), html, "utf8");
     console.log(`✅  /${post.slug}/`);
     built++;
   }
 
+<<<<<<< HEAD
   // Build 404 page with the shared site shell.
   const notFoundHtml = buildNotFoundPage();
   fs.writeFileSync(path.join(DIST_DIR, "404.html"), notFoundHtml, "utf8");
   console.log(`✅  404.html`);
 
   // Build homepage
+=======
+>>>>>>> 12f480cc800c66ad67b8030ad32afbdfccad287d
   const homepageHtml = buildHomepage(posts);
   fs.writeFileSync(path.join(DIST_DIR, "index.html"), homepageHtml, "utf8");
   console.log(`✅  / (homepage with ${posts.length} posts)`);
 
-  // Write updated _redirects for dist
   const redirectsContent = buildRedirects(posts);
   fs.writeFileSync(path.join(DIST_DIR, "_redirects"), redirectsContent, "utf8");
   console.log(`✅  _redirects`);
@@ -579,18 +776,26 @@ function build() {
 }
 
 function buildRedirects(posts) {
-  // Static page redirects + catch-all
   const staticRedirects = `
 # ── STATIC PAGES ───────────────────────────────────────────
 /pages/about.html    /pages/about    301!
 /pages/contact.html  /pages/contact  301!
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
+/pages/editorial-policy.html /pages/editorial-policy 301!
 /write-for-us.html   /write-for-us   301!
+/building-wealth-from-scratch-2026  /building-wealth-from-scratch    301!
 
 # ── SLUG FIXES ──────────────────────────────────────────────
 /smart-budgeting-hacks-2025    /smart-budgeting-hacks-2026    301!
 /why-most-traders-fail         /why-90-percent-of-traders-fail 301!
+
+# ── MERGED / RETIRED DUPLICATE-TOPIC POSTS (AdSense low-value cleanup) ──
+/zero-based-budgeting-explained     /how-zero-based-budgeting-can-benefit-you   301!
+/is-50-30-20-rule-good              /understanding-50-30-20-rule-budgeting     301!
+/what-is-3-5-7-rule-day-trading     /master-the-3-5-7-rule-day-trading         301!
+/fastest-way-to-save-10000          /how-to-save-10000-in-a-year-on-a-low-income 301!
+/online-hustles-nigeria-no-skills-no-money  /  410!
 
 # ── OLD ?slug= FORMAT → CLEAN URLS ─────────────────────────`;
 
@@ -611,7 +816,11 @@ function buildRedirects(posts) {
 /pages/contact   /pages/contact.html  200
 /pages/privacy   /pages/privacy.html  200
 /pages/terms     /pages/terms.html    200
+/pages/editorial-policy /pages/editorial-policy.html 200
 /write-for-us    /write-for-us.html   200
+/tools           /tools/index.html    200
+/tools/budget-tool       /tools/budget-tool.html    200
+/tools/compound-interest-calculator    /tools/compound-interest-calculator.html    200
 
 # ── HOMEPAGE ────────────────────────────────────────────────
 /    /index.html    200
@@ -645,10 +854,14 @@ ${htmlFooter()}
 function buildSitemap(posts) {
   const staticUrls = [
     { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "daily" },
+    { loc: `${SITE_URL}/tools/`, priority: "0.8", changefreq: "weekly" },
+    { loc: `${SITE_URL}/tools/budget-tool`, priority: "0.7", changefreq: "monthly" },
+    { loc: `${SITE_URL}/tools/compound-interest-calculator`, priority: "0.7", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/about`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/contact`, priority: "0.6", changefreq: "monthly" },
     { loc: `${SITE_URL}/pages/privacy`, priority: "0.5", changefreq: "yearly" },
     { loc: `${SITE_URL}/pages/terms`, priority: "0.5", changefreq: "yearly" },
+    { loc: `${SITE_URL}/pages/editorial-policy`, priority: "0.5", changefreq: "yearly" },
     { loc: `${SITE_URL}/write-for-us`, priority: "0.4", changefreq: "monthly" }
   ];
 
@@ -656,7 +869,7 @@ function buildSitemap(posts) {
     loc: `${SITE_URL}/${post.slug}`,
     priority: "0.8",
     changefreq: "monthly",
-    lastmod: post.date
+    lastmod: post.dateModified || post.date
   }));
 
   const urls = [...staticUrls, ...postUrls].map(item => `  <url>
@@ -672,9 +885,8 @@ ${urls}
 `;
 }
 
-// ─── COPY DIRECTORY HELPER ──────────────────────────────────────────────────
 function copyDir(src, dest) {
-  if (!fs.existsSync(src)) return; // silently skip missing folders
+  if (!fs.existsSync(src)) return;
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     const srcPath  = path.join(src,  entry.name);
@@ -688,5 +900,4 @@ function copyDir(src, dest) {
   console.log(`✅  Copied → ${path.relative(__dirname, dest)}/`);
 }
 
-// ─── RUN ────────────────────────────────────────────────────────────────────
 build();

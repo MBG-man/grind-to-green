@@ -1,5 +1,5 @@
 # netlify.toml — GrindToGreen
-# Tells Netlify to run build.js before deploying,
+# Tells Netlify to run build.js before deploying,m
 # and to serve from the /dist/ folder.
 
 [build]

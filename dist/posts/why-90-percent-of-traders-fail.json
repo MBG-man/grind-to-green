@@ -1,7 +1,7 @@
 {
-  "title": "Why 90% of Traders Fail and How to Be One of the 10% Who Don't",
+  "title": "Why 90% of Traders Fail",
   "slug": "why-90-percent-of-traders-fail",
-  "date": "2026-01-28",
+  "date": "2026-06-13",
   "description": "A brutally honest breakdown of why most traders fail and the disciplined roadmap required to join the consistent 10%.",
   "category": "Trading",
   "image": "images/Traders-Fail.jpeg",
@@ -48,11 +48,11 @@
       "text": "And the cycle starts over."
     },
     {
-  "type": "image",
-  "src": "images/trader-loss-cycle.jpeg",
-  "alt": "Trader experiencing the emotional cycle of wins, losses, and revenge trading",
-  "caption": "The hope, the rush, the crash this is the cycle most traders repeat until they build rules."
-},
+      "type": "image",
+      "src": "images/trader-loss-cycle.jpeg",
+      "alt": "Trader experiencing the emotional cycle of wins, losses, and revenge trading",
+      "caption": "The hope, the rush, the crash this is the cycle most traders repeat until they build rules."
+    },
     {
       "type": "paragraph",
       "text": "If the hope, the rush, the crash, and the quiet desperation sound familiar, you need to hear the harsh, honest truth about why this keeps happening. There is no bad luck or missing secret here. This is about how people think and how a system doesn't care."
@@ -65,7 +65,6 @@
       "type": "paragraph",
       "text": "It wasn't about finding a better indicator that made the journey from that frustration to consistent, calm trading. It was a painful, personal review of my own mind. Here's what I learned about why most traders fail and how to build a strong foundation that won't break under pressure."
     },
-
     {
       "type": "heading",
       "text": "The Four Pillars of Failure: Why Your Brain Is Your Worst Enemy"
@@ -74,17 +73,16 @@
       "type": "paragraph",
       "text": "Trading platforms are made to be easy to use, but they are connected directly to the most complicated and flawed system in the world: the human limbic system. Your instinct to fight or run is what is making your trading decisions. Let's look at the real killers that happen every day."
     },
-
     {
       "type": "heading",
       "text": "1. The Storyteller's Curse: You're Not Trading Price Action, You're Trading a Story"
     },
     {
-  "type": "image",
-  "src": "images/trading-the-story-vs-price.jpeg",
-  "alt": "Illustration showing trading headlines versus trading price action on a clean chart",
-  "caption": "Don’t trade the “why.” Trade the “what.” Price is the only truth you can execute."
-},
+      "type": "image",
+      "src": "images/trading-the-story-vs-price.jpeg",
+      "alt": "Illustration showing trading headlines versus trading price action on a clean chart",
+      "caption": "Don’t trade the “why.” Trade the “what.” Price is the only truth you can execute."
+    },
     {
       "type": "paragraph",
       "text": "People are made to tell stories. We want to know what caused something. Your brain really wants to know \"why\" when a stock moves, so you come up with one."
@@ -100,12 +98,12 @@
       "type": "paragraph",
       "text": "**The Fix:** You need to stop believing everything you hear. You don't have to guess why something will happen; you just have to figure out what's going on right now and what your plan says to do about it. The price is the only thing that matters. Don't trade the \"why,\" trade the \"what.\""
     },
-{
-  "type": "image",
-  "src": "images/stop-loss-discipline.jpeg",
-  "alt": "Trader respecting a stop-loss versus moving it emotionally and increasing losses",
-  "caption": "A stop-loss isn’t a suggestion. It’s a fire alarm."
-},
+    {
+      "type": "image",
+      "src": "images/stop-loss-discipline.jpeg",
+      "alt": "Trader respecting a stop-loss versus moving it emotionally and increasing losses",
+      "caption": "A stop-loss isn’t a suggestion. It’s a fire alarm."
+    },
     {
       "type": "heading",
       "text": "2. The Illusion of Safety in Risk Management Theater"
@@ -121,7 +119,6 @@
       "type": "paragraph",
       "text": "**The Fix:** Before you enter a trade, you need to know exactly how much risk you're willing to take. It's not a dial to adjust; it's a fire alarm. You're out if you hit your stop."
     },
-
     {
       "type": "heading",
       "text": "3. The FOMO-TOMO Cycle (Fear Of Missing Out -> The Fear Of Getting Out)"
@@ -137,7 +134,6 @@
       "type": "paragraph",
       "text": "**The Fix:** Set strict criteria for what makes a setup valid. If it doesn't qualify, don't trade it."
     },
-
     {
       "type": "heading",
       "text": "4. The Analysis Paralysis Vortex"
@@ -150,7 +146,6 @@
       "type": "paragraph",
       "text": "The Fix: Simplify. A clean chart beats a cluttered one."
     },
-
     {
       "type": "heading",
       "text": "The Mindset Gap: Why You Do Things That Aren't Good for You"
@@ -162,23 +157,38 @@
         "The Amateur Mindset (The Default Setting)"
       ],
       "rows": [
-        ["Main Goal: To make money over a number of trades.", "Main Goal: To be correct and prove a thesis."],
-        ["Self-Image: Risk manager using probabilities.", "Self-Image: Market prophet who knows secrets."],
-        ["After a Win: Log it and move on.", "After a Win: Overconfidence and bigger bets."],
-        ["After a Loss: Review the plan calmly.", "After a Loss: Anger and revenge trading."],
-        ["Relationship with Capital: Business lifeblood.", "Relationship with Capital: Chips to bet."]
+        [
+          "Main Goal: To make money over a number of trades.",
+          "Main Goal: To be correct and prove a thesis."
+        ],
+        [
+          "Self-Image: Risk manager using probabilities.",
+          "Self-Image: Market prophet who knows secrets."
+        ],
+        [
+          "After a Win: Log it and move on.",
+          "After a Win: Overconfidence and bigger bets."
+        ],
+        [
+          "After a Loss: Review the plan calmly.",
+          "After a Loss: Anger and revenge trading."
+        ],
+        [
+          "Relationship with Capital: Business lifeblood.",
+          "Relationship with Capital: Chips to bet."
+        ]
       ]
     },
     {
-  "type": "image",
-  "src": "images/pro-mindset-vs-amateur.jpeg",
-  "alt": "Professional trading mindset compared with amateur emotional mindset",
-  "caption": "The biggest edge isn’t an indicator. It’s your ability to follow rules under pressure."
-}, 
-{ "type": "heading",
- "text": "The Only Roadmap to Change That Works (The Boring, Unsexy One)"
- },
-
+      "type": "image",
+      "src": "images/pro-mindset-vs-amateur.jpeg",
+      "alt": "Professional trading mindset compared with amateur emotional mindset",
+      "caption": "The biggest edge isn’t an indicator. It’s your ability to follow rules under pressure."
+    },
+    {
+      "type": "heading",
+      "text": "The Only Roadmap to Change That Works (The Boring, Unsexy One)"
+    },
     {
       "type": "heading",
       "text": "Phase 1: The Intervention (Weeks 1–2)"
@@ -187,7 +197,6 @@
       "type": "paragraph",
       "text": "Action: Stop trading. Go to cash."
     },
-
     {
       "type": "heading",
       "text": "Phase 2: The Blueprint (Weeks 3–4)"
@@ -196,7 +205,6 @@
       "type": "paragraph",
       "text": "Write a one-page trading plan that defines market, entry, risk, position size, and exit."
     },
-
     {
       "type": "heading",
       "text": "Phase 3: The Simulation (Weeks 5–12+)"
@@ -205,7 +213,6 @@
       "type": "paragraph",
       "text": "Trade your plan in simulation until execution becomes boring and automatic."
     },
-
     {
       "type": "heading",
       "text": "Phase 4: The Slow Return (The Forever Phase)"
@@ -214,7 +221,6 @@
       "type": "paragraph",
       "text": "Return to live trading with tiny risk and scale only after proving discipline."
     },
-
     {
       "type": "heading",
       "text": "The Last, Unpleasant Truth"
@@ -227,16 +233,13 @@
       "type": "paragraph",
       "text": "Build the discipline first. The profits will come."
     },
-
     {
       "type": "paragraph",
       "text": "Charles : A trader who used to be driven by his own ego but now values a green journal more than a green day. This comes from losing money and learning hard lessons.*"
     },
-    
-        {
+    {
       "type": "paragraph",
-      "text":"To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
- 
+      "text": "To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
     }
   ]
 }
