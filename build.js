@@ -440,9 +440,6 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
 </head>`;
 }
 
-function htmlSkipLink(target) {
-  return `<a href="${target}" class="skip-link">Skip to content</a>`;
-}
 
 function htmlHeader() {
   return `
