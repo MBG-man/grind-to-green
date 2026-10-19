@@ -1,30 +1,23 @@
 #!/usr/bin/env node
+
 /**
  * GrindToGreen — Static Site Builder
- * -----------------------------------
- * Reads every post JSON from /posts/index.json,
- * generates a fully pre-rendered HTML file for each post,
- * and writes them to /dist/ (Netlify publish directory).
- *
- * Run:  node build.js
- * Output: dist/[slug]/index.html  (one file per post)
- *         dist/index.html          (homepage with all posts)
- *         dist/_redirects          (updated redirects)
+ * Reads post JSON files and generates static HTML pages in /dist.
+ * Run: node build.js
  */
 
-const fs   = require("fs");
+const fs = require("fs");
 const path = require("path");
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
-const SITE_URL    = "https://grindtogreen.com";
-const SITE_NAME   = "Grind To Green";
-// Keep social and structured-data images crawlable: this file exists in /images.
+
+const SITE_URL = "https://grindtogreen.com";
+const SITE_NAME = "Grind To Green";
 const DEFAULT_IMG = `${SITE_URL}/images/wealth-building.jpeg`;
-const POSTS_DIR   = path.join(__dirname, "posts");
-const DIST_DIR    = path.join(__dirname, "dist");
-// These URLs have been deliberately consolidated (or retired) below in
-// buildRedirects().  Never generate an HTML page or sitemap entry for them:
-// doing both sends Google conflicting canonical/indexing signals.
+
+const POSTS_DIR = path.join(__dirname, "posts");
+const DIST_DIR = path.join(__dirname, "dist");
+
 const RETIRED_POST_SLUGS = new Set([
   "zero-based-budgeting-explained",
   "is-50-30-20-rule-good",
@@ -32,53 +25,104 @@ const RETIRED_POST_SLUGS = new Set([
   "fastest-way-to-save-10000",
   "online-hustles-nigeria-no-skills-no-money"
 ]);
+
 const AUTHOR = {
-  name:    "Mubarak",
-  bio:     "Personal finance and crypto writer focused on practical budgeting, investing, and digital income education for beginners.",
+  name: "Mubarak",
+  bio: "Personal finance and crypto writer focused on practical budgeting, investing, and digital income education for beginners.",
   twitter: "https://x.com/Mubarakgman",
-  blog:    "https://grindtogreen.com"
+  blog: "https://grindtogreen.com"
 };
+
 const ADSENSE_ENABLED = process.env.ENABLE_ADSENSE === "true";
 
 // ─── HELPERS ───────────────────────────────────────────────────────────────
+
 function fmtDate(d) {
   return new Date(d).toLocaleDateString("en-NG", {
-    year: "numeric", month: "long", day: "numeric"
+    year: "numeric",
+    month: "long",
+    day: "numeric"
   });
 }
 
-// Keep the site taxonomy intentionally small.  Consistent, reader-friendly
-// topics make filtering and related reading useful without manufacturing pages
-// or links solely for search engines.
 const CATEGORY_ORDER = [
-  "Budgeting", "Saving Money", "Investing", "Trading", "Crypto",
-  "Side Hustles", "Wealth Building"
+  "Budgeting",
+  "Saving Money",
+  "Investing",
+  "Trading",
+  "Crypto",
+  "Side Hustles",
+  "Wealth Building"
 ];
 
 function getCategory(post) {
-  const raw = [post.category, ...(Array.isArray(post.categories) ? post.categories : [])]
-    .filter(Boolean).join(" ").toLowerCase();
+  const raw = [
+    post.category,
+    ...(Array.isArray(post.categories) ? post.categories : [])
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
   const title = `${post.title || ""} ${post.slug || ""}`.toLowerCase();
 
-  if (raw.includes("side hustle") || title.includes("make-money") || title.includes("earn-dollars")) return "Side Hustles";
-  if (raw.includes("wealth") || title.includes("financial-independence") || title.includes("millionaire")) return "Wealth Building";
+  if (
+    raw.includes("side hustle") ||
+    title.includes("make-money") ||
+    title.includes("earn-dollars")
+  ) {
+    return "Side Hustles";
+  }
+
+  if (
+    raw.includes("wealth") ||
+    title.includes("financial-independence") ||
+    title.includes("millionaire")
+  ) {
+    return "Wealth Building";
+  }
+
   if (raw.includes("budget")) return "Budgeting";
-  if (raw.includes("saving") || raw.includes("savings") || title.includes("losing-job")) return "Saving Money";
-  if (raw.includes("crypto") || title.includes("nft") || title.includes("defi")) return "Crypto";
-  if (raw.includes("trading") || raw.includes("forex")) return "Trading";
+
+  if (
+    raw.includes("saving") ||
+    raw.includes("savings") ||
+    title.includes("losing-job")
+  ) {
+    return "Saving Money";
+  }
+
+  if (
+    raw.includes("crypto") ||
+    title.includes("nft") ||
+    title.includes("defi")
+  ) {
+    return "Crypto";
+  }
+
+  if (raw.includes("trading") || raw.includes("forex")) {
+    return "Trading";
+  }
+
   if (raw.includes("invest")) return "Investing";
+
   return "Wealth Building";
 }
 
 function getReadingTime(post) {
   const words = (post.content || [])
     .map(b => b.text || (b.items || []).join(" ") || "")
-    .join(" ").trim().split(/\s+/).filter(Boolean).length;
+    .join(" ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+
   return `${Math.max(1, Math.round(words / 200))} min read`;
 }
 
 function escHtml(str) {
   if (!str) return "";
+
   return String(str)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -88,31 +132,46 @@ function escHtml(str) {
 
 function fixImgPath(src) {
   if (!src) return "";
-  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+
+  if (src.startsWith("http://") || src.startsWith("https://")) {
+    return src;
+  }
+
   return "/" + src.replace(/^\/+/, "").replace(/\/\//g, "/");
 }
 
 // ─── CONTENT RENDERER ──────────────────────────────────────────────────────
+
 function renderBlocks(blocks) {
   return (blocks || []).map(b => {
     switch (b.type) {
       case "paragraph":
         return `<p>${b.text || ""}</p>`;
+
       case "heading":
         return `<h2>${escHtml(b.text)}</h2>`;
+
       case "list":
-        return `<ul>${(b.items || []).map(i => `<li>${i}</li>`).join("")}</ul>`;
+        return `<ul>${(b.items || [])
+          .map(i => `<li>${i}</li>`)
+          .join("")}</ul>`;
+
       case "image":
         return `
           <figure class="post-image">
             <img src="${fixImgPath(b.src)}" alt="${escHtml(b.alt)}" loading="lazy">
             ${b.caption ? `<figcaption>${escHtml(b.caption)}</figcaption>` : ""}
           </figure>`;
+
       case "table": {
-        const headers = (b.headers || []).map(h => `<th>${escHtml(h)}</th>`).join("");
-        const rows    = (b.rows || []).map(row =>
-          `<tr>${row.map(c => `<td>${c}</td>`).join("")}</tr>`
-        ).join("");
+        const headers = (b.headers || [])
+          .map(h => `<th>${escHtml(h)}</th>`)
+          .join("");
+
+        const rows = (b.rows || [])
+          .map(row => `<tr>${row.map(c => `<td>${c}</td>`).join("")}</tr>`)
+          .join("");
+
         return `
           <div class="table-wrapper">
             <table class="post-table">
@@ -121,6 +180,7 @@ function renderBlocks(blocks) {
             </table>
           </div>`;
       }
+
       default:
         return "";
     }
@@ -129,10 +189,13 @@ function renderBlocks(blocks) {
 
 function buildTOC(post) {
   const headings = (post.content || []).filter(b => b.type === "heading");
+
   if (headings.length < 3) return "";
+
   const items = headings.map((h, i) =>
     `<li><a href="#h${i}" class="toc-link">${escHtml(h.text)}</a></li>`
   ).join("");
+
   return `
     <nav class="toc" aria-label="Table of contents">
       <div class="toc-title">📋 In This Article</div>
@@ -147,15 +210,18 @@ function injectHeadingIds(html, post) {
 
 function buildFAQ(faq) {
   if (!Array.isArray(faq) || !faq.length) return "";
+
   const items = faq.map(f => {
     const q = f.question || f.q || "";
-    const a = f.answer   || f.a || "";
+    const a = f.answer || f.a || "";
+
     return `
       <details class="faq-item">
         <summary class="faq-question">${escHtml(q)}</summary>
         <div class="faq-answer"><p>${a}</p></div>
       </details>`;
   }).join("");
+
   return `
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Questions and answers</h2>
@@ -166,33 +232,70 @@ function buildFAQ(faq) {
 function buildFinalAdvice(post) {
   const fa = post.final_advice;
   if (!fa) return "";
+
   const text = typeof fa === "string" ? fa : (fa.text || "");
   if (!text) return "";
+
   return `<div class="final-advice"><p>${text}</p></div>`;
 }
 
 function buildShareButtons(post) {
-  const url   = encodeURIComponent(`${SITE_URL}/${post.slug}`);
+  const url = encodeURIComponent(`${SITE_URL}/${post.slug}`);
   const title = encodeURIComponent(post.title);
+
   return `
     <div class="share-container">
       <h4>Share this post:</h4>
       <div class="share-buttons">
-        <a class="share-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
-          <svg viewBox="0 0 24 24" class="share-svg" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+
+        <a class="share-btn facebook"
+           href="https://www.facebook.com/sharer/sharer.php?u=${url}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Share on Facebook">
+          <svg viewBox="0 0 24 24" class="share-svg" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
         </a>
-        <a class="share-btn twitter" href="https://twitter.com/intent/tweet?url=${url}&text=${title}" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
-          <svg viewBox="0 0 24 24" class="share-svg" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+
+        <a class="share-btn twitter"
+           href="https://twitter.com/intent/tweet?url=${url}&text=${title}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Share on Twitter">
+          <svg viewBox="0 0 24 24" class="share-svg" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+          </svg>
         </a>
-        <a class="share-btn whatsapp" href="https://wa.me/?text=${title}%20${url}" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
-          <svg viewBox="0 0 24 24" class="share-svg" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.478 2 12c0 1.744.453 3.382 1.239 4.811L2 22l5.335-1.399A9.956 9.956 0 0 0 12 22c5.523 0 10-4.478 10-10S17.52 2 12 2z"/></svg>
+
+        <a class="share-btn whatsapp"
+           href="https://wa.me/?text=${title}%20${url}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Share on WhatsApp">
+          <svg viewBox="0 0 24 24" class="share-svg" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.478 2 12c0 1.744.453 3.382 1.239 4.811L2 22l5.335-1.399A9.956 9.956 0 0 0 12 22c5.523 0 10-4.478 10-10S17.52 2 12 2z"/>
+          </svg>
         </a>
-        <a class="share-btn linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
-          <svg viewBox="0 0 24 24" class="share-svg" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+
+        <a class="share-btn linkedin"
+           href="https://www.linkedin.com/sharing/share-offsite/?url=${url}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Share on LinkedIn">
+          <svg viewBox="0 0 24 24" class="share-svg" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
         </a>
-        <a class="share-btn telegram" href="https://t.me/share/url?url=${url}&text=${title}" target="_blank" rel="noopener noreferrer" aria-label="Share on Telegram">
-          <svg viewBox="0 0 24 24" class="share-svg" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+
+        <a class="share-btn telegram"
+           href="https://t.me/share/url?url=${url}&text=${title}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Share on Telegram">
+          <svg viewBox="0 0 24 24" class="share-svg" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
         </a>
+
       </div>
     </div>`;
 }
@@ -222,28 +325,55 @@ function buildSchema(post, url, img) {
     "image": img,
     "datePublished": post.date,
     "dateModified": post.dateModified || post.date,
-    "author": { "@type": "Person", "name": AUTHOR.name, "url": AUTHOR.blog, "sameAs": [AUTHOR.twitter] },
+    "author": {
+      "@type": "Person",
+      "name": AUTHOR.name,
+      "url": AUTHOR.blog,
+      "sameAs": [AUTHOR.twitter]
+    },
     "publisher": {
       "@type": "Organization",
       "name": SITE_NAME,
       "url": SITE_URL,
-      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/wealth-building.jpeg` }
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/images/wealth-building.jpeg`
+      }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": url }
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": url
+    }
   };
 
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
-      { "@type": "ListItem", "position": 2, "name": getCategory(post), "item": `${SITE_URL}/#posts` },
-      { "@type": "ListItem", "position": 3, "name": post.title, "item": url }
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": SITE_URL
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": getCategory(post),
+        "item": `${SITE_URL}/#posts`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": url
+      }
     ]
   };
 
-  let schemas = `<script type="application/ld+json">${JSON.stringify(article)}</script>`
-    + `\n<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`;
+  let schemas =
+    `<script type="application/ld+json">${JSON.stringify(article)}</script>` +
+    `\n<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`;
 
   if (Array.isArray(post.faq) && post.faq.length) {
     const faqSchema = {
@@ -252,9 +382,13 @@ function buildSchema(post, url, img) {
       "mainEntity": post.faq.map(f => ({
         "@type": "Question",
         "name": f.question || f.q || "",
-        "acceptedAnswer": { "@type": "Answer", "text": f.answer || f.a || "" }
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer || f.a || ""
+        }
       }))
     };
+
     schemas += `\n<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`;
   }
 
@@ -262,6 +396,7 @@ function buildSchema(post, url, img) {
 }
 
 // ─── SHARED HTML PARTS ─────────────────────────────────────────────────────
+
 function htmlHead(title, desc, url, img, extraSchemas = "") {
   const adsenseScript = ADSENSE_ENABLED
     ? `\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1666678165948804" crossorigin="anonymous"></script>`
@@ -278,22 +413,19 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#0F3D2E">
   <link rel="canonical" href="${url}">
-
-  <meta property="og:type"        content="website">
-  <meta property="og:locale"      content="en_US">
-  <meta property="og:site_name"   content="${SITE_NAME}">
-  <meta property="og:title"       content="${escHtml(title)}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="${SITE_NAME}">
+  <meta property="og:title" content="${escHtml(title)}">
   <meta property="og:description" content="${escHtml(desc)}">
-  <meta property="og:url"         content="${url}">
-  <meta property="og:image"       content="${img}">
-  <meta property="og:image:alt"   content="${escHtml(title)}">
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="${escHtml(title)}">
+  <meta property="og:url" content="${url}">
+  <meta property="og:image" content="${img}">
+  <meta property="og:image:alt" content="${escHtml(title)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escHtml(title)}">
   <meta name="twitter:description" content="${escHtml(desc)}">
-  <meta name="twitter:image"       content="${img}">
-
+  <meta name="twitter:image" content="${img}">
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
@@ -302,17 +434,12 @@ function htmlHead(title, desc, url, img, extraSchemas = "") {
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   </noscript>
-
   <link rel="stylesheet" href="/css/style.css">
   <style>.share-svg{width:18px;height:18px;fill:currentColor;display:block;}</style>
-
   ${extraSchemas}${adsenseScript}
 </head>`;
 }
 
-function htmlSkipLink(target) {
-  return `<a href="${target}" class="skip-link">Skip to content</a>`;
-}
 
 function htmlHeader() {
   return `
@@ -321,10 +448,10 @@ function htmlHeader() {
     <a href="/" aria-label="Grind To Green Home">
       <svg xmlns="http://www.w3.org/2000/svg" width="180" height="44" viewBox="0 0 300 80" aria-hidden="true">
         <g transform="translate(10,15)">
-          <rect x="0"  y="30" width="10" height="20" fill="#fff" rx="2"/>
+          <rect x="0" y="30" width="10" height="20" fill="#fff" rx="2"/>
           <rect x="15" y="20" width="10" height="30" fill="#fff" rx="2"/>
           <rect x="30" y="10" width="10" height="40" fill="#fff" rx="2"/>
-          <rect x="45" y="0"  width="10" height="50" fill="#fff" rx="2"/>
+          <rect x="45" y="0" width="10" height="50" fill="#fff" rx="2"/>
         </g>
         <text x="75" y="50" font-family="Inter,sans-serif" font-size="28" font-weight="700" fill="#fff">
           Grind<tspan fill="#86efac">ToGreen</tspan>
@@ -344,10 +471,14 @@ function htmlHeader() {
 }
 
 function htmlNewsletter(variant) {
-  const heading = variant === "post" ? "Enjoyed This Article?" : "Get Weekly Finance Tips";
+  const heading = variant === "post"
+    ? "Enjoyed This Article?"
+    : "Get Weekly Finance Tips";
+
   const subtext = variant === "post"
     ? "Get weekly finance tips, investing guides, and side hustle ideas delivered to your inbox. No spam. Unsubscribe anytime."
     : "Join our newsletter for practical budgeting, investing, and side hustle advice. No spam. Unsubscribe anytime.";
+
   return `
 <section class="newsletter" aria-label="Newsletter signup">
   <div class="newsletter-box">
@@ -360,9 +491,11 @@ function htmlNewsletter(variant) {
       name="mc-embedded-subscribe-form"
       class="validate newsletter-form"
     >
-      <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" placeholder="Enter your email address" required aria-label="Email address">
+      <input type="email" name="EMAIL" id="mce-EMAIL" class="required email"
+             placeholder="Enter your email address" required aria-label="Email address">
       <div aria-hidden="true" style="position:absolute;left:-5000px;">
-        <input type="text" name="b_8451fbdf4c3f422146a5524ff_4bd5361e27" tabindex="-1" value="">
+        <input type="text" name="b_8451fbdf4c3f422146a5524ff_4bd5361e27"
+               tabindex="-1" value="">
       </div>
       <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
     </form>
@@ -377,19 +510,21 @@ function htmlFooter() {
   <div class="footer-wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" aria-label="Grind To Green Home" style="display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:8px;">
+        <a href="/" aria-label="Grind To Green Home"
+           style="display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:8px;">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 300 80" aria-hidden="true">
             <g transform="translate(10,15)">
-              <rect x="0"  y="30" width="10" height="20" fill="#0F3D2E" rx="2"/>
+              <rect x="0" y="30" width="10" height="20" fill="#0F3D2E" rx="2"/>
               <rect x="15" y="20" width="10" height="30" fill="#0F3D2E" rx="2"/>
               <rect x="30" y="10" width="10" height="40" fill="#2c7a4d" rx="2"/>
-              <rect x="45" y="0"  width="10" height="50" fill="#3e9b62" rx="2"/>
+              <rect x="45" y="0" width="10" height="50" fill="#3e9b62" rx="2"/>
             </g>
           </svg>
           <span style="font-weight:700;font-size:18px;color:#0F3D2E;">Grind<span style="color:#3e9b62;">ToGreen</span></span>
         </a>
         <p>Free finance education and tools for beginners. Learn to budget, invest, and build wealth without the hype.</p>
       </div>
+
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
@@ -400,6 +535,7 @@ function htmlFooter() {
           <li><a href="/pages/editorial-policy">Editorial Policy</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Tools</h4>
         <ul>
@@ -407,6 +543,7 @@ function htmlFooter() {
           <li><a href="/tools/budget-tool">Budget Tracker</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
@@ -416,6 +553,7 @@ function htmlFooter() {
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p>&copy; <span id="footer-year"></span> GrindToGreen. All rights reserved.</p>
     </div>
@@ -431,6 +569,7 @@ function htmlScripts() {
     const nav=document.getElementById("main-nav");
     this.setAttribute("aria-expanded",nav?.classList.toggle("show")?"true":"false");
   });
+
   document.querySelectorAll("#main-nav a").forEach(a=>a.addEventListener("click",()=>{
     document.getElementById("main-nav")?.classList.remove("show");
     document.getElementById("main-menu-toggle")?.setAttribute("aria-expanded","false");
@@ -440,10 +579,14 @@ function htmlScripts() {
 }
 
 // ─── BUILD ONE POST PAGE ────────────────────────────────────────────────────
+
 function buildRelatedPosts(post, allPosts) {
   const category = getCategory(post);
-  const keywords = new Set(`${post.title || ""} ${post.description || ""}`.toLowerCase()
-    .match(/[a-z]{4,}/g) || []);
+
+  const keywords = new Set(
+    `${post.title || ""} ${post.description || ""}`.toLowerCase().match(/[a-z]{4,}/g) || []
+  );
+
   const related = allPosts
     .filter(candidate => candidate.slug !== post.slug && getCategory(candidate) === category)
     .map(candidate => {
@@ -451,11 +594,15 @@ function buildRelatedPosts(post, allPosts) {
       const overlap = (text.match(/[a-z]{4,}/g) || []).filter(word => keywords.has(word)).length;
       return { candidate, overlap };
     })
-    .sort((a, b) => b.overlap - a.overlap || new Date(b.candidate.date) - new Date(a.candidate.date))
+    .sort((a, b) =>
+      b.overlap - a.overlap ||
+      new Date(b.candidate.date) - new Date(a.candidate.date)
+    )
     .slice(0, 3)
     .map(({ candidate }) => candidate);
 
   if (!related.length) return "";
+
   return `
     <section class="related-posts" aria-label="Related articles">
       <h2 class="related-title">Continue learning</h2>
@@ -463,7 +610,8 @@ function buildRelatedPosts(post, allPosts) {
       <div class="related-grid">
         ${related.map(item => `
           <a href="/${item.slug}" class="related-card">
-            <img src="${fixImgPath(item.image)}" alt="${escHtml(item.alt || item.title)}" loading="lazy" width="320" height="180">
+            <img src="${fixImgPath(item.image)}" alt="${escHtml(item.alt || item.title)}"
+                 loading="lazy" width="320" height="180">
             <div class="related-card-body">
               <span class="related-category">${escHtml(getCategory(item))}</span>
               <h3>${escHtml(item.title)}</h3>
@@ -473,31 +621,44 @@ function buildRelatedPosts(post, allPosts) {
       </div>
     </section>`;
 }
-
 function buildPostPage(post, allPosts) {
-  const url      = `${SITE_URL}/${post.slug}`;
-  const imgRaw   = post.image || "";
-  const img      = imgRaw.startsWith("http") ? imgRaw : `${SITE_URL}${fixImgPath(imgRaw)}`;
+  const url = `${SITE_URL}/${post.slug}`;
+  const imgRaw = post.image || "";
+  const img = imgRaw.startsWith("http")
+    ? imgRaw
+    : `${SITE_URL}${fixImgPath(imgRaw)}`;
+
   const category = getCategory(post);
   const readTime = getReadingTime(post);
-  const schemas  = buildSchema(post, url, img);
-  const publishedDate = post.date ? `<meta property="article:published_time" content="${post.date}">` : "";
-  const modifiedDate = post.dateModified ? `<meta property="article:modified_time" content="${post.dateModified}">` : "";
-  const articleMeta = `${publishedDate}${modifiedDate}<meta property="article:section" content="${escHtml(category)}">`;
+  const schemas = buildSchema(post, url, img);
+
+  const publishedDate = post.date
+    ? `<meta property="article:published_time" content="${post.date}">`
+    : "";
+
+  const modifiedDate = post.dateModified
+    ? `<meta property="article:modified_time" content="${post.dateModified}">`
+    : "";
+
+  const articleMeta =
+    `${publishedDate}${modifiedDate}<meta property="article:section" content="${escHtml(category)}">`;
 
   let bodyContent = renderBlocks(post.content);
-  const toc       = buildTOC(post);
-  bodyContent     = injectHeadingIds(bodyContent, post);
+  const toc = buildTOC(post);
 
-  const faqHtml    = buildFAQ(post.faq);
+  bodyContent = injectHeadingIds(bodyContent, post);
+
+  const faqHtml = buildFAQ(post.faq);
   const adviceHtml = buildFinalAdvice(post);
-  const shareHtml  = buildShareButtons(post);
+  const shareHtml = buildShareButtons(post);
   const authorHtml = buildAuthor();
   const relatedHtml = buildRelatedPosts(post, allPosts);
 
-  const heroImg = `<img src="${fixImgPath(post.image)}" alt="${escHtml(post.alt || post.title)}"
-       loading="eager" itemprop="image" width="880" height="440"
-       style="width:100%;height:auto;border-radius:14px;margin:1rem 0;">`;
+  const heroImg = `
+    <img src="${fixImgPath(post.image)}"
+         alt="${escHtml(post.alt || post.title)}"
+         loading="eager" itemprop="image" width="880" height="440"
+         style="width:100%;height:auto;border-radius:14px;margin:1rem 0;">`;
 
   return `${htmlHead(
     `${post.title} | ${SITE_NAME}`,
@@ -507,13 +668,13 @@ function buildPostPage(post, allPosts) {
     `${schemas}
 ${articleMeta}`
   )}
+
 <body>
 ${htmlSkipLink("#post-content")}
 ${htmlHeader()}
 
 <main id="post-content">
   <article class="post-content" itemscope itemtype="https://schema.org/Article">
-
     <h1 itemprop="headline">${post.title}</h1>
 
     <div class="post-meta-bar">
@@ -524,7 +685,9 @@ ${htmlHeader()}
 
     ${heroImg}
 
-    ${post.description ? `<p class="post-description"><em>${post.description}</em></p>` : ""}
+    ${post.description
+      ? `<p class="post-description"><em>${post.description}</em></p>`
+      : ""}
 
     ${toc}
 
@@ -537,33 +700,40 @@ ${htmlHeader()}
     ${adviceHtml}
     ${authorHtml}
     ${shareHtml}
-
   </article>
 </main>
 
 ${htmlNewsletter("post")}
 ${htmlFooter()}
 ${htmlScripts()}
+
 </body>
 </html>`;
 }
 
 // ─── BUILD HOMEPAGE ─────────────────────────────────────────────────────────
+
 function buildHomepage(posts) {
   const postCards = posts.map(post => {
     const category = getCategory(post);
     const readTime = getReadingTime(post);
+
     return `
       <article class="post-card">
         <a href="/${post.slug}">
           <h2>${escHtml(post.title)}</h2>
-          <img src="${fixImgPath(post.image)}" alt="${escHtml(post.alt || post.title)}"
+
+          <img src="${fixImgPath(post.image)}"
+               alt="${escHtml(post.alt || post.title)}"
                loading="lazy" width="400" height="200">
+
           <p>${escHtml(post.description || "")}</p>
+
           <div class="post-card-meta">
             <small>${fmtDate(post.date)}</small>
             <small class="reading-time">${readTime}</small>
           </div>
+
           <div class="post-categories">
             <span class="post-category-badge">${escHtml(category)}</span>
           </div>
@@ -571,7 +741,10 @@ function buildHomepage(posts) {
       </article>`;
   }).join("\n");
 
-  const cats = CATEGORY_ORDER.filter(category => posts.some(post => getCategory(post) === category));
+  const cats = CATEGORY_ORDER.filter(category =>
+    posts.some(post => getCategory(post) === category)
+  );
+
   const pills = cats.map(c =>
     `<button class="category-pill" data-category="${escHtml(c)}">${escHtml(c)}</button>`
   ).join("\n");
@@ -583,7 +756,10 @@ function buildHomepage(posts) {
     "url": SITE_URL,
     "logo": DEFAULT_IMG,
     "sameAs": ["https://twitter.com/Mubarakgman"],
-    "founder": { "@type": "Person", "name": "Mubarak" },
+    "founder": {
+      "@type": "Person",
+      "name": "Mubarak"
+    },
     "description": "GrindToGreen helps beginners understand money through practical budgeting, investing, crypto, and side hustle guides."
   })}</script>`;
 
@@ -594,6 +770,7 @@ function buildHomepage(posts) {
     DEFAULT_IMG,
     orgSchema
   )}
+
 <body>
 ${htmlSkipLink("#posts")}
 ${htmlHeader()}
@@ -601,6 +778,7 @@ ${htmlHeader()}
 <section class="hero">
   <h1>Turn Your Grind Into Real Wealth</h1>
   <p>Budgeting, crypto, investing and side hustles built for everyone.</p>
+
   <div>
     <a href="#posts" class="btn-primary">Read Articles</a>
     <a href="/tools/" class="btn-secondary">Free Tools</a>
@@ -611,7 +789,10 @@ ${htmlHeader()}
 <div class="search-wrapper">
   <div class="search-inner">
     <span class="search-icon">Search</span>
-    <input id="post-search" type="search" placeholder="Search articles..." autocomplete="on" aria-label="Search articles">
+    <input id="post-search" type="search"
+           placeholder="Search articles..."
+           autocomplete="on"
+           aria-label="Search articles">
   </div>
 </div>
 
@@ -632,151 +813,232 @@ ${htmlFooter()}
 ${htmlScripts()}
 
 <script>
-// Search
 let currentCategory = "all";
 const allCards = Array.from(document.querySelectorAll(".post-card"));
 
 document.getElementById("post-search")?.addEventListener("input", function() {
   const q = this.value.trim().toLowerCase();
+
   allCards.forEach(card => {
     const text = card.innerText.toLowerCase();
-    const catMatch = currentCategory === "all" || card.querySelector(".post-category-badge")?.innerText.toLowerCase().includes(currentCategory.toLowerCase());
+
+    const catMatch =
+      currentCategory === "all" ||
+      card.querySelector(".post-category-badge")
+        ?.innerText.toLowerCase()
+        .includes(currentCategory.toLowerCase());
+
     card.style.display = (!q || text.includes(q)) && catMatch ? "" : "none";
   });
 });
 
-// Category filter
 document.querySelectorAll(".category-pill").forEach(btn => {
   btn.addEventListener("click", function() {
-    document.querySelectorAll(".category-pill").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".category-pill").forEach(b =>
+      b.classList.remove("active")
+    );
+
     this.classList.add("active");
     currentCategory = this.dataset.category;
-    const q = document.getElementById("post-search")?.value.trim().toLowerCase() || "";
+
+    const q = document.getElementById("post-search")
+      ?.value.trim().toLowerCase() || "";
+
     allCards.forEach(card => {
-      const catBadge = card.querySelector(".post-category-badge")?.innerText || "";
-      const catMatch = currentCategory === "all" || catBadge.toLowerCase().includes(currentCategory.toLowerCase());
-      const textMatch = !q || card.innerText.toLowerCase().includes(q);
+      const catBadge =
+        card.querySelector(".post-category-badge")?.innerText || "";
+
+      const catMatch =
+        currentCategory === "all" ||
+        catBadge.toLowerCase().includes(currentCategory.toLowerCase());
+
+      const textMatch =
+        !q || card.innerText.toLowerCase().includes(q);
+
       card.style.display = catMatch && textMatch ? "" : "none";
     });
   });
 });
 </script>
+
 </body>
 </html>`;
 }
-
 // ─── MAIN BUILD ─────────────────────────────────────────────────────────────
+
 function build() {
   const indexPath = path.join(POSTS_DIR, "index.json");
+
   if (!fs.existsSync(indexPath)) {
-    console.error("❌  posts/index.json not found. Run this script from your repo root.");
+    console.error("❌ posts/index.json not found. Run this script from your repo root.");
     process.exit(1);
   }
 
   const fileList = JSON.parse(fs.readFileSync(indexPath, "utf8"));
-  console.log(`📚  Found ${fileList.length} posts in index.json`);
+
+  console.log(`📚 Found ${fileList.length} posts in index.json`);
 
   const posts = [];
+
   for (const file of fileList) {
     const filePath = path.join(POSTS_DIR, file);
+
     if (!fs.existsSync(filePath)) {
-      console.warn(`⚠️   Missing: posts/${file} — skipping`);
+      console.warn(`⚠️ Missing: posts/${file} — skipping`);
       continue;
     }
+
     try {
       const post = JSON.parse(fs.readFileSync(filePath, "utf8"));
-      if (!post.slug) { console.warn(`⚠️   No slug in ${file} — skipping`); continue; }
-      if (RETIRED_POST_SLUGS.has(post.slug)) {
-        console.log(`↪️  Excluding retired URL /${post.slug}/ from pages and sitemap`);
+
+      if (!post.slug) {
+        console.warn(`⚠️ No slug in ${file} — skipping`);
         continue;
       }
+
+      if (RETIRED_POST_SLUGS.has(post.slug)) {
+        console.log(`↪️ Excluding retired URL /${post.slug}/ from pages and sitemap`);
+        continue;
+      }
+
       posts.push(post);
     } catch (e) {
-      console.error(`❌  JSON parse error in ${file}:`, e.message);
+      console.error(`❌ JSON parse error in ${file}:`, e.message);
     }
   }
 
   posts.sort((a, b) => {
     if (a.featured === true && b.featured !== true) return -1;
     if (b.featured === true && a.featured !== true) return 1;
+
     return new Date(b.date) - new Date(a.date);
   });
 
-  if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
+  if (!fs.existsSync(DIST_DIR)) {
+    fs.mkdirSync(DIST_DIR, { recursive: true });
+  }
 
-  // A build can run over a previous /dist directory. Remove only the known
-  // retired route directories so an old HTML file cannot remain deployable.
+  // Remove old output directories for retired post URLs.
   for (const slug of RETIRED_POST_SLUGS) {
     const retiredDir = path.join(DIST_DIR, slug);
+
     if (fs.existsSync(retiredDir)) {
       fs.rmSync(retiredDir, { recursive: true, force: true });
       console.log(`🧹 Removed retired output /${slug}/`);
     }
   }
 
-  copyDir(path.join(__dirname, "css"),    path.join(DIST_DIR, "css"));
-  copyDir(path.join(__dirname, "js"),     path.join(DIST_DIR, "js"));
+  copyDir(path.join(__dirname, "css"), path.join(DIST_DIR, "css"));
+  copyDir(path.join(__dirname, "js"), path.join(DIST_DIR, "js"));
   copyDir(path.join(__dirname, "images"), path.join(DIST_DIR, "images"));
-  copyDir(path.join(__dirname, "posts"),  path.join(DIST_DIR, "posts"));
-  copyDir(path.join(__dirname, "pages"),  path.join(DIST_DIR, "pages"));
-  copyDir(path.join(__dirname, "tools"),  path.join(DIST_DIR, "tools"));
+  copyDir(path.join(__dirname, "posts"), path.join(DIST_DIR, "posts"));
+  copyDir(path.join(__dirname, "pages"), path.join(DIST_DIR, "pages"));
+  copyDir(path.join(__dirname, "tools"), path.join(DIST_DIR, "tools"));
 
   for (const f of ["robots.txt", "ads.txt", "write-for-us.html"]) {
     const src = path.join(__dirname, f);
+
     if (fs.existsSync(src)) {
       fs.copyFileSync(src, path.join(DIST_DIR, f));
-      console.log(`✅  ${f}`);
+      console.log(`✅ ${f}`);
     }
   }
 
   let built = 0;
+
   for (const post of posts) {
     const postDir = path.join(DIST_DIR, post.slug);
+
     fs.mkdirSync(postDir, { recursive: true });
+
     const html = buildPostPage(post, posts);
+
     fs.writeFileSync(path.join(postDir, "index.html"), html, "utf8");
-    console.log(`✅  /${post.slug}/`);
+
+    console.log(`✅ /${post.slug}/`);
     built++;
   }
 
+  // Build the 404 page.
+  const notFoundHtml = buildNotFoundPage();
+
+  fs.writeFileSync(
+    path.join(DIST_DIR, "404.html"),
+    notFoundHtml,
+    "utf8"
+  );
+
+  console.log("✅ 404.html");
+
+  // Build the homepage.
   const homepageHtml = buildHomepage(posts);
-  fs.writeFileSync(path.join(DIST_DIR, "index.html"), homepageHtml, "utf8");
-  console.log(`✅  / (homepage with ${posts.length} posts)`);
 
+  fs.writeFileSync(
+    path.join(DIST_DIR, "index.html"),
+    homepageHtml,
+    "utf8"
+  );
+
+  console.log(`✅ / (homepage with ${posts.length} posts)`);
+
+  // Build redirects.
   const redirectsContent = buildRedirects(posts);
-  fs.writeFileSync(path.join(DIST_DIR, "_redirects"), redirectsContent, "utf8");
-  console.log(`✅  _redirects`);
 
+  fs.writeFileSync(
+    path.join(DIST_DIR, "_redirects"),
+    redirectsContent,
+    "utf8"
+  );
+
+  console.log("✅ _redirects");
+
+  // Build sitemap.
   const sitemapContent = buildSitemap(posts);
-  fs.writeFileSync(path.join(DIST_DIR, "sitemap.xml"), sitemapContent, "utf8");
-  fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemapContent, "utf8");
-  console.log(`✅  sitemap.xml`);
 
-  console.log(`\n🎉  Build complete — ${built} posts + homepage written to /dist/`);
-  console.log(`    Deploy the /dist/ folder to Netlify as your publish directory.`);
+  fs.writeFileSync(
+    path.join(DIST_DIR, "sitemap.xml"),
+    sitemapContent,
+    "utf8"
+  );
+
+  fs.writeFileSync(
+    path.join(__dirname, "sitemap.xml"),
+    sitemapContent,
+    "utf8"
+  );
+
+  console.log("✅ sitemap.xml");
+  console.log(`\n🎉 Build complete — ${built} posts + homepage written to /dist/`);
+  console.log("Deploy the /dist/ folder to Netlify as your publish directory.");
 }
+
+// ─── REDIRECTS ─────────────────────────────────────────────────────────────
 
 function buildRedirects(posts) {
   const staticRedirects = `
 # ── STATIC PAGES ───────────────────────────────────────────
+
 /pages/about.html    /pages/about    301!
 /pages/contact.html  /pages/contact  301!
 /pages/privacy.html  /pages/privacy  301!
 /pages/terms.html    /pages/terms    301!
 /pages/editorial-policy.html /pages/editorial-policy 301!
 /write-for-us.html   /write-for-us   301!
-/building-wealth-from-scratch-2026  /building-wealth-from-scratch    301!
+
+/building-wealth-from-scratch-2026 /building-wealth-from-scratch 301!
 
 # ── SLUG FIXES ──────────────────────────────────────────────
-/smart-budgeting-hacks-2025    /smart-budgeting-hacks-2026    301!
-/why-most-traders-fail         /why-90-percent-of-traders-fail 301!
 
-# ── MERGED / RETIRED DUPLICATE-TOPIC POSTS (AdSense low-value cleanup) ──
-/zero-based-budgeting-explained     /how-zero-based-budgeting-can-benefit-you   301!
-/is-50-30-20-rule-good              /understanding-50-30-20-rule-budgeting     301!
-/what-is-3-5-7-rule-day-trading     /master-the-3-5-7-rule-day-trading         301!
-/fastest-way-to-save-10000          /how-to-save-10000-in-a-year-on-a-low-income 301!
-/online-hustles-nigeria-no-skills-no-money  /  410!
+/smart-budgeting-hacks-2025 /smart-budgeting-hacks-2026 301!
+/why-most-traders-fail /why-90-percent-of-traders-fail 301!
+
+# ── MERGED / RETIRED POSTS ──────────────────────────────────
+
+/zero-based-budgeting-explained /how-zero-based-budgeting-can-benefit-you 301!
+/is-50-30-20-rule-good /understanding-50-30-20-rule-budgeting 301!
+/what-is-3-5-7-rule-day-trading /master-the-3-5-7-rule-day-trading 301!
+/fastest-way-to-save-10000 /how-to-save-10000-in-a-year-on-a-low-income 301!
+/online-hustles-nigeria-no-skills-no-money / 410!
 
 # ── OLD ?slug= FORMAT → CLEAN URLS ─────────────────────────`;
 
@@ -785,29 +1047,68 @@ function buildRedirects(posts) {
   ).join("\n");
 
   const staticFiles = `
-
 # ── ALLOW STATIC ASSETS ─────────────────────────────────────
+
 /posts/*    /posts/:splat    200
 /images/*   /images/:splat   200
-/css/*       /css/:splat      200
-/js/*        /js/:splat       200
+/css/*      /css/:splat      200
+/js/*       /js/:splat       200
 
-# ── STATIC HTML PAGES ────────────────────────────────────────
-/pages/about     /pages/about.html    200
-/pages/contact   /pages/contact.html  200
-/pages/privacy   /pages/privacy.html  200
-/pages/terms     /pages/terms.html    200
+# ── STATIC HTML PAGES ───────────────────────────────────────
+
+/pages/about /pages/about.html 200
+/pages/contact /pages/contact.html 200
+/pages/privacy /pages/privacy.html 200
+/pages/terms /pages/terms.html 200
 /pages/editorial-policy /pages/editorial-policy.html 200
-/write-for-us    /write-for-us.html   200
-/tools           /tools/index.html    200
-/tools/budget-tool       /tools/budget-tool.html    200
-/tools/compound-interest-calculator    /tools/compound-interest-calculator.html    200
+/write-for-us /write-for-us.html 200
+
+/tools /tools/index.html 200
+/tools/budget-tool /tools/budget-tool.html 200
+/tools/compound-interest-calculator /tools/compound-interest-calculator.html 200
 
 # ── HOMEPAGE ────────────────────────────────────────────────
-/    /index.html    200`;
 
-  return `# GrindToGreen _redirects — auto-generated by build.js\n${staticRedirects}\n${oldSlugRedirects}\n${staticFiles}`;
+/ /index.html 200
+
+# CATCH-ALL (MUST BE LAST)
+
+/* /404.html 404`;
+
+  return `# GrindToGreen _redirects — auto-generated by build.js
+${staticRedirects}
+${oldSlugRedirects}
+${staticFiles}`;
 }
+
+// ─── 404 PAGE ──────────────────────────────────────────────────────────────
+
+function buildNotFoundPage() {
+  const head = htmlHead(
+    "Page not found | Grind To Green",
+    "The page you are looking for could not be found.",
+    `${SITE_URL}/404.html`,
+    DEFAULT_IMG
+  ).replace(
+    '<meta name="description"',
+    '<meta name="robots" content="noindex">\n  <meta name="description"'
+  );
+
+  return `${head}
+<body>
+${htmlHeader()}
+
+<main class="container" style="max-width:800px;margin:4rem auto;padding:0 1rem;">
+  <h1>Page not found</h1>
+  <p>The page you are looking for could not be found.</p>
+  <p><a href="/">Go back to the homepage</a></p>
+</main>
+
+${htmlFooter()}
+</body>
+</html>`;
+}
+// ─── SITEMAP ────────────────────────────────────────────────────────────────
 
 function buildSitemap(posts) {
   const staticUrls = [
@@ -830,11 +1131,13 @@ function buildSitemap(posts) {
     lastmod: post.dateModified || post.date
   }));
 
-  const urls = [...staticUrls, ...postUrls].map(item => `  <url>
+  const urls = [...staticUrls, ...postUrls]
+    .map(item => `  <url>
     <loc>${item.loc}</loc>${item.lastmod ? `\n    <lastmod>${item.lastmod}</lastmod>` : ""}
     <changefreq>${item.changefreq}</changefreq>
     <priority>${item.priority}</priority>
-  </url>`).join("\n\n");
+  </url>`)
+    .join("\n\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -843,19 +1146,27 @@ ${urls}
 `;
 }
 
+// ─── COPY DIRECTORIES ──────────────────────────────────────────────────────
+
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) return;
+
   fs.mkdirSync(dest, { recursive: true });
+
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
-    const srcPath  = path.join(src,  entry.name);
+    const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
+
     if (entry.isDirectory()) {
       copyDir(srcPath, destPath);
     } else {
       fs.copyFileSync(srcPath, destPath);
     }
   }
-  console.log(`✅  Copied → ${path.relative(__dirname, dest)}/`);
+
+  console.log(`✅ Copied → ${path.relative(__dirname, dest)}/`);
 }
+
+// ─── RUN BUILD ─────────────────────────────────────────────────────────────
 
 build();

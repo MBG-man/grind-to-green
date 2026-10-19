@@ -652,6 +652,9 @@ a { text-decoration: none; transition: all 0.2s ease; }
 
 .contact-form button:hover {
   opacity: 0.9;
+<<<<<<< HEAD
+}
+=======
 }
 
 /* ============================================ */
@@ -857,3 +860,4 @@ a { text-decoration: none; transition: all 0.2s ease; }
 }
 
 .related-intro { color: var(--text-muted); margin: -10px 0 18px 16px; font-size: 0.95rem; }
+>>>>>>> 12f480cc800c66ad67b8030ad32afbdfccad287d
