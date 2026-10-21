@@ -670,7 +670,6 @@ ${articleMeta}`
   )}
 
 <body>
-${htmlSkipLink("#post-content")}
 ${htmlHeader()}
 
 <main id="post-content">
@@ -772,7 +771,6 @@ function buildHomepage(posts) {
   )}
 
 <body>
-${htmlSkipLink("#posts")}
 ${htmlHeader()}
 
 <section class="hero">
