@@ -19,11 +19,10 @@ const POSTS_DIR = path.join(__dirname, "posts");
 const DIST_DIR = path.join(__dirname, "dist");
 
 const RETIRED_POST_SLUGS = new Set([
-  "zero-based-budgeting-explained",
-  "is-50-30-20-rule-good",
-  "what-is-3-5-7-rule-day-trading",
-  "fastest-way-to-save-10000",
-  "online-hustles-nigeria-no-skills-no-money"
+  
+  "online-hustles-nigeria-no-skills-no-money",
+  "5-money-mistakes-that-keep-you-broke"
+
 ]);
 
 const AUTHOR = {
@@ -693,7 +692,6 @@ ${htmlHeader()}
     <div itemprop="articleBody">
       ${bodyContent}
     </div>
-
     ${relatedHtml}
     ${faqHtml}
     ${adviceHtml}
