@@ -21,7 +21,7 @@ const DIST_DIR = path.join(__dirname, "dist");
 const RETIRED_POST_SLUGS = new Set([
   
   "online-hustles-nigeria-no-skills-no-money",
-  "5-money-mistakes-that-keep-you-broke"
+
 
 ]);
 
