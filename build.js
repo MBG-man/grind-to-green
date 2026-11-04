@@ -1002,6 +1002,8 @@ function build() {
     sitemapContent,
     "utf8"
   );
+// Install GA4 on every generated and copied HTML page.
+injectGoogleAnalytics(DIST_DIR);
 
   console.log("✅ sitemap.xml");
   console.log(`\n🎉 Build complete — ${built} posts + homepage written to /dist/`);
@@ -1161,6 +1163,53 @@ function copyDir(src, dest) {
   }
 
   console.log(`✅ Copied → ${path.relative(__dirname, dest)}/`);
+}
+
+
+// ─── GOOGLE ANALYTICS 4 ─────────────────────────────────────────────────────
+
+const GA4_MEASUREMENT_ID = "G-GRPM1R7XYQ";
+
+function injectGoogleAnalytics(dir) {
+  if (!fs.existsSync(dir)) return;
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      injectGoogleAnalytics(fullPath);
+      continue;
+    }
+
+    if (!entry.isFile() || !entry.name.toLowerCase().endsWith(".html")) {
+      continue;
+    }
+
+    let html = fs.readFileSync(fullPath, "utf8");
+
+    // Prevent duplicate GA4 tracking codes.
+    if (html.includes(GA4_MEASUREMENT_ID)) continue;
+
+    const analyticsTag = `
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA4_MEASUREMENT_ID}');
+  </script>`;
+
+    if (!html.includes("</head>")) {
+      console.warn("Skipped GA4: no closing head tag in " + fullPath);
+      continue;
+    }
+
+    html = html.replace("</head>", analyticsTag + "\n</head>");
+    fs.writeFileSync(fullPath, html, "utf8");
+
+    console.log("Added GA4 tracking: " + fullPath);
+  }
 }
 
 // ─── RUN BUILD ─────────────────────────────────────────────────────────────
