@@ -239,7 +239,7 @@ function buildFinalAdvice(post) {
 }
 
 function buildShareButtons(post) {
-  const url = encodeURIComponent(`${SITE_URL}/${post.slug}`);
+  const url = encodeURIComponent(`${SITE_URL}/${post.slug}/`);
   const title = encodeURIComponent(post.title);
 
   return `
@@ -608,7 +608,7 @@ function buildRelatedPosts(post, allPosts) {
       <p class="related-intro">More practical guides on ${escHtml(category.toLowerCase())}.</p>
       <div class="related-grid">
         ${related.map(item => `
-          <a href="/${item.slug}" class="related-card">
+          <a href="/${item.slug}/" class="related-card">
             <img src="${fixImgPath(item.image)}" alt="${escHtml(item.alt || item.title)}"
                  loading="lazy" width="320" height="180">
             <div class="related-card-body">
@@ -621,7 +621,7 @@ function buildRelatedPosts(post, allPosts) {
     </section>`;
 }
 function buildPostPage(post, allPosts) {
-  const url = `${SITE_URL}/${post.slug}`;
+  const url = `${SITE_URL}/${post.slug}/`;
   const imgRaw = post.image || "";
   const img = imgRaw.startsWith("http")
     ? imgRaw
@@ -717,7 +717,7 @@ function buildHomepage(posts) {
 
     return `
       <article class="post-card">
-        <a href="/${post.slug}">
+        <a href="/${post.slug}/">
           <h2>${escHtml(post.title)}</h2>
 
           <img src="${fixImgPath(post.image)}"
@@ -1123,7 +1123,7 @@ function buildSitemap(posts) {
   ];
 
   const postUrls = posts.map(post => ({
-    loc: `${SITE_URL}/${post.slug}`,
+    loc: `${SITE_URL}/${post.slug}/`,
     priority: "0.8",
     changefreq: "monthly",
     lastmod: post.dateModified || post.date
