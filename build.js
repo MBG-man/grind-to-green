@@ -19,10 +19,11 @@ const POSTS_DIR = path.join(__dirname, "posts");
 const DIST_DIR = path.join(__dirname, "dist");
 
 const RETIRED_POST_SLUGS = new Set([
-  
   "online-hustles-nigeria-no-skills-no-money",
-
-
+  "zero-based-budgeting-explained",
+  "is-50-30-20-rule-good",
+  "what-is-3-5-7-rule-day-trading",
+  "fastest-way-to-save-10000"
 ]);
 
 const AUTHOR = {
@@ -1109,33 +1110,64 @@ ${htmlFooter()}
 // ─── SITEMAP ────────────────────────────────────────────────────────────────
 
 function buildSitemap(posts) {
-  const staticUrls = [
-    { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "daily" },
-    { loc: `${SITE_URL}/tools/`, priority: "0.8", changefreq: "weekly" },
-    { loc: `${SITE_URL}/tools/budget-tool`, priority: "0.7", changefreq: "monthly" },
-    { loc: `${SITE_URL}/tools/compound-interest-calculator`, priority: "0.7", changefreq: "monthly" },
-    { loc: `${SITE_URL}/pages/about`, priority: "0.6", changefreq: "monthly" },
-    { loc: `${SITE_URL}/pages/contact`, priority: "0.6", changefreq: "monthly" },
-    { loc: `${SITE_URL}/pages/privacy`, priority: "0.5", changefreq: "yearly" },
-    { loc: `${SITE_URL}/pages/terms`, priority: "0.5", changefreq: "yearly" },
-    { loc: `${SITE_URL}/pages/editorial-policy`, priority: "0.5", changefreq: "yearly" },
-    { loc: `${SITE_URL}/write-for-us`, priority: "0.4", changefreq: "monthly" }
+  const staticPages = [
+    { path: "/", file: "index.html", priority: "1.0", changefreq: "daily" },
+    { path: "/tools/", file: "tools/index.html", priority: "0.8", changefreq: "weekly" },
+    { path: "/tools/budget-tool", file: "tools/budget-tool.html", priority: "0.7", changefreq: "monthly" },
+    { path: "/tools/compound-interest-calculator", file: "tools/compound-interest-calculator.html", priority: "0.7", changefreq: "monthly" },
+    { path: "/pages/about", file: "pages/about.html", priority: "0.6", changefreq: "monthly" },
+    { path: "/pages/contact", file: "pages/contact.html", priority: "0.6", changefreq: "monthly" },
+    { path: "/pages/privacy", file: "pages/privacy.html", priority: "0.5", changefreq: "yearly" },
+    { path: "/pages/terms", file: "pages/terms.html", priority: "0.5", changefreq: "yearly" },
+    { path: "/pages/editorial-policy", file: "pages/editorial-policy.html", priority: "0.5", changefreq: "yearly" },
+    { path: "/write-for-us", file: "write-for-us.html", priority: "0.4", changefreq: "monthly" }
   ];
 
-  const postUrls = posts.map(post => ({
-    loc: `${SITE_URL}/${post.slug}/`,
-    priority: "0.8",
-    changefreq: "monthly",
-    lastmod: post.dateModified || post.date
-  }));
+  const escapeXml = value => String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 
-  const urls = [...staticUrls, ...postUrls]
-    .map(item => `  <url>
-    <loc>${item.loc}</loc>${item.lastmod ? `\n    <lastmod>${item.lastmod}</lastmod>` : ""}
+  const seen = new Set();
+  const entries = [];
+
+  for (const page of staticPages) {
+    if (!fs.existsSync(path.join(DIST_DIR, page.file))) continue;
+
+    const loc = `${SITE_URL}${page.path}`;
+    if (seen.has(loc)) continue;
+    seen.add(loc);
+    entries.push({ ...page, loc });
+  }
+
+  for (const post of posts) {
+    if (!post.slug || RETIRED_POST_SLUGS.has(post.slug)) continue;
+
+    const loc = `${SITE_URL}/${post.slug}/`;
+    if (seen.has(loc)) continue;
+    seen.add(loc);
+
+    const rawLastmod = post.dateModified || post.date;
+    const parsedLastmod = rawLastmod ? new Date(rawLastmod) : null;
+    const lastmod = parsedLastmod && !Number.isNaN(parsedLastmod.getTime())
+      ? parsedLastmod.toISOString().slice(0, 10)
+      : "";
+
+    entries.push({
+      loc,
+      priority: "0.8",
+      changefreq: "monthly",
+      lastmod
+    });
+  }
+
+  const urls = entries.map(item => `  <url>
+    <loc>${escapeXml(item.loc)}</loc>${item.lastmod ? `\n    <lastmod>${escapeXml(item.lastmod)}</lastmod>` : ""}
     <changefreq>${item.changefreq}</changefreq>
     <priority>${item.priority}</priority>
-  </url>`)
-    .join("\n\n");
+  </url>`).join("\n\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1143,7 +1175,6 @@ ${urls}
 </urlset>
 `;
 }
-
 // ─── COPY DIRECTORIES ──────────────────────────────────────────────────────
 
 function copyDir(src, dest) {
