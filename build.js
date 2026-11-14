@@ -20,10 +20,7 @@ const DIST_DIR = path.join(__dirname, "dist");
 
 const RETIRED_POST_SLUGS = new Set([
   "online-hustles-nigeria-no-skills-no-money",
-  "zero-based-budgeting-explained",
-  "is-50-30-20-rule-good",
-  "what-is-3-5-7-rule-day-trading",
-  "fastest-way-to-save-10000"
+  "how-much-emergency-fund-do-you-need"
 ]);
 
 const AUTHOR = {

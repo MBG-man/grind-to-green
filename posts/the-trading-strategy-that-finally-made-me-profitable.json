@@ -17,7 +17,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If you’re serious about consistency, you should also read our detailed guide on <a href=\"/post.html?slug=is-trading-a-form-of-gambling\">trading as a business</a>, which explains why structure and process matter more than motivation."
+      "text": "If you’re serious about consistency, you should also read our detailed guide on <a href='/is-trading-gambling-raw-truth'>whether trading is gambling</a>, which explains why structure and process matter more than motivation."
     },
     {
       "type": "paragraph",
@@ -119,7 +119,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Risk management plays a major role in this framework. You may find it helpful to review our breakdown of <a href='post.html?slug=what-is-3-5-7-rule-day-trading'>the 3-5-7 risk rule </a> and how professional traders protect capital."
+      "text": "Risk management plays a major role in this framework. You may find it helpful to review our guide to <a href='/master-the-3-5-7-rule-day-trading'>the 3-5-7 risk rule</a> and how traders try to protect capital."
     },
     {
       "type": "heading",
@@ -145,6 +145,34 @@
         "<strong>Entry Signal:</strong> A clear bullish or bearish price action candle (like a pin bar or engulfing candle) at that level.",
         "<strong>Trade Management:</strong> Stop-loss placed just beyond the signal candle. Take-profit set at a 2:1 or 3:1 Risk/Reward ratio."
       ]
+    },
+    {
+      "type": "heading",
+      "text": "A Worked Example With Real Numbers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Say the account is $10,000 and the rule is to risk 1%, so $100 per trade. EUR/USD is in a clear daily uptrend. Price pulls back to the 20-period moving average on the 4-hour chart and prints a bullish pin bar. The entry is at 1.0850, the stop-loss sits just under the pin bar at 1.0820 (30 pips) and the target is 1.0910 (60 pips), a 2:1 reward-to-risk ratio."
+    },
+    {
+      "type": "paragraph",
+      "text": "To risk $100 over 30 pips, the position needs to be worth about $3.33 a pip, roughly 0.33 lots. If the stop-loss is hit, the loss is $100, which is 1% of the account. If the target is hit, the gain is about $200. The trade is decided before it starts, and once it's placed there's nothing left to agonise over."
+    },
+    {
+      "type": "heading",
+      "text": "The Maths Behind a 40% Win Rate"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is why losing 40% to 60% of trades isn't a problem. Expectancy per trade, measured in units of risk, is the win rate multiplied by the reward, minus the loss rate multiplied by one. At a 40% win rate and 2:1 reward-to-risk, that's (0.40 × 2) − (0.60 × 1) = +0.2 units, so roughly $20 per $100 risked on average. At 3:1, it's (0.40 × 3) − 0.60 = +0.6 units. At a 35% win rate with 2:1, it flips negative: (0.35 × 2) − 0.65 = +0.05, barely above zero before costs. Costs matter, which is why the edge has to be real and the sample large enough to trust."
+    },
+    {
+      "type": "heading",
+      "text": "Test Before You Trust"
+    },
+    {
+      "type": "paragraph",
+      "text": "A rule that sounds good isn't an edge until the records say so. Before using real money, write the rules down, test them on past charts and trade them on a demo account for a meaningful number of trades. Track the win rate, the average win, the average loss and the result after spreads and commissions. If you can't show a positive expectancy on paper, the market will find out for you at a much higher price."
     },
     {
       "type": "heading",
@@ -205,11 +233,25 @@
     },
     {
       "type": "paragraph",
-      "text": "If emotional control is your biggest challenge, our article on <a href=\"/post.html?slug=why-most-traders-fail\">why most traders fail</a> explains the psychological traps that cause repeated losses."
+      "text": "If emotional control is your biggest challenge, our article on <a href='/why-90-percent-of-traders-fail'>why most traders fail</a> explains the psychological traps that cause repeated losses."
     },
     {
       "type": "paragraph",
-      "text": "To bulding a wealth in any space not only in frelancing, you need proper scaling and investing, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
+      "text": "Building wealth in any space, not only trading, takes proper scaling and investing. Making profit is only half of it; securing it and cutting losses and expenses matters more. To learn more, see <a href='/building-wealth-from-scratch'>building wealth from scratch</a>. The aim is to build wealth, not just to look rich."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is there a trading strategy that guarantees profits?",
+      "answer": "No. Every strategy has losing trades and losing periods. What improves your odds is a clear rule, strict risk management and honest records."
+    },
+    {
+      "question": "What risk per trade does this framework use?",
+      "answer": "1% of the account per trade. On a $10,000 account that's $100, which keeps a losing streak survivable."
+    },
+    {
+      "question": "Do I need to win most of my trades to be profitable?",
+      "answer": "No. With a reward at least twice the risk, a trader can win well under half of their trades and still come out ahead, provided the results hold up after costs."
     }
   ]
 }

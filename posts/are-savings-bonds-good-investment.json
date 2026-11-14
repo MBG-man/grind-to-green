@@ -13,7 +13,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If you have ever wondered whether savings bonds still make sense in 2026, you are not alone. With high-yield savings accounts paying around 4% and inflation still on everyone's mind, savings bonds look more interesting than they have in years. But are they the right fit for your portfolio? Here is a straightforward breakdown of how savings bonds work, what they pay right now, and who they are actually for."
+      "text": "Savings bonds are one of the least glamorous things you can own, and in 2026 they've become interesting again. Treasury has just reset the rates for bonds bought from November 2026 through April 2027, and the Series I bond now pays its highest fixed rate in almost two decades. Whether that makes them right for you depends on how much you'd like to protect your money against inflation, how long you can leave it alone and where you live. Here's how savings bonds work, what they pay right now and who they actually suit."
     },
     {
       "type": "heading",
@@ -21,7 +21,7 @@
     },
     {
       "type": "paragraph",
-      "text": "When you buy a U.S. savings bond, you are lending money to the U.S. government. In return, the government promises to pay you back with interest. They are simple to buy, safe, and affordable you can start with as little as $25. Savings bonds are low-risk, government-backed assets designed for individual investors, not for trading on the open market."
+      "text": "When you buy a U.S. savings bond, you're lending money to the U.S. government, which promises to pay you back with interest. They're simple, backed by the government and affordable, since you can start with as little as $25. They're built for individual savers, not for trading: you can't sell one to another investor, only redeem it with the Treasury."
     },
     {
       "type": "heading",
@@ -29,11 +29,23 @@
     },
     {
       "type": "paragraph",
-      "text": "<strong>Series EE Bonds The Fixed-Rate Option:</strong> Current rate is 2.50% for bonds issued November 2025 through April 2026. The rate is fixed for the first 20 years. The key feature is a doubling guarantee — at 20 years, the bond will be worth at least double its purchase price regardless of the interest rate."
+      "text": "<strong>Series EE bonds, the fixed-rate option:</strong> bonds issued from November 2026 through April 2027 earn a fixed rate of 2.90%, up from 2.40% for the previous six months. The rate is set when you buy. The main feature is a guarantee: if you hold an EE bond for 20 years, Treasury promises it will have doubled in value, topping it up if needed. That guarantee works out to roughly 3.5% a year over those two decades, so EE bonds only make sense if you're sure you can wait."
     },
     {
       "type": "paragraph",
-      "text": "<strong>Series I Bonds The Inflation-Protected Option:</strong> Current composite rate is 4.03% for bonds issued November 2025 through April 2026. This is made up of a fixed rate (currently 0.90%) plus a variable rate that adjusts every six months based on inflation. When inflation rises, so does your return — which is why I bonds paid over 9% in 2022 when inflation spiked."
+      "text": "<strong>Series I bonds, the inflation-protected option:</strong> bonds issued over the same period carry a composite rate of 5.51%. It's built from two parts. A fixed rate, now 1.40% and the highest since 2006, stays with the bond for its whole life. A variable rate, currently 4.08% annualised, is reset every six months from inflation. That's why I bonds paid over 9% in 2022 when inflation spiked, and why the 5.51% you see today is a snapshot rather than a promise."
+    },
+    {
+      "type": "heading",
+      "text": "How the I Bond Rate Actually Works"
+    },
+    {
+      "type": "paragraph",
+      "text": "The fixed rate is what really matters over the long run, because it's the amount by which your bond beats inflation, whatever inflation does. A bond with a 1.40% fixed rate should keep growing faster than prices by about that margin for as long as you hold it, up to 30 years. The variable part simply tracks inflation, so it can fall as well as rise. If inflation cools, your composite rate will come down, but the 1.40% stays."
+    },
+    {
+      "type": "paragraph",
+      "text": "To make that concrete, $5,000 put into an I bond today would earn roughly $138 in its first six months at the current 5.51% annual rate. After that the variable part resets, and the figure could be higher or lower. Treasury announces new rates every May and November, and your own bond's rate changes six months after its issue month, so check TreasuryDirect before you buy."
     },
     {
       "type": "heading",
@@ -41,13 +53,31 @@
     },
     {
       "type": "table",
-      "headers": ["Advantage", "Why It Matters"],
+      "headers": [
+        "Advantage",
+        "Why It Matters"
+      ],
       "rows": [
-        ["Government-backed safety", "You cannot lose principal. The U.S. government guarantees repayment."],
-        ["Inflation protection (I bonds)", "Your return rises automatically with inflation."],
-        ["Tax advantages", "Interest is exempt from state and local tax. Federal tax deferred until redemption."],
-        ["Education tax exclusion", "Interest may be fully tax-free if used for qualified higher education expenses."],
-        ["No fees", "No commissions, management fees, or account minimums beyond the $25 purchase minimum."]
+        [
+          "Government-backed safety",
+          "You can't lose your principal. The U.S. government guarantees repayment."
+        ],
+        [
+          "Inflation protection (I bonds)",
+          "Your return rises automatically when inflation rises, and the fixed rate adds a margin on top."
+        ],
+        [
+          "Tax advantages",
+          "Interest is exempt from state and local tax, and federal tax is deferred until you redeem."
+        ],
+        [
+          "Education tax exclusion",
+          "Interest may be tax-free if used for qualified higher education expenses, subject to income limits."
+        ],
+        [
+          "No fees",
+          "No commissions or management fees, and no minimum beyond the $25 purchase."
+        ]
       ]
     },
     {
@@ -56,13 +86,31 @@
     },
     {
       "type": "table",
-      "headers": ["Disadvantage", "What You Need to Know"],
+      "headers": [
+        "Disadvantage",
+        "What You Need to Know"
+      ],
       "rows": [
-        ["Low returns vs stocks", "2.50–4.03% may not beat long-term stock market averages of 7–10%."],
-        ["Illiquidity", "You cannot cash a savings bond for the first 12 months."],
-        ["Early withdrawal penalty", "Cash out within five years and you lose the last three months of interest."],
-        ["Annual purchase limit", "You can only buy $10,000 per series per year."],
-        ["No secondary market", "Savings bonds cannot be sold only redeemed directly with the Treasury."]
+        [
+          "Lower long-run returns than stocks",
+          "2.90% to 5.51% is unlikely to match long-term stock market averages, which have been around 7% to 10% before inflation."
+        ],
+        [
+          "Illiquidity",
+          "You can't cash a savings bond during the first 12 months."
+        ],
+        [
+          "Early withdrawal penalty",
+          "Cash out within five years and you lose the last three months of interest."
+        ],
+        [
+          "Annual purchase limit",
+          "You can buy $10,000 of each series per person per calendar year."
+        ],
+        [
+          "No secondary market",
+          "You can't sell a savings bond to anyone else; you can only redeem it with the Treasury."
+        ]
       ]
     },
     {
@@ -71,26 +119,66 @@
     },
     {
       "type": "paragraph",
-      "text": "Savings bonds make sense if you want safety above all else, are saving for a long-term goal with inflation protection, live in a high-tax state, are saving for a child's college education, or have already maxed out other safe options like a high-yield savings account."
+      "text": "Savings bonds make sense if you want safety above all else, are saving for a goal that's at least a few years away and want protection against inflation, live in a high-tax state, are saving for a child's education, or have already used up other safe options such as a high-yield savings account. They're a good fit for a second layer of emergency savings, the money you can leave for five years but would rather not risk."
     },
     {
       "type": "paragraph",
-      "text": "They are probably not for you if you need access to the money within 12 months, are seeking high returns, or want to invest more than $10,000 per year."
+      "text": "They're probably not for you if you need the money within 12 months, are chasing high returns or want to put more than $10,000 a year into this kind of asset. Also note that TreasuryDirect accounts are set up for people with a U.S. Social Security number and a U.S. bank account, so savers elsewhere, including in Nigeria, will need to look at local alternatives."
     },
     {
       "type": "heading",
-      "text": "How Savings Bonds Compare to Other Safe Options (2026)"
+      "text": "How Savings Bonds Compare to Other Safe Options"
     },
     {
       "type": "table",
-      "headers": ["Investment", "Rate (Approx)", "Risk", "Liquidity", "State Tax"],
+      "headers": [
+        "Investment",
+        "Rate (approx.)",
+        "Risk",
+        "Liquidity",
+        "State Tax"
+      ],
       "rows": [
-        ["Series I Bond", "4.03%", "Very low", "Locked 1 year; penalty before 5 years", "Exempt"],
-        ["Series EE Bond", "2.50%", "Very low", "Locked 1 year; penalty before 5 years", "Exempt"],
-        ["High-Yield Savings Account", "4.0–4.2%", "Very low (FDIC insured)", "Immediate", "Taxable"],
-        ["1-Year CD", "4.1–4.5%", "Very low (FDIC insured)", "Locked for term", "Taxable"],
-        ["3-Month Treasury Bill", "~3.5–4.2%", "Very low", "Tradable", "Exempt"]
+        [
+          "Series I Bond",
+          "5.51% for the first six months, then resets",
+          "Very low",
+          "Locked 1 year; penalty before 5 years",
+          "Exempt"
+        ],
+        [
+          "Series EE Bond",
+          "2.90% fixed (about 3.5% a year if held 20 years)",
+          "Very low",
+          "Locked 1 year; penalty before 5 years",
+          "Exempt"
+        ],
+        [
+          "1-Year Treasury Bill",
+          "About 4.4% in late October 2026",
+          "Very low",
+          "Tradable",
+          "Exempt"
+        ],
+        [
+          "High-Yield Savings Account",
+          "Varies by bank",
+          "Very low (FDIC insured)",
+          "Immediate",
+          "Taxable"
+        ],
+        [
+          "1-Year CD",
+          "Varies by bank",
+          "Very low (FDIC insured)",
+          "Locked for term",
+          "Taxable"
+        ]
       ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Notice how close the safe options are right now. The I bond's headline rate is attractive and its fixed rate is the best in years, but it comes with a one-year lockup and a penalty if you leave early, so for money you may need soon, a savings account or a Treasury bill can be just as sensible. Rates on savings accounts and CDs differ widely between banks, so compare current offers rather than relying on a table."
     },
     {
       "type": "heading",
@@ -98,7 +186,23 @@
     },
     {
       "type": "paragraph",
-      "text": "You can only buy electronic savings bonds through TreasuryDirect.gov. Create an account, link your bank account, choose Series EE or Series I, enter the purchase amount ($25 minimum, $10,000 maximum per series per year), and confirm. The bonds appear in your online account and you can hold them for up to 30 years."
+      "text": "You can buy electronic savings bonds only through TreasuryDirect.gov. Create an account, link your bank account, choose Series EE or Series I, enter the amount ($25 minimum, $10,000 maximum per series per person per year) and confirm. The bonds appear in your online account and keep earning interest for up to 30 years. A small timing tip: a bond bought on any day of a month is treated as issued on the first of that month, so buying near the end of the month earns a full month of interest while your cash earned something elsewhere until then."
+    },
+    {
+      "type": "heading",
+      "text": "Common Mistakes With Savings Bonds"
+    },
+    {
+      "type": "paragraph",
+      "text": "The biggest one is buying with money you might need within the year. Because you can't redeem for the first 12 months, an unexpected bill can leave you stuck. The second is forgetting the five-year penalty. Cashing out at year three costs the last three months of interest, which takes a real bite out of a bond that's earning well. A third is treating the headline composite rate as permanent, when only the fixed part is. And many buyers never check TreasuryDirect for the current rate before purchasing, relying on older articles, so confirm the figures there on the day you buy."
+    },
+    {
+      "type": "heading",
+      "text": "Where Savings Bonds Fit in a Plan"
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful way to think about savings is in layers. The first layer is cash you can reach today, in a savings account, for emergencies and near-term bills. The second is money you won't need for a few years, and this is where I bonds can shine, because they protect against inflation and don't fluctuate in price. The third layer is long-term growth money, which usually belongs in diversified investments such as index funds. Savings bonds work as the middle layer, not as a replacement for either of the others."
     },
     {
       "type": "heading",
@@ -106,11 +210,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Buy I bonds if you want safety and inflation protection, can leave the money for at least one year, and live in a high-tax state. Consider EE bonds only if you are certain you can hold them for the full 20 years to get the doubling guarantee. Skip savings bonds entirely if you need immediate liquidity, are chasing higher returns, or want to invest more than $10,000 per year in this asset class."
+      "text": "Buy I bonds if you want safety and inflation protection, can leave the money for at least a year and ideally five, and are eligible to buy. The 1.40% fixed rate is the strongest in nearly two decades, which makes this a better moment than most. Consider EE bonds only if you're certain you can hold them for 20 years to collect the doubling guarantee. Skip savings bonds if you need quick access to your money, are chasing higher returns or want to invest much more than $10,000 a year in this kind of asset."
     },
     {
       "type": "paragraph",
-      "text": "If you are just starting your wealth-building journey, read the complete <a href='/building-wealth-from-scratch'>building wealth from scratch guide</a> to understand the foundation before choosing individual tools like savings bonds."
+      "text": "If you're just starting your wealth-building journey, read the complete <a href='/building-wealth-from-scratch'>building wealth from scratch guide</a> to understand the foundation before choosing individual tools like savings bonds."
     },
     {
       "type": "heading",
@@ -120,7 +224,6 @@
       "type": "list",
       "items": [
         "<a href='/smart-budgeting-hacks-2026'>50 Smart Budgeting Hacks That Actually Work</a>",
-        "<a href='/zero-based-budgeting-explained'>Zero-Based Budgeting: The Complete Guide</a>",
         "<a href='/what-is-the-four-walls-budget'>What Is the Four Walls Budget?</a>"
       ]
     }
@@ -128,30 +231,30 @@
   "faq": [
     {
       "question": "Can I lose money with savings bonds?",
-      "answer": "No. As long as you hold them for at least one year, you will get back at least your original investment plus interest earned — minus any penalty if you cash out within five years."
+      "answer": "Not your principal. The U.S. government guarantees it. If you cash out within five years you lose the last three months of interest, and the bond can't be redeemed at all in the first 12 months. After inflation, an EE bond's return can also be low."
     },
     {
       "question": "Are savings bonds better than a high-yield savings account?",
-      "answer": "It depends. If you need immediate access to your money, a HYSA is better. If you want inflation protection and state tax exemption, I bonds may win. Right now the rates are similar, so liquidity is the main trade-off."
+      "answer": "It depends. If you need immediate access to your money, a savings account is better. If you want inflation protection and state tax exemption, I bonds can win, particularly now that the fixed rate is 1.40%. Compare current rates before deciding, because both change."
     },
     {
       "question": "Should I buy I bonds or EE bonds?",
-      "answer": "For most people in 2026, I bonds make more sense. They pay significantly more (4.03% vs 2.50%) and offer inflation protection. EE bonds are only worth considering if you are certain you can hold them for 20 years to lock in the doubling guarantee."
+      "answer": "For most people, I bonds make more sense right now. They pay 5.51% for the first six months against 2.90% for EE bonds and they protect against inflation. EE bonds are only worth considering if you're certain you can hold them for 20 years to get the doubling guarantee."
     },
     {
       "question": "What happens if I need to cash a savings bond early?",
-      "answer": "You must hold the bond for at least 12 months. If you cash it between years one and five, you lose the last three months of interest. After five years there is no penalty."
+      "answer": "You must hold the bond for at least 12 months. If you cash it between years one and five, you lose the last three months of interest. After five years there's no penalty."
     },
     {
       "question": "Are savings bonds worth it for retirement?",
-      "answer": "Generally no. For long-term retirement savings, stocks and index funds have historically provided much higher returns. Savings bonds are better for shorter-term goals, emergency funds, or the conservative portion of your portfolio."
+      "answer": "Generally no. For long-term retirement savings, stocks and index funds have historically provided much higher returns. Savings bonds suit shorter-term goals, backup emergency savings or the conservative part of a portfolio."
     },
     {
       "question": "Can I buy savings bonds for my child?",
-      "answer": "Yes. You can purchase bonds as a gift or open a minor linked account through TreasuryDirect."
+      "answer": "Yes. You can buy bonds as a gift or open a minor-linked account through TreasuryDirect."
     }
   ],
   "final_advice": {
-    "text": "The best investment is the one you understand and can stick with. Savings bonds will not make you rich, but they can keep your money safe and growing steadily. Use them as a tool not a lottery ticket, and not a substitute for a proper investment plan."
+    "text": "The best investment is the one you understand and can stick with. Savings bonds won't make you rich, but they can keep your money safe and growing steadily. Use them as a tool, not as a lottery ticket and not as a substitute for a proper investment plan."
   }
 }
