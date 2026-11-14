@@ -10,7 +10,7 @@
   "content": [
     {
       "type": "paragraph",
-      "text": "Let me be honest with you. I know someone a sharp guy, university graduate, works hard who put ₦450,000 into a forex trading account in 2023. The platform looked clean. The account manager was smooth on WhatsApp. Profits were showing on his dashboard every week. Then one day, he tried to withdraw ₦80,000 and that is where the story changed."
+      "text": "Consider a sharp university graduate who puts ₦450,000 into a forex trading account in 2023. The platform looks clean, the account manager is smooth on WhatsApp and profits show on the dashboard every week. Then one day he tries to withdraw ₦80,000, and that's where the story changes."
     },
     {
       "type": "paragraph",
@@ -42,14 +42,35 @@
     },
     {
       "type": "table",
-      "headers": ["The Problem", "What the Data Shows"],
+      "headers": [
+        "The Problem",
+        "What the Data Shows"
+      ],
       "rows": [
-        ["EFCC forex fraud cases (2024)", "Over 6,400 reported — and many more go unreported"],
-        ["Average amount lost per victim", "Between ₦200,000 and ₦900,000"],
-        ["Most common scam method", "WhatsApp and Telegram account managers with fake dashboards"],
-        ["Percentage of scam brokers with no license", "Over 80% operate with no verifiable regulatory registration"],
-        ["Withdrawal scam trigger", "Most victims are only scammed when they try to withdraw profits"],
-        ["Recovery scam risk", "1 in 3 victims who seek a recovery agent are scammed a second time"]
+        [
+          "EFCC forex fraud cases (2024)",
+          "Over 6,400 reported — and many more go unreported"
+        ],
+        [
+          "Average amount lost per victim",
+          "Between ₦200,000 and ₦900,000"
+        ],
+        [
+          "Most common scam method",
+          "WhatsApp and Telegram account managers with fake dashboards"
+        ],
+        [
+          "Percentage of scam brokers with no license",
+          "Over 80% operate with no verifiable regulatory registration"
+        ],
+        [
+          "Withdrawal scam trigger",
+          "Most victims are only scammed when they try to withdraw profits"
+        ],
+        [
+          "Recovery scam risk",
+          "1 in 3 victims who seek a recovery agent are scammed a second time"
+        ]
       ]
     },
     {
@@ -134,14 +155,42 @@
     },
     {
       "type": "table",
-      "headers": ["Verification Step", "Where to Do It", "What to Look For"],
+      "headers": [
+        "Verification Step",
+        "Where to Do It",
+        "What to Look For"
+      ],
       "rows": [
-        ["Search their license number", "sec.gov.ng, fca.org.uk, asic.gov.au, cysec.gov.cy, fsca.co.za", "Exact match on the official register name, license number, and active status"],
-        ["Search their reputation", "Google: [Broker Name] + scam / withdrawal problem / review", "Look for consistent complaints across multiple independent sources"],
-        ["Read real user reviews", "Trustpilot, Forex Peace Army, Nairaland forex section", "Pay close attention to negative reviews about withdrawals"],
-        ["Test a small withdrawal", "Deposit a minimal amount first  try ₦5,000 to ₦10,000", "If the withdrawal works cleanly without extra demands, that is a good sign"],
-        ["Verify the website URL", "Check it against the official broker site before logging in", "Look for subtle character changes exness.com vs ex-ness.com"],
-        ["Ask the community", "Reddit r/Forex, Nairaland, Nigerian Twitter/X forex communities", "Real traders who have used the platform will tell you the truth"]
+        [
+          "Search their license number",
+          "sec.gov.ng, fca.org.uk, asic.gov.au, cysec.gov.cy, fsca.co.za",
+          "Exact match on the official register name, license number, and active status"
+        ],
+        [
+          "Search their reputation",
+          "Google: [Broker Name] + scam / withdrawal problem / review",
+          "Look for consistent complaints across multiple independent sources"
+        ],
+        [
+          "Read real user reviews",
+          "Trustpilot, Forex Peace Army, Nairaland forex section",
+          "Pay close attention to negative reviews about withdrawals"
+        ],
+        [
+          "Test a small withdrawal",
+          "Deposit a minimal amount first  try ₦5,000 to ₦10,000",
+          "If the withdrawal works cleanly without extra demands, that is a good sign"
+        ],
+        [
+          "Verify the website URL",
+          "Check it against the official broker site before logging in",
+          "Look for subtle character changes exness.com vs ex-ness.com"
+        ],
+        [
+          "Ask the community",
+          "Reddit r/Forex, Nairaland, Nigerian Twitter/X forex communities",
+          "Real traders who have used the platform will tell you the truth"
+        ]
       ]
     },
     {
@@ -154,13 +203,37 @@
     },
     {
       "type": "table",
-      "headers": ["Broker", "Regulator", "Why Nigerians Use It"],
+      "headers": [
+        "Broker",
+        "Regulator",
+        "Why Nigerians Use It"
+      ],
       "rows": [
-        ["Exness", "FCA (UK), CySEC (Cyprus)", "Fast withdrawals, naira deposits, very popular in Nigeria"],
-        ["XM Global", "ASIC (Australia), CySEC", "Low minimum deposit, accepts NGN, strong educational content"],
-        ["FXTM (ForexTime)", "CySEC (Cyprus), FSCA (South Africa)", "Nigerian customer support, local payment options"],
-        ["HFM (HotForex)", "FSCA (South Africa), FCA (UK)", "Accepts NGN deposits, copy trading feature available"],
-        ["OctaFX", "Licensed in multiple jurisdictions", "Popular among Nigerian traders, easy mobile interface"]
+        [
+          "Exness",
+          "FCA (UK), CySEC (Cyprus)",
+          "Fast withdrawals, naira deposits, very popular in Nigeria"
+        ],
+        [
+          "XM Global",
+          "ASIC (Australia), CySEC",
+          "Low minimum deposit, accepts NGN, strong educational content"
+        ],
+        [
+          "FXTM (ForexTime)",
+          "CySEC (Cyprus), FSCA (South Africa)",
+          "Nigerian customer support, local payment options"
+        ],
+        [
+          "HFM (HotForex)",
+          "FSCA (South Africa), FCA (UK)",
+          "Accepts NGN deposits, copy trading feature available"
+        ],
+        [
+          "OctaFX",
+          "Licensed in multiple jurisdictions",
+          "Popular among Nigerian traders, easy mobile interface"
+        ]
       ]
     },
     {
@@ -177,34 +250,60 @@
     },
     {
       "type": "table",
-      "headers": ["Step", "Action", "Important Note"],
+      "headers": [
+        "Step",
+        "Action",
+        "Important Note"
+      ],
       "rows": [
-        ["1", "Report to the SEC Nigeria at sec.gov.ng", "File a formal written complaint with all evidence screenshots, receipts, chat logs"],
-        ["2", "Report to the EFCC online portal", "The EFCC takes forex fraud seriously and has recovered funds in some cases"],
-        ["3", "Notify your bank immediately", "If you transferred via bank, your bank may be able to flag or trace the transaction before it clears"],
-        ["4", "Warn the community", "Post your experience on Nairaland, Twitter/X, and forex communities protect others"],
-        ["5", "Avoid recovery agents", "Anyone who promises to recover your scammed money is almost certainly running a second scam this is called a recovery scam and it is extremely common"]
+        [
+          "1",
+          "Report to the SEC Nigeria at sec.gov.ng",
+          "File a formal written complaint with all evidence screenshots, receipts, chat logs"
+        ],
+        [
+          "2",
+          "Report to the EFCC online portal",
+          "The EFCC takes forex fraud seriously and has recovered funds in some cases"
+        ],
+        [
+          "3",
+          "Notify your bank immediately",
+          "If you transferred via bank, your bank may be able to flag or trace the transaction before it clears"
+        ],
+        [
+          "4",
+          "Warn the community",
+          "Post your experience on Nairaland, Twitter/X, and forex communities protect others"
+        ],
+        [
+          "5",
+          "Avoid recovery agents",
+          "Anyone who promises to recover your scammed money is almost certainly running a second scam this is called a recovery scam and it is extremely common"
+        ]
       ]
     },
     {
       "type": "paragraph",
       "text": "The recovery scam warning deserves extra emphasis. After being scammed, it is natural to look for a way to get your money back. Fraudsters know this and they specifically target recent victims. They will claim to be lawyers, investigators, or government agents who can recover your funds for a fee. Once you pay that fee, they disappear. Always report through official channels only — SEC, EFCC, and your bank. Never pay anyone else to recover your money."
     },
-     {
+    {
       "type": "paragraph",
-      "text":"To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
- 
+      "text": "To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='/building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
     },
-     {
+    {
       "type": "heading",
-      "text":"learn more"
+      "text": "learn more"
     },
-     { "type":"list",
-          "items": ["<a href='crypto-investment-plan-risk'>risk in crypto</a>, what you need to know",
-                     "<a href='forex-trading-real-talk-for-beginners'>forex trading tips for beginners</a>",
-                     "<a href='how-regular-people-get-rich-stock-market'>secretes of stock market</a>",
-                     "<a href='10-trading-strategies-that-work-2025'>best 10 trading strategies</a> you can try "]}
-
+    {
+      "type": "list",
+      "items": [
+        "<a href='/crypto-investment-plan-risk'>risk in crypto</a>, what you need to know",
+        "<a href='/forex-trading-real-talk-for-beginners'>forex trading tips for beginners</a>",
+        "<a href='/how-regular-people-get-rich-stock-market'>secretes of stock market</a>",
+        "<a href='/10-trading-strategies-that-work-2025'>best 10 trading strategies</a> you can try "
+      ]
+    }
   ],
   "faq": [
     {

@@ -1,4 +1,3 @@
-
 {
   "title": "Crypto in Nigeria and Africa: What to Know in 2026",
   "slug": "how-crypto-is-changing-africa-nigeria",
@@ -30,17 +29,57 @@
     },
     {
       "type": "table",
-      "headers": ["Metric", "Figure", "What It Means"],
+      "headers": [
+        "Metric",
+        "Figure",
+        "What It Means"
+      ],
       "rows": [
-        ["Nigeria Global Crypto Rank", "#6", "Ahead of most wealthy nations"],
-        ["Nigerian Crypto Users (2025)", "22 Million+", "10.3% of the entire population"],
-        ["Projected Nigerian Users by End of 2026", "28.7 Million", "Fastest growing crypto market in Africa"],
-        ["Nigeria Onchain Value (2024-2025)", "$92.1 Billion", "Nearly 3x more than South Africa"],
-        ["Sub-Saharan Africa Total Onchain Value", "$205 Billion", "52% year-over-year growth"],
-        ["Stablecoin Growth in Sub-Saharan Africa", "180% YoY", "Driven by savings and remittances"],
-        ["Nigerian Crypto Holders Under Age 30", "52%", "One of youngest crypto markets globally"],
-        ["Crypto Remittance Cost vs Traditional", "~60% cheaper", "Saving families real money every month"],
-        ["Nigerian Adults Who Have Invested in Crypto", "35%", "One of the highest rates in the world"]
+        [
+          "Nigeria Global Crypto Rank",
+          "#6",
+          "Ahead of most wealthy nations"
+        ],
+        [
+          "Nigerian Crypto Users (2025)",
+          "22 Million+",
+          "10.3% of the entire population"
+        ],
+        [
+          "Projected Nigerian Users by End of 2026",
+          "28.7 Million",
+          "Fastest growing crypto market in Africa"
+        ],
+        [
+          "Nigeria Onchain Value (2024-2025)",
+          "$92.1 Billion",
+          "Nearly 3x more than South Africa"
+        ],
+        [
+          "Sub-Saharan Africa Total Onchain Value",
+          "$205 Billion",
+          "52% year-over-year growth"
+        ],
+        [
+          "Stablecoin Growth in Sub-Saharan Africa",
+          "180% YoY",
+          "Driven by savings and remittances"
+        ],
+        [
+          "Nigerian Crypto Holders Under Age 30",
+          "52%",
+          "One of youngest crypto markets globally"
+        ],
+        [
+          "Crypto Remittance Cost vs Traditional",
+          "~60% cheaper",
+          "Saving families real money every month"
+        ],
+        [
+          "Nigerian Adults Who Have Invested in Crypto",
+          "35%",
+          "One of the highest rates in the world"
+        ]
       ]
     },
     {
@@ -183,10 +222,9 @@
       "type": "paragraph",
       "text": "Internet access is also still uneven across Nigeria. Crypto works best with reliable connectivity, and that is something many people outside major cities do not have consistently. And while regulation is improving, it is still developing which creates some uncertainty for businesses trying to operate at scale across African borders. These are real issues worth knowing about. They are not reasons to stay away from crypto. They are reasons to go in informed."
     },
-     {
+    {
       "type": "paragraph",
-      "text":"To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
- 
+      "text": "To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='/building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
     }
   ],
   "faq": [
