@@ -17,186 +17,112 @@
     },
     {
       "type": "paragraph",
-      "text": "Most traders don't fail because it's impossible to trade. They fail because they have the wrong ideas about trading, don't know how to control their risk, and don't have a plan."
+      "text": "Most traders don't fail because trading is impossible. They fail because they hold the wrong ideas about it, don't control their risk and have no plan."
     },
     {
       "type": "paragraph",
-      "text": "If you've ever"
+      "text": "If you've ever:"
     },
     {
       "type": "list",
       "items": [
-        "Opened a trading account with a lot of excitement",
-        "Watched a few YouTube videos and thought you were \"ready\"",
-        "Made some quick wins and then lost everything",
-        "Jumped from one strategy to another looking for security"
+        "Opened a trading account full of excitement",
+        "Watched a few YouTube videos and decided you were \"ready\"",
+        "Had some quick wins and then lost everything",
+        "Jumped from one strategy to the next looking for certainty"
       ]
     },
     {
       "type": "paragraph",
-      "text": "You aren't lazy. You're not dumb. You're going through what almost every retail trader goes through."
+      "text": "you aren't lazy and you aren't stupid. You're going through what almost every retail trader goes through. This guide is meant to break that cycle."
     },
     {
       "type": "paragraph",
-      "text": "This guide is meant to break that cycle."
+      "text": "It won't sell hope or promise quick cash. It will help you understand <strong>what trading strategies actually do, how they're used in real life, and why discipline matters more than the strategy you pick</strong>."
     },
-    {
-      "type": "paragraph",
-      "text": "Not to sell hopes. Not to promise quick cash. But to help you understand <strong>what trading strategies really do, how they are used in real life, and why discipline is more important than choosing a strategy</strong>."
-    },
-
     {
       "type": "heading",
       "text": "Writer and Openness"
     },
     {
       "type": "paragraph",
-      "text": "<strong>Written by Mubarak Isa</strong>, a teacher of trading and personal finance who focuses on real-world trading strategies, risk management, and the psychology of traders."
+      "text": "<strong>Written by Mubarak Isa</strong>, a teacher of trading and personal finance who focuses on real-world trading strategies, risk management and the psychology of traders."
     },
     {
       "type": "paragraph",
-      "text": "This information is only for learning. It doesn't give financial advice or promise profits. There is risk in trading, and losing money is part of the learning process."
+      "text": "This information is for learning only. It isn't financial advice and doesn't promise profits. Trading carries risk, and losing money is part of the learning process."
     },
-
     {
       "type": "heading",
       "text": "What Most People Don't Know About Trading Strategies"
     },
     {
       "type": "paragraph",
-      "text": "A strategy is <strong>not</strong> a secret code."
+      "text": "A strategy isn't a secret code. It's simply a clear way to enter the market, a clear way to handle risk and a process you can repeat again and again."
     },
     {
       "type": "paragraph",
-      "text": "A strategy is just:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "A clear way to get into the market",
-        "A clear way to handle risk",
-        "A process that can be used again and again"
-      ]
+      "text": "Most traders don't lose money because their strategy is bad. They lose because they don't know when to use it, they apply it in the wrong market conditions, they change the rules in the middle of a trade or they take too much emotional and financial risk."
     },
     {
       "type": "paragraph",
-      "text": "Most traders don't lose money because their strategy is bad; they lose money because"
-    },
-    {
-      "type": "list",
-      "items": [
-        "They don't know when to use it",
-        "They use it in the wrong market conditions",
-        "They change the rules in the middle of a trade",
-        "They take too much emotional and financial risk"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "Professionals think about <strong>probabilities</strong>. Beginners think about <strong>results</strong>."
-    },
-    {
-      "type": "paragraph",
-      "text": "That difference in mindset is more important than the signs."
-    },
-
-    {
-      "type": "heading",
-      "text": "1. Strategy for Following Trends"
-    },
-    {
-      "type": "paragraph",
-      "text": "Following trends is one of the oldest and most reliable strategies for stocks, forex, and crypto."
-    },
-    {
-      "type": "paragraph",
-      "text": "The main idea is simple:"
-    },
-    {
-      "type": "paragraph",
-      "text": "Trade in the same direction that the market is already going."
-    },
-    {
-      "type": "paragraph",
-      "text": "Tools that are often used:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Averages of Moving Averages",
-        "ADX",
-        "MACD"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Best for:</strong> Newbies and swing traders <strong>Time commitment:</strong> Medium <strong>Risk level:</strong> Moderate"
-    },
-    {
-      "type": "paragraph",
-      "text": "Most beginners fail at trend trading because they enter <strong>too late</strong> or don't want to leave when momentum slows down. Patience, not excitement, is what trend trading rewards."
-    },
-
-    {
-      "type": "heading",
-      "text": "2. Breakout Plan"
-    },
-    {
-      "type": "paragraph",
-      "text": "Breakout trading looks for times when the price breaks free from a range, support, or resistance level."
-    },
-    {
-      "type": "paragraph",
-      "text": "It works best when:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Times of high volatility",
-        "When the forex session overlaps",
-        "When the crypto market is moving"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Best for:</strong> People who trade a lot <strong>Risk level:</strong> High"
+      "text": "Professionals think about <strong>probabilities</strong>. Beginners think about <strong>results</strong>. That difference in mindset matters more than any indicator."
     },
     {
       "type": "heading",
-      "text": "Experience in the real world"
+      "text": "1. Trend Following Strategy"
     },
     {
       "type": "paragraph",
-      "text": "It happens a lot that people think they have broken out. A lot of traders lose money because they think every breakout is real. Volume confirmation and patience are very important here."
+      "text": "Trend following is one of the oldest approaches in stocks, forex and crypto, and it's the one most beginners meet first. The idea is simple: trade in the same direction the market is already moving. You aren't trying to predict a reversal, you're trying to ride momentum until it fades."
     },
-
+    {
+      "type": "paragraph",
+      "text": "Tools often used include moving averages, the ADX and the MACD. A common rule is to buy when price is above a rising moving average and sell when it's below a falling one, with a stop-loss just beyond the last swing low or high."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Best for:</strong> beginners and swing traders. <strong>Time commitment:</strong> medium. <strong>Risk level:</strong> moderate."
+    },
+    {
+      "type": "paragraph",
+      "text": "Most beginners fail at trend trading because they enter <strong>too late</strong> or refuse to leave when momentum slows. Trend following rewards patience, not excitement. Expect many small losses in choppy markets, paid for by a few large winners when a strong trend arrives."
+    },
     {
       "type": "heading",
-      "text": "3. The Scalping Strategy"
+      "text": "2. Breakout Strategy"
     },
     {
       "type": "paragraph",
-      "text": "Scalping means opening and closing trades in just a few seconds or minutes."
+      "text": "Breakout trading looks for moments when price escapes a range, support level or resistance level. The theory is that a decisive break releases pent-up momentum. It tends to work best during high volatility, around the overlap of major forex sessions and when the crypto market is moving."
     },
     {
       "type": "paragraph",
-      "text": "The goal is to catch small changes in price over and over again."
+      "text": "<strong>Best for:</strong> active traders. <strong>Risk level:</strong> high."
+    },
+    {
+      "type": "heading",
+      "text": "Real-world experience"
     },
     {
       "type": "paragraph",
-      "text": "<strong>What you need:</strong>"
+      "text": "Many breakouts fail. Price pokes above a level, traps eager buyers and falls straight back into the range. Traders lose money by treating every breakout as real. Volume confirmation, a close beyond the level and patience are essential, and so is a stop placed where the breakout is clearly wrong."
     },
     {
-      "type": "list",
-      "items": [
-        "Quick execution",
-        "Low spreads",
-        "Good emotional control"
-      ]
+      "type": "heading",
+      "text": "3. Scalping Strategy"
     },
     {
       "type": "paragraph",
-      "text": "<strong>Best for:</strong> Full-time traders <strong>Worst for:</strong> People who are just starting out"
+      "text": "Scalping means opening and closing trades within seconds or minutes, aiming to catch small price changes repeatedly. Because each profit is tiny, costs matter enormously. A spread that looks trivial can eat a large share of every winning trade."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>What you need:</strong> quick execution, low spreads and strong emotional control."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Best for:</strong> full-time traders. <strong>Worst for:</strong> people just starting out."
     },
     {
       "type": "heading",
@@ -204,68 +130,46 @@
     },
     {
       "type": "paragraph",
-      "text": "Scalping makes emotional mistakes worse. A lot of new traders trade too much, trade out of anger, and get mentally burned out."
-    },
-
-    {
-      "type": "heading",
-      "text": "4. Strategy for Swing Trading"
-    },
-    {
-      "type": "paragraph",
-      "text": "The goal of swing trading is to take advantage of price changes that happen over a few days."
-    },
-    {
-      "type": "paragraph",
-      "text": "For people with:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Work",
-        "School",
-        "Other duties"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "Tools that are often used:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "RSI",
-        "Stochastic Oscillator",
-        "Fibonacci retracement"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Best for:</strong> People who trade part-time <strong>Risk level:</strong> Moderate"
+      "text": "Scalping amplifies emotional mistakes. Many new traders overtrade, trade out of anger and burn out mentally within weeks."
     },
     {
       "type": "heading",
-      "text": "Experience in real life"
+      "text": "4. Swing Trading Strategy"
     },
     {
       "type": "paragraph",
-      "text": "Swing trading helps people who are addicted to screens and under a lot of stress, which is why so many retail traders who make money end up here."
+      "text": "Swing trading aims to capture price moves that unfold over several days. Positions are held overnight, so you don't need to watch the screen constantly. It suits people with work, school or other responsibilities."
     },
-
+    {
+      "type": "paragraph",
+      "text": "Tools often used include the RSI, the Stochastic Oscillator and Fibonacci retracement levels. A typical setup is waiting for a pullback inside a larger trend and entering when price turns back in the trend's direction."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Best for:</strong> part-time traders. <strong>Risk level:</strong> moderate."
+    },
+    {
+      "type": "heading",
+      "text": "Real-life experience"
+    },
+    {
+      "type": "paragraph",
+      "text": "Swing trading removes the screen addiction and stress that wear down short-term traders, which is why many retail traders who do last end up here. The trade-off is overnight risk: prices can gap past your stop when news breaks while you're asleep."
+    },
     {
       "type": "heading",
       "text": "5. The 3-5-7 Risk Rule (Survival Framework)"
     },
     {
       "type": "paragraph",
-      "text": "This is not a way to trade; it's a <strong>risk survival system</strong>."
+      "text": "This isn't a way to trade. It's a <strong>risk survival system</strong>, and you'll find slightly different versions of it online. The common one:"
     },
     {
       "type": "list",
       "items": [
-        "Don't risk more than 3% on each trade",
-        "Don't have more than 5% total exposure",
-        "Look for good reward-to-risk ratios"
+        "Don't risk more than 3% of your capital on any one trade",
+        "Keep total risk across open trades under 5%",
+        "Aim for winners that make around 7% of your capital, so rewards comfortably outweigh risks"
       ]
     },
     {
@@ -274,61 +178,39 @@
     },
     {
       "type": "paragraph",
-      "text": "Without risk control, a lot of profitable plans don't work. This rule is there to <strong>keep you in the game long enough to learn</strong>."
-    },
-
-    {
-      "type": "heading",
-      "text": "6. Strategy for Price Action"
-    },
-    {
-      "type": "paragraph",
-      "text": "Price action is all about reading how the market behaves in real time."
-    },
-    {
-      "type": "paragraph",
-      "text": "Traders don't rely on indicators as much as they study:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Patterns of candlesticks",
-        "Structure of the market",
-        "Support and resistance"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Best for:</strong> Traders with some experience to advanced traders"
+      "text": "Without risk control, many profitable plans fail. A 3% risk to make 7% means you only need to win about three trades in ten to break even before costs. The rule is there to <strong>keep you in the game long enough to learn</strong>. Many newer traders use a lower figure, such as 1% or 2% per trade."
     },
     {
       "type": "heading",
-      "text": "A mistake that happens a lot"
+      "text": "6. Price Action Strategy"
     },
     {
       "type": "paragraph",
-      "text": "Too much analysis. A lot of traders see patterns everywhere and forget to confirm them."
+      "text": "Price action is about reading how the market behaves in real time. Traders rely less on indicators and study candlestick patterns, market structure and support and resistance. The advantage is a clean chart and a feel for what price is doing. The cost is that it takes time and screen experience to read well."
     },
-
+    {
+      "type": "paragraph",
+      "text": "<strong>Best for:</strong> traders with some experience through to advanced."
+    },
     {
       "type": "heading",
-      "text": "7. Strategy for Trading News"
+      "text": "A common mistake"
     },
     {
       "type": "paragraph",
-      "text": "This strategy trades on the volatility that happens when big economic news comes out, like:"
+      "text": "Too much analysis. Many traders see patterns everywhere and forget to confirm them. A pattern that only appears after the fact isn't a pattern."
     },
     {
-      "type": "list",
-      "items": [
-        "NFP",
-        "CPI",
-        "Decisions about interest rates"
-      ]
+      "type": "heading",
+      "text": "7. News Trading Strategy"
     },
     {
       "type": "paragraph",
-      "text": "<strong>Best for:</strong> Advanced traders <strong>Risk level:</strong> Very high"
+      "text": "This strategy trades the volatility that follows major economic releases such as NFP (US non-farm payrolls), CPI inflation data and interest rate decisions. Price can move many pips in seconds, which looks tempting and is dangerous."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Best for:</strong> advanced traders. <strong>Risk level:</strong> very high."
     },
     {
       "type": "heading",
@@ -336,32 +218,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Slippage and emotional reactions cause a lot of accounts to lose money in news trading. It is not easy for beginners."
+      "text": "Slippage, wide spreads and emotional reactions cause many accounts to lose money around news. It isn't easy for beginners, and many experienced traders simply stay out until the dust settles."
     },
-
     {
       "type": "heading",
       "text": "8. Algorithmic (Automated) Trading"
     },
     {
       "type": "paragraph",
-      "text": "Automation uses bots or code to make trades."
+      "text": "Automation uses bots or code to place trades according to fixed rules. Common tools are Python trading bots, MetaTrader Expert Advisors and TradingView scripts."
     },
     {
       "type": "paragraph",
-      "text": "Some common tools are:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Trading bots in Python",
-        "MetaTrader Expert Advisors",
-        "TradingView scripts"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Advantage:</strong> Takes away emotion <strong>Risk:</strong> Bad testing and blind trust"
+      "text": "<strong>Advantage:</strong> it takes emotion out of execution. <strong>Risk:</strong> poor testing and blind trust."
     },
     {
       "type": "heading",
@@ -369,76 +238,107 @@
     },
     {
       "type": "paragraph",
-      "text": "Automation doesn't get rid of risk. It just changes the way mistakes happen."
+      "text": "Automation doesn't remove risk. It changes how mistakes happen. A bot that was tuned to past data can fail quickly when market conditions change, so test on data it hasn't seen and start small."
     },
-
     {
       "type": "heading",
-      "text": "9. The Mean Reversion Strategy"
+      "text": "9. Mean Reversion Strategy"
     },
     {
       "type": "paragraph",
-      "text": "Mean reversion says that prices will eventually go back to their average."
+      "text": "Mean reversion assumes that prices tend to return to their average after stretching too far. Common tools are the RSI and Bollinger Bands."
     },
     {
       "type": "paragraph",
-      "text": "Tools that are often used:"
+      "text": "<strong>Works best when:</strong> the market is range-bound. <strong>Fails when:</strong> strong trends take over, and fading a runaway trend can be very costly."
     },
-    {
-      "type": "list",
-      "items": [
-        "RSI",
-        "Bollinger Bands"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "<strong>Works best when:</strong> The market is range-bound <strong>Fails when:</strong> Strong trends take over"
-    },
-
     {
       "type": "heading",
-      "text": "10. Strategy for Global Diversification"
+      "text": "10. Global Diversification Strategy"
     },
     {
       "type": "paragraph",
-      "text": "Professional traders don't rely on just one market."
+      "text": "Professional traders rarely rely on a single market. They spread risk across stocks, forex, crypto and different sectors. Diversification makes regional news and shocks less important, though it doesn't protect against everything, especially when markets fall together."
     },
-    {
-      "type": "paragraph",
-      "text": "They spread risk across:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Stocks",
-        "Forex",
-        "Crypto",
-        "Different areas"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "text": "Diversification makes regional news and shocks less important."
-    },
-
     {
       "type": "heading",
-      "text": "Which trading strategy works best for you?"
+      "text": "Which Trading Strategy Works Best for You?"
     },
     {
       "type": "table",
-      "headers": ["Strategy", "Best For", "Time Required", "Risk Level"],
+      "headers": [
+        "Strategy",
+        "Best For",
+        "Time Required",
+        "Risk Level"
+      ],
       "rows": [
-        ["Trend Following", "Beginners", "Medium", "Moderate"],
-        ["Swing Trading", "Part-time traders", "Low", "Moderate"],
-        ["Scalping", "Full-time traders", "High", "High"],
-        ["Price Action", "Experienced traders", "Medium", "Moderate"],
-        ["News Trading", "Advanced traders", "Low", "Very High"],
-        ["Algorithmic", "Technical traders", "Low (after setup)", "Variable"]
+        [
+          "Trend Following",
+          "Beginners",
+          "Medium",
+          "Moderate"
+        ],
+        [
+          "Breakout",
+          "Active traders",
+          "High",
+          "High"
+        ],
+        [
+          "Swing Trading",
+          "Part-time traders",
+          "Low",
+          "Moderate"
+        ],
+        [
+          "Scalping",
+          "Full-time traders",
+          "High",
+          "High"
+        ],
+        [
+          "Price Action",
+          "Experienced traders",
+          "Medium",
+          "Moderate"
+        ],
+        [
+          "News Trading",
+          "Advanced traders",
+          "Low",
+          "Very High"
+        ],
+        [
+          "Algorithmic",
+          "Technical traders",
+          "Low (after setup)",
+          "Variable"
+        ],
+        [
+          "Mean Reversion",
+          "Range traders",
+          "Medium",
+          "Moderate"
+        ]
       ]
     },
-
+    {
+      "type": "heading",
+      "text": "A Worked Example: Trend Following With a Plan"
+    },
+    {
+      "type": "paragraph",
+      "text": "Say you have a $5,000 account and risk 1% per trade, so $50. EUR/USD is in a clear uptrend on the daily chart. You wait for a pullback to a rising moving average, buy at 1.0850 with a stop at 1.0820 (30 pips below) and a target at 1.0910 (60 pips above). That's a reward twice the risk. To risk $50 over 30 pips you need about $1.67 a pip, roughly 0.17 lots. If the stop is hit, you lose $50. If the target is hit, you make about $100. Nothing about the trade depended on predicting anything: the risk and reward were fixed before you entered."
+    },
+    {
+      "type": "heading",
+      "text": "How to Test a Strategy Before Risking Money"
+    },
+    {
+      "type": "paragraph",
+      "text": "Whichever strategy you choose, test it. Write the rules down so they're unambiguous, then check them against past charts to see how they would have behaved, and trade them on a demo account. Keep a journal. A dozen trades tell you nothing, but a few dozen start to show whether you have something, and costs such as spreads and commissions need to be included. If a strategy can't survive honest testing on paper, it won't survive your money."
+    },
     {
       "type": "heading",
       "text": "Mistakes That Traders Make in the Real World"
@@ -448,8 +348,8 @@
       "items": [
         "Changing strategies too often",
         "Trading too much",
-        "Not paying attention to stop losses",
-        "Making positions bigger because of emotions",
+        "Ignoring stop-losses",
+        "Making positions bigger because of emotion",
         "Trading without writing down what you do"
       ]
     },
@@ -457,61 +357,53 @@
       "type": "paragraph",
       "text": "These mistakes cost more than bad strategies do."
     },
-
     {
       "type": "heading",
-      "text": "Questions that are often asked"
+      "text": "Frequently Asked Questions"
     },
     {
       "type": "paragraph",
-      "text": "<strong>Is there a strategy that always works?</strong> No. Markets are always changing."
+      "text": "<strong>Is there a strategy that always works?</strong> No. Markets keep changing, and every strategy has periods where it fails."
     },
     {
       "type": "paragraph",
-      "text": "<strong>How many strategies should a beginner use?</strong> At most, one or two."
+      "text": "<strong>How many strategies should a beginner use?</strong> One or two at most."
     },
     {
       "type": "paragraph",
-      "text": "<strong>Can small accounts make money?</strong> Yes, but it takes time."
+      "text": "<strong>Can small accounts make money?</strong> Yes, but it takes time, and small accounts make safe position sizing harder."
     },
     {
       "type": "paragraph",
-      "text": "<strong>What is the safest strategy for beginners?</strong> Swing trading and following trends."
+      "text": "<strong>What is the safest strategy for beginners?</strong> No strategy is safe, but swing trading and trend following are often recommended because they're slower and easier to manage."
     },
     {
       "type": "paragraph",
-      "text": "<strong>Why do most traders still lose money?</strong> Because they don't follow the rules and don't manage their risks well."
+      "text": "<strong>Why do most traders still lose money?</strong> Because they break their rules and manage risk poorly."
     },
-      {
+    {
       "type": "paragraph",
-      "text":"To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
- 
+      "text": "Building wealth in any space, not only trading, takes proper scaling. Making profit is only half of it; securing it and cutting losses and expenses matters more. To learn more, see <a href='/building-wealth-from-scratch'>building wealth from scratch</a>. The aim is to build wealth, not just to look rich."
     },
-
     {
       "type": "heading",
       "text": "Last Thoughts: Have the Right Expectations"
     },
     {
       "type": "paragraph",
-      "text": "There is no one-size-fits-all trading strategy."
+      "text": "There is no one-size-fits-all trading strategy. To succeed in trading, you need discipline, control of risk, emotional stability and consistency. Your results change over time when you treat trading like a business instead of a game."
     },
     {
-      "type": "paragraph",
-      "text": "To be successful in trading, you need to:"
+      "type": "heading",
+      "text": "Keep Reading"
     },
     {
       "type": "list",
       "items": [
-        "Discipline",
-        "Control of risk",
-        "Stability of emotions",
-        "Consistency"
+        "<a href='/is-trading-gambling-raw-truth'>Is Trading Gambling? The Raw Truth</a>",
+        "<a href='/why-90-percent-of-traders-fail'>Why 90% of Traders Fail</a>",
+        "<a href='/forex-trading-real-talk-for-beginners'>Forex Trading for Beginners: A Real Talk Guide</a>"
       ]
-    },
-    {
-      "type": "paragraph",
-      "text": "Your results change over time when you treat trading like a business instead of a game."
     }
   ]
 }

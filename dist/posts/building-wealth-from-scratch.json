@@ -1,7 +1,11 @@
 {
   "title": "Building Wealth From Scratch: 5 Steps for 2026",
   "description": "Started with zero at 28. Learn how to build wealth from nothing with simple steps, real math, and no gimmicks.",
-  "categories": ["investing", "savings", "trading"],
+  "categories": [
+    "investing",
+    "savings",
+    "trading"
+  ],
   "slug": "building-wealth-from-scratch",
   "date": "2026-06-17",
   "image": "images/wealth-building.jpeg",
@@ -10,7 +14,7 @@
   "content": [
     {
       "type": "paragraph",
-      "text": "<strong>Disclaimer:</strong> I'm not a financial advisor. I'm just someone who went from $0 at 28 to a net worth I never thought possible. This is what worked for me and hundreds of others. Your results may vary. Do your own research."
+      "text": "<strong>Disclaimer:</strong> This content is educational and is not financial advice. Your results will vary, so do your own research and consider speaking to a qualified advisor."
     },
     {
       "type": "paragraph",
@@ -18,19 +22,19 @@
     },
     {
       "type": "paragraph",
-      "text": "I was 28 years old with absolutely nothing. Not $100 in savings. Not a retirement account. Not even a clear idea of where my next $500 was coming from. I had a degree, a job that paid okay, and a bank account that hit exactly $43.00 two weeks before every payday."
+      "text": "Imagine being 28 with nothing: no savings, no retirement account and no clear idea where your next $500 is coming from. A degree, a job that pays okay, and a bank balance that hits $43 two weeks before every payday. It's the starting point for many people."
     },
     {
       "type": "paragraph",
-      "text": "I wasn't stupid. I wasn't lazy. I was just flying blind. Nobody had ever sat me down and explained how money actually works. My parents did their best, but they were just as lost as I was."
+      "text": "They aren't stupid or lazy. They're flying blind, because nobody ever sat them down and explained how money works, and parents who did their best were often just as lost."
     },
     {
       "type": "paragraph",
-      "text": "Fast forward ten years. I'm financially free. Not \"I can buy a private jet\" free. But \"I don't wake up in cold sweats about money\" free. I can take a month off work without panic. I can help my family when they need it. I can invest in things that actually matter to me."
+      "text": "A few years of steady work on the basics can change that. Not \"private jet\" wealth, but the kind where you don't wake in a cold sweat about money, can take a month off work without panic and can help family when they need it."
     },
     {
       "type": "paragraph",
-      "text": "You know what the difference was? It wasn't a massive inheritance. It wasn't a lucky stock pick. It was a system. A simple, repeatable, almost boring system that anyone can follow. And that's exactly what I'm going to share with you today."
+      "text": "The difference usually isn't a massive inheritance or a lucky stock pick. It's a system: simple, repeatable and almost boring, that anyone can follow. That's what this guide sets out."
     },
     {
       "type": "paragraph",
@@ -46,7 +50,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've met people making $300,000 a year who live paycheck to paycheck. I've also met people making $50,000 who are quietly building real wealth. Income is not the differentiator. Behavior is."
+      "text": "Some people earning $300,000 a year live paycheck to paycheck, while others on $50,000 are quietly building real wealth. Income isn't the differentiator. Behaviour is."
     },
     {
       "type": "paragraph",
@@ -62,7 +66,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I'm going to walk you through exactly what I did. Not theory. Not wishful thinking. The actual steps that took me from broke to financially free. By the time you finish reading, you'll understand:"
+      "text": "This guide walks through the actual steps, not theory. By the end, you'll understand:"
     },
     {
       "type": "list",
@@ -85,7 +89,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the system I've used for years. I've refined it, tested it, and watched it work for dozens of others. It has five steps, and they build on each other. Skip one, and the whole thing falls apart. Do them in order, and you'll see progress."
+      "text": "Here's a five-step system. The steps build on each other: skip one and the rest get harder, do them in order and you'll see progress."
     },
     {
       "type": "heading",
@@ -101,7 +105,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's why this matters: you can't fix what you don't measure. I had a client named Marcus who thought he was spending about $200 a month on dining out. When we actually tracked it, he was spending $680. He was off by almost $500. That's $6,000 a year that was just... disappearing."
+      "text": "You can't fix what you don't measure. Take someone who thinks they spend about $200 a month on dining out. When they actually track it, the real figure is $680. That's an error of almost $500 a month, nearly $6,000 a year, disappearing unnoticed."
     },
     {
       "type": "paragraph",
@@ -129,13 +133,13 @@
     },
     {
       "type": "paragraph",
-      "text": "I've written extensively about different budgeting methods on this site. If you're not sure where to start, here are a few options:"
+      "text": "There are several budgeting methods to choose from. If you're not sure where to start, here are a few options:"
     },
     {
       "type": "list",
       "items": [
         "<strong><a href='/understanding-50-30-20-rule-budgeting'>The 50/30/20 Rule</a></strong> – Perfect for beginners with stable income. Simple, easy, and effective. You allocate 50% to needs, 30% to wants, and 20% to savings and debt.",
-        "<strong><a href='/zero-based-budgeting-explained'>Zero-Based Budgeting</a></strong> – For people who want complete control and are willing to put in a bit more effort. Every single dollar gets a job.",
+        "<strong><a href='/how-zero-based-budgeting-can-benefit-you'>Zero-Based Budgeting</a></strong> – For people who want complete control and are willing to put in a bit more effort. Every single dollar gets a job.",
         "<strong><a href='/what-is-the-four-walls-budget'>The Four Walls Budget</a></strong> – Focus on essentials first. Food, utilities, shelter, and transportation. Ideal for tight financial situations.",
         "<strong><a href='/smart-budgeting-hacks-2026'>50 Smart Budgeting Hacks</a></strong> – Quick wins that don't require a complete lifestyle overhaul. Small changes that add up."
       ]
@@ -158,7 +162,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've seen people spend months trying to save three months of expenses and failing. Then they get discouraged and give up entirely. Starting with a smaller goal creates momentum. And momentum is the secret sauce of wealth building."
+      "text": "Many people try to save three months of expenses in one go, struggle and give up. Starting with a smaller goal, such as one month or even $500, creates momentum, and momentum matters in wealth building."
     },
     {
       "type": "paragraph",
@@ -182,12 +186,37 @@
     },
     {
       "type": "table",
-      "headers": ["Monthly Investment", "Annual Return", "After 10 Years", "After 20 Years"],
+      "headers": [
+        "Monthly Investment",
+        "Annual Return",
+        "After 10 Years",
+        "After 20 Years"
+      ],
       "rows": [
-        ["$50", "7%", "$8,700", "$26,000"],
-        ["$100", "7%", "$17,400", "$52,000"],
-        ["$200", "7%", "$34,800", "$104,000"],
-        ["$500", "7%", "$87,000", "$260,000"]
+        [
+          "$50",
+          "7%",
+          "$8,700",
+          "$26,000"
+        ],
+        [
+          "$100",
+          "7%",
+          "$17,400",
+          "$52,000"
+        ],
+        [
+          "$200",
+          "7%",
+          "$34,800",
+          "$104,000"
+        ],
+        [
+          "$500",
+          "7%",
+          "$87,000",
+          "$260,000"
+        ]
       ]
     },
     {
@@ -204,7 +233,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If you want to go deeper, here are some guides I've written that will help:"
+      "text": "If you want to go deeper, these guides will help:"
     },
     {
       "type": "list",
@@ -236,11 +265,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I'm not suggesting you burn out trying to build multiple income streams overnight. Start with one. Something small. Something you enjoy or are good at. Test it. Refine it. Scale it. Then consider adding another."
+      "text": "Don't try to build multiple income streams overnight. Start with one small thing you enjoy or are good at. Test it, refine it, scale it, then consider adding another."
     },
     {
       "type": "paragraph",
-      "text": "If you're looking for ideas, I've put together a detailed guide on <a href='/passive-income-no-money'>10 Free Ways to Start Earning Passive Income</a>. These are methods that have worked for real people, not theoretical concepts."
+      "text": "For ideas, see our guide to <a href='/passive-income-no-money'>10 Free Ways to Start Earning Passive Income</a>. It covers realistic, low-barrier options."
     },
     {
       "type": "heading",
@@ -248,7 +277,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I need to pause here and address something important. Trading is not investing. And I'm going to say this bluntly: most beginners should not trade."
+      "text": "Trading is not investing, and most beginners should not trade."
     },
     {
       "type": "paragraph",
@@ -260,11 +289,11 @@
     },
     {
       "type": "paragraph",
-      "text": "If you want to trade, fine. But do it properly. Never risk more than 1% to 2% of your account on a single trade. Always use stop losses. And never, ever trade money you can't afford to lose. I've seen people wipe out months of savings in a single day because they got emotional and didn't follow these rules."
+      "text": "If you want to trade, do it properly: never risk more than 1% to 2% of your account on a single trade, always use stop-losses and never trade money you can't afford to lose. It's easy to wipe out months of savings in a day by getting emotional and breaking those rules."
     },
     {
       "type": "paragraph",
-      "text": "If trading genuinely interests you, I've written some guides for beginners:"
+      "text": "If trading interests you, these beginner guides are a better starting point:"
     },
     {
       "type": "list",
@@ -330,11 +359,11 @@
     },
     {
       "type": "heading",
-      "text": "The Mistakes That Will Kill Your Wealth (I Made Most of These)"
+      "text": "The Mistakes That Will Kill Your Wealth"
     },
     {
       "type": "paragraph",
-      "text": "I've made most of these mistakes. I've watched others make the rest. Here are the ones you absolutely must avoid:"
+      "text": "These are the mistakes to avoid:"
     },
     {
       "type": "list",
@@ -353,11 +382,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I saved the most important part for last. Wealth building is not just a financial exercise. It's a psychological one. The numbers are simple. The math is straightforward. But the mindset? That's where most people fail."
+      "text": "The most important part comes last. Wealth building is not just a financial exercise. It's a psychological one. The numbers are simple, but the mindset is where most people struggle."
     },
     {
       "type": "paragraph",
-      "text": "Here's what I've learned: wealth is not about the number in your bank account. It's about the relationship you have with money. It's about feeling in control. It's about knowing that you can handle financial surprises. It's about not waking up at 3 AM worrying about bills."
+      "text": "Wealth isn't about the number in your bank account. It's about your relationship with money: feeling in control, knowing you can handle financial surprises and not waking at 3 AM worrying about bills."
     },
     {
       "type": "paragraph",
@@ -389,7 +418,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I was 28, broke, and completely lost. If someone had told me then that I'd be financially free in my 30s, I wouldn't have believed them. But here I am. Not because I'm special. Because I had a system and I stuck with it."
+      "text": "Starting from zero, feeling lost and not knowing where to begin is where most wealth-building stories start. A clear system, followed consistently over years, is what changes the outcome."
     },
     {
       "type": "paragraph",
@@ -403,20 +432,20 @@
       "type": "list",
       "items": [
         "<a href='/smart-budgeting-hacks-2026'>50 Smart Budgeting Hacks</a> – Quick wins that save money without suffering.",
-        "<a href='/zero-based-budgeting-explained'>Zero-Based Budgeting: The Complete Guide</a> – Take total control of every dollar.",
+        "<a href='/how-zero-based-budgeting-can-benefit-you'>Zero-Based Budgeting: The Complete Guide</a> – Take total control of every dollar.",
         "<a href='/what-is-the-four-walls-budget'>The Four Walls Budget</a> – A survival-focused approach for tough times.",
-        "<a href='/fastest-way-to-save-10000'>The Fastest Way to Save $10,000</a> – Aggressive savings tactics that actually work."
+        "<a href='/how-to-save-10000-in-a-year-on-a-low-income'>The Fastest Way to Save $10,000</a> – Aggressive savings tactics that actually work."
       ]
     },
     {
       "type": "paragraph",
-      "text": "📧 Want to ask me something personally? <a href='./pages/contact.html'>Drop me a message here</a>. I read every single one."
+      "text": "📧 Want to ask me something personally? <a href='/pages/contact'>Drop me a message here</a>. I read every single one."
     }
   ],
   "faq": [
     {
       "question": "Can I really build wealth if I'm starting from absolutely zero?",
-      "answer": "Yes. I started from zero at age 28 and reached financial freedom by my late 30s. It takes time, consistency, and discipline, but the system works for anyone who follows it. The key is to start small and stay consistent. You don't need money to start building the habits that create wealth."
+      "answer": "Yes. Many people build wealth starting from very little. It takes time, consistency and discipline, and results depend on income, expenses and circumstances, but you don't need money to start building the habits that create wealth."
     },
     {
       "question": "How long does it actually take to see results?",

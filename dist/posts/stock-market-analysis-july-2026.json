@@ -9,11 +9,11 @@
   "content": [
     {
       "type": "paragraph",
-      "text": "Let me tell you what's happening in the stock market right now and I'm going to be brutally honest with you. It's weird, it's confusing, and it's exposing a massive divide that most investors don't fully understand."
+      "text": "The stock market in early July 2026 looked weird and confusing, and it exposed a divide that many investors don't fully understand. This commentary reflects conditions at the start of July 2026 and may be out of date. It isn't personal financial advice."
     },
     {
       "type": "paragraph",
-      "text": "I've been watching markets for over a decade, and I've seen rotations before. But this one feels different. It's not just a sector shuffle it's a complete repricing of what the market values. And if you're not paying attention, you could get caught on the wrong side of the trade."
+      "text": "Rotations aren't new, but this one looked different: not just a sector shuffle but a repricing of what the market values. Investors who aren't paying attention can end up on the wrong side of the trade."
     },
     {
       "type": "heading",
@@ -33,12 +33,37 @@
     },
     {
       "type": "table",
-      "headers": ["Index", "Close (July 3)", "Change", "YTD Return"],
+      "headers": [
+        "Index",
+        "Close (July 3)",
+        "Change",
+        "YTD Return"
+      ],
       "rows": [
-        ["Dow Jones", "52,900.07", "+1.14% (+594 pts)", "+8.7%"],
-        ["Nasdaq", "25,832.67", "-0.8% (-207 pts)", "+11.0%"],
-        ["S&P 500", "~5,600", "0.00% (0 pts)", "+9.3%"],
-        ["Equal-Weight S&P 500", "~7,100", "+0.3%", "+12.2%"]
+        [
+          "Dow Jones",
+          "52,900.07",
+          "+1.14% (+594 pts)",
+          "+8.7%"
+        ],
+        [
+          "Nasdaq",
+          "25,832.67",
+          "-0.8% (-207 pts)",
+          "+11.0%"
+        ],
+        [
+          "S&P 500",
+          "~5,600",
+          "0.00% (0 pts)",
+          "+9.3%"
+        ],
+        [
+          "Equal-Weight S&P 500",
+          "~7,100",
+          "+0.3%",
+          "+12.2%"
+        ]
       ]
     },
     {
@@ -59,21 +84,71 @@
     },
     {
       "type": "paragraph",
-      "text": "But technology? The Information Technology Select Sector SPDR (XLK) gained 2.8% on July 1, yet the Nasdaq still fell. Why? Because chip stocks are getting absolutely crushed. And I'm not talking about small pullbacks — I'm talking about double-digit percentage drops in a single day."
+      "text": "But technology? The Information Technology Select Sector SPDR (XLK) gained 2.8% on July 1, yet the Nasdaq still fell, because chip stocks were being hit hard, with double-digit percentage drops in a single day in some cases."
     },
     {
       "type": "table",
-      "headers": ["Stock", "Sector", "Decline (July 1-3)", "Why It's Dropping"],
+      "headers": [
+        "Stock",
+        "Sector",
+        "Decline (July 1-3)",
+        "Why It's Dropping"
+      ],
       "rows": [
-        ["Teradyne", "Semiconductors", "-13%", "Profit-taking, valuation concerns"],
-        ["KLA", "Semiconductors", "-11.51%", "Rotation out of expensive tech"],
-        ["Lam Research", "Semiconductors", "-10.22%", "AI hype fatigue"],
-        ["Western Digital", "Storage", "-~10%", "Chip demand fears"],
-        ["Seagate", "Storage", "-~10%", "Broader tech selloff"],
-        ["Applied Materials", "Semiconductors", "-7.31%", "Rising bond yields pressure"],
-        ["Intel", "Semiconductors", "-5.24%", "Loss of AI market share"],
-        ["AMD", "Semiconductors", "-4.28%", "Competition from Nvidia"],
-        ["Nvidia", "AI Chips", "-2.1%", "Valuation reset"]
+        [
+          "Teradyne",
+          "Semiconductors",
+          "-13%",
+          "Profit-taking, valuation concerns"
+        ],
+        [
+          "KLA",
+          "Semiconductors",
+          "-11.51%",
+          "Rotation out of expensive tech"
+        ],
+        [
+          "Lam Research",
+          "Semiconductors",
+          "-10.22%",
+          "AI hype fatigue"
+        ],
+        [
+          "Western Digital",
+          "Storage",
+          "-~10%",
+          "Chip demand fears"
+        ],
+        [
+          "Seagate",
+          "Storage",
+          "-~10%",
+          "Broader tech selloff"
+        ],
+        [
+          "Applied Materials",
+          "Semiconductors",
+          "-7.31%",
+          "Rising bond yields pressure"
+        ],
+        [
+          "Intel",
+          "Semiconductors",
+          "-5.24%",
+          "Loss of AI market share"
+        ],
+        [
+          "AMD",
+          "Semiconductors",
+          "-4.28%",
+          "Competition from Nvidia"
+        ],
+        [
+          "Nvidia",
+          "AI Chips",
+          "-2.1%",
+          "Valuation reset"
+        ]
       ]
     },
     {
@@ -90,7 +165,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Let's talk about what's really driving this volatility: AI fatigue. I've been writing about the stock market for years, and I've seen this pattern before. A new technology emerges. Everyone gets excited. Stocks skyrocket to unsustainable levels. Then reality sets in."
+      "text": "Part of what's driving this volatility is AI fatigue. The pattern is familiar: a new technology emerges, everyone gets excited, stocks climb to unsustainable levels and then reality sets in."
     },
     {
       "type": "paragraph",
@@ -110,7 +185,7 @@
     },
     {
       "type": "paragraph",
-      "text": "<strong>My take:</strong> The AI bubble isn't bursting — yet. But it's definitely losing air. And if you're holding AI stocks, you need to be prepared for more volatility ahead. Don't say I didn't warn you. I've seen this movie before, and it rarely ends well for those who buy at the peak."
+      "text": "One reading: the AI bubble isn't bursting yet, but it's losing air. Anyone holding AI stocks should be prepared for more volatility, and buying at the peak rarely ends well. That's an opinion, not a forecast."
     },
     {
       "type": "heading",
@@ -118,7 +193,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If there's one thing that's keeping everyone on edge, it's the Federal Reserve. And I'm going to be honest with you — the Fed's current position is a complete mess."
+      "text": "If one thing is keeping everyone on edge, it's the Federal Reserve, whose position looked uncertain."
     },
     {
       "type": "paragraph",
@@ -126,12 +201,32 @@
     },
     {
       "type": "table",
-      "headers": ["Date", "Probability of Rate Hike", "Key Event"],
+      "headers": [
+        "Date",
+        "Probability of Rate Hike",
+        "Key Event"
+      ],
       "rows": [
-        ["July 2026", "~33%", "Jobs data softer than expected"],
-        ["September 2026", "55% (down from 64%)", "Post-jobs report easing"],
-        ["November 2026", "~60%", "Inflation still above 3%"],
-        ["December 2026", "~65%", "Fed's preferred gauge still elevated"]
+        [
+          "July 2026",
+          "~33%",
+          "Jobs data softer than expected"
+        ],
+        [
+          "September 2026",
+          "55% (down from 64%)",
+          "Post-jobs report easing"
+        ],
+        [
+          "November 2026",
+          "~60%",
+          "Inflation still above 3%"
+        ],
+        [
+          "December 2026",
+          "~65%",
+          "Fed's preferred gauge still elevated"
+        ]
       ]
     },
     {
@@ -148,7 +243,7 @@
     },
     {
       "type": "paragraph",
-      "text": "<strong>My opinion:</strong> The Fed is stuck between a rock and a hard place. Raise rates too quickly and you risk killing the economy. Raise them too slowly and inflation spirals out of control. This uncertainty is going to keep the market volatile for the foreseeable future. I don't envy Warsh — he's inherited a mess."
+      "text": "Opinion: the Fed appears stuck between a rock and a hard place. Raise rates too quickly and you risk hurting the economy. Raise them too slowly and inflation can spiral. That uncertainty is likely to keep markets volatile for the foreseeable future, and Warsh inherits a difficult situation."
     },
     {
       "type": "heading",
@@ -180,11 +275,11 @@
     },
     {
       "type": "heading",
-      "text": "What I'm Watching Next — And What I'm Doing With My Own Money"
+      "text": "What to Watch Next"
     },
     {
       "type": "paragraph",
-      "text": "Here's what I'm keeping my eye on in the coming weeks — and you should too."
+      "text": "Here are the things worth watching in the coming weeks."
     },
     {
       "type": "list",
@@ -196,11 +291,11 @@
     },
     {
       "type": "paragraph",
-      "text": "As for me, I'm not panic-selling my tech positions. But I'm also not adding to them. I've been gradually shifting my new contributions toward value ETFs, healthcare, and consumer staples. I'm also keeping more cash than usual — about 15% of my portfolio — to take advantage of any dips that might come from rate hike fears."
+      "text": "Rather than panic-selling tech, many long-term investors hold their positions, avoid adding on impulse and tilt new contributions gradually toward value ETFs, healthcare and consumer staples. Some also hold more cash than usual to keep room for dips. That's general information, not a recommendation for your situation."
     },
     {
       "type": "paragraph",
-      "text": "I'll be watching the Fed minutes closely, but I'm not going to make any drastic moves based on one data point. That's the mistake most people make. They react to every headline, and they end up buying high and selling low. Don't be that person."
+      "text": "Watch the Fed minutes closely, but avoid drastic moves based on one data point. Reacting to every headline is how people end up buying high and selling low."
     },
     {
       "type": "heading",
@@ -208,11 +303,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I've seen enough market cycles to know that this too shall pass. The rotation is normal. The volatility is normal. The confusion is normal. What's not normal is the complacency I'm seeing from some investors who think the AI rally will never end."
+      "text": "Market cycles tend to repeat. The rotation, the volatility and the confusion are normal. What isn't normal is the complacency among investors who think the AI rally will never end."
     },
     {
       "type": "paragraph",
-      "text": "Let me share a quick story. Back in 2000, I was just starting to invest. I watched friends pour money into dot-com stocks, convinced they'd be millionaires. When the bubble burst, many of them lost everything. I wasn't smart enough to avoid the crash — I just didn't have enough money to lose. But I learned a valuable lesson: <strong>markets rotate, and the leaders of today are often the laggards of tomorrow.</strong>"
+      "text": "The dot-com bubble of 2000 is the classic example. Many investors poured money into dot-com stocks convinced they'd be millionaires, and when the bubble burst, many lost most of what they'd invested. The lesson stands: markets rotate, and today's leaders are often tomorrow's laggards."
     },
     {
       "type": "paragraph",
@@ -232,7 +327,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is important because inflation eats away at purchasing power. If you're holding a lot of cash, you're losing money in real terms. That's why I've been advocating for investing in assets that can outpace inflation — like stocks, real estate, and even some commodities. But I'm also cautious about overpaying for growth stocks when inflation is high, because future earnings are worth less in today's dollars."
+      "text": "This matters because inflation erodes purchasing power. If you're holding a lot of cash, you're losing money in real terms, which is why many investors favour assets that can outpace inflation, such as stocks, real estate and some commodities. But overpaying for growth stocks when inflation is high is risky, because future earnings are worth less in today's dollars."
     },
     {
       "type": "paragraph",
@@ -271,10 +366,6 @@
         "<a href='/understanding-50-30-20-rule-budgeting'>The 50/30/20 Rule</a> – Master your budget first.",
         "<a href='/how-regular-people-get-rich-stock-market'>How Regular People Get Rich in the Stock Market</a> – The simple strategy that works."
       ]
-    },
-    {
-      "type": "paragraph",
-      "text": "📩 Want more honest market analysis and wealth-building strategies? <a href='/subscribe'>Subscribe to my newsletter</a>. No hype. Just real insights from someone who's been through it all."
     }
   ],
   "faq": [

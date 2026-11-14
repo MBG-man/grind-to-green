@@ -8,16 +8,239 @@
   "alt": "Budgeting methods comparison chart",
   "featured": false,
   "content": [
-    {"type":"paragraph","text":"The best budgeting method is the one you can follow consistently. This guide compares popular systems so you can choose based on your income, goals, and current circumstances."},
-    {"type":"heading","text":"Budgeting Methods at a Glance"},
-    {"type":"table","headers":["Method","Best for","Difficulty","Flexibility"],"rows":[["50/30/20","Simple starting point","Low","Medium"],["75/15/10","High-cost living","Low","Medium"],["Zero-based","Detailed control","High","High"],["Four Walls","Financial hardship","Low","Low"],["Four-Bucket","Flexible household planning","Medium","High"]]},
-    {"type":"heading","text":"Choose the Method That Fits Your Life"},
-    {"type":"paragraph","text":"Use the <a href='/understanding-50-30-20-rule-budgeting'>50/30/20 rule</a> if you want an easy percentage-based starting point. Try the <a href='/75-15-10-budget-rule'>75/15/10 budget rule</a> when necessities take a larger share of your income."},
-    {"type":"paragraph","text":"Choose <a href='/how-zero-based-budgeting-can-benefit-you'>zero-based budgeting</a> when you want every dollar assigned a job. During a financial emergency, use the <a href='/what-is-the-four-walls-budget'>Four Walls Budget</a> to protect essential costs first."},
-    {"type":"paragraph","text":"If your household needs room for changing priorities, the <a href='/stop-guessing-household-budget-2026'>Four-Bucket System</a> separates essentials, future building, quality of life, and irregular expenses."}
+    {
+      "type": "paragraph",
+      "text": "There's no budget that works for everyone. The one that works is the one you're still using in March, and that depends less on the maths than on how your income arrives and how much admin you can stand. Here are seven common methods, what each one is genuinely good at, and where each tends to fall over."
+    },
+    {
+      "type": "heading",
+      "text": "Budgeting Methods at a Glance"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Method",
+        "Best for",
+        "Difficulty",
+        "Flexibility"
+      ],
+      "rows": [
+        [
+          "50/30/20",
+          "Simple starting point",
+          "Low",
+          "Medium"
+        ],
+        [
+          "75/15/10",
+          "High-cost living",
+          "Low",
+          "Medium"
+        ],
+        [
+          "Zero-based",
+          "Detailed control",
+          "High",
+          "High"
+        ],
+        [
+          "Envelope",
+          "One or two leaky spending categories",
+          "Medium",
+          "Low"
+        ],
+        [
+          "Pay yourself first",
+          "People who struggle to save",
+          "Low",
+          "High"
+        ],
+        [
+          "Four Walls",
+          "Financial hardship",
+          "Low",
+          "Low"
+        ],
+        [
+          "Four-Bucket",
+          "Flexible household planning",
+          "Medium",
+          "High"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Percentage budgets: quick to set up"
+    },
+    {
+      "type": "paragraph",
+      "text": "The <a href='/understanding-50-30-20-rule-budgeting'>50/30/20 rule</a> splits your after-tax income three ways: 50% for needs, 30% for wants and 20% for savings and debt repayment. It's the easiest place to start because there's almost nothing to track. The catch is the 50. If rent, utilities, groceries and transport already take $3,000 of a $4,200 monthly take-home, that's about 71% before you've bought anything you actually wanted, and the rule stops being a plan and becomes a reminder that you're off target."
+    },
+    {
+      "type": "paragraph",
+      "text": "The <a href='/75-15-10-budget-rule'>75/15/10 budget rule</a> was built for exactly that situation: 75% for necessities, 15% for savings and investing, 10% for debt. It's more honest about high living costs. Fifteen percent towards your future is a thin margin, though, and if you have no debt, redirect that 10% on purpose rather than letting it drift into everyday spending."
+    },
+    {
+      "type": "heading",
+      "text": "Methods that give you tighter control"
+    },
+    {
+      "type": "paragraph",
+      "text": "<a href='/how-zero-based-budgeting-can-benefit-you'>Zero-based budgeting</a> gives every dollar a job before the month begins, until income minus planned spending equals zero. Savings are a line item, just like rent. It asks the most of you, a proper sit-down at the start of each month, but it's the method that answers \"where did my money go?\" It also copes well with uneven pay, because you re-plan every month from whatever actually came in."
+    },
+    {
+      "type": "paragraph",
+      "text": "The envelope system is the old-school cousin. You set a limit for a category such as groceries, eating out or transport, and when the envelope is empty you stop spending. Real cash makes it work best; digital versions exist but are easier to talk yourself around. It's very effective for the one or two categories where you consistently overspend, and awkward for bills that come out automatically."
+    },
+    {
+      "type": "heading",
+      "text": "If the problem is saving, not spending"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pay-yourself-first is barely a budget at all. The moment your pay lands, a fixed amount moves into savings or investments, and you spend what's left without guilt. It suits people who've tried tracking every purchase and given up. What it won't do is stop the remainder going on the wrong things, so it works best once your essential bills are comfortably covered."
+    },
+    {
+      "type": "heading",
+      "text": "When money is tight or unpredictable"
+    },
+    {
+      "type": "paragraph",
+      "text": "In a real squeeze, the <a href='/what-is-the-four-walls-budget'>Four Walls Budget</a> strips everything back to housing, utilities, food and transportation. Those get paid first; everything else waits. Treat it as triage rather than a long-term plan, a way to keep your life stable while you work out the rest."
+    },
+    {
+      "type": "paragraph",
+      "text": "If your costs and priorities shift from season to season, the <a href='/stop-guessing-household-budget-2026'>Four-Bucket System</a> may suit you better than fixed percentages. It separates essentials, future building and quality of life, plus a buffer for irregular expenses like repairs or annual bills, so a surprise in one bucket doesn't wreck the whole month."
+    },
+    {
+      "type": "heading",
+      "text": "The same income, split four ways"
+    },
+    {
+      "type": "paragraph",
+      "text": "Numbers make the differences concrete. Take a $4,200 monthly take-home and see where each method sends it. Your own figures will differ, so treat this as a template rather than a target."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Method",
+        "Essentials",
+        "Future (savings)",
+        "Everyday life",
+        "Debt or buffer"
+      ],
+      "rows": [
+        [
+          "50/30/20",
+          "$2,100",
+          "$840 (shared with debt)",
+          "$1,260",
+          "Inside the 20%"
+        ],
+        [
+          "75/15/10",
+          "$3,150",
+          "$630",
+          "Inside the 75%",
+          "$420 for debt"
+        ],
+        [
+          "Four-Bucket (example split)",
+          "$2,310",
+          "$756",
+          "$714",
+          "$420 buffer"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Look at the everyday life column. Under 50/30/20 you get $1,260 to spend freely, which only works if your essentials really fit inside $2,100. Under 75/15/10 there's no separate fun money, so enjoyment has to come out of the 75%, and that's worth deciding on purpose rather than by accident. The Four-Bucket split is only an example, since the buckets are meant to flex, but it shows the idea: a modest cushion, a real savings line, room to live, and essentials taking a little over half."
+    },
+    {
+      "type": "heading",
+      "text": "Mistakes that sink any budget"
+    },
+    {
+      "type": "paragraph",
+      "text": "Most budgets don't fail because the method was wrong. They fail for a handful of ordinary reasons. The first is building the budget for the person you'd like to be instead of the one you are. If you've never spent less than $600 a month on food, a $300 grocery line will break by the second week, and one broken category tends to make people abandon the whole thing."
+    },
+    {
+      "type": "paragraph",
+      "text": "The second is leaving no room for irregular costs. Car repairs, school fees, medical bills and annual subscriptions aren't really surprises; they just don't arrive monthly. A budget with no buffer treats each one as an emergency. Related to that is never looking back. A budget you set in January and never check again is a guess, so ten minutes each month comparing the plan with what happened does more good than a perfect setup."
+    },
+    {
+      "type": "paragraph",
+      "text": "Finally, a budget that only one person in a household knows about tends to leak. If you share expenses with a partner or family, agree the essentials and each person's personal spending money together, even if the categories are rough."
+    },
+    {
+      "type": "heading",
+      "text": "Setting one up in an afternoon"
+    },
+    {
+      "type": "paragraph",
+      "text": "You don't need an app or a fancy template. A notes page works. This sequence gets most people to a working first draft:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Write down your real monthly take-home, after tax. If it varies, use your lowest recent month.",
+        "List your fixed essentials: rent, utilities, transport, insurance and minimum debt payments.",
+        "Add a rough figure for essentials that vary, like food, using your last two or three months of bank or mobile-money statements.",
+        "Pick the method that matches what you found. If essentials already take more than half your income, skip 50/30/20.",
+        "Set up automatic transfers for savings and debt on payday, so those lines happen before you can spend the money."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Then live with it for a month before changing anything. The first month's data is the most valuable thing the whole exercise gives you."
+    },
+    {
+      "type": "heading",
+      "text": "How each method handles a surprise bill"
+    },
+    {
+      "type": "paragraph",
+      "text": "The real test of a budget is the month something goes wrong. Say a $400 repair lands in the middle of the month. With 50/30/20 or 75/15/10 there's no line for it, so the money comes out of savings or wants, which is how many people end up skipping their savings entirely. With zero-based budgeting you take the $400 from another category and rebalance on the spot, which is more work but keeps the picture honest."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Four-Bucket System has a buffer for exactly this, and the pay-yourself-first approach works if you've built up savings that can absorb it. Under Four Walls the repair is simply an essential cost, and something else gets cut. None of these makes the bill disappear, but they differ a lot in how much stress it causes, which is a good thing to consider when you pick one."
+    },
+    {
+      "type": "heading",
+      "text": "If your income isn't steady"
+    },
+    {
+      "type": "paragraph",
+      "text": "Freelancers, traders, commission earners and anyone paid in irregular chunks need a slightly different approach. Budget from your lowest recent month and treat anything above it as a bonus to be split between your buffer, savings and debt before it reaches your spending. Zero-based budgeting suits this well because you re-plan every month, and a bigger buffer bucket does the same job in the Four-Bucket System."
+    },
+    {
+      "type": "paragraph",
+      "text": "A common tactic is to pay yourself a fixed \"salary\" once a month from a separate account, topped up in good months and drawn down in lean ones. Whatever you choose, the aim is the same: stop a good month from setting your lifestyle and a bad one from setting your panic."
+    },
+    {
+      "type": "heading",
+      "text": "Choose the Method That Fits Your Life"
+    },
+    {
+      "type": "paragraph",
+      "text": "A quick way to decide: if money is tight right now, start with Four Walls. If you honestly don't know where your pay goes, run zero-based for a couple of months, or use 50/30/20 for one month just to see the picture. If tracking makes you quit, pay yourself first and keep everything else loose. If one category keeps wrecking your month, give it an envelope."
+    },
+    {
+      "type": "paragraph",
+      "text": "Nothing stops you combining them. Plenty of people automate their savings and then use envelopes for the spending that leaks. Give whichever method you pick a few months before judging it; the first month is mostly about learning your real numbers."
+    }
   ],
   "faq": [
-    {"question":"What is the best budgeting method?","answer":"The best method fits your income, goals, and the amount of detail you can maintain consistently."},
-    {"question":"Which budget is best during a financial emergency?","answer":"The Four Walls Budget prioritizes housing, utilities, food, and transportation when money is tight."}
+    {
+      "question": "What is the best budgeting method?",
+      "answer": "There isn't a single best one. The right method fits your income, your goals and the amount of detail you can keep up month after month. A simple budget you actually follow beats a precise one you drop after six weeks."
+    },
+    {
+      "question": "Which budget is best during a financial emergency?",
+      "answer": "The Four Walls Budget. It pays for housing, utilities, food and transportation first and puts everything else on hold until things are steadier."
+    }
   ]
 }

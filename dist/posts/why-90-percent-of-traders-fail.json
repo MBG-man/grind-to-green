@@ -9,43 +9,19 @@
   "content": [
     {
       "type": "heading",
-      "text": "Why 90% of Traders Fail and How to Be One of the 10% Who Don't"
+      "text": "Why 90% of traders fail and how to be one of the 10% who don't"
     },
     {
       "type": "paragraph",
-      "text": "I want to tell you a story that you have already lived."
+      "text": "You'll recognise this day, even if you've never lived it exactly. You get up before the market opens, coffee in hand, charts already glowing. You did your research and marked your levels. You tell yourself, \"Today, I'll be good.\""
     },
     {
       "type": "paragraph",
-      "text": "You get up before the market opens, coffee in hand, and charts are already glowing on your screen. You did your research. You have marked your levels. You told yourself, \"Today, I'll be good.\""
+      "text": "The first hour, you're patient. Then the perfect setup appears, the light turns green and your heart rate climbs. You get in. For twenty minutes it goes your way and you feel that rush of being right. Then the price turns, drifts back to your entry and slides into the red. Your brain starts negotiating: maybe the thesis is still intact, maybe adding more will lower your average."
     },
     {
       "type": "paragraph",
-      "text": "The bell goes off. You watch for the first hour. You're patient. Then you see it the perfect place to be. Your light turns green. Your heart rate goes up. You go into the trade."
-    },
-    {
-      "type": "paragraph",
-      "text": "It goes your way for twenty minutes. You have a good amount of money. You feel that rush again, that sense of being right. “I can handle this.”"
-    },
-    {
-      "type": "paragraph",
-      "text": "After that, the ticker skips. It goes back to where you came in. Your confidence goes up and down. It goes down into the red. Your brain starts to scramble: \"Maybe the thesis is still there.\" I might need to add more to lower my average."
-    },
-    {
-      "type": "paragraph",
-      "text": "You see it sink even more. You're now down more than you ever thought you would be. Your stomach knot gets tighter. You can't bring yourself to hit the \"sell\" button. You make the screen smaller and tell yourself you'll check back after lunch."
-    },
-    {
-      "type": "paragraph",
-      "text": "When you finally look, the loss is huge. One trade has wiped out a week's worth of careful gains."
-    },
-    {
-      "type": "paragraph",
-      "text": "You feel that awful mix of anger, shame, and defeat. You put more money into your account and swear revenge, telling yourself you'll \"trade your way back.\""
-    },
-    {
-      "type": "paragraph",
-      "text": "And the cycle starts over."
+      "text": "It sinks further. Your stomach tightens and you can't bring yourself to hit \"sell.\" You shrink the screen and promise to check after lunch. When you finally look, one trade has wiped out a week of careful gains. Anger, shame and defeat arrive together, you top up the account and swear you'll \"trade your way back,\" and the cycle starts again."
     },
     {
       "type": "image",
@@ -55,15 +31,15 @@
     },
     {
       "type": "paragraph",
-      "text": "If the hope, the rush, the crash, and the quiet desperation sound familiar, you need to hear the harsh, honest truth about why this keeps happening. There is no bad luck or missing secret here. This is about how people think and how a system doesn't care."
+      "text": "If the hope, the rush, the crash and the quiet desperation sound familiar, the explanation isn't bad luck or a missing secret indicator. It's how people think, and a market that doesn't care. Here are the four most common ways that goes wrong, and what to do about each."
+    },
+    {
+      "type": "heading",
+      "text": "First, a Word About the \"90%\""
     },
     {
       "type": "paragraph",
-      "text": "I've sat in that same chair. I haven't told my spouse about my losses. I told myself I was a \"long-term investor\" on a trade that was clearly a bust. I have felt the unusual shame of having a system, writing it down, and then watching my own hands break every rule as if they belonged to someone else."
-    },
-    {
-      "type": "paragraph",
-      "text": "It wasn't about finding a better indicator that made the journey from that frustration to consistent, calm trading. It was a painful, personal review of my own mind. Here's what I learned about why most traders fail and how to build a strong foundation that won't break under pressure."
+      "text": "The 90% figure gets repeated everywhere, but no single source defines it, and the true number depends on who you count and over what period. The better evidence points the same way, though. A study of Brazilian day traders in the equity futures market tracked people who started between 2013 and 2015 and persisted for at least 300 days: 97% of them lost money, and only about 1% earned more than the Brazilian minimum wage. That's one market and one style of trading, but the broader pattern in research on retail traders is similar. Most people who try short-term trading don't make it pay."
     },
     {
       "type": "heading",
@@ -71,11 +47,22 @@
     },
     {
       "type": "paragraph",
-      "text": "Trading platforms are made to be easy to use, but they are connected directly to the most complicated and flawed system in the world: the human limbic system. Your instinct to fight or run is what is making your trading decisions. Let's look at the real killers that happen every day."
+      "text": "Trading platforms are designed to be easy to use, yet they connect directly to a very old piece of wiring: your fight-or-flight response. Decisions that feel like analysis are often fear and greed in disguise. These are the four patterns that cause the most damage."
     },
     {
       "type": "heading",
-      "text": "1. The Storyteller's Curse: You're Not Trading Price Action, You're Trading a Story"
+      "text": "1. The Storyteller's Curse: You're Trading a Story, Not Price Action"
+    },
+    {
+      "type": "paragraph",
+      "text": "People are built to explain things. When a stock moves, your brain insists on knowing why, so it invents a reason."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>The story:</strong> \"The CEO gave a glowing interview, so this must go up. The Fed sounds dovish, so markets will rise.\"",
+        "<strong>The reality:</strong> the news is usually already in the price. You're buying the headline, not the trend."
+      ]
     },
     {
       "type": "image",
@@ -85,18 +72,18 @@
     },
     {
       "type": "paragraph",
-      "text": "People are made to tell stories. We want to know what caused something. Your brain really wants to know \"why\" when a stock moves, so you come up with one."
+      "text": "<strong>The fix:</strong> stop guessing why and focus on what's happening now and what your plan says to do about it. Don't trade the \"why.\" Trade the \"what.\""
+    },
+    {
+      "type": "heading",
+      "text": "2. The Illusion of Safety: Risk Management Theater"
     },
     {
       "type": "list",
       "items": [
-        "The Story: \"The CEO just gave an interview that was very positive! This must go up! Markets will rise because the Fed is dovish!\"",
-        "The Truth: Price has already taken that news into account. You're buying the headline, not the trend."
+        "<strong>The theater:</strong> you set a stop-loss 5% away, price approaches it, and you move it further down to \"give the trade room.\"",
+        "<strong>The disaster:</strong> support breaks anyway, and a planned 5% loss becomes 8% or more."
       ]
-    },
-    {
-      "type": "paragraph",
-      "text": "**The Fix:** You need to stop believing everything you hear. You don't have to guess why something will happen; you just have to figure out what's going on right now and what your plan says to do about it. The price is the only thing that matters. Don't trade the \"why,\" trade the \"what.\""
     },
     {
       "type": "image",
@@ -105,34 +92,20 @@
       "caption": "A stop-loss isn’t a suggestion. It’s a fire alarm."
     },
     {
-      "type": "heading",
-      "text": "2. The Illusion of Safety in Risk Management Theater"
-    },
-    {
-      "type": "list",
-      "items": [
-        "The Theater: You set a stop-loss 5% away. The price moves toward it. You move it further down to \"be smart.\"",
-        "The Disaster: The support breaks. Your 5% loss becomes 8%."
-      ]
-    },
-    {
       "type": "paragraph",
-      "text": "**The Fix:** Before you enter a trade, you need to know exactly how much risk you're willing to take. It's not a dial to adjust; it's a fire alarm. You're out if you hit your stop."
+      "text": "<strong>The fix:</strong> decide how much you're willing to lose before you enter, and treat the stop like a fire alarm, not a dial. A common guideline is to risk only 1% to 2% of your account on any one trade. On a $5,000 account, 1% is $50. That feels small, which is exactly the point: it lets you survive a string of losses without damage."
     },
     {
       "type": "heading",
-      "text": "3. The FOMO-TOMO Cycle (Fear Of Missing Out -> The Fear Of Getting Out)"
-    },
-    {
-      "type": "list",
-      "items": [
-        "FOMO Stage: You chase a stock that is up 10–20% because you're afraid of missing out.",
-        "TOMO Stage: You refuse to exit when gains disappear because you're afraid it will rip higher."
-      ]
+      "text": "3. The FOMO-TOMO Cycle"
     },
     {
       "type": "paragraph",
-      "text": "**The Fix:** Set strict criteria for what makes a setup valid. If it doesn't qualify, don't trade it."
+      "text": "Fear of missing out gets you in late: you chase a stock that's already up 10% to 20% because everyone else seems to be making money. Then comes the fear of taking out, the hesitation to sell once you're in profit in case it rips higher, which turns gains into losses. Both are the same emotion wearing different clothes."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>The fix:</strong> write down what makes a setup valid and what makes an exit valid. If a trade doesn't meet your criteria, it doesn't exist, no matter how fast the price is moving."
     },
     {
       "type": "heading",
@@ -140,11 +113,15 @@
     },
     {
       "type": "paragraph",
-      "text": "Too much information destroys execution."
+      "text": "Too much information destroys execution. Beginners pile on indicators, scan five timeframes and follow a dozen opinions, and end up unable to act or acting on whichever signal agrees with what they already wanted to do. <strong>The fix:</strong> simplify. A clean chart with a few tools you understand beats a cluttered one every time."
+    },
+    {
+      "type": "heading",
+      "text": "The Cost of Overtrading"
     },
     {
       "type": "paragraph",
-      "text": "The Fix: Simplify. A clean chart beats a cluttered one."
+      "text": "There's a fifth killer that hides inside the others: trading too often. Every trade costs something, in spreads, commissions and slippage, and those costs are certain while the profits aren't. A trader who needs to win a third of their trades just to cover costs is starting every day in a hole. Fewer, better trades with clear reasons almost always beat constant activity."
     },
     {
       "type": "heading",
@@ -153,29 +130,29 @@
     {
       "type": "table",
       "headers": [
-        "The Professional Mindset (The Cultivated Skill)",
-        "The Amateur Mindset (The Default Setting)"
+        "Professional Mindset (A Cultivated Skill)",
+        "Amateur Mindset (The Default Setting)"
       ],
       "rows": [
         [
-          "Main Goal: To make money over a number of trades.",
-          "Main Goal: To be correct and prove a thesis."
+          "Main goal: make money over many trades",
+          "Main goal: be right and prove a thesis"
         ],
         [
-          "Self-Image: Risk manager using probabilities.",
-          "Self-Image: Market prophet who knows secrets."
+          "Self-image: risk manager working with probabilities",
+          "Self-image: market prophet who knows secrets"
         ],
         [
-          "After a Win: Log it and move on.",
-          "After a Win: Overconfidence and bigger bets."
+          "After a win: log it and move on",
+          "After a win: overconfidence and bigger bets"
         ],
         [
-          "After a Loss: Review the plan calmly.",
-          "After a Loss: Anger and revenge trading."
+          "After a loss: review the plan calmly",
+          "After a loss: anger and revenge trading"
         ],
         [
-          "Relationship with Capital: Business lifeblood.",
-          "Relationship with Capital: Chips to bet."
+          "Relationship with capital: business lifeblood",
+          "Relationship with capital: chips to bet"
         ]
       ]
     },
@@ -187,31 +164,31 @@
     },
     {
       "type": "heading",
-      "text": "The Only Roadmap to Change That Works (The Boring, Unsexy One)"
+      "text": "The Only Roadmap That Works (The Boring, Unsexy One)"
     },
     {
       "type": "heading",
-      "text": "Phase 1: The Intervention (Weeks 1–2)"
+      "text": "Phase 1: The Intervention (Weeks 1-2)"
     },
     {
       "type": "paragraph",
-      "text": "Action: Stop trading. Go to cash."
+      "text": "Stop trading. Close or reduce open positions according to your plan and step away. The goal isn't to punish yourself. It's to break the loop of loss and revenge long enough to think clearly."
     },
     {
       "type": "heading",
-      "text": "Phase 2: The Blueprint (Weeks 3–4)"
+      "text": "Phase 2: The Blueprint (Weeks 3-4)"
     },
     {
       "type": "paragraph",
-      "text": "Write a one-page trading plan that defines market, entry, risk, position size, and exit."
+      "text": "Write a one-page trading plan that defines what you'll trade, your entry rules, how much you'll risk, your position size and your exit rules for both profit and loss. If it doesn't fit on one page, it's too complicated."
     },
     {
       "type": "heading",
-      "text": "Phase 3: The Simulation (Weeks 5–12+)"
+      "text": "Phase 3: The Simulation (Weeks 5-12 and beyond)"
     },
     {
       "type": "paragraph",
-      "text": "Trade your plan in simulation until execution becomes boring and automatic."
+      "text": "Trade the plan on a demo account until following it feels boring and automatic. Keep a journal of every trade: why you entered, what you did, how you felt. Demo trading doesn't recreate the emotions of real money, but it does show whether you can follow your own rules."
     },
     {
       "type": "heading",
@@ -219,7 +196,23 @@
     },
     {
       "type": "paragraph",
-      "text": "Return to live trading with tiny risk and scale only after proving discipline."
+      "text": "Return to live trading with tiny risk and scale up only after you've proved discipline over a meaningful number of trades. Success here is measured by whether you followed the plan, not by how much you made this week."
+    },
+    {
+      "type": "heading",
+      "text": "What Consistent Traders Do Differently"
+    },
+    {
+      "type": "paragraph",
+      "text": "There's no secret, but there are habits. They risk a fixed, small fraction of their account on every trade, so no single loss matters much. They write their rules down and follow them even when it's uncomfortable. They keep a journal and learn from it. They accept being wrong quickly, without trying to prove the market mistaken. And they treat trading like a business with costs, records and a long timeline, not like a way to get rich by Friday. None of that is exciting, which may be why so many people skip it."
+    },
+    {
+      "type": "heading",
+      "text": "A Weekly Review Habit"
+    },
+    {
+      "type": "paragraph",
+      "text": "One habit does more than most. Once a week, review every trade you took. Mark whether you followed your plan, separately from whether the trade made money. A losing trade you took by the rules is fine. A winning trade you took by breaking your rules is a warning, because it teaches the wrong lesson. Over a few weeks you'll see patterns: the time of day you overtrade, the setups you chase, the moods that lead you astray. Fix the process first, and the results tend to follow."
     },
     {
       "type": "heading",
@@ -227,19 +220,41 @@
     },
     {
       "type": "paragraph",
-      "text": "The market doesn't win against you. You beat yourself."
+      "text": "The market doesn't beat you. Most of the time, you beat yourself. Build the discipline first, and treat profits as the by-product of a process you trust. Plenty of people will still find that trading isn't for them, and that's a perfectly sensible conclusion, not a failure."
     },
     {
       "type": "paragraph",
-      "text": "Build the discipline first. The profits will come."
+      "text": "Building wealth in any space, not only in trading, takes proper scaling. Making profit is only half of it; securing it, cutting losses and controlling expenses matter more. To learn more, see <a href='/building-wealth-from-scratch'>building wealth from scratch</a>. The aim is to build wealth, not just to look rich."
     },
     {
-      "type": "paragraph",
-      "text": "Charles : A trader who used to be driven by his own ego but now values a green journal more than a green day. This comes from losing money and learning hard lessons.*"
+      "type": "heading",
+      "text": "Keep Reading"
     },
     {
-      "type": "paragraph",
-      "text": "To bulding a wealth in any space not only in trading, you need proper scaling, not only making profit is important but securing it, cutting loss and expenses is more important, you can check :<a href='building-wealth-from-scratch'> building wealth from scratch </a> to learn more about building wealth. the aim is to build wealth not just to be rich! "
+      "type": "list",
+      "items": [
+        "<a href='/is-trading-gambling-raw-truth'>Is Trading Gambling? The Truth for Traders</a>",
+        "<a href='/10-trading-strategies-that-work-2025'>10 trading strategies that actually work</a>",
+        "<a href='/forex-trading-real-talk-for-beginners'>Forex trading tips for beginners</a>"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do 90% of traders really fail?",
+      "answer": "The 90% figure is a popular estimate with no single source. Research on retail day traders, such as a study of Brazilian futures traders, found that the large majority lose money over time. The exact number varies with the market, the time period and how success is defined."
+    },
+    {
+      "question": "What is the biggest reason traders lose money?",
+      "answer": "A lack of discipline: oversized positions, moving stop-losses, revenge trading and chasing moves. Most of these are emotional decisions rather than failures of analysis."
+    },
+    {
+      "question": "How much should I risk per trade?",
+      "answer": "Many traders risk between 1% and 2% of their account on any one trade, so a string of losses can't do serious damage. The right figure depends on your account size and experience."
+    },
+    {
+      "question": "Should beginners practise on a demo account first?",
+      "answer": "Yes, to test whether you can follow a written plan. Demo trading doesn't reproduce the pressure of real money, so move to live trading with very small risk once your results are consistent."
     }
   ]
 }

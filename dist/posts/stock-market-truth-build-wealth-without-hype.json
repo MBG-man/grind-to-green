@@ -13,19 +13,15 @@
     },
     {
       "type": "paragraph",
-      "text": "The first time I invested in the stock market, I had absolutely no idea what I was doing. None. Zero. I had read a few articles, watched a couple of YouTube videos, and felt like I was ready to become the next Warren Buffett."
+      "text": "Most people's first experience of the stock market goes something like this. They've read a few articles and watched a couple of videos, and they feel ready to become the next Warren Buffett. They aren't, and neither was anyone else on day one."
     },
     {
       "type": "paragraph",
-      "text": "I wasn't."
+      "text": "They buy a stock because people were talking about it on social media. It goes up fast and they feel like a genius. Then it drops hard, they panic and sell, and it recovers without them."
     },
     {
       "type": "paragraph",
-      "text": "I bought a stock because people were talking about it on social media. It went up fast. I felt like a genius. Then it dropped hard. I panicked. I sold. And then it recovered without me."
-    },
-    {
-      "type": "paragraph",
-      "text": "I lost $2,400 in three weeks. That was real money. That was rent money. That was \"I could have bought a decent used car\" money."
+      "text": "Say that costs $2,400 in three weeks. That's rent money, or a decent used car."
     },
     {
       "type": "paragraph",
@@ -37,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I get it. I've been there. And I'm going to tell you exactly what I wish someone had told me 10 years ago."
+      "text": "If that sounds familiar, you're not alone. Here's what's worth understanding before you put real money in."
     },
     {
       "type": "heading",
@@ -45,7 +41,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the thing most people don't understand. The stock market isn't a casino. It's not a get-rich-quick machine. It's simply a place where people buy and sell ownership in real companies."
+      "text": "The stock market isn't a casino and it isn't a get-rich-quick machine. It's simply a place where people buy and sell ownership in real companies."
     },
     {
       "type": "paragraph",
@@ -65,7 +61,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've seen this play out hundreds of times. It looks like this:"
+      "text": "It tends to play out like this:"
     },
     {
       "type": "list",
@@ -81,7 +77,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've done this. I've watched friends do this. I've seen clients do this. It's the most common pattern in personal investing. And it's completely avoidable."
+      "text": "It's the most common pattern in personal investing, and it's completely avoidable."
     },
     {
       "type": "heading",
@@ -93,7 +89,7 @@
     },
     {
       "type": "paragraph",
-      "text": "In 2008, the S&P 500 dropped 38%. In 2020, it dropped 34% in a month. In 2022, it dropped 19%. If you had invested $10,000 at the beginning of 2008 and panicked in March 2009, you would have had about $6,200. If you had held on until 2024, you'd have over $30,000."
+      "text": "Markets fall, sometimes sharply. From its 2007 peak to its low in March 2009, the S&P 500 lost more than half its value. In early 2020 it fell about a third in roughly a month, and in 2022 it ended the year down close to 19%. Each time it eventually recovered, though the recovery after 2008 took years. Someone who sold at the bottom locked in the loss. Someone who stayed invested, and didn't need the money, saw it come back."
     },
     {
       "type": "paragraph",
@@ -105,10 +101,25 @@
     },
     {
       "type": "table",
-      "headers": ["Path", "Mindset", "Behavior", "Long-Term Result"],
+      "headers": [
+        "Path",
+        "Mindset",
+        "Behavior",
+        "Long-Term Result"
+      ],
       "rows": [
-        ["The Emotional Path", "“I don't want to miss out.”", "Buys trends, reacts to news, panics", "Inconsistent, stressful, often loses"],
-        ["The Strategic Path", "“I follow a plan.”", "Buys based on research and patience", "Slow, steady compounding"]
+        [
+          "The Emotional Path",
+          "“I don't want to miss out.”",
+          "Buys trends, reacts to news, panics",
+          "Inconsistent, stressful, often loses"
+        ],
+        [
+          "The Strategic Path",
+          "“I follow a plan.”",
+          "Buys based on research and patience",
+          "Slow, steady compounding"
+        ]
       ]
     },
     {
@@ -125,19 +136,47 @@
     },
     {
       "type": "table",
-      "headers": ["Feature", "Trading", "Investing"],
+      "headers": [
+        "Feature",
+        "Trading",
+        "Investing"
+      ],
       "rows": [
-        ["Time Frame", "Days to months", "Years to decades"],
-        ["Focus", "Price movement", "Business growth"],
-        ["Stress Level", "Very high", "Moderate"],
-        ["Risk", "Higher", "Lower with diversification"],
-        ["Skill Needed", "Timing and technical analysis", "Patience and discipline"],
-        ["Success Rate for Beginners", "Below 20%", "Over 70% with long-term holding"]
+        [
+          "Time Frame",
+          "Days to months",
+          "Years to decades"
+        ],
+        [
+          "Focus",
+          "Price movement",
+          "Business growth"
+        ],
+        [
+          "Stress Level",
+          "Very high",
+          "Moderate"
+        ],
+        [
+          "Risk",
+          "Higher",
+          "Lower with diversification"
+        ],
+        [
+          "Skill Needed",
+          "Timing and technical analysis",
+          "Patience and discipline"
+        ],
+        [
+          "Success Rate for Beginners",
+          "Below 20%",
+          "Over 70% with long-term holding"
+        ]
       ]
     },
     {
       "type": "paragraph",
-      "text": "Here's a stat that blew my mind when I first learned it. Over 70% of active traders lose money. Most of them lose everything they started with. Meanwhile, long-term investors who simply buy and hold broad market funds have historically made money over any 10-year period."
+      "text": "Research on retail day traders points the same way. A study of Brazilian day traders found that 97% of those who kept going for 300 days or more lost money. Broad, low-cost index investing has been profitable over most 10-year periods in history, but not all of them, which is why your time horizon matters."
     },
     {
       "type": "paragraph",
@@ -149,7 +188,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I made every mistake in the book. Here are the ones that hurt the most."
+      "text": "These are the mistakes that hurt beginners most."
     },
     {
       "type": "heading",
@@ -165,7 +204,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I bought a hyped stock at $120 because I saw it trending on Twitter. It dropped to $40 in six months. I sold at $45. Two years later, it was trading at $15. I got lucky. But I didn't learn my lesson then. I made the same mistake again."
+      "text": "A typical version: buying a hyped stock at $120 because it's trending, watching it fall to $40, selling at $45 in frustration and then seeing it fall further. The lesson isn't that selling was wrong. It's that the purchase had no reason behind it beyond hype, and that making the same mistake twice is common."
     },
     {
       "type": "heading",
@@ -177,11 +216,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I used to check my portfolio 20 times a day. I couldn't focus on work. I couldn't sleep well. I was constantly stressed. And I made worse decisions because of it."
+      "text": "Some investors check their portfolio 20 times a day. It's hard to focus on work, harder to sleep, and it tends to push people into worse, more emotional decisions."
     },
     {
       "type": "paragraph",
-      "text": "Now? I check my portfolio once a month. Sometimes once a quarter. My returns have improved significantly because I'm not making emotional decisions."
+      "text": "Checking monthly or even quarterly is usually enough for a long-term investor, and fewer emotional decisions generally means better results."
     },
     {
       "type": "heading",
@@ -189,11 +228,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I had 60% of my portfolio in one stock. I thought I was being smart. I thought I had found a winner. I was wrong."
+      "text": "Imagine a $12,500 portfolio with 60% of it, $7,500, in a single stock that looks like a sure winner."
     },
     {
       "type": "paragraph",
-      "text": "That stock dropped 40% on bad earnings. I lost $3,000 in a single day. Diversification would have saved me. If I had spread that money across 10 or 20 different stocks, the loss would have been manageable."
+      "text": "If that stock falls 40% on bad earnings, that's a $3,000 loss in a single day. Spread across 10 or 20 stocks, the same bad news would have been a manageable dent."
     },
     {
       "type": "heading",
@@ -201,7 +240,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I invested money I needed for rent. I told myself it was okay because \"the stock was going to go up.\" It didn't. I had to borrow money to make rent. That's not investing. That's gambling with your survival."
+      "text": "Some people invest money they need for rent, telling themselves the stock is going to go up. When it doesn't, they have to borrow to pay rent. That's not investing. That's gambling with your survival."
     },
     {
       "type": "paragraph",
@@ -225,7 +264,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I can't tell you how many people I've seen who had to sell investments at a loss because they needed cash. An emergency fund prevents that. It's your financial firewall."
+      "text": "Many investors end up selling at a loss simply because they need cash. An emergency fund prevents that. It's your financial firewall."
     },
     {
       "type": "heading",
@@ -253,7 +292,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Consistency beats timing. I've done the math. The person who invests $100 a month for 30 years at 7% will have over $120,000. The person who tries to time the market and invests nothing will have zero. Consistency wins every time."
+      "text": "Consistency beats timing. The maths is simple: investing $100 a month for 30 years at an assumed 7% return grows to over $120,000, while waiting for the perfect moment and never starting grows to nothing. That 7% isn't guaranteed, but the habit is what counts."
     },
     {
       "type": "heading",
@@ -277,13 +316,31 @@
     },
     {
       "type": "table",
-      "headers": ["Gambling", "Investing"],
+      "headers": [
+        "Gambling",
+        "Investing"
+      ],
       "rows": [
-        ["Based on chance", "Based on business performance"],
-        ["Short-term thrill", "Long-term ownership"],
-        ["Emotional decisions", "Strategic decisions"],
-        ["No edge", "Research-based edge"],
-        ["You're betting against the house", "You own the house"]
+        [
+          "Based on chance",
+          "Based on business performance"
+        ],
+        [
+          "Short-term thrill",
+          "Long-term ownership"
+        ],
+        [
+          "Emotional decisions",
+          "Strategic decisions"
+        ],
+        [
+          "No edge",
+          "Research-based edge"
+        ],
+        [
+          "You're betting against the house",
+          "You own the house"
+        ]
       ]
     },
     {
@@ -320,7 +377,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the biggest shift I made. Most beginners focus on one question: \"How much can I make this month?\" Wealth builders focus on a different question: \"How much can I grow over decades?\""
+      "text": "The biggest shift is in the question you ask. Most beginners focus on one: \"How much can I make this month?\" Wealth builders focus on a different one: \"How much can I grow over decades?\""
     },
     {
       "type": "paragraph",
@@ -344,7 +401,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've studied wealthy investors for years. Here's what they actually do differently."
+      "text": "Long-term investors tend to share a few habits:"
     },
     {
       "type": "list",
@@ -367,7 +424,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's something I don't see talked about enough. The stock market is just one piece of a complete wealth-building system. You need more than just investments."
+      "text": "The stock market is just one piece of a complete wealth-building system. You need more than just investments."
     },
     {
       "type": "paragraph",
@@ -375,7 +432,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If you're serious about building wealth, you need a complete system. I've written the full roadmap in my guide <a href='/building-wealth-from-scratch-2026'>Building Wealth From Scratch: The 5-Step System That Actually Works</a>. It covers everything from your first $500 saved to consistent investing and multiple income streams."
+      "text": "If you're serious about building wealth, you need a complete system. The full roadmap is in our guide <a href='/building-wealth-from-scratch'>Building Wealth From Scratch: The 5-Step System That Actually Works</a>. It covers everything from your first $500 saved to consistent investing and extra income streams."
     },
     {
       "type": "paragraph",
@@ -387,7 +444,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I started with nothing. I made mistakes. I lost money. I learned. I built a system. And now I'm financially free."
+      "text": "Starting small, making mistakes, learning from them and building a system you can stick with is how most people get there."
     },
     {
       "type": "paragraph",
@@ -404,15 +461,11 @@
     {
       "type": "list",
       "items": [
-        "<a href='/building-wealth-from-scratch-2026'>Building Wealth From Scratch</a> – The complete 5-step system.",
-        "<a href='/understanding-50-30-20-rule-budgeting-2026'>The 50/30/20 Rule</a> – Master your budget first.",
+        "<a href='/building-wealth-from-scratch'>Building Wealth From Scratch</a> – The complete 5-step system.",
+        "<a href='/understanding-50-30-20-rule-budgeting'>The 50/30/20 Rule</a> – Master your budget first.",
         "<a href='/how-regular-people-get-rich-stock-market'>How Regular People Get Rich in the Stock Market</a> – More detailed investing strategies.",
         "<a href='/is-it-worth-buying-10-dollars-stock'>Is It Worth Buying $10 of Stock?</a> – Yes, and here's why."
       ]
-    },
-    {
-      "type": "paragraph",
-      "text": "📩 Want more honest money advice? <a href='/subscribe'>Subscribe to my newsletter</a>. No hype. Just real strategies from someone who's been there."
     }
   ],
   "faq": [

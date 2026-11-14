@@ -1,7 +1,6 @@
 {
-  
   "title": "Build a Smarter Crypto Portfolio in 2026",
-  "description": "I lost $1,700 chasing hype. Now I sleep through crypto crashes. Here's my proven strategy for building a crypto portfolio that won't keep you up at night.",
+  "description": "A practical framework for building a crypto portfolio in 2026: how much to allocate, how to manage risk and which red flags to avoid.",
   "category": "crypto",
   "slug": "crypto-investment-plan-risk",
   "date": "2026-06-19",
@@ -18,11 +17,11 @@
     },
     {
       "type": "paragraph",
-      "text": "It was 2023. I had been investing in crypto for a couple of years, mostly Bitcoin and Ethereum. I wasn't getting rich, but I wasn't losing either. Then I discovered the \"next big thing.\" A meme coin that was \"going to 100x.\" I read the hype. I saw the community. I convinced myself I was getting in early."
+      "text": "A common story: someone has held Bitcoin and Ethereum for a couple of years, isn't getting rich but isn't losing either. Then they discover the \"next big thing,\" a meme coin that's \"going to 100x.\" They read the hype, see the community and convince themselves they're getting in early."
     },
     {
       "type": "paragraph",
-      "text": "I put $1,700 into that coin. I told myself I was being smart. I was not being smart. I was gambling."
+      "text": "They put $1,700 into the coin, telling themselves they're being smart. It isn't smart. It's gambling."
     },
     {
       "type": "paragraph",
@@ -30,11 +29,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I lost $1,700. That was real money. That was money I could have used for an emergency fund. That was money I could have invested in an index fund and watched grow for decades."
+      "text": "And the money is gone. That's $1,700 that could have been an emergency fund, or invested in an index fund and left to grow for decades."
     },
     {
       "type": "paragraph",
-      "text": "That mistake taught me everything I needed to know about crypto investing. And I'm going to share those lessons with you so you don't have to learn them the hard way."
+      "text": "That kind of mistake teaches most of what you need to know about crypto investing. These lessons are worth learning without paying for them."
     },
     {
       "type": "heading",
@@ -83,7 +82,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I'll be honest. I don't follow this rule perfectly. My crypto allocation is about 8% of my total investments. But I've been investing for years. I've survived multiple crashes. I know my risk tolerance. For most beginners, 1-2% is the right starting point."
+      "text": "Most beginners should start at 1% to 2%. More experienced investors who understand their own risk tolerance and have lived through crashes might go higher, but that depends on your situation and how much you can afford to lose."
     },
     {
       "type": "paragraph",
@@ -103,11 +102,31 @@
     },
     {
       "type": "table",
-      "headers": ["Bucket", "Allocation", "What Goes Here", "Risk Level"],
+      "headers": [
+        "Bucket",
+        "Allocation",
+        "What Goes Here",
+        "Risk Level"
+      ],
       "rows": [
-        ["Safe Bucket", "50-70%", "Bitcoin (BTC), Ethereum (ETH), Stablecoins (USDC, USDT)", "Low"],
-        ["Growth Bucket", "20-40%", "Top altcoins with real utility (Solana, Polygon, Chainlink)", "Moderate"],
-        ["Wildcard Bucket", "0-10%", "Meme coins, microcaps, speculative projects", "Extreme"]
+        [
+          "Safe Bucket",
+          "50-70%",
+          "Bitcoin (BTC), Ethereum (ETH), Stablecoins (USDC, USDT)",
+          "Low"
+        ],
+        [
+          "Growth Bucket",
+          "20-40%",
+          "Top altcoins with real utility (Solana, Polygon, Chainlink)",
+          "Moderate"
+        ],
+        [
+          "Wildcard Bucket",
+          "0-10%",
+          "Meme coins, microcaps, speculative projects",
+          "Extreme"
+        ]
       ]
     },
     {
@@ -120,7 +139,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The Wildcard Bucket is where I used to lose money. It's for speculative bets. Meme coins. Microcaps. Projects you found on Telegram. This is money you can afford to lose entirely. If you lose it, it's a learning experience. If you win, it's a bonus."
+      "text": "The Wildcard Bucket is where many people lose money. It's for speculative bets: meme coins, microcaps, projects found on Telegram. This is money you can afford to lose entirely."
     },
     {
       "type": "heading",
@@ -136,7 +155,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've been DCA'ing $100 a month into Bitcoin and Ethereum for over two years. My average purchase price is well below the current price. I don't stress about crashes. I don't check the price every hour. I just buy and move on."
+      "text": "Dollar-cost averaging (DCA) means buying a fixed amount on a regular schedule, for example $100 a month into Bitcoin and Ethereum, whatever the price. It doesn't guarantee a profit, but it removes the pressure of timing and the urge to check prices every hour."
     },
     {
       "type": "paragraph",
@@ -156,11 +175,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I learned this lesson the hard way. In 2021, I had Bitcoin that was up 300%. I didn't sell. I was greedy. I wanted more. Then it crashed. I didn't sell again. I was scared. I wanted to wait for a recovery. It took two years to come back."
+      "text": "A common mistake: holding Bitcoin that's up 300% and not selling because you want more. Then it crashes, and you don't sell again, this time out of fear while waiting for a recovery. Recoveries can take years. After Bitcoin's late-2021 peak, it was early 2024 before it set new highs."
     },
     {
       "type": "paragraph",
-      "text": "Now I have rules. They're written down. And I follow them."
+      "text": "The answer is rules, written down before you invest and followed when emotions say otherwise."
     },
     {
       "type": "list",
@@ -181,7 +200,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've seen enough scams to write a book. Here are the red flags that scream \"avoid this investment.\""
+      "text": "These red flags suggest avoiding an investment:"
     },
     {
       "type": "list",
@@ -195,7 +214,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've walked away from dozens of projects because they had two or more of these red flags. And I've never regretted it. The fear of missing out is powerful. But the fear of losing everything is more powerful."
+      "text": "A project with two or more of these red flags is usually best left alone. The fear of missing out is powerful, but the fear of losing everything should be stronger."
     },
     {
       "type": "heading",
@@ -207,7 +226,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I have a friend who lost $12,000 because he clicked on a fake website. He entered his seed phrase. The scammers drained his wallet in minutes. He never got it back."
+      "text": "A common and costly mistake: clicking on a fake website, entering a seed phrase and watching scammers drain the wallet within minutes. It rarely comes back."
     },
     {
       "type": "paragraph",
@@ -229,19 +248,19 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's something I don't see talked about enough. Crypto is not a wealth-building strategy. It's a speculative supplement. The real wealth-building strategy is boring. It's budgeting, saving, investing in diversified assets, and increasing your income over time."
+      "text": "Crypto is not a wealth-building strategy. It's a speculative supplement. The real wealth-building strategy is boring: budgeting, saving, investing in diversified assets and increasing your income over time."
     },
     {
       "type": "paragraph",
-      "text": "My crypto portfolio is a small piece of a larger picture. I have an emergency fund. I have a 401(k). I have a taxable brokerage account with index funds. I have real estate equity. And I have crypto."
+      "text": "A sensible plan puts crypto alongside an emergency fund, retirement savings, a brokerage account with index funds and any other assets, as one small piece of a larger picture."
     },
     {
       "type": "paragraph",
-      "text": "If crypto went to zero tomorrow, I'd be upset. But I wouldn't be ruined. My life would continue. That's the position you want to be in."
+      "text": "If crypto went to zero tomorrow, you'd be upset but not ruined. That's the position to aim for."
     },
     {
       "type": "paragraph",
-      "text": "If you want to build real wealth, start with the foundation. I've written the complete roadmap in <a href='/building-wealth-from-scratch-2026'>Building Wealth From Scratch: The 5-Step System That Actually Works</a>. It covers everything from your first $500 saved to consistent investing to building multiple income streams. Crypto is not step one. Crypto is step five."
+      "text": "If you want to build real wealth, start with the foundation. The complete roadmap is in <a href='/building-wealth-from-scratch'>Building Wealth From Scratch: The 5-Step System That Actually Works</a>. It covers everything from your first $500 saved to consistent investing and extra income streams. Crypto isn't step one. It's closer to step five."
     },
     {
       "type": "paragraph",
@@ -253,7 +272,7 @@
     },
     {
       "type": "paragraph",
-      "text": "I've been in crypto since 2020. I've seen four major crashes. I've seen euphoric bull runs. I've seen projects go to zero and projects become multi-billion dollar ecosystems."
+      "text": "Crypto has seen several major crashes, euphoric bull runs, projects that went to zero and projects that grew into multi-billion dollar ecosystems. That volatility is exactly why a system and rules matter."
     },
     {
       "type": "paragraph",
@@ -261,11 +280,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I lost $1,700 chasing hype. It was a stupid mistake. But it taught me everything. Now I have a system. I have rules. And I sleep through crashes."
+      "text": "Chasing hype is a common and costly mistake. A system, written rules and a small allocation are what let investors sleep through crashes."
     },
     {
       "type": "paragraph",
-      "text": "You can learn from my mistake or repeat it. The choice is yours."
+      "text": "You can learn from other people's mistakes or repeat them. The choice is yours."
     },
     {
       "type": "heading",
@@ -274,15 +293,11 @@
     {
       "type": "list",
       "items": [
-        "<a href='/building-wealth-from-scratch-2026'>Building Wealth From Scratch</a> – The complete system.",
+        "<a href='/building-wealth-from-scratch'>Building Wealth From Scratch</a> – The complete system.",
         "<a href='/stock-market-truth-build-wealth-without-hype'>The Stock Market Truth</a> – Build wealth without gambling.",
         "<a href='/best-trading-for-beginners-small-account'>Best Trading for Beginners With $500</a> – A realistic guide.",
         "<a href='/forex-trading-real-talk-for-beginners'>Forex Trading Real Talk</a> – The honest truth about forex."
       ]
-    },
-    {
-      "type": "paragraph",
-      "text": "📩 Want more honest financial advice? <a href='/subscribe'>Subscribe to my newsletter</a>. No hype. Just real strategies from someone who's been there."
     }
   ],
   "faq": [
@@ -317,6 +332,6 @@
   },
   "newsletter_cta": {
     "type": "paragraph",
-    "text": "📩 <strong>Want more honest financial advice?</strong> Join the Grind to Green newsletter. No hype. Just real strategies from someone who's been there. <a href='/subscribe'>Subscribe free here</a>."
+    "text": "📩 <strong>Want more honest financial advice?</strong> Join the Grind to Green newsletter. No hype, just practical strategies."
   }
 }
