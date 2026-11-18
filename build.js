@@ -1062,7 +1062,7 @@ function buildRedirects(posts) {
 /tools /tools/index.html 200
 /tools/budget-tool /tools/budget-tool.html 200
 /tools/compound-interest-calculator /tools/compound-interest-calculator.html 200
-
+/tools/emergency-fund-calculator /tools/emergency-fund-calculator.html 200
 # ── HOMEPAGE ────────────────────────────────────────────────
 
 / /index.html 200
@@ -1117,7 +1117,13 @@ function buildSitemap(posts) {
     { path: "/pages/privacy", file: "pages/privacy.html", priority: "0.5", changefreq: "yearly" },
     { path: "/pages/terms", file: "pages/terms.html", priority: "0.5", changefreq: "yearly" },
     { path: "/pages/editorial-policy", file: "pages/editorial-policy.html", priority: "0.5", changefreq: "yearly" },
-    { path: "/write-for-us", file: "write-for-us.html", priority: "0.4", changefreq: "monthly" }
+    { path: "/write-for-us", file: "write-for-us.html", priority: "0.4", changefreq: "monthly" },
+    {
+  path: "/tools/emergency-fund-calculator",
+  file: "tools/emergency-fund-calculator.html",
+  priority: "0.7",
+  changefreq: "monthly"
+},
   ];
 
   const escapeXml = value => String(value)

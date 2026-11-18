@@ -61,6 +61,15 @@
         "operatingSystem": "All",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "description": "Track your income, expenses, and savings goals. Works offline in your browser."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Emergency Fund Calculator",
+        "url": "https://grindtogreen.com/tools/emergency-fund-calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Work out how much emergency fund you need based on your essential monthly expenses and income risk."
       }
     ]
   }
@@ -85,7 +94,7 @@
         "name": "What free finance tools does GrindToGreen offer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer a free compound interest calculator and a free budget tracker. Both work in your browser with no installation required."
+          "text": "We offer a free compound interest calculator, a free budget tracker and a free emergency fund calculator. All work in your browser with no installation required."
         }
       },
       {
@@ -572,7 +581,7 @@
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
-<base target="_blank">
+<target="_self">
 </head>
 <body>
 
@@ -689,6 +698,24 @@
           </a>
         </div>
 
+        <!-- Emergency Fund Calculator -->
+        <div class="tool-card">
+          <span class="badge">New</span>
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h2>Emergency Fund Calculator</h2>
+          <p>Work out how much emergency fund you need from your essential monthly expenses and how stable your income is, then see a stage-by-stage savings target.</p>
+          <div class="tags">
+            <span>Savings</span>
+            <span>Safety Net</span>
+          </div>
+          <a href="/tools/emergency-fund-calculator" class="btn">
+            Calculate Your Fund
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
         <!-- Suggest a Tool -->
         <div class="suggest-card">
           <div class="icon">
@@ -757,7 +784,7 @@
       <div class="faq-list">
         <details class="faq-item">
           <summary>What free finance tools does GrindToGreen offer?</summary>
-          <p>We currently offer a compound interest calculator and a budget tracker. Both are free, work in your browser, and require no installation. We are actively developing more tools based on community feedback.</p>
+          <p>We currently offer a compound interest calculator, a budget tracker and an emergency fund calculator. All are free, work in your browser, and require no installation. We are actively developing more tools based on community feedback.</p>
         </details>
         <details class="faq-item">
           <summary>Do I need to sign up to use these tools?</summary>
@@ -839,6 +866,7 @@
           <ul>
             <li><a href="/tools/compound-interest-calculator">Compound Interest</a></li>
             <li><a href="/tools/budget-tool">Budget Tracker</a></li>
+            <li><a href="/tools/emergency-fund-calculator">Emergency Fund Calculator</a></li>
           </ul>
         </div>
         <div class="footer-col">

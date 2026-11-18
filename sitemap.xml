@@ -61,6 +61,12 @@
   </url>
 
   <url>
+    <loc>https://grindtogreen.com/tools/emergency-fund-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://grindtogreen.com/building-wealth-from-scratch/</loc>
     <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
