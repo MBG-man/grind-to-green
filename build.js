@@ -181,7 +181,9 @@ function renderBlocks(blocks) {
       default:
         return "";
     }
-  }).join("\n");
+  }).join("\n").replace(/href=(["'])\/([a-z0-9-]+)\1/g, "href=$1/$2/$1");
+  // ^ internal post links get a trailing slash so they match the canonical URLs
+  //   and skip the extra /slug -> /slug/ redirect hop.
 }
 
 function buildTOC(post) {
